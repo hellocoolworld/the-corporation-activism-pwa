@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title >Scanner</ion-title>
+    <ion-buttons (click)="reverse()" padding-left slot="end">
+      <ion-icon slot="icon-only"  name="reverse-camera"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header> 
+
+<ion-content>
+
+  <div *ngIf="hasPermission === undefined" text-center padding>
+      <img style="width:100px" src="assets\img\spinner.gif">
+  </div>
+
+  <!-- 
+    Div to display the scanned result.
+    set resultDiv to false to hide and true to display
+  -->
+  <div *ngIf="resultDiv" text-center padding>
+    <h6>
+      {{qrResultString}}
+    </h6>
+    <ion-button (click)="rescan()" >
+      Done
+    </ion-button>
+  </div>
+
+  <!-- 
+    Div to display camera view
+  -->
+  <div class="scanner-shell" [hidden]="!hasDevices">
+    <div>
+      <zxing-scanner #scanner start="true" [device]="currentDevice" (scanSuccess)="scanResult($event)"
+        [formats]="['QR_CODE', 'EAN_13', 'CODE_128', 'DATA_MATRIX']">
+      </zxing-scanner>
+    </div>
+  </div>
+
+</ion-content>

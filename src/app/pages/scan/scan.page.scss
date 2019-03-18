@@ -1,0 +1,79 @@
+zxing-scanner {
+    max-width: 100%;
+    max-width: 400px;
+    max-height: 400px;
+    margin: auto;
+    display: block;
+}
+  
+
+.logo {
+    width: 200px !important;
+    //margin: auto;
+    display: block;
+}
+
+  header {
+  
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    background: #14783c;
+  
+    select {
+    
+      --color: #aaa;
+    
+      width: 100%;
+  
+      padding: 15px;
+      border-radius: 5px;
+      background: none;
+      border: 2px solid var(--color);
+      color: var(--color);
+      font-weight: bold;
+      cursor: pointer;
+  
+      option {
+        padding: 10px;
+        line-height: 2;
+        background: #14783c;
+        color: #fff;
+      }
+    }
+  }
+  
+  .results {
+  
+    position: sticky;
+    bottom: 0;
+    padding: 15px;
+    background: #02c3c3;
+    color: #fff;
+  
+    small {
+      font-weight: bolder;
+      display: block;
+      font-size: 60%;
+      margin: -.6em 0 0 0;
+    }
+  }
+  
+  footer {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  
+    .table-scanner-state {
+      thead {
+        display: none;
+      }
+    }
+  
+    .ng-version {
+      color: #ff6687;
+    }
+  }
+  

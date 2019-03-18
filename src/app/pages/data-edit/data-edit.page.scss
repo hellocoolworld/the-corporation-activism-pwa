@@ -1,0 +1,15 @@
+.invalid {
+    border-bottom: 1px solid #313131;
+  } 
+    
+  .error-message {
+    min-height: 2.2rem;
+    ion-label {
+    margin: 2px 0;
+    font-size: 12px;
+    color: #ff6153;
+    }
+    .item-inner {
+        border-bottom: 0 !important;
+    }
+  }

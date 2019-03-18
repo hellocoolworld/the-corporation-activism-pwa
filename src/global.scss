@@ -1,0 +1,33 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+// Font styles
+@import url('https://fonts.googleapis.com/css?family=Marck+Script|Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Playfair+Display:400,400i,700,700i,900,900i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+body {
+    max-width: 820px;
+    margin: auto;
+    position: relative;
+    background-color: #f5f5f0;
+
+    .scroll-content {
+        overflow-y:auto;
+    }
+}
+
+ion-card{
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    max-width : 380px !important;
+    margin-top: 3!important;
+}

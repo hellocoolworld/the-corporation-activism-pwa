@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cloud Firestore</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+
+    <ion-card>
+
+      <ion-button routerLink="/tabs/data/add" text-capitalize size="small" shape="round">
+        <ion-icon name="add"></ion-icon>
+        Add New Item
+      </ion-button>
+      
+      <ion-list *ngFor="let item of list | async" routerLink="/tabs/data/edit/{{item?.id}}">
+        <ion-item detail>
+          {{item?.title}}
+        </ion-item>
+      </ion-list>
+
+    </ion-card>
+
+    <ion-card padding>
+      <div>
+        <h4>Cloud Firestore</h4>
+        <p>Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and
+          Google Cloud Platform
+        </p>
+        <p>
+          Like Firebase Realtime Database, it keeps your data in sync across client apps through realtime listeners and
+          offers offline support for mobile and web so you can build responsive apps that work regardless of network
+          latency or Internet connectivity. Cloud Firestore also offers seamless integration with other Firebase and
+          Google Cloud Platform products, including Cloud Functions.
+        </p>
+        <p>
+          Here we show you how you can implement CRUD using Firestore.
+        </p>
+      </div>
+    </ion-card>
+
+  </ion-row>
+
+
+</ion-content>

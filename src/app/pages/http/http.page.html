@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >HttpClient</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-card padding>
+      <div >
+        <h4>HttpClient</h4>
+        <p>
+          Most front-end applications communicate with backend services over the HTTP protocol.
+        </p>
+        <p>
+          <b>We provide example how you can use HttpClient to retrieve latest news using API from
+            https://newsapi.org</b>
+        </p>
+      </div>
+
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="getNews('us')" fill="clear">
+            <img style="width:60px; padding-right: 5px" src="assets\img\us.png">
+            <div>U.S.A</div>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="getNews('my')" fill="clear">
+            <img style="width:60px; padding-right: 5px" src="assets\img\my.png">
+            Malaysia
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="getNews('ru')" fill="clear">
+            <img style="width:60px; padding-right: 5px" src="assets\img\ru.png">
+            Russia
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="getNews('kr')" fill="clear">
+            <img style="width:60px; padding-right: 5px" src="assets\img\kr.png">
+            Korea
+          </ion-button>
+
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card padding>
+      <div>
+        <img style="width:60px;  margin: auto; display: block;" src='assets\img\{{country}}.png'>
+      </div>
+
+      <ion-grid *ngFor="let post of news">
+
+        <ion-row (click)="visit(post.url)" align-items-top>
+
+          <div>
+            <ion-thumbnail>
+              <img style="width:60px" *ngIf="post.urlToImage" src="{{post.urlToImage}}">
+            </ion-thumbnail>
+          </div>
+          <ion-col>
+            <div><b>{{post.title}}</b></div>
+            <div>{{post.content}}</div>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card>
+
+  </ion-row>
+
+
+
+
+</ion-content>
