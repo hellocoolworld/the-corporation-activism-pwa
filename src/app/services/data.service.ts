@@ -34,7 +34,7 @@ export class DataService {
     });
   }
 
-  // get item 
+  // get item
   getItem(id) {
     return this.itemDoc = this.firestore.doc<any>('/items/' + id);
   }
@@ -51,11 +51,11 @@ export class DataService {
   deleteItem(id): Promise<void> {
     return this.firestore.doc(`items/${id}`).delete()
       .then(function () {
-        console.log("deleted")
+        console.log('deleted');
       })
       .catch(function (error) {
-        console.log(error)
-      })
+        console.log(error);
+      });
   }
 
   

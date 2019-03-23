@@ -18,7 +18,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],

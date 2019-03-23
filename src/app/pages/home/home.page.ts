@@ -70,8 +70,8 @@ export class HomePage implements OnInit {
       ok = true;
     } catch (error) {
       if (ok == false) {
-        console.log("ERROR " + error);
-        //this.errorMsg(error);
+        console.log('ERROR ' + error);
+        // this.errorMsg(error);
       }
     };
   }

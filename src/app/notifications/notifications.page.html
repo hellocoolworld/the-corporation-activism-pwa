@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<ion-content class="notifications-content">
+  <ng-container *ngIf="notifications">
+      <ion-grid ion-no-padding class="page-title">
+      <ion-row>
+          <ion-col size="10"  ion-no-padding>
+              <h2>Notifications</h2>
+          </ion-col>
+          <ion-col>
+              <ion-icon color="primary" name="notifications"></ion-icon>
+          </ion-col>
+        </ion-row>
+</ion-grid>
+
+    <ion-item
+      class="notification-item"
+      lines="none"
+      *ngFor="let notification of notifications"
+    >
+      <ion-row  class="notification-item-wrapper">
+        <ion-col size="3">
+          <app-aspect-ratio [ratio]="{ w: 1, h: 1 }">
+            <app-image-shell
+              class="notification-image"
+              [src]="notification.image"
+              [alt]="'user image'"
+            ></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col class="details-wrapper">
+          <!-- <h2 class="details-name">{{ notification.name }}</h2> -->
+          <!-- <p class="details-description">{{  notification.message }}</p> -->
+          <div class="details-description" [innerHtml]="notification.message"></div>
+          <div class="date-wrapper">
+              <h3 class="notification-date">{{ notification.date }}</h3>
+            </div>
+          </ion-col>
+      </ion-row>
+    </ion-item>
+  </ng-container>
+</ion-content>

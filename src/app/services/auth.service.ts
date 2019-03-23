@@ -69,13 +69,13 @@ export class AuthService {
 
           })
           .catch((error) => {
-            console.log(error)
+            console.log(error);
             return this.firestore.doc(`/userProfile/${newUserCredential.user.uid}`)
-              .set({ email, name, photo, phone, uid, provider })
+              .set({ email, name, photo, phone, uid, provider });
           });
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
   }
 
