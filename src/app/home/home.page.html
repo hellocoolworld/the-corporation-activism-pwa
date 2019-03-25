@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<ion-content>
+  <!-- Join the Crowed div will be hidden if user logged in-->
+  <ion-card *ngIf="JoinTheCrowedBlock">
+    <ion-card-header>
+      <ion-card-title text-uppercase text-center>Be part of the crowed</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p text-center>
+        Join supporters of The Corporation films to take a stand against
+        corporate power.
+      </p>
+      <ion-button (click)="signUp()" expand="block" text-capitalize>
+        Join the crowed
+      </ion-button>
+      <p text-center>or <a href="login">Login</a></p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab id="fab" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="share()">
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- Profile div will be shown atfter login and hidden after logout-->
+  <!-- <div *ngIf="profileDiv">
+    <div text-center padding class="top">
+      <img class="profile" src="{{ userProfile?.photo }}" />
+      <h4>{{ userProfile?.name }}</h4>
+      <h6>{{ userProfile?.email }}</h6>
+      <ion-button (click)="logOut()" shape="round" size="small">
+        <ion-icon name="log-out"></ion-icon>
+        Logout
+      </ion-button>
+    </div>
+    <div text-center>
+      <h1>Member's Page</h1>
+    </div>
+  </div> -->
+</ion-content>

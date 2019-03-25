@@ -10,12 +10,12 @@
 
     <ion-card>
 
-      <ion-button routerLink="/tabs/data/add" text-capitalize size="small" shape="round">
+      <ion-button routerLink="/data/add" text-capitalize size="small" shape="round">
         <ion-icon name="add"></ion-icon>
         Add New Item
       </ion-button>
       
-      <ion-list *ngFor="let item of list | async" routerLink="/tabs/data/edit/{{item?.id}}">
+      <ion-list *ngFor="let item of list | async" routerLink="/data/edit/{{item?.id}}">
         <ion-item detail>
           {{item?.title}}
         </ion-item>

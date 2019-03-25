@@ -23,9 +23,24 @@ ion-badge {
   padding: 0;
 }
 .page-title h2 {
-  margin: 1rem 1rem;
+  color: var(--ion-color-secondary);
+  //margin: 1rem 1rem;
+  margin-top: calc(var(--page-margin) / 2);
+  margin-bottom: calc(var(--page-margin) * (3/2));
+  letter-spacing: 0.6px;
 }
+
 .page-title ion-icon {
   margin: 1rem 0;
   font-size: 2rem;
+}
+
+.ion-button {
+  border-radius: var(--app-fair-radius);
+}
+
+
+.text-muted {
+  color: var(--ion-color-medium);
+  margin: calc(var(--page-margin) / 2) 0px;
 }

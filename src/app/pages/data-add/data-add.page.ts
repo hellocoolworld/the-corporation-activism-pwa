@@ -30,7 +30,7 @@ export class DataAddPage implements OnInit {
   }
 
   async createItem(): Promise<void> {
-    console.log("create")
+    console.log('create')
     const title = this.dataForm.value.title;
     const message = this.dataForm.value.message;
     const loading = await this.loadingCtrl.create();
@@ -39,9 +39,9 @@ export class DataAddPage implements OnInit {
       .createItem(title, message)
       .then(
         () => {
-          console.log("created")
+          console.log('created')
           loading.dismiss().then(() => {
-            this.router.navigateByUrl('/tabs/data');
+            this.router.navigateByUrl('/data');
           });
         },
         error => {

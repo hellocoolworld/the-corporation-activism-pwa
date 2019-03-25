@@ -6,8 +6,8 @@
   /** primary **/
   --ion-color-primary: #F8830E;
   --ion-color-primary-rgb: 248,131,14;
-  --ion-color-primary-contrast: #000000;
-  --ion-color-primary-contrast-rgb: 0,0,0;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
   --ion-color-primary-shade: #da730c;
   --ion-color-primary-tint: #f98f26;
 
@@ -106,11 +106,10 @@
   --app-fair-margin: 16px;
   --app-broad-margin: 20px;
 
-  --app-narrow-radius: 4px;
-  --app-fair-radius: 8px;
-  --app-broad-radius: 12px;
+  --app-narrow-radius: 3px;
+  --app-fair-radius: 4px;
+  --app-broad-radius: 6px;
 }
-
 
 html.ios {
   --app-header-height: 44px;
