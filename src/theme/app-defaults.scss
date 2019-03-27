@@ -14,6 +14,17 @@ ion-badge {
   border-radius: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: museo-sans, sans-serif;
+  font-weight: 900;
+}
+h2 {
+  color: var(--ion-color-secondary);
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 .page-title {
   background-color: var(--ion-color-light);
   padding: 0;
@@ -24,9 +35,7 @@ ion-badge {
 }
 .page-title h2 {
   color: var(--ion-color-secondary);
-  //margin: 1rem 1rem;
-  margin-top: calc(var(--page-margin) / 2);
-  margin-bottom: calc(var(--page-margin) * (3/2));
+  margin: 1rem;
   letter-spacing: 0.6px;
 }
 
@@ -44,3 +53,4 @@ ion-badge {
   color: var(--ion-color-medium);
   margin: calc(var(--page-margin) / 2) 0px;
 }
+

@@ -2,83 +2,66 @@
 // Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
 :host {
   --page-margin: var(--app-broad-margin);
-  --page-background: var(--app-background-shade);
 }
 
 // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
 .login-content {
-  --background: var(--page-background);
   --padding-start: var(--page-margin);
   --padding-end: var(--page-margin);
   --padding-top: var(--page-margin);
   --padding-bottom: var(--page-margin);
 
-  .auth-title {
-    color: var(--ion-color-dark);
-    font-weight: bold;
-    margin-top: calc(var(--page-margin) / 2);
-    margin-bottom: calc(var(--page-margin) * (3/2));
-    letter-spacing: 0.6px;
-  }
+  form {
+    padding-bottom: var(--page-margin);
 
-  .inputs-list {
-    --ion-item-background: var(--page-background);
+    .inputs-list {
+      margin-bottom: calc(var(--page-margin) / 2);
 
-    .input-item {
-      --padding-start: 0px;
-      --padding-end: 0px;
-      --inner-padding-end: 0px;
-    }
+      .input-item {
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --inner-padding-end: 0px;
+      }
 
-    .error-container {
-      .error-message {
-        margin: calc(var(--page-margin) / 2) 0px;
-        display: flex;
-        align-items: center;
-        color: var(--ion-color-danger);
-        font-size: 14px;
+      .error-container {
+        .error-message {
+          margin: calc(var(--page-margin) / 2) 0px;
+          display: flex;
+          align-items: center;
+          color: var(--ion-color-danger);
+          font-size: 14px;
 
-        ion-icon {
-          padding-inline-end: calc(var(--page-margin) / 2);
+          ion-icon {
+            padding-inline-end: calc(var(--page-margin) / 2);
+          }
         }
       }
     }
   }
 
-  .login-btn {
-    margin: calc(var(--page-margin) / 2) 0px;
+ 
+  .options-divider {
+    margin: var(--page-margin) 0 calc(var(--page-margin) / 2) 0;
+    color: var(--ion-color-medium);
+    text-align: center;
+    font-weight: 500;
   }
-
-  .other-auth-options-row {
-    justify-content: space-between;
-    align-items: center;
-
-    .forgot-btn {
-      --color: var(--ion-color-medium);
-
-      margin: 0px;
-    }
-
-    .signup-btn {
-      --color: var(--ion-color-secondary);
-
-      margin: 0px;
-    }
-  }
-
   .social-auth-options {
-    .options-divider {
-      color: var(--ion-color-medium);
-  		margin: var(--page-margin) 0px;
-  		text-align: center;
-    }
-
+    display: flex;
     .social-auth-btn {
-      margin: 0px;
+      flex: 1 1 auto !important;
+    }
+  }
 
-      &:not(:first-child) {
-        margin-top: var(--page-margin);
-      }
+  .legal-stuff {
+    text-align: center;
+    font-size: 14px;
+    margin: var(--page-margin) 0px;
+    color: var(--ion-color-medium);
+
+    .legal-action {
+      color: var(--ion-color-secondary);
+      cursor: pointer;
     }
   }
 }

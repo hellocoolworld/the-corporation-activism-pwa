@@ -91,11 +91,9 @@
   --ion-toolbar-background : #EE1F46;
   --ion-toolbar-color : #ffffff !important;
 
-}
+  // Set font family
+  --ion-font-family: "Roboto", sans-serif;
 
-:root {
-  /* Set the font family of the entire app */
-  --ion-font-family: 'Rubik', sans-serif;
 
   --app-background: #FFFFFF;
   --app-background-shade: var(--ion-background-color-step-50, #F2F2F2);
@@ -111,10 +109,10 @@
   --app-broad-radius: 6px;
 }
 
-html.ios {
-  --app-header-height: 44px;
-}
+// html.ios {
+//   --app-header-height: 44px;
+// }
 
-html.md {
-  --app-header-height: 56px;
-}
+// html.md {
+//   --app-header-height: 56px;
+// }
