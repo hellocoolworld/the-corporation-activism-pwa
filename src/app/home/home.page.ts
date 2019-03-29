@@ -18,6 +18,45 @@ export class HomePage implements OnInit {
   public JoinTheCrowedBlock: boolean;
   public options: ShareOptions;
 
+  sliderConfig = {
+    spacebetween: 10,
+    centeredSlides: true,
+    slidesPerView: 2.6
+  };
+  public recentStories = [
+    {
+      id: 1,
+      image: 'https://placeimg.com/640/480/any',
+      title: 'How do we empower People to fight',
+      link: 'How-do-we-empower-People-to-fight'
+    },
+    {
+      id: 2,
+      image: 'https://placeimg.com/640/480/animals',
+      title: 'The corporation 2 is Coming',
+      link: 'How-do-we-empower-People-to-fight'
+    },
+    {
+      id: 3,
+      image: 'https://placeimg.com/640/480/arch',
+      title: 'The corporation Changed my life',
+      link: 'How-do-we-empower-People-to-fight'
+    },
+    {
+      id: 4,
+      image: 'https://placeimg.com/640/480/people',
+      title: 'How do we empower People to fight',
+      link: 'How-do-we-empower-People-to-fight'
+    },
+    {
+      id: 5,
+      image: 'https://placeimg.com/640/480/tech',
+      title: 'The corporation 2 is Coming',
+      link: 'How-do-we-empower-People-to-fight'
+    }
+  ];
+
+
   constructor(
     private router: Router,
     private alertCtrl: AlertController,

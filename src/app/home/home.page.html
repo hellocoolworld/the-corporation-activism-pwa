@@ -25,6 +25,18 @@
     </ion-fab-button>
   </ion-fab>
 
+  <h2 padding>Recent Stories</h2>
+  <ion-slides [options]="sliderConfig">
+    <ion-slide *ngFor="let s of recentStories">
+      <ion-card>
+        <img src="{{s.image}}">
+        <ion-card-header>
+          <ion-card-subtitle><a href="story/{{s.link}}">{{s.title}}</a></ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
   <!-- Profile div will be shown atfter login and hidden after logout-->
   <!-- <div *ngIf="profileDiv">
     <div text-center padding class="top">
