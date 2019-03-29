@@ -2,6 +2,10 @@ ion-title {
   font-weight: 500;
   letter-spacing: 0.4px;
   padding-left: 60px;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 ion-badge {
@@ -44,7 +48,7 @@ h2 {
   font-size: 2rem;
 }
 
-.ion-button {
+ion-button {
   border-radius: var(--app-fair-radius);
 }
 
