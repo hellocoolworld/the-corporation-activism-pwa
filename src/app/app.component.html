@@ -18,17 +18,6 @@
         </ion-menu-toggle>
       </ion-list>
 
-      <h2 padding>Recent Stories</h2>
-      <ion-slides [options]="sliderConfig">
-        <ion-slide *ngFor="let s of recentStories">
-          <ion-card>
-            <img src="{{s.image}}">
-            <ion-card-header>
-              <ion-card-title><a href="story/{{s.link}}">{{s.title}}</a></ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </ion-slide>
-      </ion-slides>
 
       <ion-buttons>
         <ion-button (click)="linkToSocialProfile('facebook')">

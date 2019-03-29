@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' },
+  { path: 'user', loadChildren: './user/user.module#UserPageModule' },
 
 
   { path: 'http', loadChildren: './pages/http/http.module#HttpPageModule' },
