@@ -7,7 +7,7 @@
   <div *ngIf="verifyDiv" text-center padding>
     <img style="width:100px" src="assets\img\spinner.gif" />
   </div>
-
+<app-movies></app-movies>
 
   <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
     <ion-list class="inputs-list" lines="full">
@@ -61,7 +61,10 @@
         </ng-container>
       </div>
     </ion-list>
-
+    <ion-item>
+        <ion-label position="floating">Floating Label</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
     <ion-button
       class="login-btn"
       type="submit"

@@ -1,0 +1,32 @@
+{
+    "id": 123,
+    "type" : "video",
+    "vimeoId": "2430958",
+    "image": "./assets/sample-images/notifications/100x100Notification4.jpg",
+    "title": "The Corp 2 is Out",
+    "slug": "the-corp-2-is-out",
+    "summary": "I am a product manager based in Brazil. I guide new product strategy and launch initial prototype build-outs. I also work with strategic partners to establish and develop new market opportunities.",
+    "authorName": "Stefano Rey",
+    "authorId": "password",
+    "views": 1234,
+    "likes": 259,
+    "comments": 3,
+    "takeActionHeader": "Take Action to Support This Story",
+    "takeActionBody": "Here is how you can support this story....",
+    "body": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.",
+    "pledgesCount": 4,
+    "tags": [
+        {
+            "name": "Politics",
+            "link": "/politics"
+        },
+        {
+            "name": "Echo",
+            "link": "/echo"
+        }
+    ],
+    "images": [],
+    "createdAt": "March 12, 1019",
+    "updatedAt": "March 12, 2019"
+  }
+  

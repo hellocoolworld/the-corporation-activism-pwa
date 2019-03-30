@@ -22,7 +22,6 @@ interface User {
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
   user: Observable<User>;
 
@@ -39,7 +38,6 @@ export class AuthService {
     private alertCtrl: AlertController,
     private storage: Storage
   ) {
-
     afAuth.auth.onAuthStateChanged(user => {
       if (user) {
         this.currUser = user;
@@ -50,70 +48,27 @@ export class AuthService {
       }
     });
   }
+  signUp(email: String, password: String): Promise<any> {}
 
-  // FACEBOOK LOGIN
-  fbLogin(): Promise<any> {
-    return this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider())
-      .then(newUserCredential => {
-        this.currUser = newUserCredential;
-        const email = newUserCredential.user.providerData[0].email;
-        const name = newUserCredential.user.displayName;
-        const photo = newUserCredential.user.photoURL + '?height=200';
-        const phone = newUserCredential.user.phoneNumber;
-        const uid = newUserCredential.user.uid;
-        const provider = 'facebook';
+  signIn(
+    
+  ): Promise<any> {}
 
-        return this.firestore.doc(`/userProfile/${newUserCredential.user.uid}`)
-          .update({ email, name, photo, phone, uid, provider })
-          .then(() => {
+  forgetPassword(): Promize<any> {}
 
-          })
-          .catch((error) => {
-            console.log(error);
-            return this.firestore.doc(`/userProfile/${newUserCredential.user.uid}`)
-              .set({ email, name, photo, phone, uid, provider });
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  socialSignOn () {}
 
-  // GOOGLE LOGIN
-  googleLogin(): Promise<any> {
-    return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
-      .then(newUserCredential => {
-        this.currUser = newUserCredential;
-        const email = newUserCredential.user.providerData[0].email;
-        const name = newUserCredential.user.displayName;
-        const photo = newUserCredential.user.photoURL;
-        const phone = newUserCredential.user.phoneNumber;
-        const uid = newUserCredential.user.uid;
-        const provider = 'google';
-        return this.firestore.doc(`/userProfile/${newUserCredential.user.uid}`)
-          .update({ email, name, photo, phone, uid, provider })
-          .then(() => {
-          })
-          .catch((error) => {
-            console.log(error)
-            return this.firestore.doc(`/userProfile/${newUserCredential.user.uid}`)
-              .set({ email, name, photo, phone, uid, provider })
-          });
-
-      });
-
-  }
-
-
+  socialSignOut () {}
 
   // USER PROFILE
   getUserProfile() {
-    return this.itemDoc = this.firestore.doc<any>(`/userProfile/` + this.userId);
+    return (this.itemDoc = this.firestore.doc<any>(
+      `/userProfile/` + this.userId
+    ));
   }
 
   // LOGOUT
-  logoutUser(): Promise<void> {
+  signOut(): Promise<void> {
     return this.afAuth.auth.signOut();
   }
-
 }

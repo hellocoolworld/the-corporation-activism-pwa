@@ -3,6 +3,7 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,6 +13,49 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
+
+
+  validation_messages = {
+    'email': [
+      { type: 'required', message: 'Email is required.' },
+      { type: 'pattern', message: 'Enter a valid email.' }
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required.' },
+      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+    ]
+  };
+
+  constructor(private router: Router, private auth: AuthService) {
+    this.loginForm = new FormGroup({
+      'email': new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
+      'password': new FormControl('', Validators.compose([
+        Validators.minLength(5),
+        Validators.required
+      ]))
+    });
+  }
+
+  ngOnInit() {
+  }
+
+  clickSignIn(email: String, password: String): void {
+    this.auth.signIn(email, password).then((val) => {
+
+    }).catch((err) => {
+      console.log('err');
+    });
+  }
+
+
+  clickProvider(providerName: String): void {
+    console.log('facebook login');
+  }
+}
+
 
   // public loginDiv: boolean;
   // public profileDiv: boolean;
@@ -162,54 +206,3 @@ export class LoginPage implements OnInit {
   // async visit(url): Promise<any> {
   //   await Browser.open({ url: url });
   // }
-
-
-  validation_messages = {
-    'email': [
-      { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Enter a valid email.' }
-    ],
-    'password': [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
-    ]
-  };
-
-  constructor(
-    private router: Router
-  ) {
-    this.loginForm = new FormGroup({
-      'email': new FormControl('test@test.com', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      'password': new FormControl('', Validators.compose([
-        Validators.minLength(5),
-        Validators.required
-      ]))
-    });
-  }
-
-  ngOnInit() {
-  }
-
-  doLogin(): void {
-    console.log('do Log In');
-  }
-
-  // goToForgotPassword(): void {
-  //   this.router.navigate(['forgot-password']);
-  // }
-
-  doFacebookLogin(): void {
-    console.log('facebook login');
-  }
-
-  doGoogleLogin(): void {
-    console.log('google login');
-  }
-
-  doTwitterLogin(): void {
-    console.log('twitter login');
-  }
-}

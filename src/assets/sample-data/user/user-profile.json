@@ -1,13 +1,11 @@
 {
   "userImage": "./assets/sample-images/notifications/100x100Notification4.jpg",
   "name": "Stefano Rey",
-  "membership": "PRO",
-  "job": "Product Manager",
-  "likes": "1553",
-  "followers": "537K",
-  "following": "636",
-  "about": "I am a product manager based in Brazil. I guide new product strategy and launch initial prototype build-outs. I also work with strategic partners to establish and develop new market opportunities.",
-  "friends": [
+  "authType": "password",
+  "displayName": "Steano",
+  "email": "stefano@stef.com",
+  "testemonial": "I am a product manager based in Brazil. I guide new product strategy and launch initial prototype build-outs. I also work with strategic partners to establish and develop new market opportunities.",
+  "pledges": [
     {
       "image": "./assets/sample-images/notifications/100x100Notification1.jpg",
       "name": "Martin"
@@ -33,7 +31,7 @@
       "name": "Diane"
     }
   ],
-  "photos": [
+  "stories": [
     {
       "image": "./assets/sample-images/travel/Travel2-64.47.png"
     },
