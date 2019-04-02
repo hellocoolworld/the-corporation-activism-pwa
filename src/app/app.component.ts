@@ -24,14 +24,14 @@ export class AppComponent {
       icon: 'contact'
     },
     {
-      title: 'About',
-      url: '/about',
-      icon: 'information-circle'
-    },
-    {
       title: 'Account Settings',
       url: '/user',
       icon: 'settings'
+    },
+    {
+      title: 'About',
+      url: '/about',
+      icon: 'information-circle'
     }
   ];
 
