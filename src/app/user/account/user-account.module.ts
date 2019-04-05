@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { UserAccountPage } from './user-account.page';
-import { UserService } from '../user.service';
+import { UserService } from '../../_services';
 import { UserAccountResolver } from './user-account.resolver';
-import { ComponentsModule } from '../../components/components.module';
+import { ComponentsModule } from '../../_components/components.module';
 
 const routes: Routes = [
   {

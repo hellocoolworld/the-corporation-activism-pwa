@@ -1,49 +1,48 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { FirestoreSettingsToken } from '@angular/fire/firestore';
+import { ComponentsModule } from './_components/components.module';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 
-import { firebaseConfig } from './credentials';
-import { HttpClientModule } from '@angular/common/http';
-import { IonicStorageModule } from '@ionic/storage';
-import { ZXingScannerModule } from '@zxing/ngx-scanner';
-import { ZXingScannerComponent } from '@zxing/ngx-scanner';
+// used to create fake backend
+import { fakeBackendProvider } from './_helpers';
 
-import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-
-  exports: [ZXingScannerComponent],
-
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
-    AngularFirestoreModule.enablePersistence(),
-    FormsModule,
-    ZXingScannerModule,
-    IonicStorageModule.forRoot(),
+    AppRoutingModule,
+    ComponentsModule
+  ],
+
+  declarations: [
+    AppComponent
   ],
 
   providers: [
-    { provide: FirestoreSettingsToken, useValue: {} },
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy,}
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider
   ],
+
+  exports: [],
+
+  entryComponents: [],
 
   bootstrap: [AppComponent]
 })

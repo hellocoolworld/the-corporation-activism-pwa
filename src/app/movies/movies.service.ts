@@ -9,6 +9,6 @@ export class MoviesService {
   constructor(private httpService: HttpClient) { }
 
   getMovies() {
-    return this.httpService.get('../../assets/mock-data/movies.json');
+     return this.httpService.get('../../assets/mock-data/movies.json');
   }
 }

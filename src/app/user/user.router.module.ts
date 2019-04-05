@@ -6,40 +6,39 @@ import { UserPage } from './user.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'user',
     component: UserPage,
     children: [
       {
         path: 'account',
-        loadChildren: 'account/account.module#AccountPageModule'
+        loadChildren: './account/user-account.module#UserAccountPageModule'
       },
-      {
-        path: 'settings',
-        loadChildren: 'settings/settings.module#SettingsPageModule'
-      },
-      {
-        path: 'pledges',
-        loadChildren: './pledges/user-pledges.module#UserPledgesPageModule'
-      },
-      {
-        path: 'stories',
-        children: [
-          {
-            path: 'stories',
-            loadChildren: 'stories/listing/listing.module#StriesListingPageModule'
-          },
-          {
-            path: 'stories/:storyId',
-            loadChildren: 'stories/details/story-details.module#StoryDetailsPageModule'
-          }
-        ]
-      },
+      // // {
+      // //   path: 'settings',
+      // //   loadChildren: './settings/settings.module#SettingsPageModule'
+      // // },
+      // // {
+      // //   path: 'pledges',
+      // //   loadChildren: './pledges/user-pledges.module#UserPledgesPageModule'
+      // // },
+      // {
+      //   path: 'stories',
+      //   children: [
+      //     {
+      //       path: 'stories',
+      //       loadChildren: './stories/listing/listing.module#StriesListingPageModule'
+      //     },
+      //     {
+      //       path: 'stories/:storyId',
+      //       loadChildren: 'stories/details/story-details.module#StoryDetailsPageModule'
+      //     }
+      //   ]
+      // },
     ]
   },
-  // /app/ redirect
   {
-    path: 'user',
-    redirectTo: 'user/user-account',
+    path: '',
+    redirectTo: 'user/account',
     pathMatch: 'full'
   }
 ];

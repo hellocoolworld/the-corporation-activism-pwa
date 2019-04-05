@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import { ToastService } from '../_services';
 
 @Component({
   selector: 'app-forgot-password',
@@ -13,29 +15,26 @@ import { Router } from '@angular/router';
 export class ForgotPasswordPage implements OnInit {
   forgotPasswordForm: FormGroup;
 
-  validation_messages = {
-    'email': [
-      { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Enter a valid email.' }
-    ]
-  };
-
   constructor(
     private router: Router,
-  ) {
-    this.forgotPasswordForm = new FormGroup({
-      'email': new FormControl('', Validators.compose([
+    private fb: FormBuilder,
+    private _toast: ToastService
+  ) {}
+
+  ngOnInit() {
+    this.forgotPasswordForm = this.fb.group({
+      'email': ['', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ]))
+        Validators.email
+      ]]
     });
   }
 
-  ngOnInit(){
+  onSubmit() {
+    this._toast.info('An email with a link to reset your password has been sent to you. Please check your email.', true, 2000);
   }
 
-  recoverPassword() {
-    console.log(this.forgotPasswordForm.value);
-  }
+  // convenience getter for easy access to form fields
+  get f() { return this.forgotPasswordForm.controls; }
 
 }

@@ -6,9 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ComponentsModule } from '../components/components.module';
-
-import { MoviesModule} from '../movies/movies.module';
+import { ComponentsModule } from '../_components/components.module';
 
 import { LoginPage } from './login.page';
 
@@ -26,8 +24,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ComponentsModule,
-    MoviesModule
+    ComponentsModule
   ],
   declarations: [LoginPage]
 })

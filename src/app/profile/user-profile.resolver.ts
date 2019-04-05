@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../_services';
 
 @Injectable()
 export class UserProfileResolver implements Resolve<any> {
@@ -9,12 +9,12 @@ export class UserProfileResolver implements Resolve<any> {
 
   resolve() {
     // Get the Shell Provider from the service
-    const shellProviderObservable = this.userService.getProfileDataWithShell();
+    // const shellProviderObservable = this.userService.getProfileDataWithShell();
 
-    // Resolve with Shell Provider
-    const observablePromise = new Promise((resolve, reject) => {
-      resolve(shellProviderObservable);
-    });
-    return observablePromise;
+    // // Resolve with Shell Provider
+    // const observablePromise = new Promise((resolve, reject) => {
+    //   resolve(shellProviderObservable);
+    // });
+    // return observablePromise;
   }
 }

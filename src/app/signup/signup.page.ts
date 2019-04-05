@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
+import { first } from 'rxjs/operators';
+
+import { AuthService, UserService, ToastService } from '../_services';
 import { TermsOfServicePage } from '../terms-of-service/terms-of-service.page';
 import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy.page';
-import { PasswordValidator } from '../validators/password.validator';
 
 @Component({
   selector: 'app-signup',
@@ -16,41 +18,62 @@ export class SignupPage implements OnInit {
 
   signupForm: FormGroup;
 
-  validation_messages = {
-    'fullname': [
-      { type: 'required', message: 'Full Name is required.' }
-    ],
-    'email': [
-      { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Enter a valid email.' }
-    ],
-    'password': [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
-    ],
-  };
-
   constructor(
-    public router: Router,
-    public modalController: ModalController,
+    private router: Router,
+    private fb: FormBuilder,
+    private _auth: AuthService,
+    private _user: UserService,
+    private _toast: ToastService,
+    private modalController: ModalController
   ) {
-    this.signupForm = new FormGroup({
-      'fullname': new FormControl('', Validators.compose([
-        Validators.required
-      ])),
-      'email': new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      'password': new FormControl('', Validators.compose([
-        Validators.minLength(5),
-        Validators.required
-      ]))
-    });
-  }
+      // redirect to home if already logged in
+      if (this._auth.currentUserValue) {
+        this.router.navigate(['/']);
+      }
+}
 
   ngOnInit() {
+    this.signupForm = this.fb.group({
+      'email': ['', [
+        Validators.required,
+        Validators.email
+      ]],
+      'password': ['', [
+        Validators.required,
+        Validators.minLength(5)
+      ]]
+    });
+
+    // this.signupForm.valueChanges.subscribe();
   }
+
+  async onSubmit() {
+    // stop here if form is invalid
+    if (this.signupForm.invalid) {
+      return;
+    }
+
+    try {
+      await this._user.register(this.signupForm.value)
+        .pipe(first())
+        .subscribe (
+          res => {
+            this._toast.success('Registration successful', true);
+            this.router.navigate(['/login']);
+          },
+          err => {
+            this._toast.error(err, true);
+          });
+
+    } catch (err) {
+      this._toast.error(err, true);
+    }
+  }
+
+  socialProviderSingup(provider: String): void {
+    console.log('facebook signup');
+  }
+
 
   async showTermsModal() {
     const modal = await this.modalController.create({
@@ -66,23 +89,6 @@ export class SignupPage implements OnInit {
     return await modal.present();
   }
 
-  doSignup(): void {
-    console.log('do sign up');
-    this.router.navigate(['app/categories']);
-  }
-
-  doFacebookSignup(): void {
-    console.log('facebook signup');
-    this.router.navigate(['app/categories']);
-  }
-
-  doGoogleSignup(): void {
-    console.log('google signup');
-    this.router.navigate(['app/categories']);
-  }
-
-  doTwitterSignup(): void {
-    console.log('twitter signup');
-    this.router.navigate(['app/categories']);
-  }
+  // convenience getter for easy access to form fields
+  get f() { return this.signupForm.controls; }
 }

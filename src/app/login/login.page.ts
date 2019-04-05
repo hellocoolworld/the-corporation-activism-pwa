@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { first } from 'rxjs/operators';
+
+import { AuthService, ToastService } from '../_services';
 
 
 @Component({
@@ -12,48 +15,72 @@ import { AuthService } from '../services/auth.service';
   ]
 })
 export class LoginPage implements OnInit {
+
   loginForm: FormGroup;
+  loading = false;
+  returnUrl: string;
 
-
-  validation_messages = {
-    'email': [
-      { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Enter a valid email.' }
-    ],
-    'password': [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
-    ]
-  };
-
-  constructor(private router: Router, private auth: AuthService) {
-    this.loginForm = new FormGroup({
-      'email': new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      'password': new FormControl('', Validators.compose([
-        Validators.minLength(5),
-        Validators.required
-      ]))
-    });
-  }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private _auth: AuthService,
+    private _toast: ToastService
+    ) {
+      // redirect to home if already logged in
+      if (this._auth.currentUserValue) { 
+        this.router.navigate(['/']);
+      }
+    }
 
   ngOnInit() {
+    this.loginForm = this.fb.group({
+      'email': ['', [
+        Validators.required,
+        Validators.email
+      ]],
+      'password': ['', [
+        Validators.required,
+        Validators.minLength(5)
+      ]]
+    });
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  clickSignIn(email: String, password: String): void {
-    this.auth.signIn(email, password).then((val) => {
+  async onSubmit() {
 
-    }).catch((err) => {
-      console.log('err');
-    });
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    const credentials = this.loginForm.value;
+
+    this._auth.login(this.f.email.value, this.f.password.value)
+      .pipe(first())
+      .subscribe(
+        res => {
+          this.router.navigate([this.returnUrl]);
+          },
+        err => {
+            this._toast.error(err, true);
+            this.loading = false;
+        }
+      );
   }
 
 
   clickProvider(providerName: String): void {
     console.log('facebook login');
   }
+
+
+  // convenience getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
+
 }
 
 
@@ -64,7 +91,7 @@ export class LoginPage implements OnInit {
 
   // constructor(
   //   private alertCtrl: AlertController,
-  //   private authService: AuthService,
+  //   private _authService: AuthService,
   //   private storage: Storage,
   // ) {
 
@@ -96,7 +123,7 @@ export class LoginPage implements OnInit {
 
   // }
 
- 
+
   // // Share
   // // please change the text and url
   // async share(): Promise<any> {
@@ -104,7 +131,7 @@ export class LoginPage implements OnInit {
   //   try {
   //     await Share.share({
   //       title: 'Ionic 4 PWA with Firebase and Capacitor',
-  //       text: 'A fully functional Ionic 4 PWA apps, complete with authentication system, and also CRUD samples using both Firebase Realtime Database and Firestore.',
+  //       text: 'A fully functional Ionic 4 PWA apps, complete with _authentication system, and also CRUD samples using both Firebase Realtime Database and Firestore.',
   //       url: 'https://tabsmenu-pwa.firebaseapp.com',
   //       dialogTitle: 'Share with your friends'
   //     });
@@ -117,27 +144,16 @@ export class LoginPage implements OnInit {
   //   };
   // }
 
-  // async errorMsg(err) {
-  //   //const toast = await this.toastController.create({
-  //   //  message: err + '. Please try using another mobile browser',
-  //   //  duration: 2000,
-  //   //  position: 'top',
-  //   //  color: 'primary',
-  //   //  showCloseButton: true,
-  //   //  closeButtonText: 'Done'
-  //   //});
-  //   //toast.present();
-  // }
 
 
- 
+
 
   // // Google Login
   // async loginGoogle(): Promise<void> {
   //   this.verifyDiv = true;
   //   this.loginDiv = false
   //   try {
-  //     await this.authService.googleLogin();
+  //     await this._authService.googleLogin();
   //     this.getProfile();
   //   } catch (error) {
   //     this.verifyDiv = false;
@@ -150,7 +166,7 @@ export class LoginPage implements OnInit {
   // async loginFacebook(): Promise<void> {
   //   this.verifyDiv = true;
   //   this.loginDiv = false;
-  //   this.authService.fbLogin()
+  //   this._authService.fbLogin()
   //     .then(user => {
   //       if (user == undefined) {
   //         this.duplicateAcct()
@@ -182,7 +198,7 @@ export class LoginPage implements OnInit {
 
   // // Get User Profile
   // async getProfile() {
-  //   this.authService.getUserProfile()
+  //   this._authService.getUserProfile()
   //     .get()
   //     .subscribe(user => {
   //       this.userProfile = user.data();
@@ -197,7 +213,7 @@ export class LoginPage implements OnInit {
   // logOut(): void {
   //   this.loginDiv = true;
   //   this.profileDiv = false;
-  //   this.authService.logoutUser().then(() => {
+  //   this._authService.logoutUser().then(() => {
   //     this.userProfile = null;
   //     this.storage.set('user', null);
   //   });

@@ -7,71 +7,43 @@
   <div *ngIf="verifyDiv" text-center padding>
     <img style="width:100px" src="assets\img\spinner.gif" />
   </div>
-<app-movies></app-movies>
 
-  <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
     <ion-list class="inputs-list" lines="full">
       <ion-item class="input-item">
-        <ion-input
-          type="email"
-          placeholder="Email"
-          formControlName="email"
-          clearInput
-          autocapitalize="off"
-          inputmode="email"
-        ></ion-input>
+        <ion-label position="floating">Email Address</ion-label>
+        <ion-input type="email" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
       </ion-item>
-      <div class="error-container">
-        <ng-container *ngFor="let validation of validation_messages.email">
-          <div
-            class="error-message"
-            *ngIf="
-              loginForm.get('email').hasError(validation.type) &&
-              (loginForm.get('email').dirty || loginForm.get('email').touched)
-            "
-          >
-            <ion-icon name="information-circle-outline"></ion-icon>
-            <span>{{ validation.message }}</span>
-          </div>
-        </ng-container>
+      <div *ngIf="f.email.errors" class="error-container">
+        <div class="error-message" *ngIf="f.email.errors.required && f.email.touched">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          <span>Email is required.</span>
+        </div>
+        <div class="error-message" *ngIf="f.email.errors.email && f.email.touched">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          <span>Enter a valid email.</span>
+        </div>
       </div>
 
       <ion-item class="input-item">
+        <ion-label position="floating">Password</ion-label>
         <app-show-hide-password>
-          <ion-input
-            type="password"
-            placeholder="Password"
-            formControlName="password"
-          ></ion-input>
+          <ion-input type="password" formControlName="password"></ion-input>
         </app-show-hide-password>
       </ion-item>
-      <div class="error-container">
-        <ng-container *ngFor="let validation of validation_messages.password">
-          <div
-            class="error-message"
-            *ngIf="
-              loginForm.get('password').hasError(validation.type) &&
-              (loginForm.get('password').dirty ||
-                loginForm.get('password').touched)
-            "
-          >
-            <ion-icon name="information-circle-outline"></ion-icon>
-            <span>{{ validation.message }}</span>
-          </div>
-        </ng-container>
+      <div *ngIf="f.password.errors" class="error-container">
+        <div class="error-message" *ngIf="f.password.errors.required && f.password.touched">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          <span>Password is required.</span>
+        </div>
+        <div class="error-message" *ngIf="f.password.errors.minlength  && f.password.touched">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          <span>Password must be at least 5 characters long.</span>
+        </div>
       </div>
     </ion-list>
-    <ion-item>
-        <ion-label position="floating">Floating Label</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-    <ion-button
-      class="login-btn"
-      type="submit"
-      expand="block"
-      [disabled]="!loginForm.valid"
-      >Log In</ion-button
-    >
+    <ion-button class="login-btn" type="submit" expand="block" [disabled]="loginForm.invalid">Log In</ion-button>
     <p text-right>
       <a [routerLink]="['/forgot-password']">Forgot Password?</a>
     </p>
@@ -79,33 +51,18 @@
 
   <p class="options-divider">Or, sign in with:</p>
   <div class="social-auth-options">
-    <ion-button
-      class="social-auth-btn facebook-auth-btn"
-      size="small"
-      color="facebook"
-      (click)="doFacebookSignup()"
-    >
+    <ion-button class="social-auth-btn facebook-auth-btn" size="small" color="facebook" (click)="doFacebookSignup()">
       <ion-icon slot="start" name="logo-facebook"></ion-icon>
       Facebook
     </ion-button>
-    <ion-button
-      class="social-auth-btn google-auth-btn"
-      size="small"
-      color="google"
-      (click)="doGoogleSignup()"
-    >
+    <ion-button class="social-auth-btn google-auth-btn" size="small" color="google" (click)="doGoogleSignup()">
       <ion-icon slot="start" name="logo-google"></ion-icon>
-      Google</ion-button
-    >
-    <ion-button
-      class="social-auth-btn twitter-auth-btn"
-      size="small"
-      color="twitter"
-      (click)="doTwitterSignup()"
-    >
+      Google
+    </ion-button>
+    <ion-button class="social-auth-btn twitter-auth-btn" size="small" color="twitter" (click)="doTwitterSignup()">
       <ion-icon slot="start" name="logo-twitter"></ion-icon>
-      Twitter</ion-button
-    >
+      Twitter
+    </ion-button>
   </div>
 
   <p class="options-divider">
