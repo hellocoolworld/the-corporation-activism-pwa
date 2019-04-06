@@ -16,7 +16,9 @@
         <ion-icon slot="icon-only" color="lightest" name="log-in"></ion-icon>
       </ion-button>
       <ion-button *ngIf="currentUser" href="/user">
-        <img *ngIf="currentUser.imageUrl !== ''" src="{{ currentUser.imageUrl }}" class="user-avatar" alt="{{ currentUser.displayName }}">
+        <ion-avatar class="user-avatar" >
+          <ion-img *ngIf="currentUser.imageUrl !== ''" src="{{ currentUser.imageUrl }}" alt="{{ currentUser.displayName }}"></ion-img>
+        </ion-avatar>
         <ion-icon *ngIf="currentUser.imageUrl === ''" name="contact"></ion-icon>
       </ion-button>
     </ion-buttons>

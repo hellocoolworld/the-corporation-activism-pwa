@@ -1,16 +1,20 @@
 <ht-header></ht-header>
 
 <ion-content>
-    <img src="https://placeimg.com/640/480/any" >
+    <!-- <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+        <app-image-shell class="user-image" animation="spinner" [src]="profile.userImage"></app-image-shell>
+      </app-aspect-ratio> -->
+
+    <ion-img src="https://placeimg.com/640/480/any" ></ion-img>
     <h3>How do we empower People to fight</h3>
     
-    <img src="https://placeimg.com/640/480/animals">
+    <ion-img src="https://placeimg.com/640/480/animals"></ion-img>
     <h3>The corporation 2 is Coming</h3>
 
   <!-- Join the Crowed div will be hidden if user logged in-->
   <ion-card>
     <ion-card-header>
-      <ion-card-title text-uppercase text-center>Be part of the crowed</ion-card-title>
+      <ion-card-title text-uppercase text-center>Be part of the crowd</ion-card-title>
     </ion-card-header>
 
     <ion-card-content *ngIf="!_auth.currentUserValue">
