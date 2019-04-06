@@ -93,7 +93,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     // save new user
                     newUser.id = users.length + 1;
                     newUser.displayName = '';
-                    newUser.imageUrl = './assets/sample-images/user/person-1.jpg';
+                    // newUser.imageUrl = './assets/sample-images/user/person-1.jpg';
+                    newUser.imageUrl = '';
                     users.push(newUser);
                     localStorage.setItem('users', JSON.stringify(users));
 

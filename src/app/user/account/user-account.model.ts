@@ -1,35 +1,28 @@
 export class UserAccountModel {
-  userImage: string;
+  email: string;
   name: string;
-  membership: string;
-  job: string;
-  likes: string;
-  followers: string;
-  following: string;
-  about: string;
-  friends: Array<{image: string, name: string}> = [
+  password: string;
+  displayName: string;
+  imageUrl: string;
+  testimonial: string;
+  stories: Array<{image: string, title: string, link: string}> = [
     {
       image: '',
-      name: ''
+      title: '',
+      link: ''
     },
     {
       image: '',
-      name: ''
+      title: '',
+      link: ''
     },
-    {
-      image: '',
-      name: ''
-    },
-    {
-      image: '',
-      name: ''
-    }
   ];
-  photos: Array<string> = [
-    '',
-    '',
-    '',
-    ''
+  pledges: Array<{image: string, title: string, link: string}> = [
+    {
+      image: '',
+      title: '',
+      link: ''
+    }
   ];
 
   constructor(readonly isShell: boolean) { }

@@ -6,16 +6,12 @@ import { FormsModule } from '@angular/forms';
 
 import { UserAccountPage } from './user-account.page';
 import { UserService } from '../../_services';
-import { UserAccountResolver } from './user-account.resolver';
 import { ComponentsModule } from '../../_components/components.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: UserAccountPage,
-    resolve: {
-      data: UserAccountResolver
-    }
+    component: UserAccountPage
   }
 ];
 
@@ -29,7 +25,6 @@ const routes: Routes = [
   ],
   declarations: [UserAccountPage],
   providers: [
-    UserAccountResolver,
     UserService
   ]
 })
