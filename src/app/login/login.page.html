@@ -4,12 +4,7 @@
   <h2>Login</h2>
   <p>Welcome back to HaloTales.</p>
 
-  <div *ngIf="verifyDiv" text-center padding>
-    <img style="width:100px" src="assets\img\spinner.gif" />
-  </div>
-
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
     <ion-list class="inputs-list" lines="full">
       <ion-item class="input-item">
         <ion-label position="floating">Email Address</ion-label>
@@ -43,7 +38,7 @@
         </div>
       </div>
     </ion-list>
-    <ion-button class="login-btn" type="submit" expand="block" [disabled]="loginForm.invalid">Log In</ion-button>
+    <ion-button class="expanded-action-btn" type="submit" expand="block" [disabled]="loginForm.invalid">Log In</ion-button>
     <p text-right>
       <a [routerLink]="['/forgot-password']">Forgot Password?</a>
     </p>

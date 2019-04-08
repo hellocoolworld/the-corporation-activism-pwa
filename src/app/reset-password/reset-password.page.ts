@@ -16,22 +16,18 @@ import { ToastService } from '../_services';
 export class ResetPasswordPage implements OnInit {
   resetPasswordForm: FormGroup;
 
-  constructor(
-    private router: Router,
-    private fb: FormBuilder,
-    private _toast: ToastService
-  ) {}
+  constructor(private router: Router, private fb: FormBuilder, private _toast: ToastService) {}
 
   ngOnInit() {
-    this.resetPasswordForm = this.fb.group({
-      'password': ['', [
-        Validators.required,
-        Validators.minLength(5)
-      ]],
-      'confirmPassword': ['', Validators.required]
-    }, {
-      validator: MustMatch('password', 'confirmPassword')
-    });
+    this.resetPasswordForm = this.fb.group(
+      {
+        password: ['', [Validators.required, Validators.minLength(5)]],
+        confirmPassword: ['', Validators.required]
+      },
+      {
+        validator: MustMatch('password', 'confirmPassword')
+      }
+    );
   }
 
   onSubmit() {
@@ -44,6 +40,7 @@ export class ResetPasswordPage implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.resetPasswordForm.controls; }
-
+  get f() {
+    return this.resetPasswordForm.controls;
+  }
 }
