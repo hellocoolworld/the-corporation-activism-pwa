@@ -43,8 +43,6 @@ export class SignupPage implements OnInit {
         Validators.minLength(5)
       ]]
     });
-
-    // this.signupForm.valueChanges.subscribe();
   }
 
   async onSubmit() {
@@ -58,8 +56,19 @@ export class SignupPage implements OnInit {
         .pipe(first())
         .subscribe (
           res => {
-            this._toast.success('Registration successful', true);
-            this.router.navigate(['/login']);
+            this._toast.success('Registration successful. Check your inbox for verification code', true);
+            // automatically authenticate the user
+            this._auth.login(this.f.email.value, this.f.password.value)
+            .pipe(first())
+            .subscribe(
+              data => {
+                // Redirect user to the verification page.
+                this.router.navigate(['/verify-account']);
+                },
+              err => {
+                  this._toast.error(err, true);
+              }
+            );
           },
           err => {
             this._toast.error(err, true);

@@ -36,6 +36,22 @@ export class AuthService {
     );
   }
 
+
+  verify(id: string, verificationCode: string) {
+    return this.http.post<any>(`${this.apiBaseURL}/users/verify`, { id, verificationCode }).pipe(
+      map(user => {
+        // verification successful if there's a jwt token in the response
+        if (user && user.isVerified) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUserSubject.next(user);
+        }
+
+        return user;
+      })
+    );
+  }
+
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
