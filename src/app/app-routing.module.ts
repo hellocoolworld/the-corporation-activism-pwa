@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' },
   { path: 'reset-password', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },
   { path: 'user', loadChildren: './user/user.module#UserPageModule' },
-  // { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
+  { path: 'verify-account', loadChildren: './verify-account/verify-account.module#VerifyAccountPageModule' },
+  { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
 
     // otherwise redirect to home
     // { path: '**', redirectTo: '' }
