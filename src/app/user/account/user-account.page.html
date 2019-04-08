@@ -1,39 +1,37 @@
 <ht-header></ht-header>
 
-<ion-content class="user-profile-content">
-  <ion-row class="user-details-section">
-    <ion-col class="user-image-wrapper">
-          <ion-img src="./assets/sample-images/user/person-1.jpg"></ion-img>
-    </ion-col>
-    <ion-col class="user-info-wrapper">
-      <ion-row class="user-data-row">
-        <ion-col size="9">
-          <h3 class="user-name">
-              profile.displayName
-          </h3>
-        </ion-col>
-      </ion-row>
-    </ion-col>
-  </ion-row>
-  <div class="user-about-section">
-    <h3 class="details-section-title">Testimonial</h3>
-    <p class="user-description">
-      profile.testimonial
-    </p>
-  </div>
-  <div class="user-friends-section">
-    <ion-row class="heading-row">
-      <h3 class="details-section-title">Acount information</h3>
-    </ion-row>
-    <ion-row class="friends-row">
-      <!-- <ion-col class="friend-item" size="2" *ngFor="let story of profile.stories">
-          <ion-img class="friend-picture" [src]="story.image"></ion-img>
+<ion-content class="user-account-content">
+  <h2>Account</h2>
+  <p>Customize what you share on Halo Tales.</p>
 
-         <span class="friend-name">
-          {{ story.title }}
-        </span>
-      </ion-col> -->
-    </ion-row>
-  </div>
+  <form [formGroup]="userAccountForm" (ngSubmit)="onSubmit()">
+    <ion-list class="inputs-list">
+      <ion-item class="input-item" (click)="testClick()" detail>
+        <ion-label>
+          <h3>Picture</h3>
+          <p>Choose a photo from your devise and take a new snapshot.</p>
+        </ion-label>
+        <ion-avatar slot="end" class="hydrated">
+          <img src="./assets/sample-images/user/person-1.jpg">
+        </ion-avatar>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="left"><h3>Display name</h3></ion-label>
+        <ion-input type="text" formControlName="displayName" clearInput autocapitalize="off"></ion-input>
+      </ion-item>
+      <ion-item class="input-item">
+        <ion-label>
+          <h3>Testimonial</h3>
+        </ion-label>
+        <ion-label position="floating">Did The Corporation film affect you?</ion-label>
+        <ion-textarea formControlName="testimonial" rows="3" (keyup)="resize()"></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="expanded-action-btn" type="submit" expand="block" [disabled]="userAccountForm.invalid">Publish Account
+    </ion-button>
+  </form>
+
 
 </ion-content>
