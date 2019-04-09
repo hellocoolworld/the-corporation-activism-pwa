@@ -2,8 +2,8 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { ToastService } from '../../_services';
-import { UserAccountModel } from './user-account.model';
+import { ToastService, AuthService } from '../../_services';
+import { User } from '../../_models';
 
 
 @Component({
@@ -14,16 +14,36 @@ import { UserAccountModel } from './user-account.model';
   ],
 })
 export class UserAccountPage implements OnInit {
-  profile: UserAccountModel;
   userAccountForm: FormGroup;
+  currentUser: User;
 
-  constructor(private router: Router, private fb: FormBuilder, private _toast: ToastService) {}
+  
+  constructor(
+    private router: Router, 
+    private fb: FormBuilder, 
+    private _auth: AuthService,
+    private _toast: ToastService) {
+      
+    this.currentUser = this._auth.currentUserValue;
+    if (this.currentUser) {
+      // if user is loged in and not verified
+      // redirect to verify-user page
+      if (!this.currentUser.isVerified) {
+        this.router.navigate(['/verify-account']);
+      }
+    } else {
+      // if not logged in, redirect to login
+      this.router.navigate(['login']); 
+    }
+  }
 
   ngOnInit() {
+
+    
     this.userAccountForm = this.fb.group(
       {
-        displayName: ['', []],
-        testimonial: ['', []]
+        displayName: [this.currentUser.displayName, []],
+        testimonial: [this.currentUser.testimonial, []]
       }
     );
 

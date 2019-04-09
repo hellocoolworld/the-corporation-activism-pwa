@@ -7,8 +7,7 @@ import { User } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-//  apiBaseURL: String = 'https://www.halotales.com/api';
-  private apiBaseURL: String = '../../assets/mock-data';
+  private apiBaseURL: String = 'https://www.halotales.com/api';
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 

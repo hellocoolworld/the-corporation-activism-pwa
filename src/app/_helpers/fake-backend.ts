@@ -25,6 +25,38 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       of(null)
         .pipe(
           mergeMap(() => {
+            // register user
+            if (request.url.endsWith('/users/register') && request.method === 'POST') {
+              // get new user object from post body
+              const newUser = request.body;
+              // validation
+              const duplicateUser = users.filter(user => {
+                return user.email === newUser.email;
+              }).length;
+              if (duplicateUser) {
+                return throwError({ error: { message: 'Username "' + newUser.email + '" is already registered.' } });
+              }
+
+              // save new user
+              newUser.id = users.length + 1;
+              newUser.displayName = '';
+              newUser.imageUrl = './assets/sample-images/user/person_'+newUser.id+'.jpg';
+              newUser.testimonial = 'It changed my life to a much healthier life style';
+              newUser.stories = ['3b9q40sdfklneg'];
+              newUser.pledges = ['123o87trqx4'];
+              newUser.isVerified = false;
+              newUser.verificationType = 'email';
+              newUser.verificationCode = '1234';
+              newUser.createdAt = new Date();
+              newUser.updatedAt = new Date();
+              users.push(newUser);
+              localStorage.setItem('users', JSON.stringify(users));
+
+              // respond 200 OK
+              return of(new HttpResponse({ status: 200 }));
+            }
+
+
             // authenticate
             if (request.url.endsWith('/users/authenticate') && request.method === 'POST') {
               const filteredUsers = users.filter(user => {
@@ -37,8 +69,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 const body = {
                   id: user.id,
                   email: user.email,
+                  password: user.password,
                   displayName: user.displayName,
                   imageUrl: user.imageUrl,
+                  testimonial: user.testimonial,
+                  stories: user.stories,
+                  pledges: user.pledges,
                   isVerified: user.isVerified,
                   verificationType: user.verificationType,
                   verificationCode: user.verificationCode,
@@ -51,6 +87,61 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 return throwError({ error: { message: 'Username or password is incorrect' } });
               }
             }
+
+            
+            // Verify user
+            if (request.url.endsWith('/users/verify') && request.method === 'POST') {
+              //if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                // find user by id in users array
+                const filteredUsers = users.filter(user => {
+                  return user.id === request.body.id;
+                });
+
+                if (filteredUsers.length) {
+                  // if login details are valid return 200 OK with user details and fake jwt token
+                  const user = filteredUsers[0];
+                  if (user.verificationType === 'email') {
+                    if (user.verificationCode === request.body.verificationCode) {
+                      // save changes
+                      filteredUsers[0].isVerified = true;
+                      filteredUsers[0].verificationCode = null;
+                      localStorage.setItem('users', JSON.stringify(users));
+
+                      user.isVerified = true;
+                      user.verificationCode = null;
+
+                      const body = {
+                        id: user.id,
+                        email: user.email,
+                        displayName: user.displayName,
+                        imageUrl: user.imageUrl,
+                        testimonial: user.testimonial,
+                        stories: user.stories,
+                        pledges: user.pledges,
+                        isVerified: user.isVerified,
+                        verificationType: user.verificationType,
+                        verificationCode: user.verificationCode,
+                        token: token
+                      };
+                      return of(new HttpResponse({ status: 200, body: body }));
+                    } else {
+                      // else return 400 bad request
+                      return throwError({ error: { message: 'Wrong verification Code!' } });
+                    }
+                  } else {
+                    // else return 400 bad request
+                    return throwError({ error: { message: 'User verification is not required!' } });
+                  }
+                } else {
+                  // else return 400 bad request
+                  return throwError({ error: { message: 'Invalid User' } });
+                }
+              // } else {
+              //   // return 401 not authorised if token is null or invalid
+              //   return throwError({ status: 401, error: { message: 'Unauthorised' } });
+              // }
+            }
+
 
             // get users
             if (request.url.endsWith('/users') && request.method === 'GET') {
@@ -82,81 +173,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               }
             }
 
-            // register user
-            if (request.url.endsWith('/users/register') && request.method === 'POST') {
-              // get new user object from post body
-              const newUser = request.body;
-              // validation
-              const duplicateUser = users.filter(user => {
-                return user.email === newUser.email;
-              }).length;
-              if (duplicateUser) {
-                return throwError({ error: { message: 'Username "' + newUser.email + '" is already registered.' } });
-              }
-
-              // save new user
-              newUser.id = users.length + 1;
-              newUser.displayName = '';
-              newUser.imageUrl = '';
-              newUser.isVerified = false;
-              newUser.verificationType = 'email';
-              newUser.verificationCode = '1234';
-              users.push(newUser);
-              localStorage.setItem('users', JSON.stringify(users));
-
-              // respond 200 OK
-              return of(new HttpResponse({ status: 200 }));
-            }
-
-            // Verify user
-            if (request.url.endsWith('/users/verify') && request.method === 'POST') {
-              if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-                // find user by id in users array
-                const filteredUsers = users.filter(user => {
-                  return user.id === request.body.id;
-                });
-
-                if (filteredUsers.length) {
-                  // if login details are valid return 200 OK with user details and fake jwt token
-                  const user = filteredUsers[0];
-                  if (user.verificationType === 'email') {
-                    if (user.verificationCode === request.body.code) {
-                      // save changes
-                      filteredUsers[0].isVerified = true;
-                      filteredUsers[0].verificationCode = null;
-                      localStorage.setItem('users', JSON.stringify(users));
-
-                      user.isVerified = true;
-                      user.verificationCode = null;
-
-                      const body = {
-                        id: user.id,
-                        email: user.email,
-                        displayName: user.displayName,
-                        imageUrl: user.imageUrl,
-                        isVerified: user.isVerified,
-                        verificationType: user.verificationType,
-                        verificationCode: user.verificationCode,
-                        token: token
-                      };
-                      return of(new HttpResponse({ status: 200, body: body }));
-                    } else {
-                      // else return 400 bad request
-                      return throwError({ error: { message: 'Wrong verification Code!' } });
-                    }
-                  } else {
-                    // else return 400 bad request
-                    return throwError({ error: { message: 'User verification is not required!' } });
-                  }
-                } else {
-                  // else return 400 bad request
-                  return throwError({ error: { message: 'Invalid User' } });
-                }
-              } else {
-                // return 401 not authorised if token is null or invalid
-                return throwError({ status: 401, error: { message: 'Unauthorised' } });
-              }
-            }
 
             // delete user
             if (request.url.match(/\/users\/\d+$/) && request.method === 'DELETE') {
@@ -182,6 +198,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 return throwError({ status: 401, error: { message: 'Unauthorised' } });
               }
             }
+
+            //Create Story
+            // 'https://placeimg.com/640/480/any', 'the corp 2 is coming', 'story/'
+
 
             // pass through any requests not handled above
             return next.handle(request);

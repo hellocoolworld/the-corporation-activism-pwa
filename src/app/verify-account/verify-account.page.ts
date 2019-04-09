@@ -13,6 +13,7 @@ import { AuthService, ToastService } from '../_services';
 })
 export class VerifyAccountPage implements OnInit {
   verifyForm: FormGroup;
+  returnUrl: string;
 
   constructor(
     private router: Router,
@@ -22,7 +23,7 @@ export class VerifyAccountPage implements OnInit {
     private _toast: ToastService
     ) {
     }
-
+ 
   ngOnInit() {
     this.verifyForm = this.fb.group({
       'verificationCode': ['', [
@@ -31,6 +32,9 @@ export class VerifyAccountPage implements OnInit {
         Validators.minLength(4)
       ]]
     });
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
 
@@ -44,7 +48,8 @@ export class VerifyAccountPage implements OnInit {
       .pipe(first())
       .subscribe(
         res => {
-          this.router.navigate(['/']);
+          this._toast.success('Account Verified Succesfully', true);
+          this.router.navigate([this.returnUrl]);
           },
         err => {
             this._toast.error(err, true);
