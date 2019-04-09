@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from '../../_models';
@@ -9,26 +9,18 @@ import { UserService, AuthService } from '../../_services';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
   currentUser: User;
-  currentUserSubscription: Subscription;
 
   constructor(
     private router: Router,
     private _auth: AuthService,
     private _user: UserService
     ) {
-      this.currentUserSubscription = this._auth.currentUser.subscribe(
-        res => {
-          this.currentUser = res;
-        });
+      this.currentUser = this._auth.currentUserValue;
     }
 
   ngOnInit() {
   }
 
-  ngOnDestroy() {
-    // unsubscribe to ensure no memory leaks
-    this.currentUserSubscription.unsubscribe();
-  }
 }
