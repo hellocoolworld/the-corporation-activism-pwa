@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'user', loadChildren: './user/user.module#UserPageModule' },
   { path: 'verify-account', loadChildren: './verify-account/verify-account.module#VerifyAccountPageModule' },
   { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
-
+  
     // otherwise redirect to home
     // { path: '**', redirectTo: '' }
 

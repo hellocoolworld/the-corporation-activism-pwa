@@ -14,6 +14,7 @@ export class PrivacyPolicyPage {
   constructor(private modalController: ModalController) { }
 
   dismiss(): void {
+
     this.modalController.dismiss();
   }
 }

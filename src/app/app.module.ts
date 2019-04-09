@@ -12,10 +12,13 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './_components/components.module';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 
+import { TermsOfServicePage } from './terms-of-service/terms-of-service.page';
+import { PrivacyPolicyPage } from './privacy-policy/privacy-policy.page';
+
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
 
-
+ 
 
 @NgModule({
   imports: [
@@ -28,7 +31,7 @@ import { fakeBackendProvider } from './_helpers';
   ],
 
   declarations: [
-    AppComponent
+    AppComponent, TermsOfServicePage, PrivacyPolicyPage
   ],
 
   providers: [
@@ -42,7 +45,7 @@ import { fakeBackendProvider } from './_helpers';
 
   exports: [],
 
-  entryComponents: [],
+  entryComponents: [TermsOfServicePage, PrivacyPolicyPage],
 
   bootstrap: [AppComponent]
 })

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 import { User } from '../_models';
 import { AuthService } from '../_services';
 
-
+ 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

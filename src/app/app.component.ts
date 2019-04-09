@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { Platform, ModalController } from '@ionic/angular';
 
 import { AuthService } from './_services';
 import { User } from './_models';
+
+import { TermsOfServicePage } from './terms-of-service/terms-of-service.page';
+import { PrivacyPolicyPage } from './privacy-policy/privacy-policy.page';
 
 
 @Component({
@@ -17,7 +20,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private router: Router,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private modalController: ModalController
   ) {
     this.initializeApp();
   }
@@ -44,4 +48,20 @@ export class AppComponent {
       window.open('https://instagram.com', '_blank');
     }
   }
+
+  async showTermsModal() {
+    const modal = await this.modalController.create({
+      component: TermsOfServicePage
+    });
+    return await modal.present();
+  }
+
+  async showPrivacyModal() {
+    const modal = await this.modalController.create({
+      component: PrivacyPolicyPage
+    });
+    return await modal.present();
+  }
+
+
 }
