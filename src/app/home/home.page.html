@@ -17,7 +17,7 @@
       <ion-card-title text-uppercase text-center>Be part of the crowd</ion-card-title>
     </ion-card-header>
 
-    <ion-card-content *ngIf="!_auth.currentUserValue">
+    <ion-card-content *ngIf="!currentUser">
       <p text-center>
         Join supporters of The Corporation films to take a stand against
         corporate power.
@@ -28,9 +28,9 @@
       <p text-center>or <a href="login">Login</a></p>
     </ion-card-content>
 
-    <ion-card-content *ngIf="_auth.currentUserValue">
+    <ion-card-content *ngIf="currentUser">
         <p text-center>
-          Welcome back {{_auth.currentUserValue.displayName}}!
+          Welcome back {{currentUser.displayName}}!
         </p>
       </ion-card-content>
     </ion-card>

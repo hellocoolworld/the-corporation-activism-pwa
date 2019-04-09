@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   loading = false;
   returnUrl: string;
-
+  
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -23,19 +23,22 @@ export class LoginPage implements OnInit {
     private _auth: AuthService,
     private _toast: ToastService
   ) {
-    if (this._auth.currentUserValue) {
+    let currentUser = this._auth.currentUserValue;
+    if (currentUser) {
       // if user is loged in and not verified
       // redirect to verify-user page
-      if (!this._auth.currentUserValue.isVerified) {
+      if (!currentUser.isVerified) {
         this.router.navigate(['/verify-account']);
+
       } else {
-        // redirect to home if already logged in
+        // redirect to home if already logged in and Verified
         this.router.navigate(['/']);
       }
     }
   }
 
   ngOnInit() {
+    
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]]
