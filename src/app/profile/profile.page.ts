@@ -16,7 +16,7 @@ export class ProfilePage implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     if (this.route && this.route.data) {
       // We resolved a promise for the data Observable
       const promiseObservable = this.route.data;
@@ -29,7 +29,7 @@ export class ProfilePage implements OnInit {
 
           if (dataObservable) {
             dataObservable.subscribe(observableValue => {
-              const pageData: UserProfileModel = observableValue;
+              const pageData: User = observableValue;
               // tslint:disable-next-line:max-line-length
               console.log('Subscribe to dataObservable (can emmit multiple values) => PageData (' + ((pageData && pageData.isShell) ? 'SHELL' : 'REAL') + '): ', pageData);
               // As we are implementing an App Shell architecture, pageData will be firstly an empty shell model,
