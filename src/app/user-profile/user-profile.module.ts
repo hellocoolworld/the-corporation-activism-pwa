@@ -4,14 +4,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { UserAccountPage } from './user-account.page';
-import { UserService } from '../../_services';
-import { ComponentsModule } from '../../_components/components.module';
+import { UserProfilePage } from './user-profile.page';
+import { UserService } from '../_services';
+import { ComponentsModule } from '../_components/components.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: UserAccountPage
+    component: UserProfilePage
   }
 ];
 
@@ -24,9 +24,9 @@ const routes: Routes = [
     ComponentsModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [UserAccountPage],
+  declarations: [UserProfilePage],
   providers: [
     UserService
   ]
 })
-export class UserAccountPageModule {}
+export class UserProfilePageModule {}

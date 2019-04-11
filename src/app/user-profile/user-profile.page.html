@@ -1,0 +1,39 @@
+<ht-header></ht-header>
+
+<ion-content class="user-account-content">
+  <h2>Profile</h2>
+  <p>Customize what you share on Halo Tales.</p>
+
+  <form [formGroup]="UserProfileForm" (ngSubmit)="onSubmit()">
+    <ion-text><h3>Picture</h3></ion-text>
+    <ion-item class="input-item" (click)="testClick()" detail>
+      <ion-label text-wrap>
+        <p>Choose a photo from your device and take a new snapshot.</p>
+      </ion-label>
+      <ion-avatar slot="end" class="hydrated">
+        <img [src]="currentUser.imageUrl" />
+      </ion-avatar>
+    </ion-item>
+
+    <ion-text><h3>Display Name</h3></ion-text>
+    <ion-item class="input-item">
+      <ion-input
+        type="text"
+        formControlName="displayName"
+        class="formControl"
+        clearInput
+        autocapitalize="off"
+      ></ion-input>
+    </ion-item>
+
+    <ion-text><h3>Testimonial</h3></ion-text>
+    <ion-item class="input-item">
+      <ion-label position="floating">Did The Corporation film affect you?</ion-label>
+      <ion-textarea formControlName="testimonial" class="formControl" rows="3"></ion-textarea>
+    </ion-item>
+
+    <ion-button class="expanded-action-btn" type="submit" expand="block" [disabled]="UserProfileForm.invalid">
+      Update Your Public Profile
+    </ion-button>
+  </form>
+</ion-content>

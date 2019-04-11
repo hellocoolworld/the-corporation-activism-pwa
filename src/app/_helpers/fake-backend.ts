@@ -41,12 +41,17 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               newUser.id = users.length + 1;
               newUser.displayName = '';
               newUser.imageUrl = './assets/sample-images/user/person_'+newUser.id+'.jpg';
-              newUser.testimonial = 'It changed my life to a much healthier life style';
-              newUser.stories = ['3b9q40sdfklneg'];
-              newUser.pledges = ['123o87trqx4'];
+              newUser.testimonial = '';
+              newUser.stories = [Math.random().toString(36)];
+              newUser.pledges = [Math.random().toString(36), Math.random().toString(36)];
+              newUser.joinMailingList = false;
+              newUser.allowPushNotification = true;
+              newUser.allowEmailNotification = true;
+              newUser.isPrivateProfile = false;
               newUser.isVerified = false;
               newUser.verificationType = 'email';
               newUser.verificationCode = '1234';
+              newUser.token = token;
               newUser.createdAt = new Date();
               newUser.updatedAt = new Date();
               users.push(newUser);
@@ -65,22 +70,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
               if (filteredUsers.length) {
                 // if login details are valid return 200 OK with user details and fake jwt token
-                const user = filteredUsers[0];
-                const body = {
-                  id: user.id,
-                  email: user.email,
-                  password: user.password,
-                  displayName: user.displayName,
-                  imageUrl: user.imageUrl,
-                  testimonial: user.testimonial,
-                  stories: user.stories,
-                  pledges: user.pledges,
-                  isVerified: user.isVerified,
-                  verificationType: user.verificationType,
-                  verificationCode: user.verificationCode,
-                  token: token
-                };
-
+                const body =  filteredUsers[0];
+                
                 return of(new HttpResponse({ status: 200, body: body }));
               } else {
                 // else return 400 bad request
@@ -98,7 +89,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 });
 
                 if (filteredUsers.length) {
-                  // if login details are valid return 200 OK with user details and fake jwt token
+                  // if user found
                   const user = filteredUsers[0];
                   if (user.verificationType === 'email') {
                     if (user.verificationCode === request.body.verificationCode) {
@@ -107,22 +98,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                       filteredUsers[0].verificationCode = null;
                       localStorage.setItem('users', JSON.stringify(users));
 
-                      user.isVerified = true;
-                      user.verificationCode = null;
-
-                      const body = {
-                        id: user.id,
-                        email: user.email,
-                        displayName: user.displayName,
-                        imageUrl: user.imageUrl,
-                        testimonial: user.testimonial,
-                        stories: user.stories,
-                        pledges: user.pledges,
-                        isVerified: user.isVerified,
-                        verificationType: user.verificationType,
-                        verificationCode: user.verificationCode,
-                        token: token
-                      };
+                      const body =  filteredUsers[0];
                       return of(new HttpResponse({ status: 200, body: body }));
                     } else {
                       // else return 400 bad request
@@ -173,6 +149,48 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               }
             }
 
+            // update user 
+            if (request.url.endsWith('/users') && request.method === 'PUT') {
+              // if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+
+              // find user by id in users array
+                const filteredUsers = users.filter(user => {
+                  return user.id === request.body.id;
+                });
+
+                if (filteredUsers.length) {
+                  // if user found
+                  if (filteredUsers[0].isVerified) {
+                      // save changes
+                      filteredUsers[0].email = request.body.email;
+                      filteredUsers[0].password = request.body.password;
+                      filteredUsers[0].displayName = request.body.displayName;
+                      filteredUsers[0].imageUrl = request.body.imageUrl;
+                      filteredUsers[0].testimonial = request.body.testimonial;
+                      filteredUsers[0].stories = request.body.stories;
+                      filteredUsers[0].pledges = request.body.pledges;
+                      filteredUsers[0].joinMailingList = request.body.joinMailingList;
+                      filteredUsers[0].allowPushNotification = request.body.allowPushNotification;
+                      filteredUsers[0].allowEmailNotification = request.body.allowEmailNotification;
+                      filteredUsers[0].isPrivateProfile = request.body.isPrivateProfile;
+                      localStorage.setItem('users', JSON.stringify(users));
+
+
+                      const body =  filteredUsers[0];
+                      return of(new HttpResponse({ status: 200, body: body }));
+
+                    } else {
+                    // else return 400 bad request
+                    return throwError({ error: { message: 'You must verify your account first!' } });
+                  }
+                } else {
+                  // else return 400 bad request
+                  return throwError({ error: { message: 'Invalid User' } });
+                }              // } else {
+              //   // return 401 not authorised if token is null or invalid
+              //   return throwError({ status: 401, error: { message: 'Unauthorised' } });
+              // }
+            }
 
             // delete user
             if (request.url.match(/\/users\/\d+$/) && request.method === 'DELETE') {

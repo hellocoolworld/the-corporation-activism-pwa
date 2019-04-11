@@ -49,7 +49,16 @@
     --ion-color-medium-tint: #a2a4ab;
     }
 
-  @include ion-color('darkest') {
+    @include ion-color('medium-dark') {
+      --ion-color-medium-dark: #666666;
+      --ion-color-medium-dark-rgb: 102,102,102;
+      --ion-color-medium-dark-contrast: #ffffff;
+      --ion-color-medium-dark-contrast-rgb: 255,255,255;
+      --ion-color-medium-dark-shade: #5a5a5a;
+      --ion-color-medium-dark-tint: #757575;
+      }
+
+      @include ion-color('darkest') {
     --ion-color-darkest: #000000;
     --ion-color-darkest-rgb: 0,0,0;
     }

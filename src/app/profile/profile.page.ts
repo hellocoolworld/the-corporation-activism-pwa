@@ -1,24 +1,18 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../_models';
 
-import { UserProfileModel } from './user-profile.model';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.page.html',
+  selector: 'app-profile',
+  templateUrl: './profile.page.html',
   styleUrls: [
-    './styles/user-profile.page.scss',
-    './styles/user-profile.shell.scss',
-    './styles/user-profile.ios.scss',
-    './styles/user-profile.md.scss'
+    './styles/profile.page.scss',
   ],
 })
-export class UserProfilePage implements OnInit {
-  profile: UserProfileModel;
+export class ProfilePage implements OnInit {
+  profile: User;
 
-  @HostBinding('class.is-shell') get isShell() {
-    return (this.profile && this.profile.isShell) ? true : false;
-  }
 
   constructor(private route: ActivatedRoute) { }
 

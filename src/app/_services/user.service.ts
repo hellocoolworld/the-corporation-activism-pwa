@@ -1,13 +1,13 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 import { User } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-    // private apiBaseURL: String = 'https://www.halotales.com/api';
-    // private apiBaseURL: String = '../../assets/mock-data';
-    private apiBaseURL: String = '/api';
+    private apiBaseURL: String = 'https://www.halotales.com/api';
+    // private apiBaseURL: String = '/api';
 
     constructor(private http: HttpClient) { }
 
@@ -24,7 +24,13 @@ export class UserService {
     }
 
     update(user: User) {
-        return this.http.put(`${this.apiBaseURL}/users/${user.id}`, user);
+//        return this.http.put(`${this.apiBaseURL}/users/${user.id}`, user).pipe(
+        return this.http.put(`${this.apiBaseURL}/users`, user).pipe(
+            map(user => {
+                // store user details in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify(user));
+            })
+        );
     }
 
     delete(id: number) {

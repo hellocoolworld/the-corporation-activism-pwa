@@ -11,20 +11,44 @@
   --padding-top: var(--page-margin);
   --padding-bottom: var(--page-margin);
 
+  ion-item-group {
+    ion-item-divider {
+      background-color: white;
+      color: var(--ion-color-secondary);
+      padding-left: 0;
+      font-weight: 600;
+      ion-label {
+        font-family: var(--ion-header-font-family, inherit); 
+      }
+    }
+    ion-item {
+      ion-label {
+        line-height: 1.25;
+        color: var(--ion-color-medium-dark);
+      }
+    }
+    ion-note {
+      font-size: 14px;
+      color: var(--ion-color-medium);
+      line-height: 1.25;
+    }
+  }
+
   form {
+    padding-top: var(--page-margin);
     padding-bottom: var(--page-margin);
-
-    .inputs-list {
-      margin-bottom: calc(var(--page-margin) / 2);
-
       .input-item {
         --padding-start: 0px;
         --padding-end: 0px;
         --inner-padding-end: 0px;
-        h3 {
-          color: var(--ion-color-secondary);
-          text-align: left;
-          font-size: 0.9rem;
+        ion-label {
+          font-size: 1rem;
+          color: var(--ion-color-medium);
+        }
+        .formControl {
+          font-size: 1rem;
+          color: var(--ion-color-dark);
+          
         }
       }
 
@@ -41,7 +65,9 @@
           }
         }
       }
-    }
+      ion-button {
+        margin-top: var(--page-margin);
+      }
   }
 
 }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { first } from 'rxjs/operators';
 
 import { AuthService, ToastService } from '../_services';
+import { User } from '../_models';
 
 @Component({
   selector: 'app-verify-account',
@@ -13,15 +14,21 @@ import { AuthService, ToastService } from '../_services';
 })
 export class VerifyAccountPage implements OnInit {
   verifyForm: FormGroup;
+  currentUser: User;
   returnUrl: string;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private fb: FormBuilder,
     private _auth: AuthService,
     private _toast: ToastService
     ) {
+      this.currentUser = this._auth.currentUserValue;
+      if (!this.currentUser) {
+        // if user is not logged in forward to login page
+        this.router.navigate(['login']); 
+        return;
+      }  
     }
  
   ngOnInit() {
@@ -32,9 +39,6 @@ export class VerifyAccountPage implements OnInit {
         Validators.minLength(4)
       ]]
     });
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
 
@@ -48,8 +52,8 @@ export class VerifyAccountPage implements OnInit {
       .pipe(first())
       .subscribe(
         res => {
-          this._toast.success('Account Verified Succesfully', true);
-          this.router.navigate([this.returnUrl]);
+          this._toast.success('Account Verified Succesfully', false, 1000);
+          this.router.navigate(['/user/profile']);
           },
         err => {
             this._toast.error(err, true);
