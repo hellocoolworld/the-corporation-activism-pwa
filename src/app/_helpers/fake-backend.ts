@@ -38,12 +38,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               }
 
               // save new user
-              newUser.id = users.length + 1;
+              newUser.id = Math.random().toString(20).substring(2);
               newUser.displayName = '';
-              newUser.imageUrl = './assets/sample-images/user/person_'+newUser.id+'.jpg';
+              newUser.imageUrl = './assets/sample-images/user/person_' + (users.length + 1) + '.jpg';
               newUser.testimonial = '';
-              newUser.stories = [Math.random().toString(36)];
-              newUser.pledges = [Math.random().toString(36), Math.random().toString(36)];
+              newUser.stories = [Math.random().toString(20).substring(2)];
+              newUser.pledges = [Math.random().toString(20).substring(2), Math.random().toString(20).substring(2)];
               newUser.joinMailingList = false;
               newUser.allowPushNotification = true;
               newUser.allowEmailNotification = true;
@@ -131,22 +131,23 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             }
 
             // get user by id
-            if (request.url.match(/\/users\/\d+$/) && request.method === 'GET') {
+            if (request.url.includes('/users') && request.method === 'GET') {
               // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
-              if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+//              if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                 // find user by id in users array
                 const urlParts = request.url.split('/');
-                const id = parseInt(urlParts[urlParts.length - 1]);
+                const id = urlParts[urlParts.length - 1];
+                // find user by id in users array
                 const matchedUsers = users.filter(user => {
                   return user.id === id;
                 });
                 const user = matchedUsers.length ? matchedUsers[0] : null;
 
                 return of(new HttpResponse({ status: 200, body: user }));
-              } else {
-                // return 401 not authorised if token is null or invalid
-                return throwError({ status: 401, error: { message: 'Unauthorised' } });
-              }
+              // } else {
+              //   // return 401 not authorised if token is null or invalid
+              //   return throwError({ status: 401, error: { message: 'Unauthorised' } });
+              // }
             }
 
             // update user 

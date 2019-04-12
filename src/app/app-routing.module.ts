@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'reset-password', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },
   { path: 'user', loadChildren: './user/user.module#UserPageModule' },
   { path: 'verify-account', loadChildren: './verify-account/verify-account.module#VerifyAccountPageModule' },
+  { path: 'profile/:id', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
   
     // otherwise redirect to home

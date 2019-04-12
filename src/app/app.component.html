@@ -14,12 +14,12 @@
             <ion-label>Home</ion-label>
           </ion-item>
 
-          <ion-item href="/stories">
+          <!-- <ion-item href="/stories">
             <ion-icon slot="start" name="text"></ion-icon>
             <ion-label>Stories</ion-label>
-          </ion-item>
+          </ion-item> -->
 
-          <ion-item href="/user-profile" *ngIf="currentUser">
+          <ion-item [routerLink]="['/profile', currentUser.id]" *ngIf="currentUser">
             <ion-icon slot="start" name="contact"></ion-icon>
             <ion-label>My Profile</ion-label>
           </ion-item>
