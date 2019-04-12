@@ -1,24 +1,48 @@
-@import "../../../../theme/mixins/scrollbars";
 
 // Custom variables
 // Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
 :host {
-  --page-margin: var(--app-narrow-margin);
+  --page-margin: var(--app-broad-margin);
   --page-border-radius: var(--app-fair-radius);
-
-  --page-actions-padding: 5px;
-  --page-friends-gutter: calc(var(--page-margin) / 2);
-  --page-pictures-gutter: calc(var(--page-margin) / 2);
 }
 
 // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
-.user-details-section {
-  --ion-grid-column-padding: 0px;
+.user-profile-content {
+  --padding-start: var(--page-margin);
+  --padding-end: var(--page-margin);
+  --padding-top: var(--page-margin);
+  --padding-bottom: var(--page-margin);
 
-  margin: var(--page-margin);
+  ion-avatar {
+    // text-align: center;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .profile-data-wrapper {
+    margin-top: calc(var(--page-margin));
+    ion-segment-button {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5em;
+      &:first-of-type {
+        border-bottom-left-radius: 0;
+      }
+      &:last-of-type {
+        border-bottom-right-radius: 0;
+      }
+    }
+    .profile-data {
+      border-left: 1px solid var(--ion-color-primary);
+      border-bottom: 1px solid var(--ion-color-primary);
+      border-right: 1px solid var(--ion-color-primary);
 
-  .user-image-wrapper {
-    max-width: 26%;
+      border-bottom-right-radius: var(--app-fair-radius);
+      border-bottom-left-radius: var(--app-fair-radius);
+
+      .testimonial {
+        padding: 1rem 2rem;
+      }
+    }
   }
 
   .user-info-wrapper {
@@ -178,7 +202,6 @@
     margin-left: calc(var(--page-margin) * -1);
     margin-right: calc(var(--page-margin) * -1);
 
-    @include hide-scrollbars();
 
     &::before,
     &::after {
