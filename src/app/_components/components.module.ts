@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { HeaderComponent } from './header/header.component';
+import { FooterAdComponent } from './footer-ad/footer-ad.component';
 
 import { AspectRatioComponent } from './aspect-ratio/aspect-ratio.component';
 import { TextShellComponent } from './text-shell/text-shell.component';
@@ -27,6 +28,7 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     ImageShellComponent,
 
     HeaderComponent,
+    FooterAdComponent, 
 
     CheckboxWrapperComponent,
     ShowHidePasswordComponent,
@@ -40,7 +42,8 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     ImageShellComponent,
 
     HeaderComponent,
-
+    FooterAdComponent, 
+    
     CheckboxWrapperComponent,
     ShowHidePasswordComponent,
     CountdownTimerComponent,
