@@ -10,7 +10,6 @@
     joinMailingList: boolean;
     allowPushNotification: boolean;
     allowEmailNotification: boolean;
-    isPrivateProfile: boolean;
     token: string;
     isVerified: boolean;
     verificationType: string;

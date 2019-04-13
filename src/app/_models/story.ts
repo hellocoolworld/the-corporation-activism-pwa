@@ -1,4 +1,4 @@
-﻿export enum storyType
+﻿export enum StoryType
     {
         video,
         image,
@@ -6,18 +6,22 @@
     }
 export class Story {
     id: string;
-    type: storyType;
+    type: StoryType;
     vimeoCode: string;
+    aspectRatio: string;
     image: string;
     title: string;
     slug: string;
     summary: string;
     authorName: string;
+    authorImg: string;
+    authorBioSummary: string;
+    authorBioFull: string;
     authorId: string;
     views: number;
     likes: number;
     comments: number;
-    takeActionHeader: string;
+    takeActionSummary: string;
     takeActionBody: string;
     body: string;
     pledgesCount: number;

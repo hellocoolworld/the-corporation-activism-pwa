@@ -1,15 +1,12 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ShellProvider } from '../_utils/shell-provider';
 
 import { User } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-    private _profileDataWithShellCache: ShellProvider<User>;
     private _apiBaseURL: String = 'https://www.halotales.com/api';
 
     constructor(private http: HttpClient) { }
@@ -32,7 +29,7 @@ export class UserService {
         );
     }
 
-    delete(id: number) {
+    delete(id: string) {
         return this.http.delete(`${this._apiBaseURL}/users/${id}`);
     }
 }

@@ -1,4 +1,4 @@
-﻿export class User {
+﻿export class Pledge {
     id: string;
     userId: string;
     storyId: string;
