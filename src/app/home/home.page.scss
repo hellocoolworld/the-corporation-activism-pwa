@@ -1,37 +1,58 @@
-.profile {
-    border-style: solid !important;
-    border-radius:50% !important;
-    border-width: 2px !important;
-    width: 100px !important;
-    margin: auto;
-    display: block;
+:host {
+  --page-margin: var(--app-broad-margin);
 }
 
-.logo {
-  border-style: solid !important;
-  border-radius:20% !important;
-  border-width: 1px !important;
-  width: 100px !important;
-  margin: auto;
-  display: block;
+.story-wrapper {
+  margin-bottom: var(--page-margin);
+
+  .story-header {
+    min-height: 200px;
+    position: relative;
+
+    ion-grid.story-title {
+      background-color: rgba(0,0,0,0.5);
+      position: absolute;
+      bottom: 0px;
+      margin-bottom: 3px;
+
+      h3 {
+        margin: 0;
+        color: white;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+      .pledge-count {
+        text-align: right;
+        ion-icon {
+          color: rgb(255, 204, 85);
+        }
+      }
+    }
+  }
+  .story-meta {
+    .authoring-info {
+      font-size: 0.8rem;
+      padding-bottom: 0.25rem;
+    }
+    .story-in-numbers {
+      display: flex;
+      font-size: 0.75rem;
+      color: var(--ion-color-medium-dark);
+
+      div {
+        display: flex;
+        align-items: center;
+        padding-right: 1.5rem;
+        ion-icon {
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+  .summary {
+    color: var(--ion-color-medium-dark);
+    font-size: 0.9rem;
+  }
 }
 
-.banner {
-  width: 100% !important;
-  max-width: 500px;
-  margin: auto;
-  display: block;
-}
-
-.top {
-  background-color: #69809A; 
-}
-
-.fw900 {
-  font-weight: 900 !important;
-}
-
-.text-accent {
-  color: #fc0606 !important;
-}
 
