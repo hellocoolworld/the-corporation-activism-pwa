@@ -1,0 +1,91 @@
+<ht-header></ht-header>
+
+<ion-content class="story-details-content">
+  <div [style]="sanatizeVideoResponsiveStyles(story.aspectRatio)">
+    <iframe
+      [src]="sanatizeVideoUrl(story.vimeoCode)"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+
+  <h2>{{ story.title }}</h2>
+  <p>{{ story.summary }}</p>
+  <ion-item (click)="loadAuthorBio()" detail lines="none" class="author-info">
+    <ion-avatar slot="start">
+      <img [src]="story.authorImg" />
+    </ion-avatar>
+    <ion-label text-wrap>
+      <h4>{{ story.authorName }}</h4>
+      <p>{{ story.authorBioSummary }}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item class="story-meta" lines="none">
+    <ion-label>
+      <div class="story-in-numbers">
+        <div class="likes">
+          <ion-icon name="heart"></ion-icon>
+          {{ story.likes }}
+        </div>
+        <div class="views">
+          <ion-icon name="eye"></ion-icon>
+          {{ story.views }}
+        </div>
+        <div class="comments">
+          <ion-icon name="text"></ion-icon>
+          {{ story.comments }}
+        </div>
+        <div class="share">
+          <ion-icon name="share-alt"></ion-icon>
+          SHARE
+        </div>
+      </div>
+    </ion-label>
+  </ion-item>
+
+  <hr *ngIf="story.body !== ''" />
+  <div *ngIf="story.body !== ''" class="story-body-section" [innerHTML]="sanatizeHTML(story.body)"></div>
+
+  <hr />
+  <div class="story-body-section">
+    <h3>Take Action to Support This Story</h3>
+    <p>{{ story.takeActionSummary }}</p>
+    <div [innerHTML]="sanatizeHTML(story.takeActionBody)"></div>
+  </div>
+
+  <div class="published-date">
+    {{ story.updatedAt }}
+  </div>
+
+  <ht-footer-ad></ht-footer-ad>
+</ion-content>
+<ion-footer>
+  <ion-grid class="pledge-bar-wrapper">
+    <ion-row>
+      <ion-col size="6" class="total-pledges">
+        <div class="total-pledges-icon">
+          <ion-icon name="trophy" size="large"></ion-icon>
+          <ion-badge color="primary">{{ story.pledgesCount }}</ion-badge>
+        </div>
+        <div class="total-pledges-title">
+          Action Pledges
+          <br />
+          on this Story
+        </div>
+      </ion-col>
+      <ion-col size="6" class="action-buttons-col">
+        <ion-buttons class="action-buttons">
+          <ion-button fill="solid" class="add-your-pledge" (click)="showAddPledgeModal()">
+            Add your Pledge
+          </ion-button>
+          <ion-button fill="solid" color="secondary">
+            <ion-icon name="help-circle"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
