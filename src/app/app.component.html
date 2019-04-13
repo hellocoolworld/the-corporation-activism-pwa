@@ -18,7 +18,10 @@
             <ion-icon slot="start" name="text"></ion-icon>
             <ion-label>Stories</ion-label>
           </ion-item> -->
-
+          <ion-item href="/about">
+            <ion-icon slot="start" name="information-circle"></ion-icon>
+            <ion-label>About</ion-label>
+          </ion-item>
           <ion-item [routerLink]="['/profile', currentUser.id]" *ngIf="currentUser">
             <ion-icon slot="start" name="contact"></ion-icon>
             <ion-label>My Profile</ion-label>
@@ -63,13 +66,12 @@
         <h2 padding>Visit <a href="https://thecorporation.com" target="_blank">TheCorporation.com</a></h2>
       </ion-text>
 
-      <ion-text  >
         <p padding text-center small>Copyright 2019 <br>
           <a class="legal-action" (click)="showPrivacyModal()">Privacy Policy</a> &bull;
-          <a class="legal-action" (click)="showTermsModal()">Terms of use</a>
+          <a class="legal-action" (click)="showTermsModal()">Terms of use</a><br>
+          Site by <a href="https://hellocoolworldmedia.com">Hello Cool World</a>
       </p>
     
-      </ion-text>
 
     </ion-content>
   </ion-menu>
