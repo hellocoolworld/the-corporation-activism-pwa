@@ -17,6 +17,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // array in local storage for registered users
     const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
+
     const token =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1vc2ggSGFtZWRhbmkiLCJhZG1pbiI6dHJ1ZX0.iy8az1ZDe-_hS8GLDKsQKgPHvWpHl0zkQBqy1QIPOkA';
 
@@ -47,7 +48,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               newUser.joinMailingList = false;
               newUser.allowPushNotification = true;
               newUser.allowEmailNotification = true;
-              newUser.isPrivateProfile = false;
               newUser.isVerified = false;
               newUser.verificationType = 'email';
               newUser.verificationCode = '1234';
@@ -173,7 +173,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                       filteredUsers[0].joinMailingList = request.body.joinMailingList;
                       filteredUsers[0].allowPushNotification = request.body.allowPushNotification;
                       filteredUsers[0].allowEmailNotification = request.body.allowEmailNotification;
-                      filteredUsers[0].isPrivateProfile = request.body.isPrivateProfile;
                       localStorage.setItem('users', JSON.stringify(users));
 
 
@@ -218,8 +217,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               }
             }
 
-            //Create Story
-            // 'https://placeimg.com/640/480/any', 'the corp 2 is coming', 'story/'
+            
+
 
 
             // pass through any requests not handled above

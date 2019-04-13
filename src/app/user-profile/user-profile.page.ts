@@ -10,9 +10,7 @@ import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.page.html',
-  styleUrls: [
-    './styles/user-profile.page.scss'
-  ],
+  styleUrls: ['./user-profile.page.scss'],
 })
 export class UserProfilePage implements OnInit {
   UserProfileForm: FormGroup;

@@ -1,45 +1,75 @@
 <ht-header></ht-header>
 
 <ion-content>
-    <!-- <app-aspect-ratio [ratio]="{w: 1, h: 1}">
-        <app-image-shell class="user-image" animation="spinner" [src]="profile.userImage"></app-image-shell>
-      </app-aspect-ratio> -->
+  <div class="story-wrapper" *ngFor="let s of stories">
+    <a href="story/{{ s.slug }}">
+      <div class="story-header">
+        <ion-img [src]="s.image"></ion-img>
+        <ion-grid class="story-title" fixed>
+          <ion-row>
+            <ion-col size="10">
+              <h3>{{ s.title }}</h3>
+            </ion-col>
+            <ion-col size="2" class="pledge-count">
+              <ion-icon name="trophy" size="large"></ion-icon>
+              <ion-badge color="primary">{{ s.pledgesCount }}</ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </a>
+    <ion-item class="story-meta" lines="none">
+      <ion-avatar slot="start">
+        <img [src]="s.authorImg" />
+      </ion-avatar>
+      <ion-label>
+        <div class="authoring-info">{{ s.authorName }} &bull; {{ s.updatedAt }}</div>
+        <div class="story-in-numbers">
+          <div class="likes">
+            <ion-icon name="heart"></ion-icon>
+            {{ s.likes }}
+          </div>
+          <div class="views">
+            <ion-icon name="eye"></ion-icon>
+            {{ s.views }}
+          </div>
+          <div class="comments">
+            <ion-icon name="text"></ion-icon>
+            {{ s.comments }}
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
 
-    <ion-img src="https://placeimg.com/640/480/any" ></ion-img>
-    <h3>How do we empower People to fight</h3>
-    
-    <ion-img src="https://placeimg.com/640/480/animals"></ion-img>
-    <h3>The corporation 2 is Coming</h3>
+    <ion-item class="summary" lines="none">
+      <ion-label text-wrap>{{ s.summary }}</ion-label>
+    </ion-item>
+  </div>
 
   <!-- Join the Crowed div will be hidden if user logged in-->
   <ion-card>
     <ion-card-header>
-      <ion-card-title text-uppercase text-center>Be part of our crowd</ion-card-title>
+      <ion-card-title *ngIf="!currentUser" text-uppercase text-center>Be part of our crowd</ion-card-title>
+      <ion-card-title *ngIf="currentUser" text-uppercase text-center>Your are part of our crowd</ion-card-title>
     </ion-card-header>
 
     <ion-card-content *ngIf="!currentUser">
       <p text-center>
-        Join supporters of The Corporation films to take a stand against
-        corporate power.
+        Join supporters of The Corporation films to take a stand against corporate power.
       </p>
       <ion-button (click)="signUp()" expand="block" text-capitalize>
         Join our crowd
       </ion-button>
-      <p text-center>or <a href="login">Login</a></p>
+      <p text-center>
+        or
+        <a href="login">Login</a>
+      </p>
     </ion-card-content>
 
     <ion-card-content *ngIf="currentUser">
-        <p text-center>
-          Welcome back {{currentUser.displayName}}!
-        </p>
-      </ion-card-content>
-    </ion-card>
+      <p text-center>Welcome back {{ currentUser.displayName }}!</p>
+    </ion-card-content>
+  </ion-card>
 
-  <!-- <ion-fab id="fab" vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="share()">
-      <ion-icon name="share"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
-
-
+  <ht-footer-ad></ht-footer-ad>
 </ion-content>

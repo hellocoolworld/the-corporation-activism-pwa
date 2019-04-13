@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'verify-account', loadChildren: './verify-account/verify-account.module#VerifyAccountPageModule' },
   { path: 'profile/:id', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
+  { path: 'story/:slug', loadChildren: './story/details/details.module#DetailsPageModule' },
+  { path: 'stories', loadChildren: './story/listing/listing.module#ListingPageModule' },
   
     // otherwise redirect to home
     // { path: '**', redirectTo: '' }

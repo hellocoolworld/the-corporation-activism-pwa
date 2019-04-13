@@ -12,7 +12,7 @@ import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy.page';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
-  styleUrls: ['./styles/signup.page.scss'],
+  styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
 

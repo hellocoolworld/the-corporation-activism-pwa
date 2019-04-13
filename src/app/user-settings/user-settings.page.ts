@@ -14,9 +14,7 @@ import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-user-settings',
   templateUrl: './user-settings.page.html',
-  styleUrls: [
-    './styles/user-settings.page.scss'
-  ],
+  styleUrls: ['./user-settings.page.scss'],
 })
 export class UserSettingsPage implements OnInit {
   UserSettingsForm: FormGroup;

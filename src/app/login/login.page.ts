@@ -9,7 +9,7 @@ import { AuthService, ToastService } from '../_services';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./styles/login.page.scss']
+  styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;

@@ -7,9 +7,7 @@ import { ToastService } from '../_services';
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.page.html',
-  styleUrls: [
-    './styles/forgot-password.page.scss'
-  ]
+  styleUrls: ['./forgot-password.page.scss']
 })
 
 export class ForgotPasswordPage implements OnInit {
