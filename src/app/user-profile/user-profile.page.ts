@@ -40,7 +40,7 @@ export class UserProfilePage implements OnInit {
   ngOnInit() {
     this.UserProfileForm = this.fb.group(
       {
-        displayName: [this.currentUser.displayName, []],
+        displayName: [this.currentUser.displayName, [Validators.required]],
         testimonial: [this.currentUser.testimonial, []]
       }
     );

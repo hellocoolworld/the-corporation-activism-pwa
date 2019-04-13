@@ -24,7 +24,14 @@
         clearInput
         autocapitalize="off"
       ></ion-input>
-    </ion-item>
+    </ion-item> 
+    <div *ngIf="f.displayName.errors" class="error-container">
+        <div class="error-message" *ngIf="f.displayName.errors.required && f.displayName.touched">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          <span>Display Name is required.</span>
+        </div>
+      </div>
+
 
     <ion-text><h3>Testimonial</h3></ion-text>
     <ion-item class="input-item">
