@@ -12,9 +12,7 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './_components/components.module';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 
-import { TermsOfServicePage } from './terms-of-service/terms-of-service.page';
-import { PrivacyPolicyPage } from './privacy-policy/privacy-policy.page';
-import { AddPledgePage } from './add-pledge/add-pledge.page';
+import { PrivacyPolicyPage, TermsOfServicePage, AuthorBioPage, AddPledgePage, HelpActionPledgePage, HelpAvocadometerPage } from './_modals';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
@@ -35,7 +33,10 @@ import { fakeBackendProvider } from './_helpers';
     AppComponent, 
     TermsOfServicePage, 
     PrivacyPolicyPage,
-    AddPledgePage
+    AuthorBioPage, 
+    AddPledgePage,
+    HelpActionPledgePage, 
+    HelpAvocadometerPage
   ],
 
   providers: [
@@ -52,7 +53,10 @@ import { fakeBackendProvider } from './_helpers';
   entryComponents: [
     TermsOfServicePage, 
     PrivacyPolicyPage, 
-    AddPledgePage
+    AuthorBioPage,
+    AddPledgePage, 
+    HelpActionPledgePage, 
+    HelpAvocadometerPage
   ],
 
   bootstrap: [AppComponent]

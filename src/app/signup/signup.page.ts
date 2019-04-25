@@ -6,8 +6,7 @@ import { ModalController } from '@ionic/angular';
 import { first } from 'rxjs/operators';
 
 import { AuthService, UserService, ToastService } from '../_services';
-import { TermsOfServicePage } from '../terms-of-service/terms-of-service.page';
-import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy.page';
+import { PrivacyPolicyPage, TermsOfServicePage } from '../_modals';
 
 @Component({
   selector: 'app-signup',

@@ -6,22 +6,30 @@
   }
   
   // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
-  .add-pledge-content {
+  .modal-content {
     --background: var(--page-background);
     --padding-start: var(--page-margin);
     --padding-end: var(--page-margin);
     --padding-top: var(--page-margin);
     --padding-bottom: var(--page-margin);
   
+    .modal-title {
+      color: var(--ion-color-secondary);
+      margin: var(--page-margin) 0px calc(var(--page-margin) / 2);
+    }
   
     p {
       color: var(--ion-color-medium-dark);
-      text-align: center;
-      margin-bottom: 2rem;
+      margin: calc(var(--page-margin) / 2) 0px var(--page-margin);
+      font-size: 14px;
+      line-height: 20px;
     }
-    .share-buttons {
-      display: flex;
-      justify-content: space-evenly;
+    .author-image {
+      width: 200px;
+      border-radius: 100%;
+      float: left;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
     }
   }
   

@@ -103,26 +103,70 @@
     min-height: 200px;
     position: relative;
 
-    ion-grid.story-title {
+    h3.story-title {
       background-color: rgba(0,0,0,0.5);
       position: absolute;
       bottom: 0px;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 1rem;
+      width: 100%;
+    }
+  }
 
-      h3 {
-        margin: 0;
-        color: white;
-        font-size: 1.125rem;
-        font-weight: 600;
+  .story-action-summary {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0.75rem;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: var(--app-broad-radius);
+    
+    .pledges, .avocadometer {
+      padding-left: 1rem;
+      width: 50%;
+  
+      .header {
+        color: var(--ion-color-dark);
+        font-size: 0.8rem;
+        --background: none;
+        --padding-start: 0;
+        --inner-border-width: 0;
+        --min-height: 28px;
+        
+
+        ion-button {
+          color: var(--ion-color-dark);
+          text-transform: uppercase;
+          font-weight: 600;
+        }
       }
-      .pledge-count {
-        text-align: right;
+      .content {
+        --background: none;
+        --padding-start: 0;
+        --inner-border-width: 0;
+        --min-height: 28px;
+        margin-bottom: 0.4rem;
+        
         ion-icon {
-          color: rgb(255, 204, 85);
+          color: var(--ion-color-secondary);
+          padding-right: 0.5rem;
+        }
+        ion-label {
+          color: var(--ion-color-dark);
+          font-weight: 600;
+          margin: 0;
         }
       }
     }
   }
+
+  .summary {
+    color: var(--ion-color-medium-dark);
+    font-size: 0.9rem;
+  }
+
   .story-meta {
     .authoring-info {
       font-size: 0.8rem;
@@ -142,10 +186,6 @@
         }
       }
     }
-  }
-  .summary {
-    color: var(--ion-color-medium-dark);
-    font-size: 0.9rem;
   }
 }
 

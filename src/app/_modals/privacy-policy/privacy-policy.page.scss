@@ -6,19 +6,19 @@
 }
 
 // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
-.legal-content {
+.modal-content {
   --background: var(--page-background);
   --padding-start: var(--page-margin);
   --padding-end: var(--page-margin);
   --padding-top: var(--page-margin);
   --padding-bottom: var(--page-margin);
 
-  .legal-title {
+  .modal-title {
     color: var(--ion-color-secondary);
     margin: var(--page-margin) 0px calc(var(--page-margin) / 2);
   }
 
-  .legal-text {
+  .modal-text {
     color: var(--ion-color-medium);
     margin: calc(var(--page-margin) / 2) 0px var(--page-margin);
     font-size: 14px;

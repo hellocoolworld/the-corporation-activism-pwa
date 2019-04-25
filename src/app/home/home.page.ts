@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 
 import { User, Story, StoryType } from '../_models';
 import { AuthService, StoryService } from '../_services';
+import { HelpActionPledgePage, HelpAvocadometerPage } from '../_modals';
 
  
 @Component({
@@ -17,7 +19,8 @@ export class HomePage implements OnInit {
   constructor(
     private router: Router,
     private _auth: AuthService,
-    private _story: StoryService
+    private _story: StoryService,
+    private modalController: ModalController
   ) {
     this.currentUser = this._auth.currentUserValue;
   }
@@ -49,6 +52,19 @@ export class HomePage implements OnInit {
 
   signUp() {
     this.router.navigate(['signup']);
+  }
+
+  async showHelpActionPledgeModal() {
+    const modal = await this.modalController.create({
+      component: HelpActionPledgePage
+    });
+    return await modal.present();
+  }
+  async showHelpAvocadometerModal() {
+    const modal = await this.modalController.create({
+      component: HelpAvocadometerPage
+    });
+    return await modal.present();
   }
 
 

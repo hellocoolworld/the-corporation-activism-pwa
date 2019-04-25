@@ -6,8 +6,8 @@ import { ModalController } from '@ionic/angular';
 import { MustMatch } from '../_validators/must-match.validator';
 import { ToastService, AuthService, UserService } from '../_services';
 import { User } from '../_models';
-import { TermsOfServicePage } from '../terms-of-service/terms-of-service.page';
-import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy.page';
+import { PrivacyPolicyPage, TermsOfServicePage } from '../_modals';
+
 import { first } from 'rxjs/operators';
 
 

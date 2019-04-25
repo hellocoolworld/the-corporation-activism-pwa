@@ -19,12 +19,12 @@ export class Story {
     authorBioFull: string;
     authorId: string;
     views: number;
-    likes: number;
+    avocados: number;
     comments: number;
+    pledgesCount: number;
     takeActionSummary: string;
     takeActionBody: string;
     body: string;
-    pledgesCount: number;
     tags: Array<{name: string, link: string}>;
     images: Array<{url: string}>;
     isPublished: boolean;

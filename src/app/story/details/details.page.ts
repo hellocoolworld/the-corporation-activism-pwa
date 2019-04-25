@@ -7,7 +7,7 @@ import { ModalController } from '@ionic/angular';
 import { StoryService, ToastService } from '../../_services';
 import { Story, StoryType } from '../../_models';
 
-import { AddPledgePage } from '../../add-pledge/add-pledge.page';
+import { AuthorBioPage, AddPledgePage } from '../../_modals';
 
 @Component({
   selector: 'app-details',
@@ -21,7 +21,7 @@ export class DetailsPage implements OnInit {
     private route: ActivatedRoute, 
     private _story: StoryService, 
     private _toast: ToastService,
-    public sanitizer: DomSanitizer,
+    private sanitizer: DomSanitizer,
     private modalController: ModalController
     ) { }
 
@@ -54,6 +54,17 @@ export class DetailsPage implements OnInit {
   }
   sanatizeHTML (html: string) {
     return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
+  async loadAuthorBio(storyId: string) {
+    console.log('id:', storyId);
+    const modal = await this.modalController.create({
+      component: AuthorBioPage,
+      componentProps: {
+        'storyId': storyId
+      }
+    });
+    return await modal.present();
   }
 
   async showAddPledgeModal() {

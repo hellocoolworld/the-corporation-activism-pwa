@@ -14,35 +14,13 @@
 
   <h2>{{ story.title }}</h2>
   <p>{{ story.summary }}</p>
-  <ion-item (click)="loadAuthorBio()" detail lines="none" class="author-info">
+  <ion-item (click)="loadAuthorBio(story.id)" [detail]="story.authorBioFull == '' ? false : true" lines="none" class="author-info">
     <ion-avatar slot="start">
       <img [src]="story.authorImg" />
     </ion-avatar>
     <ion-label text-wrap>
       <h4>{{ story.authorName }}</h4>
       <p>{{ story.authorBioSummary }}</p>
-    </ion-label>
-  </ion-item>
-  <ion-item class="story-meta" lines="none">
-    <ion-label>
-      <div class="story-in-numbers">
-        <div class="likes">
-          <ion-icon name="heart"></ion-icon>
-          {{ story.likes }}
-        </div>
-        <div class="views">
-          <ion-icon name="eye"></ion-icon>
-          {{ story.views }}
-        </div>
-        <div class="comments">
-          <ion-icon name="text"></ion-icon>
-          {{ story.comments }}
-        </div>
-        <div class="share">
-          <ion-icon name="share-alt"></ion-icon>
-          SHARE
-        </div>
-      </div>
     </ion-label>
   </ion-item>
 
