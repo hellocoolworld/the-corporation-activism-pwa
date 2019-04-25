@@ -5,8 +5,7 @@ import { Platform, ModalController } from '@ionic/angular';
 import { AuthService } from './_services';
 import { User } from './_models';
 
-import { TermsOfServicePage } from './terms-of-service/terms-of-service.page';
-import { PrivacyPolicyPage } from './privacy-policy/privacy-policy.page';
+import { PrivacyPolicyPage, TermsOfServicePage } from './_modals';
 
 
 @Component({
