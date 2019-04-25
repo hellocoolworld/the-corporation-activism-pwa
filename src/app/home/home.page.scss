@@ -2,6 +2,100 @@
   --page-margin: var(--app-broad-margin);
 }
 
+.home-splash {
+  height: 500px;
+  position: relative;
+
+  &.logged-out {
+    background: url(/assets/images/home-logged-out.jpg);
+    background-size: cover;
+  }
+  &.logged-in {
+    background: url(/assets/images/home-logged-in.jpg);
+    background-size: cover;
+  }
+  .main-user-avatar {
+    border-radius: 100%;
+    position: absolute;
+    top: 32%;
+    left: 32%;
+  }
+  ion-card {
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    border-radius: 0;
+    color: white;
+    width: 100%;
+    border-bottom: 4px solid var(--ion-color-secondary);
+
+    ion-card-header {
+      ion-card-title {
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1.25rem;
+      }
+    }
+    ion-card-content {
+      padding-top: 0;
+      text-align: center;
+      p {
+        margin-bottom: 1rem;
+      }
+      ion-button {
+        text-transform: uppercase;
+        --border-radius: var(--app-fair-radius);
+      }
+
+      .user-action-summary {
+        background-color: var(--ion-color-light);
+        border-radius: var(--app-broad-radius);
+        -webkit-box-shadow:0 0 10px white; 
+        -moz-box-shadow: 0 0 10px white; 
+        box-shadow:0 0 10px white;
+        h4 {
+          color: var(--ion-color-purple);
+          font-size: 1rem;
+          font-weight: 600;
+          padding: 1rem 0 0;
+        }
+        .action-wrapper {
+          display: flex;
+          justify-content: space-around;
+          color: var(--ion-color-purple);
+          padding-bottom: 1rem;
+
+          ion-item {
+            font-size: 0.8rem;
+            --background: none;
+            --padding-start: 0;
+            --inner-border-width: 0;
+            ion-icon {
+              margin:0 0.5rem 0 0;
+              font-size: 1.5rem;
+            }
+            ion-label, ion-label a {
+              margin: 0;
+              line-height: 1;
+              color: var(--ion-color-purple);
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.stories-section-intro {
+  margin:1rem;
+  p {
+    text-align: center;
+  }
+}
+
 .story-wrapper {
   margin-bottom: var(--page-margin);
 

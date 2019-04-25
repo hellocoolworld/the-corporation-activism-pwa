@@ -39,6 +39,13 @@ export class HomePage implements OnInit {
     );
   }
 
+  pledgesCount():number {
+    return this.currentUser.pledges.length;
+  }
+  storiesCount():number {
+    return this.currentUser.stories.length;
+  }
+
 
   signUp() {
     this.router.navigate(['signup']);

@@ -1,6 +1,71 @@
 <ht-header></ht-header>
 
 <ion-content>
+  <!-- <img src="/assets/images/avocado-pair.svg"><br>
+  <img src="/assets/images/avocado-open.svg"> -->
+  <div
+    class="home-splash logged-out"
+    [ngClass]="{
+      'logged-in': currentUser,
+      'logged-out': !currentUser
+    }"
+  >
+    <img *ngIf="currentUser" [src]="currentUser.imageUrl" [alt]="currentUser.displayName" class="main-user-avatar">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <ng-container *ngIf="currentUser; then titleLoggedIn; else titleLoggedOut"></ng-container>
+          <ng-template #titleLoggedIn>You are part of our crowd</ng-template>
+          <ng-template #titleLoggedOut>Be part of our crowd</ng-template>
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ng-container *ngIf="currentUser; then contentLoggedIn; else contentLoggedOut"></ng-container>
+        <ng-template #contentLoggedIn>
+          <div class="user-action-summary">
+            <h4>{{ currentUser.displayName }}</h4>
+            <div class="action-wrapper">
+              <ion-item class="testimonials">
+                <ion-icon slot="start" name="quote"></ion-icon>
+                <ion-label>
+                    <ng-container *ngIf="currentUser.testimonial != ''; then yesTestimonials; else noTestimonial"></ng-container>
+                    <ng-template #yesTestimonials><a [routerLink]="['/profile', currentUser.id]">Testimonial<br>given</a></ng-template>
+                    <ng-template #noTestimonial><a href="/user/profile">Add<br>testimonial</a></ng-template>
+                </ion-label>
+              </ion-item>
+              <ion-item class="pledges">
+                <ion-icon slot="start" name="trophy"></ion-icon>
+                <ion-label>{{ pledgesCount() }} Action<br>pledges</ion-label>
+              </ion-item>
+              <ion-item class="stories">
+                <ion-icon slot="start" name="videocam"></ion-icon>
+                <ion-label>
+                    <ng-container *ngIf="storiesCount() > 0; then yesStories; else noStories"></ng-container>
+                    <ng-template #yesStories>{{ storiesCount() }} Stories</ng-template>
+                    <ng-template #noStories><a href="">Add<br>story</a></ng-template>
+                </ion-label>
+              </ion-item>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #contentLoggedOut>
+          <p>
+            Join supporters of The Corporation films to take a stand against corporate power.
+          </p>
+          <ion-button (click)="signUp()" expand="block" color="secondary">
+            Join our crowd
+          </ion-button>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="stories-section-intro">
+    <h2>Watch Stories. Get Inspired.</h2>
+    <p>Watch stories and take action by people who were transformed by the film. Add your own story!</p>
+  </div>
+
   <div class="story-wrapper" *ngFor="let s of stories">
     <a href="story/{{ s.slug }}">
       <div class="story-header">
@@ -45,31 +110,6 @@
       <ion-label text-wrap>{{ s.summary }}</ion-label>
     </ion-item>
   </div>
-
-  <!-- Join the Crowed div will be hidden if user logged in-->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title *ngIf="!currentUser" text-uppercase text-center>Be part of our crowd</ion-card-title>
-      <ion-card-title *ngIf="currentUser" text-uppercase text-center>Your are part of our crowd</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content *ngIf="!currentUser">
-      <p text-center>
-        Join supporters of The Corporation films to take a stand against corporate power.
-      </p>
-      <ion-button (click)="signUp()" expand="block" text-capitalize>
-        Join our crowd
-      </ion-button>
-      <p text-center>
-        or
-        <a href="login">Login</a>
-      </p>
-    </ion-card-content>
-
-    <ion-card-content *ngIf="currentUser">
-      <p text-center>Welcome back {{ currentUser.displayName }}!</p>
-    </ion-card-content>
-  </ion-card>
 
   <ht-footer-ad></ht-footer-ad>
 </ion-content>
