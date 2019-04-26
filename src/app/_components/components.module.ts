@@ -15,6 +15,7 @@ import { ShowHidePasswordComponent } from './show-hide-password/show-hide-passwo
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 import { CounterInputComponent } from './counter-input/counter-input.component';
 import { RatingInputComponent } from './rating-input/rating-input.component';
+import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     ShowHidePasswordComponent,
     CountdownTimerComponent,
     CounterInputComponent,
-    RatingInputComponent
+    RatingInputComponent,
+    AddAvocadosComponent
   ],
   exports: [
     AspectRatioComponent,
@@ -48,7 +50,8 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     ShowHidePasswordComponent,
     CountdownTimerComponent,
     CounterInputComponent,
-    RatingInputComponent
+    RatingInputComponent,
+    AddAvocadosComponent
   ],
   entryComponents: [],
 })

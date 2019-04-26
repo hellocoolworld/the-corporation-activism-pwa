@@ -14,7 +14,12 @@
 
   <h2>{{ story.title }}</h2>
   <p>{{ story.summary }}</p>
-  <ion-item (click)="loadAuthorBio(story.id)" [detail]="story.authorBioFull == '' ? false : true" lines="none" class="author-info">
+  <ion-item
+    (click)="loadAuthorBio(story.id)"
+    [detail]="story.authorBioFull == '' ? false : true"
+    lines="none"
+    class="author-info"
+  >
     <ion-avatar slot="start">
       <img [src]="story.authorImg" />
     </ion-avatar>
@@ -24,14 +29,70 @@
     </ion-label>
   </ion-item>
 
-  <hr *ngIf="story.body !== ''" />
-  <div *ngIf="story.body !== ''" class="story-body-section" [innerHTML]="sanatizeHTML(story.body)"></div>
+  <ion-grid class="action-bar-wrapper">
+    <ion-row>
+      <ion-col size="6" class="pledges">
+        <ion-item class="header">
+          <ion-button slot="start" fill="clear" (click)="showHelpActionPledgeModal()">
+            Action Pledges
+            <ion-icon name="help-circle" slot="end"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-item class="content">
+          <div class="stats">
+            <ion-icon name="trophy" size="large"></ion-icon>
+            <ion-label>{{ pledgeCount }}</ion-label>
+          </div>
+        </ion-item>
+        <ion-button fill="solid" color="secondary" id="add-your-pledge" class="add-your-pledge" (click)="onAddYourPledge()">
+          Add your Pledge
+        </ion-button>
+        <div id="you-have-pledged" class="you-have-pledged hidden">
+          <h4>You've pledged!</h4>
+          <ion-button fill="clear" (click)="sharePledge()">
+            <ion-icon name="share-alt" slot="start"></ion-icon>
+            Share
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col size="6" class="avocadometer">
+        <ion-item class="header">
+          <ion-button slot="start" fill="clear" (click)="showHelpAvocadometerModal()">
+            Avocadometer
+            <ion-icon name="help-circle" slot="end"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-item class="content">
+          <div class="stats">
+            <ion-icon src="/assets/images/avocado-pair.svg" size="large"></ion-icon>
+            <ion-label>{{ avocados }}</ion-label>
+          </div>
+        </ion-item>
+        <h4>Add avocados:</h4>
+        <ht-add-avocados
+        [rating]="userAvocados"
+        (ratingChange)="onAddAvocados($event)"
+        ></ht-add-avocados>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <hr />
+  <div *ngIf="story.body !== ''" class="story-body-section" [innerHTML]="sanatizeHTML(story.body)"></div>
+  <hr *ngIf="story.body !== ''" />
+
   <div class="story-body-section">
     <h3>Take Action to Support This Story</h3>
     <p>{{ story.takeActionSummary }}</p>
     <div [innerHTML]="sanatizeHTML(story.takeActionBody)"></div>
+  </div>
+
+  <div class="share-buttons">
+    <ion-button class="social-sharing-btn" color="facebook" >
+      <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+    </ion-button>
+    <ion-button class="social-sharing-btn" color="twitter">
+      <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+    </ion-button>
   </div>
 
   <div class="published-date">
@@ -40,30 +101,3 @@
 
   <ht-footer-ad></ht-footer-ad>
 </ion-content>
-<ion-footer>
-  <ion-grid class="pledge-bar-wrapper">
-    <ion-row>
-      <ion-col size="6" class="total-pledges">
-        <div class="total-pledges-icon">
-          <ion-icon name="trophy" size="large"></ion-icon>
-          <ion-badge color="primary">{{ story.pledgesCount }}</ion-badge>
-        </div>
-        <div class="total-pledges-title">
-          Action Pledges
-          <br />
-          on this Story
-        </div>
-      </ion-col>
-      <ion-col size="6" class="action-buttons-col">
-        <ion-buttons class="action-buttons">
-          <ion-button fill="solid" class="add-your-pledge" (click)="showAddPledgeModal()">
-            Add your Pledge
-          </ion-button>
-          <ion-button fill="solid" color="secondary">
-            <ion-icon name="help-circle"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>

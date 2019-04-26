@@ -1,0 +1,10 @@
+.avocados {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    .avocado {
+      margin: 0px;
+      flex: 1;
+    }
+}

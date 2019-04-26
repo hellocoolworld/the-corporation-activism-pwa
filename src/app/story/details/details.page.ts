@@ -7,7 +7,7 @@ import { ModalController } from '@ionic/angular';
 import { StoryService, ToastService } from '../../_services';
 import { Story, StoryType } from '../../_models';
 
-import { AuthorBioPage, AddPledgePage } from '../../_modals';
+import { AuthorBioPage, AddPledgePage, HelpActionPledgePage, HelpAvocadometerPage } from '../../_modals';
 
 @Component({
   selector: 'app-details',
@@ -16,6 +16,11 @@ import { AuthorBioPage, AddPledgePage } from '../../_modals';
 })
 export class DetailsPage implements OnInit {
   story: Story = new Story;
+
+  //Fake data
+  pledgeCount: number;
+  avocados: number;
+  userAvocados: number;
 
   constructor(
     private route: ActivatedRoute, 
@@ -40,12 +45,37 @@ export class DetailsPage implements OnInit {
         },
         err => { 
           this._toast.error(err, true);
+        },
+        () => {
+          this.pledgeCount = this.story.pledgeCount;
+          this.avocados = this.story.avocados;
+          this.userAvocados = 2;
         }
       )
     });
-
   }
 
+  onAddYourPledge () {
+    this.pledgeCount += 1;
+    
+    this.showAddPledgeModal ();
+    
+    let addYourPledge = document.getElementById('add-your-pledge');
+    addYourPledge.classList.add("hidden");
+
+    let youHavePledged = document.getElementById('you-have-pledged');
+    youHavePledged.classList.remove("hidden"); 
+  }
+
+  onAddAvocados (e) {
+    if (e < this.userAvocados) {
+      this.avocados -= this.userAvocados - e;
+    } else if (e > this.userAvocados) {
+      this.avocados += e - this.userAvocados;
+    }
+    this.userAvocados = e;
+//    console.log(e);
+  }
   sanatizeVideoUrl (videoCode: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/' + videoCode);
   }
@@ -73,5 +103,19 @@ export class DetailsPage implements OnInit {
     });
     return await modal.present();
   }
+
+  async showHelpActionPledgeModal() {
+    const modal = await this.modalController.create({
+      component: HelpActionPledgePage
+    });
+    return await modal.present();
+  }
+  async showHelpAvocadometerModal() {
+    const modal = await this.modalController.create({
+      component: HelpAvocadometerPage
+    });
+    return await modal.present();
+  }
+
 
 }

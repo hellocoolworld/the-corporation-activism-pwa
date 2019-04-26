@@ -1,6 +1,6 @@
 :host {
-    --page-margin: var(--app-broad-margin);
-  }
+  --page-margin: var(--app-broad-margin);
+}
   
 .story-details-content {
   margin-bottom: var(--page-margin);
@@ -10,8 +10,8 @@
     margin: var(--page-margin);
   }
   h3 {
-      font-size: 1.125rem;
-      font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 600;
   }
   p {
     text-align: left;
@@ -19,94 +19,143 @@
   }
 
   .author-info {
-      ion-avatar {
-          align-self: flex-start;
-          margin-right: 1rem;
+    ion-avatar {
+      align-self: flex-start;
+      margin-right: 1rem;
+    }
+    ion-label {
+      margin-top: 0;
+      margin-bottom: 0;
+      h4{
+        font-weight: 600;
       }
-      ion-label {
-          margin-top: 0;
-          margin-bottom: 0;
-        h4{
-          font-weight: 600;
-        }
-        p {
-            margin: 0
-        }
+      p {
+        margin: 0
       }
+    }
   }
   .story-meta {
     ion-label {
-        margin-top: 0;
-        .story-in-numbers {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: var(--ion-color-medium-dark);
+      margin-top: 0;
+      .story-in-numbers {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        color: var(--ion-color-medium-dark);
 
-            div {
-            display: flex;
-            align-items: center;
-            ion-icon {
-                padding-right: 5px;
-            }
-            }
+        div {
+          display: flex;
+          align-items: center;
+          ion-icon {
+            padding-right: 5px;
+          }
         }
+      }
     }
-
   }
   .story-body-section {
-    margin: 0;
+    margin: calc(var(--page-margin) * 2) var(--page-margin);
     font-size: 1rem;
     line-height: 1.5;
-    margin: calc(var(--page-margin) / 2) var(--page-margin);
     p {
       margin: calc(var(--page-margin) / 2) 0;
     }
-
+  }
+  .share-buttons {
+    margin-left: var(--page-margin);
+    display: flex;
+    justify-content: flex-start;
+    ion-button {
+      --padding-end: 10px;
+      --padding-start: 10px;
+      ion-icon {
+        width: 24px;
+      }
+    }
   }
   .published-date {
-    margin: calc(var(--page-margin) * 2) var(--page-margin);
+    margin: calc(var(--page-margin) / 2) var(--page-margin) calc(var(--page-margin) * 2);
     color: var(--ion-color-medium-dark);
     font-size: 0.8rem;
   }
-
-
 }
 
 
-.pledge-bar-wrapper {
-    background-color: var(--ion-color-secondary);
-    padding-top: 0;
-    padding-bottom: 0; 
+.action-bar-wrapper {
+  background-color: var(--ion-color-light);
+  padding-top: 0;
+  padding-bottom: 0; 
+  margin: 1rem 0;
+  
+  .avocadometer {
+    border-left: 2px solid white;
+  }
+  .pledges, .avocadometer {
+    padding-left: 1rem;
+    width: 50%;
 
-  .total-pledges {
-    display: flex;
-    align-items: center;
-    
-    .total-pledges-icon {
+    .header {
+      color: var(--ion-color-dark);
+      font-size: 0.8rem;
+      --background: none;
+      --padding-start: 0;
+      --inner-border-width: 0;
+      --min-height: 28px;
+      
+
+      ion-button {
+        color: var(--ion-color-dark);
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+    }
+    .content {
+      --background: none;
+      --padding-start: 0;
+      --inner-border-width: 0;
+      --min-height: 28px;
+      margin-bottom: 0.4rem;
       position: relative;
-      padding-right: 6px;
-      padding-top: 6px;
+      .stats {
+        margin: auto;
+        display: flex;
+        align-items: center;
+
         ion-icon {
-          color: rgb(255, 204, 85);
+          color: var(--ion-color-secondary);
+          padding-right: 0.5rem;
+        }
+        ion-label {
+          color: var(--ion-color-dark);
+          font-weight: 600;
+          margin: 0;
         }
       }
-
-    .total-pledges-title {
-      font-size: 0.8rem;
-      color: var(--ion-color-secondary-contrast);
-      padding-left: 0.5rem;
     }
-  }
-  .action-buttons-col {
-    align-self: center;
-    .action-buttons {
-        justify-content: flex-end;
-        .add-your-pledge {
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 0 0.5rem;
+    .add-your-pledge {
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0 0.5rem;
+      --border-radius: var(--app-fair-radius);
+    }
+    .you-have-pledged {
+      text-align: center;
+      ion-button {
+        --padding-end: 10px;
+        --padding-start: 10px;
+        margin-top: 0;
+        height: 1rem;
+
+        ion-icon {
+          width: 24px;
         }
+      }
+  
+    }
+    h4, .you-have-pledged h4 {
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
     }
   }
 }

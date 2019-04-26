@@ -45,6 +45,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               newUser.testimonial = '';
               newUser.stories = [Math.random().toString(20).substring(2)];
               newUser.pledges = [Math.random().toString(20).substring(2), Math.random().toString(20).substring(2)];
+              newUser.actions = [Math.random().toString(20).substring(2), false, 2];
               newUser.joinMailingList = false;
               newUser.allowPushNotification = true;
               newUser.allowEmailNotification = true;
@@ -170,6 +171,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                       filteredUsers[0].testimonial = request.body.testimonial;
                       filteredUsers[0].stories = request.body.stories;
                       filteredUsers[0].pledges = request.body.pledges;
+                      filteredUsers[0].actions = request.body.actions;
                       filteredUsers[0].joinMailingList = request.body.joinMailingList;
                       filteredUsers[0].allowPushNotification = request.body.allowPushNotification;
                       filteredUsers[0].allowEmailNotification = request.body.allowEmailNotification;

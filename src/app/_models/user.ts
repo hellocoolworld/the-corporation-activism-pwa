@@ -7,6 +7,7 @@
     testimonial: string;
     stories: Array<{storyId: string, image: string, title: string, link: string}>;
     pledges: Array<{pledgeId: string, storyId: string,  image: string, title: string, link: string}>;
+    actions: Array<{storyId: string, pledged: boolean, avocados: number}>;
     joinMailingList: boolean;
     allowPushNotification: boolean;
     allowEmailNotification: boolean;

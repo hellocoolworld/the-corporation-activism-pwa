@@ -21,7 +21,7 @@ export class Story {
     views: number;
     avocados: number;
     comments: number;
-    pledgesCount: number;
+    pledgeCount: number;
     takeActionSummary: string;
     takeActionBody: string;
     body: string;

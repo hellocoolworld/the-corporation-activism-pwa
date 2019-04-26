@@ -10,7 +10,7 @@ import { UserService } from '../_services';
 })
 export class ProfilePage implements OnInit {
   profile: User = new User();
-
+  profileData: String = 'testimonial';
 
   constructor(private route: ActivatedRoute, private _user: UserService) {}
 
@@ -20,7 +20,7 @@ export class ProfilePage implements OnInit {
         .subscribe((user: User) => {
           if (user) {
             this.profile =  user;
-          }
+          } 
       });
     });
   }
