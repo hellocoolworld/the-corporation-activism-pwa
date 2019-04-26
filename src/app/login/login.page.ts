@@ -24,6 +24,7 @@ export class LoginPage implements OnInit {
     private _toast: ToastService
   ) {
     let currentUser = this._auth.currentUserValue;
+
     if (currentUser) {
       // if user is loged in and not verified
       // redirect to verify-user page
@@ -44,7 +45,7 @@ export class LoginPage implements OnInit {
       password: ['', [Validators.required, Validators.minLength(5)]]
     });
 
-    // get return url from route parameters or default to '/'
+    // // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
@@ -61,7 +62,11 @@ export class LoginPage implements OnInit {
       .pipe(first())
       .subscribe(
         res => {
-          this.router.navigate([this.returnUrl]);
+          if (!res.isVerified) {
+            this.router.navigate(['/verify-account']);
+          } else {
+            this.router.navigate([this.returnUrl]);
+          }
         },
         err => {
           this._toast.error(err, true);

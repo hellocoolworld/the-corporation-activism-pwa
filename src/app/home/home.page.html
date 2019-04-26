@@ -8,7 +8,9 @@
       'logged-out': !currentUser
     }"
   >
-    <img *ngIf="currentUser" [src]="currentUser.imageUrl" [alt]="currentUser.displayName" class="main-user-avatar" />
+    <a [routerLink]="['/profile', currentUser.id]" *ngIf="currentUser" >
+      <img [src]="currentUser.imageUrl" [alt]="currentUser.displayName" class="main-user-avatar" />
+    </a>
     <ion-card>
       <ion-card-header>
         <ion-card-title>
@@ -75,7 +77,7 @@
           <p>
             Join supporters of The Corporation films to take a stand against corporate power.
           </p>
-          <ion-button (click)="signUp()" expand="block" color="secondary">
+          <ion-button (click)="signUp()" expand="block" class="content-btn">
             Join our crowd
           </ion-button>
         </ng-template>

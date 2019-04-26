@@ -15,7 +15,7 @@
         <ion-icon color="lightest" name="notifications"></ion-icon>
         <ion-badge color="primary">42</ion-badge>
       </ion-button>
-      <ion-button *ngIf="currentUser" href="/profile/{{ currentUser.id }}">
+      <ion-button *ngIf="currentUser" href="/user/profile">
         <ion-avatar class="user-avatar" *ngIf="currentUser.imageUrl !== ''" >
           <ion-img src="{{ currentUser.imageUrl }}" alt="{{ currentUser.displayName }}"></ion-img>
         </ion-avatar>

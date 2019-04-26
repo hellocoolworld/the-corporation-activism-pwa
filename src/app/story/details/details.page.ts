@@ -49,7 +49,7 @@ export class DetailsPage implements OnInit {
         () => {
           this.pledgeCount = this.story.pledgeCount;
           this.avocados = this.story.avocados;
-          this.userAvocados = 2;
+          this.userAvocados = 0;
         }
       )
     });

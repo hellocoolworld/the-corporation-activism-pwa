@@ -8,18 +8,18 @@
 
   &.logged-out {
     background: url(/assets/images/home-logged-out.jpg) no-repeat top center;
-    background-size: cover;
+//    background-size: cover;
   }
   &.logged-in {
     background: url(/assets/images/home-logged-in.jpg) no-repeat top center;
-    background-size: cover;
+ //   background-size: cover;
   }
   .main-user-avatar {
     border-radius: 100%;
     position: absolute;
-    max-width: 150px;
+    max-width: 180px;
     top: 32%;
-    left: 32%;
+    left: 25%;
   }
   ion-card {
     background-color: rgba(0,0,0,0.5);
@@ -32,16 +32,24 @@
     border-bottom: 4px solid var(--ion-color-secondary);
 
     ion-card-header {
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
       ion-card-title {
         color: white;
         text-transform: uppercase;
         text-align: center;
-        font-size: 1.25rem;
+        font-family: var(--ion-header-font-family, inherit);
+        font-size: 1.5rem;
+        font-weight: 900;
       }
     }
     ion-card-content {
       padding-top: 0;
       text-align: center;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
       p {
         margin-bottom: 1rem;
       }

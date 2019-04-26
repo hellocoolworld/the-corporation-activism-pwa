@@ -32,12 +32,22 @@ hr {
   border-top: 1px solid #cccccc;
 }
 
-.expanded-action-btn {
-  margin: calc(var(--page-margin) / 2) 0px;
-}
 
 ion-button {
-  border-radius: var(--app-fair-radius);
+  --border-radius: var(--app-fair-radius);
+  font-weight: 600;
+
+  &.content-btn {
+    text-transform: uppercase;
+    --background: var(--ion-color-secondary);
+    font-weight: 14px;
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+  &.system-btn {
+    text-transform: capitalize;
+    margin: calc(var(--page-margin) / 2) 0px;
+  }
 }
 
 

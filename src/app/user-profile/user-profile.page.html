@@ -8,7 +8,7 @@
     <ion-text><h3>Picture</h3></ion-text>
     <ion-item class="input-item" (click)="testClick()" detail>
       <ion-label text-wrap>
-        <p>Choose a photo from your device and take a new snapshot.</p>
+        <p>Choose a photo from your device or take a new snapshot.</p>
       </ion-label>
       <ion-avatar slot="end" class="hydrated">
         <img [src]="currentUser.imageUrl" />
@@ -35,11 +35,11 @@
 
     <ion-text><h3>Testimonial</h3></ion-text>
     <ion-item class="input-item">
-      <ion-label position="floating">Did The Corporation film affect you?</ion-label>
-      <ion-textarea formControlName="testimonial" class="formControl" rows="3"></ion-textarea>
+      <ion-label position="floating" text-wrap>Share a short testimonial about how the film impacted you or what you think about the issues.</ion-label>
+      <ion-textarea formControlName="testimonial" class="formControl" rows="6"></ion-textarea>
     </ion-item>
 
-    <ion-button class="expanded-action-btn" type="submit" expand="block" [disabled]="UserProfileForm.invalid">
+    <ion-button class="system-btn" type="submit" expand="block" [disabled]="UserProfileForm.invalid">
       Update Your Public Profile
     </ion-button>
   </form>
