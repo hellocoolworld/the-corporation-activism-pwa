@@ -52,6 +52,7 @@
       margin-right: auto;
       p {
         margin-bottom: 1rem;
+        font-size: 1rem;
       }
       ion-button {
         text-transform: uppercase;
@@ -99,7 +100,7 @@
 }
 
 .stories-section-intro {
-  margin:1rem;
+  margin:2rem 1rem 1rem;
   p {
     text-align: center;
   }
@@ -109,7 +110,7 @@
   margin-bottom: var(--page-margin);
 
   .story-header {
-    min-height: 200px;
+    min-height: 100px;
     position: relative;
 
     h3.story-title {

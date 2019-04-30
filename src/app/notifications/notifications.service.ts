@@ -8,7 +8,7 @@ export class NotificationsService {
   constructor(private http: HttpClient) { }
 
   public getData(): Observable<any> {
-    const dataObservable = this.http.get<any>('./assets/sample-data/notifications.json');
+    const dataObservable = this.http.get<any>('./assets/mock-data/notifications.json');
 
     return dataObservable;
   }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform, ModalController } from '@ionic/angular';
+import { Platform, ModalController, MenuController } from '@ionic/angular';
 
 import { AuthService } from './_services';
 import { User } from './_models';
@@ -20,6 +20,7 @@ export class AppComponent {
     private platform: Platform,
     private router: Router,
     private _auth: AuthService,
+    private menuController: MenuController,
     private modalController: ModalController
   ) {
     this.initializeApp();
@@ -33,7 +34,7 @@ export class AppComponent {
 
   logout() {
     this._auth.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
   linkToSocialProfile(provider: String) {
@@ -46,6 +47,10 @@ export class AppComponent {
     } else if (provider === 'instagram') {
       window.open('https://instagram.com', '_blank');
     }
+  }
+
+  close(): void {
+    this.menuController.close();
   }
 
   async showTermsModal() {

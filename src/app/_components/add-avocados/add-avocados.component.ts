@@ -16,7 +16,12 @@ export class AddAvocadosComponent {
 
   rate(index: number) {
     if (!this.readOnly && index >= 1 && index <= 5) {
-      this.rating = index;
+      console.log('index=>', index,'rating=>',this.rating);
+      if (index == this.rating){ //If the selected avocado clicked again, then unselect that one avocado
+        this.rating = index - 1;
+      } else {
+        this.rating = index;
+      }
       this.ratingChange.emit(this.rating);
     }
   }
@@ -24,6 +29,7 @@ export class AddAvocadosComponent {
   getOpacity (index: number): any {
     if (index > this.rating) { //Is the selected index is above the rating
       return 0.5;
+
     } else {
       return 1;
     }

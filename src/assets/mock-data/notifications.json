@@ -19,20 +19,8 @@
 },
 {
 "name": "Kirsten",
-"image": "./assets/sample-images/notifications/100x100Notification5.jpg",
+"image": "./assets/sample-images/notifications/100x100Notification4.jpg",
 "message": "Your story has been published: <a href='#'>My story title</a>",
 "date": "Feb 12, 2019"
-},
-{
-"name": "Phillip",
-"image": "./assets/sample-images/notifications/100x100Notification6.jpg",
-"message": "Are you going to the gym today?",
-"date": "Feb 2, 2019"
-},
-{
-"name": "Diane",
-"image": "./assets/sample-images/notifications/100x100Notification7.jpg",
-"message": "I was wondering if something happened to Sara... she was so weird yesterday.",
-"date": "Jan 25, 2019"
 }]
 

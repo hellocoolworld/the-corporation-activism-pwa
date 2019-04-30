@@ -64,7 +64,7 @@
         </ion-item>
         <ion-item class="content">
           <div class="stats">
-            <ion-icon src="/assets/images/avocado-pair.svg" size="large"></ion-icon>
+            <ion-icon src="/assets/images/avocadometer.svg" size="large"></ion-icon>
             <ion-label>{{ avocados }}</ion-label>
           </div>
         </ion-item>
@@ -81,7 +81,7 @@
   <hr *ngIf="story.body !== ''" />
 
   <div class="story-body-section">
-    <h3>Take Action to Support This Story</h3>
+    <h3>Take Action To Support This Story</h3>
     <p>{{ story.takeActionSummary }}</p>
     <div [innerHTML]="sanatizeHTML(story.takeActionBody)"></div>
   </div>
