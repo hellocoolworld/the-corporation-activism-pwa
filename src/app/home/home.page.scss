@@ -110,13 +110,12 @@
   margin-bottom: var(--page-margin);
 
   .story-header {
-    min-height: 100px;
     position: relative;
 
     h3.story-title {
       background-color: rgba(0,0,0,0.5);
       position: absolute;
-      bottom: 0px;
+      bottom: 0;
       margin-bottom: 0;
       color: white;
       font-size: 1.125rem;
