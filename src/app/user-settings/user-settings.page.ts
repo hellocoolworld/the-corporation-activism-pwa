@@ -38,7 +38,7 @@ export class UserSettingsPage implements OnInit {
       }
     } else {
       // if not logged in, redirect to login
-      this.router.navigate(['login']); 
+      this.router.navigate(['/login']); 
     }
   }
 

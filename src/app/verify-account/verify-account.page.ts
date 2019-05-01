@@ -26,7 +26,7 @@ export class VerifyAccountPage implements OnInit {
       this.currentUser = this._auth.currentUserValue;
       if (!this.currentUser) {
         // if user is not logged in forward to login page
-        this.router.navigate(['login']); 
+        this.router.navigate(['/login']); 
         return;
       }  
     }

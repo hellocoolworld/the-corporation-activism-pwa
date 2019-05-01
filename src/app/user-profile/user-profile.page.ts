@@ -33,7 +33,7 @@ export class UserProfilePage implements OnInit {
       }
     } else {
       // if not logged in, redirect to login
-      this.router.navigate(['login']); 
+      this.router.navigate(['/login']); 
     }
   }
 
@@ -63,7 +63,7 @@ export class UserProfilePage implements OnInit {
         res => {
           this._toast.success('Public Profile Updated Succesfully', false, 2000);
           // this.router.navigate([`/profile/${this.currentUser.id}`]);
-          this.router.navigate([`/`]);
+          this.router.navigate([`/home`]);
           },
         err => {
           console.log('err')

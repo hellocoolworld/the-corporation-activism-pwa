@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
 
       } else {
         // redirect to home if already logged in and Verified
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       }
     }
   }
@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
     });
 
     // // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
   }
 
   async onSubmit() {
