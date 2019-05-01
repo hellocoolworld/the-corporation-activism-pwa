@@ -4,12 +4,13 @@
     background-size: cover;
     padding: 1rem;
     color: var(--ion-color-light);
+    text-align: center;
     h1 {
       font-weight: 900;
     }
     .call-to-action {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
     }
   }
   

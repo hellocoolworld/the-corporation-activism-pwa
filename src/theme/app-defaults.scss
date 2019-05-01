@@ -55,6 +55,11 @@ ion-button {
   margin: calc(var(--page-margin) / 2) 0px;
 }
 
-.hidden {
+.hidden, .hidden-sm {
   display: none;
+}
+.hidden-lg {
+  @media (min-width: 820px) {
+    display: none;
+  }
 }

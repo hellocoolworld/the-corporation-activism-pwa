@@ -59,7 +59,7 @@ export class UserSettingsPage implements OnInit {
   onToggleChange () {
     this._user.update(this.currentUser).subscribe(
       res => {
-        //Do nothing is success
+        //Do nothing if success
         },
       err => {
         console.log('err')

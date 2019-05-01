@@ -48,7 +48,7 @@ export class VerifyAccountPage implements OnInit {
       return;
     }
 
-    this._auth.verify(this._auth.currentUserValue.id, this.f.verificationCode.value)
+    this._auth.verify(this.currentUser.id, this.f.verificationCode.value)
       .pipe(first())
       .subscribe(
         res => {
