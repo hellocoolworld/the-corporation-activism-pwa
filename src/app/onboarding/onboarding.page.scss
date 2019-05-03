@@ -18,8 +18,46 @@
 
       .swiper-slide {
         flex-direction: column;
+        justify-content: flex-start;
+        font-size: 16px;
         h1 {
             color: var(--ion-color-secondary);
+            margin: 4rem 1rem 2rem;
+            font-size: 1.5rem;
+        }
+        p {
+          line-height: 1.5;
+        }
+      }
+      .slide1-wrapper{
+        .image {
+          width: 100%;
+          background-color: var(--ion-color-secondary);
+          img {
+            width: 100%;
+          }
+        }
+        p {
+          margin: 1rem 2rem;
+        }
+      }
+      .slide2-wrapper{
+        background: url(/assets/images/onbording-slide2.png) no-repeat top center;
+        background-size: cover;
+        height: 100%;
+        // position: relative;
+        .slide-caption {
+          position: absolute;
+          bottom: 2rem;
+          // margin-top: 16rem;
+          h1 {
+            color: white;
+            margin: 0 1rem 2rem;
+          }
+          p {
+            color: white;
+            margin: 1rem
+          }
         }
       }
     }
