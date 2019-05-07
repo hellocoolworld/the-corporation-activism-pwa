@@ -49,6 +49,10 @@ ion-button {
   }
 }
 
+// This style is for the onboarding
+.swiper-container-horizontal>.swiper-pagination-bullets{
+  bottom: 50px !important;
+}
 
 .text-muted {
   color: var(--ion-color-medium);

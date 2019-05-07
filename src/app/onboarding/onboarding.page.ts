@@ -10,7 +10,11 @@ export class OnboardingPage implements OnInit {
   
   onbordingOpts = {
     speed: 400,
-    grabCursor: true
+    grabCursor: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+    }
     
   };
 
@@ -22,4 +26,12 @@ export class OnboardingPage implements OnInit {
   onClickContinue() {
     this.router.navigate(['/home']);
   }
+
+  // slideChange(slider) {
+
+  //   slider.isEnd().subscribe(
+  //     res => {console.log('here', res);}
+  //   );
+    
+  // }
 }

@@ -1,13 +1,7 @@
 <ht-header></ht-header>
 
 <ion-content>
-  <div
-    class="home-splash logged-out"
-    [ngClass]="{
-      'logged-in': currentUser,
-      'logged-out': !currentUser
-    }"
-  >
+  <div class="home-splash">
     <a [routerLink]="['/profile', currentUser.id]" *ngIf="currentUser" >
       <img [src]="currentUser.imageUrl" [alt]="currentUser.displayName" class="main-user-avatar" />
     </a>

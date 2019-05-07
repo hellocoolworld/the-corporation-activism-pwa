@@ -3,17 +3,11 @@
 }
 
 .home-splash {
-  height: 600px;
+  height: 568px;
   position: relative;
+  background: url(/assets/images/home-crowed.jpg) no-repeat top center;
 
-  &.logged-out {
-    background: url(/assets/images/home-logged-out.jpg) no-repeat top center;
-//    background-size: cover;
-  }
-  &.logged-in {
-    background: url(/assets/images/home-logged-in.jpg) no-repeat top center;
- //   background-size: cover;
-  }
+
   .main-user-avatar {
     border-radius: 100%;
     position: absolute;

@@ -3,26 +3,26 @@
 :host {
     --page-margin: 0;
   }
-  
   // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
-  .onbording-content {
+.onbording-content {
     --padding-start: var(--page-margin);
     --padding-end: var(--page-margin);
     --padding-top: var(--page-margin);
     --padding-bottom: var(--page-margin);
-    ion-slides {
+
+  .swiper-container {
       --bullet-background: black;
       --bullet-background-active: var(--ion-color-secondary);
       width: 100vw;
       height: 100vh;
-
+      
       .swiper-slide {
         flex-direction: column;
         justify-content: flex-start;
         font-size: 16px;
         h1 {
             color: var(--ion-color-secondary);
-            margin: 4rem 1rem 2rem;
+            margin: 4rem 1rem 1rem;
             font-size: 1.5rem;
         }
         p {
@@ -48,8 +48,7 @@
         // position: relative;
         .slide-caption {
           position: absolute;
-          bottom: 2rem;
-          // margin-top: 16rem;
+          bottom: 4.5rem;
           h1 {
             color: white;
             margin: 0 1rem 2rem;
