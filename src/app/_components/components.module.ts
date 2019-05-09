@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterAdComponent } from './footer-ad/footer-ad.component';
+import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
+import { PopoverComponent } from './popover/popover.component';
 
 import { AspectRatioComponent } from './aspect-ratio/aspect-ratio.component';
 import { TextShellComponent } from './text-shell/text-shell.component';
@@ -15,7 +17,6 @@ import { ShowHidePasswordComponent } from './show-hide-password/show-hide-passwo
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 import { CounterInputComponent } from './counter-input/counter-input.component';
 import { RatingInputComponent } from './rating-input/rating-input.component';
-import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
 
 @NgModule({
   imports: [
@@ -30,13 +31,14 @@ import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
 
     HeaderComponent,
     FooterAdComponent, 
-
+    AddAvocadosComponent,
+    PopoverComponent,
+    
     CheckboxWrapperComponent,
     ShowHidePasswordComponent,
     CountdownTimerComponent,
     CounterInputComponent,
-    RatingInputComponent,
-    AddAvocadosComponent
+    RatingInputComponent
   ],
   exports: [
     AspectRatioComponent,
@@ -45,14 +47,15 @@ import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
 
     HeaderComponent,
     FooterAdComponent, 
+    AddAvocadosComponent,
+    PopoverComponent,
     
     CheckboxWrapperComponent,
     ShowHidePasswordComponent,
     CountdownTimerComponent,
     CounterInputComponent,
-    RatingInputComponent,
-    AddAvocadosComponent
+    RatingInputComponent
   ],
-  entryComponents: [],
+  entryComponents: [PopoverComponent],
 })
 export class ComponentsModule {}

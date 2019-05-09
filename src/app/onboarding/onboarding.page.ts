@@ -27,11 +27,11 @@ export class OnboardingPage implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  // slideChange(slider) {
+  slideChange(slider) {
 
   //   slider.isEnd().subscribe(
   //     res => {console.log('here', res);}
   //   );
     
-  // }
+  }
 }

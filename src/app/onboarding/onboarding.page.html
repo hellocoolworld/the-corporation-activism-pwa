@@ -1,5 +1,5 @@
 <ion-content class="onbording-content">
-  <ion-slides pager="true" [options]="onbordingOpts" >
+  <ion-slides pager="true" [options]="onbordingOpts" #onbordingSlider (ionSlideTouchEnd)="slideChange(onbordingSlider)">
     <ion-slide class="slide1-wrapper">
       <div class="image">
           <img src="/assets/images/onbording-slide1.png" alt="Halo Tales">

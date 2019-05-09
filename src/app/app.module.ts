@@ -30,13 +30,13 @@ import { fakeBackendProvider } from './_helpers';
   ],
 
   declarations: [
-    AppComponent, 
+    AppComponent,
     TermsOfServicePage, 
     PrivacyPolicyPage,
     AuthorBioPage, 
     AddPledgePage,
     HelpActionPledgePage, 
-    HelpAvocadometerPage
+    HelpAvocadometerPage 
   ],
 
   providers: [

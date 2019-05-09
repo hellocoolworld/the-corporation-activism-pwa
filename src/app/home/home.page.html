@@ -2,9 +2,46 @@
 
 <ion-content>
   <div class="home-splash">
-    <a [routerLink]="['/profile', currentUser.id]" *ngIf="currentUser" >
-      <img [src]="currentUser.imageUrl" [alt]="currentUser.displayName" class="main-user-avatar" />
-    </a>
+    <div class="user-avatars-wrapper">
+      <div class="user-avatars">
+        <div class="user-avatar-wrapper avatar1">
+          <img src="/assets/sample-images/user/person_1.jpg" alt="user1.displayName" class="user-avatar" />
+          <ion-button (click)="onAvatarClick($event)" fill="clear">
+            <ion-icon slot="icon-only" name="trophy"></ion-icon>
+          </ion-button>
+        </div>
+        <div class="user-avatar-wrapper avatar2">
+          <img src="/assets/sample-images/user/person_2.jpg" alt="user1.displayName" class="user-avatar" />
+          <ion-button (click)="onAvatarClick($event)" fill="clear">
+            <ion-icon slot="icon-only" name="quote"></ion-icon>
+          </ion-button>
+        </div>
+        <div class="user-avatar-wrapper avatar3">
+          <img src="/assets/sample-images/user/person_3.jpg" alt="user1.displayName" class="user-avatar" />
+          <ion-button (click)="onAvatarClick($event)" fill="clear">
+            <ion-icon slot="icon-only" name="hand"></ion-icon>
+          </ion-button>
+        </div>
+        <div class="user-avatar-wrapper avatar4">
+          <img src="/assets/sample-images/user/person_4.jpg" alt="user1.displayName" class="user-avatar" />
+          <ion-button (click)="onAvatarClick($event)" fill="clear">
+            <ion-icon slot="icon-only" name="trophy"></ion-icon>
+          </ion-button>
+        </div>
+        <div class="user-avatar-wrapper avatar5">
+          <img src="/assets/sample-images/user/person_5.jpg" alt="user1.displayName" class="user-avatar" />
+          <ion-button (click)="onAvatarClick($event)" fill="clear">
+            <ion-icon slot="icon-only" name="quote"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+
+      <div class="main-user-avatar" *ngIf="currentUser">
+        <a [routerLink]="['/profile', currentUser.id]">
+          <img [src]="currentUser.imageUrl" [alt]="currentUser.displayName" />
+        </a>
+      </div>
+    </div>
     <ion-card>
       <ion-card-header>
         <ion-card-title>
@@ -84,7 +121,6 @@
     <p>Watch stories and take action by people who were transformed by the film.</p>
   </div>
 
-  
   <div class="story-wrapper" *ngFor="let s of stories">
     <a href="story/{{ s.slug }}">
       <div class="story-header">

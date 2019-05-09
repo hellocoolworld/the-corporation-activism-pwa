@@ -3,18 +3,82 @@
 }
 
 .home-splash {
+  // width: 1024px;
   height: 568px;
   position: relative;
-  background: url(/assets/images/home-crowed.jpg) no-repeat top center;
+  background: url(/assets/images/home-crowd.jpg) no-repeat top center;
 
+  .user-avatars-wrapper {
+    position: relative;
+    width: 100%;
+    overflow:hidden;
+    z-index:1;
+    // top: 0;
+    // left: 0;
+    
 
-  .main-user-avatar {
-    border-radius: 100%;
-    position: absolute;
-    max-width: 180px;
-    top: 32%;
-    left: 25%;
+    img {
+      border-radius: 100%;
+    }
+
+    .user-avatars {
+      position: absolute;
+      width: 1024px;
+      height: 210px;
+      top: 0;
+      left: 50%;
+      margin-left:-512px; /* half of the width */
+
+      .user-avatar-wrapper {
+        width: 48px;
+        height: 48px;
+        ion-button {
+          --padding-bottom: 0;
+          --padding-end: 0;
+          --padding-start: 0;
+          --padding-top: 0;
+          height: 1.6rem;
+        }
+
+        .user-avatar {
+          width: 44px;
+          border: 2px solid var(--ion-color-primary);
+        }
+
+        &.avatar1 {
+          position: absolute;
+          top: 80px;
+          left: 200px;
+        }
+        &.avatar2 {
+          position: absolute;
+          top: 145px;
+          left: 340px;
+        }
+        &.avatar3 {
+          position: absolute;
+          top: 95px;
+          left: 410px;
+        }
+        &.avatar4 {
+          position: absolute;
+          top: 125px;
+          left: 630px;
+        }
+        &.avatar5 {
+          position: absolute;
+          top: 80px;
+          left: 750px;
+        }
+      }
+    }
+    .main-user-avatar {
+      display: block;
+      width: 160px;
+      margin: 125px auto 0;
+    }
   }
+
   ion-card {
     background-color: rgba(0,0,0,0.5);
     position: absolute;

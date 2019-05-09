@@ -12,16 +12,24 @@ export class ProfilePage implements OnInit {
   profile: User = new User();
   profileData: String = 'testimonial';
 
-  constructor(private route: ActivatedRoute, private _user: UserService) {}
+  constructor(private activatedRoute: ActivatedRoute, private _user: UserService) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this._user.getById(params.get('id'))
-        .subscribe((user: User) => {
-          if (user) {
-            this.profile =  user;
-          } 
-      });
+    const userId = this.activatedRoute.snapshot.paramMap.get('id');
+    this._user.getById(userId)
+      .subscribe((user: User) => {
+        if (user) {
+          this.profile =  user;
+        } 
     });
+
+    // this.activatedRoute.paramMap.subscribe(params => {
+    //   this._user.getById(params.get('id'))
+    //     .subscribe((user: User) => {
+    //       if (user) {
+    //         this.profile =  user;
+    //       } 
+    //   });
+    // });
   }
 }
