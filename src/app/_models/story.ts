@@ -18,9 +18,7 @@ export class Story {
     authorBioSummary: string;
     authorBioFull: string;
     authorId: string;
-    views: number;
     avocados: number;
-    comments: number;
     pledgeCount: number;
     takeActionSummary: string;
     takeActionBody: string;

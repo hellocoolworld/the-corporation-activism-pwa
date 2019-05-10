@@ -18,6 +18,7 @@ import { PopoverComponent } from '../_components/popover/popover.component';
 export class HomePage implements OnInit, OnDestroy {
   currentUser: User;
   stories: Story[] = [];
+  mostRecentActions = [];
   private unsubscribe$: Subject<void> = new Subject();
   
   constructor(
@@ -49,6 +50,53 @@ export class HomePage implements OnInit, OnDestroy {
           // console.log( this.stories );
         }
       );
+    this.mostRecentActions = [
+      {
+        'userId' : '2r22fw2f',
+        'imageUrl' : "/assets/sample-images/user/person_1.jpg",
+        'displayName' : 'Hank Aaron',
+        'actionIcon' : 'hand',
+        'relatedStoryTitle' : '',
+        'relatedStorySlug' : '',
+        'relatedTestamonial' : ''
+      },
+      {
+        'userId' : 'qv4tc4a3',
+        'imageUrl' : "/assets/sample-images/user/person_3.jpg",
+        'displayName' : 'Frank Abagnale',
+        'actionIcon' : 'quote',
+        'relatedStoryTitle' : '',
+        'relatedStorySlug' : '',
+        'relatedTestamonial' : 'In the case of a dynamically loaded component and in order for a ComponentFactory to be generated, the component must also be added to the module’s entryComponents'
+      },
+      {
+        'userId' : 'wv4s4rt4',
+        'imageUrl' : "/assets/sample-images/user/person_5.jpg",
+        'displayName' : 'Edward Abbey',
+        'actionIcon' : 'trophy',
+        'relatedStoryTitle' : 'How Does Halo Tales Empower People To Fight Corporate Power?',
+        'relatedStorySlug' : 'how-does-halo-tales-empower-people-to-fight-corporate-power',
+        'relatedTestamonial' : ''
+      },
+      {
+        'userId' : 'qcwafwert3',
+        'imageUrl' : "/assets/sample-images/user/person_6.jpg",
+        'displayName' : 'James Abourezk',
+        'actionIcon' : 'hand',
+        'relatedStoryTitle' : '',
+        'relatedStorySlug' : '',
+        'relatedTestamonial' : ''
+      },
+      {
+        'userId' : '562wcrtr3wt4',
+        'imageUrl' : "/assets/sample-images/user/person_7.jpg",
+        'displayName' : 'Jane Ace',
+        'actionIcon' : 'hand',
+        'relatedStoryTitle' : '',
+        'relatedStorySlug' : '',
+        'relatedTestamonial' : ''
+      }
+    ]
   }
   ngOnDestroy() {
     this.unsubscribe$.next();
@@ -62,12 +110,15 @@ export class HomePage implements OnInit, OnDestroy {
     return this.currentUser.stories.length;
   }
 
-  async onAvatarClick(ev: Event) {
+  async onAvatarClick(ev: Event, userId: String, userDisplayName: String, relatedStoryTitle: String, relatedStorySlug: String, relatedTestamonial: String) {
     const popover = await this.popoverController.create({
       component: PopoverComponent,
       componentProps: {
-        user_id: 123,
-        displayProperty: 'testimonial'
+        userId: userId,
+        userDisplayName: userDisplayName,
+        relatedStoryTitle: relatedStoryTitle,
+        relatedStorySlug: relatedStorySlug,
+        relatedTestamonial: relatedTestamonial
       },
       event: ev,
       translucent: true

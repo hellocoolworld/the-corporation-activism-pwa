@@ -6,7 +6,14 @@
   // width: 1024px;
   height: 568px;
   position: relative;
-  background: url(/assets/images/home-crowd.jpg) no-repeat top center;
+  &.logged-in {
+    background: url(/assets/images/home-logged-in.jpg) no-repeat top center;
+
+  }
+  &.logged-out {
+    background: url(/assets/images/home-logged-out.jpg) no-repeat top center;
+
+  }
 
   .user-avatars-wrapper {
     position: relative;

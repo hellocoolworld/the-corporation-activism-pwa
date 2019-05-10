@@ -1,5 +1,5 @@
 #!/bin/bash
-LOCAL="/Users/davdwaynegriffith/CodeRoot/halo-tales-pwa/www/"
+LOCAL="/Users/atef/Clients/halotale/halo-tales-pwa/www/"
 REMOTE="/var/www/client/dev"
 scp -r "$LOCAL" do-user@dev.halotales.com:"$REMOTE"
 

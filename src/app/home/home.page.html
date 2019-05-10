@@ -1,37 +1,17 @@
 <ht-header></ht-header>
 
 <ion-content>
-  <div class="home-splash">
+  <div class="home-splash" 
+    [class.logged-in] = "currentUser"
+    [class.logged-out] = "!currentUser"
+  >
     <div class="user-avatars-wrapper">
       <div class="user-avatars">
-        <div class="user-avatar-wrapper avatar1">
-          <img src="/assets/sample-images/user/person_1.jpg" alt="user1.displayName" class="user-avatar" />
-          <ion-button (click)="onAvatarClick($event)" fill="clear">
-            <ion-icon slot="icon-only" name="trophy"></ion-icon>
-          </ion-button>
-        </div>
-        <div class="user-avatar-wrapper avatar2">
-          <img src="/assets/sample-images/user/person_2.jpg" alt="user1.displayName" class="user-avatar" />
-          <ion-button (click)="onAvatarClick($event)" fill="clear">
-            <ion-icon slot="icon-only" name="quote"></ion-icon>
-          </ion-button>
-        </div>
-        <div class="user-avatar-wrapper avatar3">
-          <img src="/assets/sample-images/user/person_3.jpg" alt="user1.displayName" class="user-avatar" />
-          <ion-button (click)="onAvatarClick($event)" fill="clear">
-            <ion-icon slot="icon-only" name="hand"></ion-icon>
-          </ion-button>
-        </div>
-        <div class="user-avatar-wrapper avatar4">
-          <img src="/assets/sample-images/user/person_4.jpg" alt="user1.displayName" class="user-avatar" />
-          <ion-button (click)="onAvatarClick($event)" fill="clear">
-            <ion-icon slot="icon-only" name="trophy"></ion-icon>
-          </ion-button>
-        </div>
-        <div class="user-avatar-wrapper avatar5">
-          <img src="/assets/sample-images/user/person_5.jpg" alt="user1.displayName" class="user-avatar" />
-          <ion-button (click)="onAvatarClick($event)" fill="clear">
-            <ion-icon slot="icon-only" name="quote"></ion-icon>
+
+        <div *ngFor="let mostRecentAction of mostRecentActions; let i = index" class="user-avatar-wrapper avatar{{i+1}}">
+          <img [src]="mostRecentAction.imageUrl" [alt]="mostRecentAction.displayName" class="user-avatar" />
+          <ion-button (click)="onAvatarClick($event, mostRecentAction.userId, mostRecentAction.displayName, mostRecentAction.relatedStoryTitle, mostRecentAction.relatedStorySlug, mostRecentAction.relatedTestamonial)" fill="clear">
+            <ion-icon slot="icon-only" [name]="mostRecentAction.actionIcon"></ion-icon>
           </ion-button>
         </div>
       </div>
@@ -46,8 +26,8 @@
       <ion-card-header>
         <ion-card-title>
           <ng-container *ngIf="currentUser; then titleLoggedIn; else titleLoggedOut"></ng-container>
-          <ng-template #titleLoggedIn>You are part of our crowd</ng-template>
-          <ng-template #titleLoggedOut>Be part of our crowd</ng-template>
+          <ng-template #titleLoggedIn>You're part of our story</ng-template>
+          <ng-template #titleLoggedOut>Be part of our story</ng-template>
         </ion-card-title>
       </ion-card-header>
 
@@ -109,7 +89,7 @@
             Join supporters of The Corporation films to take a stand against corporate power.
           </p>
           <ion-button (click)="signUp()" expand="block" class="content-btn">
-            Join our crowd
+              Join us
           </ion-button>
         </ng-template>
       </ion-card-content>
@@ -166,20 +146,6 @@
       </ion-avatar>
       <ion-label>
         <div class="authoring-info">{{ s.authorName }} &bull; {{ s.updatedAt }}</div>
-        <!-- <div class="story-in-numbers">
-          <div class="likes">
-            <ion-icon name="heart"></ion-icon>
-            {{ s.likes }}
-          </div>
-          <div class="views">
-            <ion-icon name="eye"></ion-icon>
-            {{ s.views }}
-          </div>
-          <div class="comments">
-            <ion-icon name="text"></ion-icon>
-            {{ s.comments }}
-          </div>
-        </div> -->
       </ion-label>
     </ion-item>
   </div>

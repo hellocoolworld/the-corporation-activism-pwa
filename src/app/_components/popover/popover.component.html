@@ -1,28 +1,34 @@
-<ion-item color="primary"  lines="none" detail>
+<ion-item (click)="loadUserProfile(userId)" color="primary" lines="none" detail>
   <ion-label text-wrap>
-    User name here
+    {{ userDisplayName }}
   </ion-label>
 </ion-item>
 
-<ion-item lines="none">
+<ion-item *ngIf="relatedStoryTitle == '' && relatedTestamonial == ''" lines="none">
   <ion-label text-wrap>
     Has joined the crowd
   </ion-label>
 </ion-item>
 
-  
-  <p><strong>Has pledged action on:</strong></p>
-  <ion-item  lines="none" detail>
-    <ion-label text-wrap>
-      How Do We Empower People To Fight Back?
-    </ion-label>
-  </ion-item>
+<ion-item *ngIf="relatedStoryTitle != '' && relatedStorySlug != ''" lines="none">
+  <ion-label text-wrap><strong>Has pledged action on:</strong></ion-label>
+</ion-item>
+<ion-item
+  *ngIf="relatedStoryTitle != '' && relatedStorySlug != ''"
+  lines="none"
+  (click)="loadStory(relatedStorySlug)"
+  detail
+>
+  <ion-label text-wrap>
+    {{ relatedStoryTitle }}
+  </ion-label>
+</ion-item>
 
-<ion-item lines="none">
+<ion-item lines="none" *ngIf="relatedTestamonial != ''">
   <ion-label text-wrap>
     <strong>Added a testimonial:</strong>
-    In the case of a dynamically loaded component and in order for a ComponentFactory to be generated, the component
-    must also be added to the module’s entryComponents
+    <br />
+    {{ relatedTestamonial }}
   </ion-label>
 </ion-item>
 
@@ -32,7 +38,7 @@
     Close
   </ion-button>
   <ion-button (click)="dismiss()">
-      <ion-icon slot="start" name="list-box"></ion-icon>
-      All activity
-    </ion-button>
-  </ion-item>
+    <ion-icon slot="start" name="list-box"></ion-icon>
+    All activity
+  </ion-button>
+</ion-item>
