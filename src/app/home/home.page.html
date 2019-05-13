@@ -7,7 +7,6 @@
   >
     <div class="user-avatars-wrapper">
       <div class="user-avatars">
-
         <div *ngFor="let mostRecentAction of mostRecentActions; let i = index" class="user-avatar-wrapper avatar{{i+1}}">
           <img [src]="mostRecentAction.imageUrl" [alt]="mostRecentAction.displayName" class="user-avatar" />
           <ion-button (click)="onAvatarClick($event, mostRecentAction.userId, mostRecentAction.displayName, mostRecentAction.relatedStoryTitle, mostRecentAction.relatedStorySlug, mostRecentAction.relatedTestamonial)" fill="clear">
