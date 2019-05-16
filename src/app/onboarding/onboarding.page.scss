@@ -22,7 +22,7 @@
         font-size: 16px;
         h1 {
             color: var(--ion-color-secondary);
-            margin: 1.5rem 1rem;
+            margin: 2rem 1rem;
             font-size: 1.5rem;
         }
         p {
@@ -37,24 +37,13 @@
             max-height: 100%;
           }
         }
-        .content-container {
+        .content {
           flex-grow: 1;
-          width: 100%;
-
-          .content {
-            background: url(/assets/images/onboarding-slide1.png) no-repeat top center;
-            background-size: contain;
-            height: 100%;
-            p {
-              position: absolute;
-              bottom: 0;
-              text-align: center;
-              background-color: rgba(#6B0046, 0.6);
-              padding: 1rem 2rem 5rem;
-              margin: 0;
-              color: white;
-            }    
-          }
+          p {
+            text-align: center;
+            padding: 1rem 2rem;
+            margin: 0;
+          }    
         }
       }
       .slide2-wrapper{
