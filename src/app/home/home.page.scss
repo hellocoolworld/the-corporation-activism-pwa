@@ -7,11 +7,11 @@
   height: 568px;
   position: relative;
   &.logged-in {
-    background: url(/assets/images/home-logged-in.jpg) no-repeat top center;
+    background: url(/assets/images/home-logged-in.png) no-repeat top center;
 
   }
   &.logged-out {
-    background: url(/assets/images/home-logged-out.jpg) no-repeat top center;
+    background: url(/assets/images/home-logged-out.png) no-repeat top center;
 
   }
 
@@ -38,8 +38,12 @@
       margin-left:-512px; /* half of the width */
 
       .user-avatar-wrapper {
-        width: 48px;
-        height: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        ion-item {
+          --background: transparent;
+        }
         ion-button {
           --padding-bottom: 0;
           --padding-end: 0;
@@ -49,44 +53,44 @@
         }
 
         .user-avatar {
-          width: 44px;
+          width: 55px;
           border: 2px solid var(--ion-color-primary);
         }
 
         &.avatar1 {
           position: absolute;
-          top: 80px;
-          left: 200px;
+          top: 60px;
+          left: 170px;
         }
         &.avatar2 {
           position: absolute;
-          top: 145px;
+          top: 115px;
           left: 340px;
         }
         &.avatar3 {
           position: absolute;
-          top: 95px;
-          left: 410px;
+          top: 65px;
+          left: 425px;
         }
         &.avatar4 {
           position: absolute;
-          top: 125px;
-          left: 630px;
+          top: 85px;
+          left: 585px;
         }
         &.avatar5 {
           position: absolute;
-          top: 80px;
-          left: 750px;
+          top: 50px;
+          left: 725px;
         }
       }
     }
     .main-user-avatar {
       display: block;
-      width: 160px;
-      margin: 125px auto 0;
+      width: 130px;
+      margin: 168px auto 0;
     }
   }
-
+  
   ion-card {
     background-color: rgba(0,0,0,0.5);
     position: absolute;

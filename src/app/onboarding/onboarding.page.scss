@@ -13,7 +13,7 @@
   .swiper-container {
       --bullet-background: black;
       --bullet-background-active: var(--ion-color-secondary);
-      width: 100vw;
+      width: 100%;
       height: 100vh;
       
       .swiper-slide {
@@ -22,7 +22,7 @@
         font-size: 16px;
         h1 {
             color: var(--ion-color-secondary);
-            margin: 4rem 1rem 1rem;
+            margin: 1.5rem 1rem;
             font-size: 1.5rem;
         }
         p {
@@ -30,19 +30,35 @@
         }
       }
       .slide1-wrapper{
-        .image {
+        .header {
           width: 100%;
           background-color: var(--ion-color-secondary);
           img {
-            width: 100%;
+            max-height: 100%;
           }
         }
-        p {
-          margin: 1rem 2rem;
+        .content-container {
+          flex-grow: 1;
+          width: 100%;
+
+          .content {
+            background: url(/assets/images/onboarding-slide1.png) no-repeat top center;
+            background-size: contain;
+            height: 100%;
+            p {
+              position: absolute;
+              bottom: 0;
+              text-align: center;
+              background-color: rgba(#6B0046, 0.6);
+              padding: 1rem 2rem 5rem;
+              margin: 0;
+              color: white;
+            }    
+          }
         }
       }
       .slide2-wrapper{
-        background: url(/assets/images/onbording-slide2.png) no-repeat top center;
+        background: url(/assets/images/onboarding-slide2.png) no-repeat top center;
         background-size: cover;
         height: 100%;
         // position: relative;

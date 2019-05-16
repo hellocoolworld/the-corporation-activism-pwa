@@ -1,15 +1,40 @@
 <ht-header></ht-header>
 
 <ion-content>
-  <div class="home-splash" 
-    [class.logged-in] = "currentUser"
-    [class.logged-out] = "!currentUser"
-  >
+  <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
     <div class="user-avatars-wrapper">
       <div class="user-avatars">
-        <div *ngFor="let mostRecentAction of mostRecentActions; let i = index" class="user-avatar-wrapper avatar{{i+1}}">
-          <img [src]="mostRecentAction.imageUrl" [alt]="mostRecentAction.displayName" class="user-avatar" />
-          <ion-button (click)="onAvatarClick($event, mostRecentAction.userId, mostRecentAction.displayName, mostRecentAction.relatedStoryTitle, mostRecentAction.relatedStorySlug, mostRecentAction.relatedTestamonial)" fill="clear">
+        <div
+          *ngFor="let mostRecentAction of mostRecentActions; let i = index"
+          class="user-avatar-wrapper avatar{{ i + 1 }}"
+        >
+        <ion-item
+        (click)="
+          onAvatarClick(
+            $event,
+            mostRecentAction.userId,
+            mostRecentAction.displayName,
+            mostRecentAction.relatedStoryTitle,
+            mostRecentAction.relatedStorySlug,
+            mostRecentAction.relatedTestamonial
+          )
+        "
+        lines="none"
+      ><img [src]="mostRecentAction.imageUrl"  class="user-avatar" [alt]="mostRecentAction.displayName" />
+    </ion-item>
+          <ion-button
+            (click)="
+              onAvatarClick(
+                $event,
+                mostRecentAction.userId,
+                mostRecentAction.displayName,
+                mostRecentAction.relatedStoryTitle,
+                mostRecentAction.relatedStorySlug,
+                mostRecentAction.relatedTestamonial
+              )
+            "
+            fill="clear"
+          >
             <ion-icon slot="icon-only" [name]="mostRecentAction.actionIcon"></ion-icon>
           </ion-button>
         </div>
@@ -88,7 +113,7 @@
             Join supporters of The Corporation films to take a stand against corporate power.
           </p>
           <ion-button (click)="signUp()" expand="block" class="content-btn">
-              Join us
+            Join us
           </ion-button>
         </ng-template>
       </ion-card-content>
