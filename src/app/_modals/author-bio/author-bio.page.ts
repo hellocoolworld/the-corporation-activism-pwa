@@ -2,51 +2,51 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { Story } from '../../_models';
-import { StoryService, ToastService } from 'src/app/_services';
+import { Tale } from '../../_models';
+import { TaleService, ToastService } from 'src/app/_services';
 
 @Component({
-  selector: 'app-author-bio',
-  templateUrl: './author-bio.page.html',
-  styleUrls: ['./author-bio.page.scss']
+  selector: "app-author-bio",
+  templateUrl: "./author-bio.page.html",
+  styleUrls: ["./author-bio.page.scss"]
 })
 export class AuthorBioPage implements OnInit {
-  story: Story = new Story();
+  
+  tale: Tale = new Tale();
 
   constructor(
-    private _story: StoryService,
-    private _toast: ToastService,
+    private taleService: TaleService,
+    private toast: ToastService,
     private sanitizer: DomSanitizer,
     private modalController: ModalController,
     private navParams: NavParams
   ) {}
 
   ngOnInit() {
-    const storyId = this.navParams.data.storyId;
-    this._story.getById(storyId).subscribe(
+    const taleId = this.navParams.data.taleId;
+    /**
+     * @todo create a slug as in getBySlug(this.navParams.data.taleSlug)
+     */
+    this.taleService.getById(taleId).subscribe(
       res => {
-        const data = res as Story[]; // Convert the result to an array of Stories
+        const data = res as Tale[];
         for (let i = 0; i < data.length; i++) {
-          if (data[i].id === storyId) {
-            this.story = data[i];
+          if (data[i].id === taleId) {
+            this.tale = data[i];
             break;
           }
         }
       },
       err => {
         this._toast.error(err, true);
-      },
-      // () => {
-      //   console.log(this.story);
-      // }
+      }
     );
   }
   dismiss(): void {
     this.modalController.dismiss();
   }
 
-  sanatizeHTML (html: string) {
+  sanatizeHTML(html: string) {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
-
 }

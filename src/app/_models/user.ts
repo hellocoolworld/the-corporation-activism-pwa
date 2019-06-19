@@ -5,9 +5,9 @@
     displayName: string;
     imageUrl: string;
     testimonial: string;
-    stories: Array<{storyId: string, image: string, title: string, link: string}>;
-    pledges: Array<{pledgeId: string, storyId: string,  image: string, title: string, link: string}>;
-    actions: Array<{storyId: string, pledged: boolean, avocados: number}>;
+    tales: Array<{taleId: string, image: string, title: string, link: string}>;
+    pledges: Array<{pledgeId: string, taleId: string,  image: string, title: string, link: string}>;
+    actions: Array<{taleId: string, pledged: boolean, avocados: number}>;
     joinMailingList: boolean;
     allowPushNotification: boolean;
     allowEmailNotification: boolean;

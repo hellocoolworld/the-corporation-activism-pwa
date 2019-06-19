@@ -2,7 +2,7 @@
   --page-margin: var(--app-broad-margin);
 }
   
-.story-details-content {
+.tale-details-content {
   margin-bottom: var(--page-margin);
 
   h2 {
@@ -34,10 +34,10 @@
       }
     }
   }
-  .story-meta {
+  .tale-meta {
     ion-label {
       margin-top: 0;
-      .story-in-numbers {
+      .tale-in-numbers {
         display: flex;
         justify-content: space-between;
         font-size: 0.9rem;
@@ -53,7 +53,7 @@
       }
     }
   }
-  .story-body-section {
+  .tale-body-section {
     margin: calc(var(--page-margin) * 2) var(--page-margin);
     font-size: 1rem;
     line-height: 1.5;

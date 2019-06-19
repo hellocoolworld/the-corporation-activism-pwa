@@ -1,9 +1,9 @@
 <ht-header></ht-header>
 
-<ion-content class="story-details-content">
-  <div [style]="sanatizeVideoResponsiveStyles(story.aspectRatio)">
+<ion-content class="tale-details-content">
+  <div [style]="sanatizeVideoResponsiveStyles(tale.aspectRatio)">
     <iframe
-      [src]="sanatizeVideoUrl(story.vimeoCode)"
+      [src]="sanatizeVideoUrl(tale.vimeoCode)"
       style="position:absolute;top:0;left:0;width:100%;height:100%;"
       frameborder="0"
       allow="autoplay; fullscreen"
@@ -12,20 +12,20 @@
   </div>
   <script src="https://player.vimeo.com/api/player.js"></script>
 
-  <h2>{{ story.title }}</h2>
-  <p>{{ story.summary }}</p>
+  <h2>{{ tale.title }}</h2>
+  <p>{{ tale.summary }}</p>
   <ion-item
-    (click)="loadAuthorBio(story.id)"
-    [detail]="story.authorBioFull == '' ? false : true"
+    (click)="loadAuthorBio(tale.id)"
+    [detail]="tale.authorBioFull == '' ? false : true"
     lines="none"
     class="author-info"
   >
     <ion-avatar slot="start">
-      <img [src]="story.authorImg" />
+      <img [src]="tale.authorImg" />
     </ion-avatar>
     <ion-label text-wrap>
-      <h4>{{ story.authorName }}</h4>
-      <p>{{ story.authorBioSummary }}</p>
+      <h4>{{ tale.authorName }}</h4>
+      <p>{{ tale.authorBioSummary }}</p>
     </ion-label>
   </ion-item>
 
@@ -77,13 +77,13 @@
     </ion-row>
   </ion-grid>
 
-  <div *ngIf="story.body !== ''" class="story-body-section" [innerHTML]="sanatizeHTML(story.body)"></div>
-  <hr *ngIf="story.body !== ''" />
+  <div *ngIf="tale.body !== ''" class="tale-body-section" [innerHTML]="sanatizeHTML(tale.body)"></div>
+  <hr *ngIf="tale.body !== ''" />
 
-  <div class="story-body-section">
-    <h3>Take Action To Support This Story</h3>
-    <p>{{ story.takeActionSummary }}</p>
-    <div [innerHTML]="sanatizeHTML(story.takeActionBody)"></div>
+  <div class="tale-body-section">
+    <h3>Take Action To Support This Tale</h3>
+    <p>{{ tale.takeActionSummary }}</p>
+    <div [innerHTML]="sanatizeHTML(tale.takeActionBody)"></div>
   </div>
 
   <div class="share-buttons">
@@ -96,7 +96,7 @@
   </div>
 
   <div class="published-date">
-    {{ story.updatedAt }}
+    {{ tale.updatedAt }}
   </div>
 
   <ht-footer-ad></ht-footer-ad>
