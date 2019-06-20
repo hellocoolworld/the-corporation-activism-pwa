@@ -2,30 +2,19 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadChildren: './onboarding/onboarding.module#OnboardingPageModule' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
-  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' },
-  { path: 'reset-password', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },
-  { path: 'user', loadChildren: './user/user.module#UserPageModule' },
-  { path: 'verify-account', loadChildren: './verify-account/verify-account.module#VerifyAccountPageModule' },
-  { path: 'profile/:id', loadChildren: './profile/profile.module#ProfilePageModule' },
-  { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
-  { path: 'tale/:slug', loadChildren: './tales/details/details.module#DetailsPageModule' },
-  { path: 'tales', loadChildren: './tales/listing/listing.module#ListingPageModule' },
-  
-    // otherwise redirect to home
-    // { path: '**', redirectTo: '' }
-
-  // { path: 'http', loadChildren: './pages/http/http.module#HttpPageModule' },
-  // { path: 'map', loadChildren: './pages/map/map.module#MapPageModule' },
-  // { path: 'camera', loadChildren: './pages/camera/camera.module#CameraPageModule' },
-  // { path: 'data', loadChildren: './pages/data/data.module#DataPageModule' },
-  // { path: 'success', loadChildren: './pages/success/success.module#SuccessPageModule' },
-  // { path: 'data-add', loadChildren: './pages/data-add/data-add.module#DataAddPageModule' },
-  // { path: 'data-edit', loadChildren: './pages/data-edit/data-edit.module#DataEditPageModule' },
+  { path: '', loadChildren: './pages/onboarding/onboarding.module#OnboardingPageModule' },
+  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
+  { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
+  { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'forgot-password', loadChildren: './pages/forgot-password/forgot-password.module#ForgotPasswordPageModule' },
+  { path: 'reset-password', loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule' },
+  { path: 'user', loadChildren: './pages/user/user.module#UserPageModule' },
+  { path: 'verify-account', loadChildren: './pages/verify-account/verify-account.module#VerifyAccountPageModule' },
+  { path: 'profile/:id', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
+  { path: 'notifications', loadChildren: './pages/notifications/notifications.module#NotificationsPageModule' },
+  { path: 'tale/:slug', loadChildren: './pages/tales/details/details.module#DetailsPageModule' },
+  { path: 'tales', loadChildren: './pages/tales/listing/listing.module#ListingPageModule' }
 ];
 @NgModule({
   imports: [

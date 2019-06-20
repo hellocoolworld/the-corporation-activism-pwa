@@ -9,13 +9,13 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ComponentsModule } from './_components/components.module';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { ComponentsModule } from './components/components.module';
+import { JwtInterceptor, ErrorInterceptor } from './helpers';
 
-import { PrivacyPolicyPage, TermsOfServicePage, AuthorBioPage, AddPledgePage, HelpActionPledgePage, HelpAvocadometerPage } from './_modals';
+import { PrivacyPolicyPage, TermsOfServicePage, AuthorBioPage, AddPledgePage, HelpActionPledgePage, HelpAvocadometerPage } from './modals';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers';
+import { fakeBackendProvider } from './helpers';
 
  
 

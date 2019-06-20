@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform, ModalController, MenuController } from '@ionic/angular';
 
-import { AuthService } from './_services';
-import { User } from './_models';
+import { AuthService } from './services';
+import { User } from './models';
 
-import { PrivacyPolicyPage, TermsOfServicePage } from './_modals';
+import { PrivacyPolicyPage, TermsOfServicePage } from './modals';
 
 
 @Component({
