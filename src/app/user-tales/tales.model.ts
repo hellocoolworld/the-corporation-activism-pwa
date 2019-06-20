@@ -1,5 +1,5 @@
-export class StoriesModel {
-  stories: Array<{
+export class TalesModel {
+  tales: Array<{
     image: string,
     name: string,
     job: string,

@@ -169,20 +169,20 @@
   }
 }
 
-.stories-section-intro {
+.tales-section-intro {
   margin:2rem 1rem 1rem;
   p {
     text-align: center;
   }
 }
 
-.story-wrapper {
+.tale-wrapper {
   margin-bottom: var(--page-margin);
 
-  .story-header {
+  .tale-header {
     position: relative;
 
-    h3.story-title {
+    h3.tale-title {
       background-color: rgba(0,0,0,0.5);
       position: absolute;
       bottom: 0;
@@ -195,7 +195,7 @@
     }
   }
 
-  .story-action-summary {
+  .tale-action-summary {
     display: flex;
     justify-content: space-between;
     margin: 0.5rem 0.75rem;
@@ -246,12 +246,12 @@
     font-size: 0.9rem;
   }
 
-  .story-meta {
+  .tale-meta {
     .authoring-info {
       font-size: 0.8rem;
       padding-bottom: 0.25rem;
     }
-    .story-in-numbers {
+    .tale-in-numbers {
       display: flex;
       font-size: 0.75rem;
       color: var(--ion-color-medium-dark);

@@ -1,7 +1,7 @@
 [
 {
     "id": "q029efwfdf2c3",
-    "type" : "StoryType.video",
+    "type" : "TaleType.video",
     "vimeoCode": "128316441",
     "aspectRatio": "75.47",
     "image": "https://i.vimeocdn.com/video/519402955_1280x720.jpg",
@@ -28,13 +28,13 @@
     },
   {
     "id": "q02942c3",
-    "type" : "StoryType.video",
+    "type" : "TaleType.video",
     "vimeoCode": "135596258",
     "aspectRatio": "75.47",
     "image": "https://i.vimeocdn.com/video/555546912_1280x720.jpg",
     "title": "We Heard The Call: The New Corporation Is Underway",
     "slug": "we-heard-the-call-the-new-corporation-is-underway",
-    "summary": "We're making a sequel - an unfortunately necessary sequel. Our new story is about how society is changing from having corporations to being corporate.",
+    "summary": "We're making a sequel - an unfortunately necessary sequel. Our new tale is about how society is changing from having corporations to being corporate.",
     "authorName": "Joel Bakan",
     "authorImg": "https://thecorporation.com/sites/default/files/styles/team_image/public/team-images/joelbakan2b.jpg",
     "authorBioSummary": "Author of the bestselling book that spawned the first film, as well as the writer and co-creator of the films, Joel is a professor of law at the University of British Columbia. His work examines the social, economic, and political dimensions of law.",
@@ -55,7 +55,7 @@
   },
   {
     "id": "2pxqt2a489d",
-    "type" : "StoryType.video",
+    "type" : "TaleType.video",
     "vimeoCode": "106615397",
     "aspectRatio": "55.94",
     "image": "https://i.vimeocdn.com/video/490070043_1280x720.jpg",

@@ -3,7 +3,7 @@ import { Resolve } from '@angular/router';
 import { UserService } from '../_services';
 
 @Injectable()
-export class StoriesResolver implements Resolve<any> {
+export class TalesResolver implements Resolve<any> {
 
   constructor(private userService: UserService) { }
 

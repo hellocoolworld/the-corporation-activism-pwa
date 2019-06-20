@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
 import { ModalController } from '@ionic/angular';
 
-import { StoryService, ToastService } from '../../_services';
-import { Story, StoryType } from '../../_models';
+import { TaleService, ToastService } from '../../_services';
+import { Tale, TaleType } from '../../_models';
 
 import { AuthorBioPage, AddPledgePage, HelpActionPledgePage, HelpAvocadometerPage } from '../../_modals';
 
@@ -15,7 +15,7 @@ import { AuthorBioPage, AddPledgePage, HelpActionPledgePage, HelpAvocadometerPag
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-  story: Story = new Story;
+  tale: Tale = new Tale;
 
   //Fake data
   pledgeCount: number;
@@ -24,8 +24,8 @@ export class DetailsPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute, 
-    private _story: StoryService, 
-    private _toast: ToastService,
+    private taleService: TaleService, 
+    private toast: ToastService,
     private sanitizer: DomSanitizer,
     private modalController: ModalController
     ) { }
@@ -33,22 +33,22 @@ export class DetailsPage implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const slug = params.get('slug');
-      this._story.getBySlug(slug).subscribe(
+      this.taleService.getBySlug(slug).subscribe(
         res => {
-          let data = res as Story[]; //Convert the result to an array of Stories
+          let data = res as Tale[]; //Convert the result to an array of Tales
           for (var i=0; i<data.length; i++) {
             if (data[i].slug === slug){
-              this.story = data[i];
+              this.tale = data[i];
               break;
             }
           }
         },
         err => { 
-          this._toast.error(err, true);
+          this.toast.error(err, true);
         },
         () => {
-          this.pledgeCount = this.story.pledgeCount;
-          this.avocados = this.story.avocados;
+          this.pledgeCount = this.tale.pledgeCount;
+          this.avocados = this.tale.avocados;
           this.userAvocados = 0;
         }
       )
@@ -57,12 +57,9 @@ export class DetailsPage implements OnInit {
 
   onAddYourPledge () {
     this.pledgeCount += 1;
-    
-    this.showAddPledgeModal ();
-    
+    this.showAddPledgeModal();
     let addYourPledge = document.getElementById('add-your-pledge');
     addYourPledge.classList.add("hidden");
-
     let youHavePledged = document.getElementById('you-have-pledged');
     youHavePledged.classList.remove("hidden"); 
   }
@@ -76,22 +73,25 @@ export class DetailsPage implements OnInit {
     this.userAvocados = e;
 //    console.log(e);
   }
+
   sanatizeVideoUrl (videoCode: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/' + videoCode);
   }
+
   sanatizeVideoResponsiveStyles (aspectRation: string) {
     return this.sanitizer.bypassSecurityTrustStyle('padding:' + aspectRation + '% 0 0 0;position:relative;');
   }
-  sanatizeHTML (html: string) {
+  
+  sanatizeHTML(html: string) {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
-  async loadAuthorBio(storyId: string) {
-    console.log('id:', storyId);
+  async loadAuthorBio(taleId: string) {
+    console.log('id:', taleId);
     const modal = await this.modalController.create({
       component: AuthorBioPage,
       componentProps: {
-        'storyId': storyId
+        'taleId': taleId
       }
     });
     return await modal.present();

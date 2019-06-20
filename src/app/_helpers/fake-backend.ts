@@ -43,7 +43,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               newUser.displayName = '';
               newUser.imageUrl = './assets/images/default-mask-avatar.png';
               newUser.testimonial = '';
-              newUser.stories = [Math.random().toString(20).substring(2)];
+              newUser.tales = [Math.random().toString(20).substring(2)];
               newUser.pledges = [Math.random().toString(20).substring(2), Math.random().toString(20).substring(2)];
               newUser.actions = [Math.random().toString(20).substring(2), false, 2];
               newUser.joinMailingList = false;
@@ -169,7 +169,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                       filteredUsers[0].displayName = request.body.displayName;
                       filteredUsers[0].imageUrl = request.body.imageUrl;
                       filteredUsers[0].testimonial = request.body.testimonial;
-                      filteredUsers[0].stories = request.body.stories;
+                      filteredUsers[0].tales = request.body.tales;
                       filteredUsers[0].pledges = request.body.pledges;
                       filteredUsers[0].actions = request.body.actions;
                       filteredUsers[0].joinMailingList = request.body.joinMailingList;

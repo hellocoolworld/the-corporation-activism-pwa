@@ -6,9 +6,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="stories-content">
-  <ion-segment class="stories-segment" mode="md" (ionChange)="segmentChanged($event)">
-    <ion-segment-button mode="md" checked="true" value="stories">
+<ion-content class="tales-content">
+  <ion-segment class="tales-segment" mode="md" (ionChange)="segmentChanged($event)">
+    <ion-segment-button mode="md" checked="true" value="tales">
       <ion-label>Friends</ion-label>
     </ion-segment-button>
     <ion-segment-button mode="md" value="followers">
@@ -19,7 +19,7 @@
     </ion-segment-button>
   </ion-segment>
 
-  <ion-searchbar class="stories-searchbar" animated mode="ios" [(ngModel)]="searchQuery" (ionChange)="searchList()"></ion-searchbar>
+  <ion-searchbar class="tales-searchbar" animated mode="ios" [(ngModel)]="searchQuery" (ionChange)="searchList()"></ion-searchbar>
 
   <ng-template #friendItem let-friend="friend">
     <ion-row class="user-details-section">
@@ -45,19 +45,19 @@
     </ion-row>
   </ng-template>
 
-  <section [hidden]="segmentValue !== 'stories'">
-    <ion-list class="stories-list" *ngIf="storiesList.length > 0">
-      <ion-item class="friend-item" *ngFor="let friend of storiesList">
+  <section [hidden]="segmentValue !== 'tales'">
+    <ion-list class="tales-list" *ngIf="talesList.length > 0">
+      <ion-item class="friend-item" *ngFor="let friend of talesList">
         <ng-container *ngTemplateOutlet="friendItem; context: { friend: friend }"></ng-container>
       </ion-item>
     </ion-list>
-    <ng-container *ngIf="storiesList.length <= 0">
+    <ng-container *ngIf="talesList.length <= 0">
       <h3 class="empty-list-message">No Friends</h3>
     </ng-container>
   </section>
 
   <section [hidden]="segmentValue !== 'followers'">
-    <ion-list class="stories-list" *ngIf="followersList.length > 0">
+    <ion-list class="tales-list" *ngIf="followersList.length > 0">
       <ion-item class="friend-item" *ngFor="let friend of followersList">
         <ng-container *ngTemplateOutlet="friendItem; context: { friend: friend }"></ng-container>
       </ion-item>
@@ -68,7 +68,7 @@
   </section>
 
   <section [hidden]="segmentValue !== 'following'">
-    <ion-list class="stories-list" *ngIf="followingList.length > 0">
+    <ion-list class="tales-list" *ngIf="followingList.length > 0">
       <ion-item class="friend-item" *ngFor="let friend of followingList">
         <ng-container *ngTemplateOutlet="friendItem; context: { friend: friend }"></ng-container>
       </ion-item>

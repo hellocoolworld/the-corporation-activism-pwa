@@ -1,22 +1,22 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { StoriesModel } from './stories.model';
+import { TalesModel } from './tales.model';
 
 @Component({
-  selector: 'app-stories',
-  templateUrl: './stories.page.html',
+  selector: 'app-tales',
+  templateUrl: './tales.page.html',
   styleUrls: [
-    './styles/stories.page.scss',
-    './styles/stories.shell.scss',
-    './styles/stories.md.scss'
+    './styles/tales.page.scss',
+    './styles/tales.shell.scss',
+    './styles/tales.md.scss'
   ]
 })
-export class StoriesPage implements OnInit {
-  data: StoriesModel;
+export class TalesPage implements OnInit {
+  data: TalesModel;
 
-  segmentValue = 'stories';
-  storiesList: Array<any>;
+  segmentValue = 'tales';
+  talesList: Array<any>;
   followersList: Array<any>;
   followingList: Array<any>;
   searchQuery = '';
@@ -41,14 +41,14 @@ export class StoriesPage implements OnInit {
 
           if (dataObservable) {
             dataObservable.subscribe(observableValue => {
-              const pageData: StoriesModel = observableValue;
+              const pageData: TalesModel = observableValue;
               // tslint:disable-next-line:max-line-length
               console.log('Subscribe to dataObservable (can emmit multiple values) => PageData (' + ((pageData && pageData.isShell) ? 'SHELL' : 'REAL') + '): ', pageData);
               // As we are implementing an App Shell architecture, pageData will be firstly an empty shell model,
               // and the real remote data once it gets fetched
               if (pageData) {
                 this.data = pageData;
-                this.storiesList = this.data.stories;
+                this.talesList = this.data.tales;
                 this.followersList = this.data.followers;
                 this.followingList = this.data.following;
               }
@@ -67,16 +67,14 @@ export class StoriesPage implements OnInit {
 
   segmentChanged(ev): void {
     this.segmentValue = ev.detail.value;
-
     // Check if there's any filter and apply it
     this.searchList();
   }
 
   searchList(): void {
     const query = (this.searchQuery && this.searchQuery !== null) ? this.searchQuery : '';
-
-    if (this.segmentValue === 'stories') {
-      this.storiesList = this.filterList(this.data.stories, query);
+    if (this.segmentValue === 'tales') {
+      this.talesList = this.filterList(this.data.tales, query);
     } else if (this.segmentValue === 'followers') {
       this.followersList = this.filterList(this.data.followers, query);
     } else if (this.segmentValue === 'following') {

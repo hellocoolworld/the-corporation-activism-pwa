@@ -4,8 +4,8 @@ import { ModalController, PopoverController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { User, Story, StoryType } from '../_models';
-import { AuthService, StoryService } from '../_services';
+import { User, Tale, TaleType } from '../_models';
+import { AuthService, TaleService } from '../_services';
 import { HelpActionPledgePage, HelpAvocadometerPage } from '../_modals';
 import { PopoverComponent } from '../_components/popover/popover.component';
 
@@ -17,14 +17,14 @@ import { PopoverComponent } from '../_components/popover/popover.component';
 })
 export class HomePage implements OnInit, OnDestroy {
   currentUser: User;
-  stories: Story[] = [];
+  tales: Tale[] = [];
   mostRecentActions = [];
   private unsubscribe$: Subject<void> = new Subject();
   
   constructor(
     private router: Router,
     private _auth: AuthService,
-    private _story: StoryService,
+    private _tale: TaleService,
     private modalController: ModalController,
     private popoverController: PopoverController
   ) {
@@ -32,22 +32,22 @@ export class HomePage implements OnInit, OnDestroy {
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe(res => this.currentUser = res);
   }
-
+  
   ngOnInit() {
-    this._story.getAll()
+    this._tale.getAll()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         result => {
-          let data = result as Story[]; //Convert the result to an array of Stories
+          let data = result as Tale[]; //Convert the result to an array of Stories
           for (var i=0; i<data.length; i++) {
-            this.stories.push(data[i]);
+            this.tales.push(data[i]);
           }
         },
         error => { 
           console.log("Error in recieving data"); 
         },
         ()   => {
-          // console.log( this.stories );
+          // console.log( this.tales );
         }
       );
     this.mostRecentActions = [
@@ -56,8 +56,8 @@ export class HomePage implements OnInit, OnDestroy {
         'imageUrl' : "/assets/sample-images/user/person_1.jpg",
         'displayName' : 'Hank Aaron',
         'actionIcon' : 'hand',
-        'relatedStoryTitle' : '',
-        'relatedStorySlug' : '',
+        'relatedTaleTitle' : '',
+        'relatedTaleSlug' : '',
         'relatedTestamonial' : ''
       },
       {
@@ -65,8 +65,8 @@ export class HomePage implements OnInit, OnDestroy {
         'imageUrl' : "/assets/sample-images/user/person_3.jpg",
         'displayName' : 'Frank Abagnale',
         'actionIcon' : 'quote',
-        'relatedStoryTitle' : '',
-        'relatedStorySlug' : '',
+        'relatedTaleTitle' : '',
+        'relatedTaleSlug' : '',
         'relatedTestamonial' : 'In the case of a dynamically loaded component and in order for a ComponentFactory to be generated, the component must also be added to the module’s entryComponents'
       },
       {
@@ -74,8 +74,8 @@ export class HomePage implements OnInit, OnDestroy {
         'imageUrl' : "/assets/sample-images/user/person_5.jpg",
         'displayName' : 'Edward Abbey',
         'actionIcon' : 'trophy',
-        'relatedStoryTitle' : 'How Does Halo Tales Empower People To Fight Corporate Power?',
-        'relatedStorySlug' : 'how-does-halo-tales-empower-people-to-fight-corporate-power',
+        'relatedTaleTitle' : 'How Does Halo Tales Empower People To Fight Corporate Power?',
+        'relatedTaleSlug' : 'how-does-halo-tales-empower-people-to-fight-corporate-power',
         'relatedTestamonial' : ''
       },
       {
@@ -83,8 +83,8 @@ export class HomePage implements OnInit, OnDestroy {
         'imageUrl' : "/assets/sample-images/user/person_6.jpg",
         'displayName' : 'James Abourezk',
         'actionIcon' : 'hand',
-        'relatedStoryTitle' : '',
-        'relatedStorySlug' : '',
+        'relatedTaleTitle' : '',
+        'relatedTaleSlug' : '',
         'relatedTestamonial' : ''
       },
       {
@@ -92,8 +92,8 @@ export class HomePage implements OnInit, OnDestroy {
         'imageUrl' : "/assets/sample-images/user/person_7.jpg",
         'displayName' : 'Jane Ace',
         'actionIcon' : 'hand',
-        'relatedStoryTitle' : '',
-        'relatedStorySlug' : '',
+        'relatedTaleTitle' : '',
+        'relatedTaleSlug' : '',
         'relatedTestamonial' : ''
       }
     ]
@@ -106,18 +106,18 @@ export class HomePage implements OnInit, OnDestroy {
   pledgesCount():number {
     return this.currentUser.pledges.length;
   }
-  storiesCount():number {
-    return this.currentUser.stories.length;
+  talesCount():number {
+    return this.currentUser.tales.length;
   }
 
-  async onAvatarClick(ev: Event, userId: String, userDisplayName: String, relatedStoryTitle: String, relatedStorySlug: String, relatedTestamonial: String) {
+  async onAvatarClick(ev: Event, userId: String, userDisplayName: String, relatedTaleTitle: String, relatedTaleSlug: String, relatedTestamonial: String) {
     const popover = await this.popoverController.create({
       component: PopoverComponent,
       componentProps: {
         userId: userId,
         userDisplayName: userDisplayName,
-        relatedStoryTitle: relatedStoryTitle,
-        relatedStorySlug: relatedStorySlug,
+        relatedTaleTitle: relatedTaleTitle,
+        relatedTaleSlug: relatedTaleSlug,
         relatedTestamonial: relatedTestamonial
       },
       event: ev,

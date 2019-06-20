@@ -4,17 +4,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { StoriesPage } from './stories.page';
+import { TalesPage } from './tales.page';
 import { UserService } from '../_services';
-import { StoriesResolver } from './stories.resolver';
+import { TalesResolver } from './tales.resolver';
 import { ComponentsModule } from '../_components/components.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: StoriesPage,
+    component: TalesPage,
     resolve: {
-      data: StoriesResolver
+      data: TalesResolver
     }
   }
 ]; 
@@ -27,10 +27,10 @@ const routes: Routes = [
     ComponentsModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [StoriesPage],
+  declarations: [TalesPage],
   providers: [
-    StoriesResolver,
+    TalesResolver,
     UserService
   ]
 })
-export class StoriesPageModule {}
+export class TalesPageModule {}
