@@ -12,6 +12,7 @@ export class AddAvocadosComponent {
   @Input() rating:number = 0;
   @Input() readOnly = false;
 
+  // @todo casting EventEmitter as number?
   @Output() ratingChange: EventEmitter<number> = new EventEmitter();
 
   rate(index: number) {

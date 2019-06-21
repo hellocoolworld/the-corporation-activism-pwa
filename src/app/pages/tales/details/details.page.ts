@@ -54,7 +54,10 @@ export class DetailsPage implements OnInit {
       )
     });
   }
-
+  
+  /**
+   * @todo use ngClass and a getter 
+   */
   onAddYourPledge () {
     this.pledgeCount += 1;
     this.showAddPledgeModal();
@@ -64,13 +67,17 @@ export class DetailsPage implements OnInit {
     youHavePledged.classList.remove("hidden"); 
   }
 
-  onAddAvocados (e) {
-    if (e < this.userAvocados) {
+  /**
+   * @todo checkout the event emitter 
+   * @param rating {number}
+   */
+  onAddAvocados (rating: number) {
+    if (rating < this.userAvocados) {
       this.avocados -= this.userAvocados - e;
-    } else if (e > this.userAvocados) {
-      this.avocados += e - this.userAvocados;
+    } else if (rating > this.userAvocados) {
+      this.avocados += rating - this.userAvocados;
     }
-    this.userAvocados = e;
+    this.userAvocados = rating;
 //    console.log(e);
   }
 
