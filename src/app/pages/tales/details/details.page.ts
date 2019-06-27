@@ -73,12 +73,11 @@ export class DetailsPage implements OnInit {
    */
   onAddAvocados (rating: number) {
     if (rating < this.userAvocados) {
-      this.avocados -= this.userAvocados - e;
+      this.avocados -= this.userAvocados - rating;
     } else if (rating > this.userAvocados) {
       this.avocados += rating - this.userAvocados;
     }
     this.userAvocados = rating;
-//    console.log(e);
   }
 
   sanatizeVideoUrl (videoCode: string) {
