@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// tslint:disable-next-line: no-unused-expression
+import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
 import { first } from 'rxjs/operators';
 
 import { AuthService, UserService, ToastService } from '../../services';
-import { PrivacyPolicyPage, TermsOfServicePage } from '../../modals';
+import { PrivacyPolicyModal, TermsOfServiceModal } from '../../modals';
 
 @Component({
   selector: 'app-signup',
@@ -78,21 +80,21 @@ export class SignupPage implements OnInit {
     }
   }
 
-  socialProviderSingup(provider: String): void {
-    console.log('facebook signup');
+  clickProvider(providerName: String): void {
+    console.log('facebook login');
   }
 
 
   async showTermsModal() {
     const modal = await this.modalController.create({
-      component: TermsOfServicePage
+      component: TermsOfServiceModal
     });
     return await modal.present();
   }
 
   async showPrivacyModal() {
     const modal = await this.modalController.create({
-      component: PrivacyPolicyPage
+      component: PrivacyPolicyModal
     });
     return await modal.present();
   }

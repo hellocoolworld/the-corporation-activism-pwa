@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
@@ -6,7 +7,7 @@ import { ModalController } from '@ionic/angular';
 import { MustMatch } from '../../validators/must-match.validator';
 import { ToastService, AuthService, UserService } from '../../services';
 import { User } from '../../models';
-import { PrivacyPolicyPage, TermsOfServicePage } from '../../modals';
+import { PrivacyPolicyModal, TermsOfServiceModal } from '../../modals';
 
 import { first } from 'rxjs/operators';
 
@@ -22,6 +23,7 @@ export class UserSettingsPage implements OnInit {
 
   
   constructor(
+    private title: Title,
     private router: Router, 
     private fb: FormBuilder, 
     private _auth: AuthService,
@@ -35,6 +37,8 @@ export class UserSettingsPage implements OnInit {
       // redirect to verify-user page
       if (!this.currentUser.isVerified) {
         this.router.navigate(['/verify-account']);
+      } else {
+        this.title.setTitle(`Halo Tales - ${this.currentUser.displayName}`);
       }
     } else {
       // if not logged in, redirect to login
@@ -97,14 +101,14 @@ export class UserSettingsPage implements OnInit {
 
   async showTermsModal() {
     const modal = await this.modalController.create({
-      component: TermsOfServicePage
+      component: TermsOfServiceModal
     });
     return await modal.present();
   }
 
   async showPrivacyModal() {
     const modal = await this.modalController.create({
-      component: PrivacyPolicyPage
+      component: PrivacyPolicyModal
     });
     return await modal.present();
   }

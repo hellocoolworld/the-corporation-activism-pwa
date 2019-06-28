@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -12,7 +12,8 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { JwtInterceptor, ErrorInterceptor } from './helpers';
 
-import { PrivacyPolicyPage, TermsOfServicePage, AuthorBioPage, AddPledgePage, HelpActionPledgePage, HelpAvocadometerPage } from './modals';
+
+import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from './modals';
 
 // used to create fake backend
 import { fakeBackendProvider } from './helpers';
@@ -31,19 +32,19 @@ import { fakeBackendProvider } from './helpers';
 
   declarations: [
     AppComponent,
-    TermsOfServicePage, 
-    PrivacyPolicyPage,
-    AuthorBioPage, 
-    AddPledgePage,
-    HelpActionPledgePage, 
-    HelpAvocadometerPage 
+    TermsOfServiceModal, 
+    PrivacyPolicyModal,
+    AuthorBioModal, 
+    AddPledgeModal,
+    HelpActionPledgeModal, 
+    HelpAvocadometerModal 
   ],
 
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
+    Title,
     // provider used to create fake backend
     fakeBackendProvider
   ],
@@ -51,12 +52,12 @@ import { fakeBackendProvider } from './helpers';
   exports: [],
 
   entryComponents: [
-    TermsOfServicePage, 
-    PrivacyPolicyPage, 
-    AuthorBioPage,
-    AddPledgePage, 
-    HelpActionPledgePage, 
-    HelpAvocadometerPage
+    TermsOfServiceModal, 
+    PrivacyPolicyModal, 
+    AuthorBioModal,
+    AddPledgeModal, 
+    HelpActionPledgeModal, 
+    HelpAvocadometerModal
   ],
 
   bootstrap: [AppComponent]

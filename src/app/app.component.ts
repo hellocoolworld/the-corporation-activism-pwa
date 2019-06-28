@@ -5,7 +5,7 @@ import { Platform, ModalController, MenuController } from '@ionic/angular';
 import { AuthService } from './services';
 import { User } from './models';
 
-import { PrivacyPolicyPage, TermsOfServicePage } from './modals';
+import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
 
 
 @Component({
@@ -55,14 +55,14 @@ export class AppComponent {
 
   async showTermsModal() {
     const modal = await this.modalController.create({
-      component: TermsOfServicePage
+      component: TermsOfServiceModal
     });
     return await modal.present();
   }
 
   async showPrivacyModal() {
     const modal = await this.modalController.create({
-      component: PrivacyPolicyPage
+      component: PrivacyPolicyModal
     });
     return await modal.present();
   }

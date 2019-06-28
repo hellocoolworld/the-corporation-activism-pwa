@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -18,6 +19,7 @@ export class UserProfilePage implements OnInit {
 
   
   constructor(
+    private title: Title,
     private router: Router, 
     private fb: FormBuilder, 
     private _auth: AuthService,
@@ -30,6 +32,8 @@ export class UserProfilePage implements OnInit {
       // redirect to verify-user page
       if (!this.currentUser.isVerified) {
         this.router.navigate(['/verify-account']);
+      } else {
+        this.title.setTitle(`Halo Tales - ${this.currentUser.displayName}`);
       }
     } else {
       // if not logged in, redirect to login
@@ -54,8 +58,8 @@ export class UserProfilePage implements OnInit {
     }
 
     // Set the new fields values into the current user opject
-    this.currentUser.displayName = this.f.displayName.value;
-    this.currentUser.testimonial = this.f.testimonial.value;
+    this.currentUser.displayName = this.form.displayName.value;
+    this.currentUser.testimonial = this.form.testimonial.value;
 
     await this._user.update(this.currentUser)
       .pipe(first())
@@ -72,7 +76,10 @@ export class UserProfilePage implements OnInit {
       );
   }
 
+  openUploader() {
+    console.log('noop');
+  }
   // convenience getter for easy access to form fields
-  get f() {
+  get form() {
     return this.UserProfileForm.controls;
   }}

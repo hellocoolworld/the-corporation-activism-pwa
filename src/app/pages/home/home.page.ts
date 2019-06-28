@@ -6,9 +6,9 @@ import { takeUntil } from 'rxjs/operators';
 
 import { User, Tale, TaleType } from '../../models';
 import { AuthService, TaleService } from '../../services';
-import { HelpActionPledgePage, HelpAvocadometerPage } from '../../modals';
+import { HelpActionPledgeModal, HelpAvocadometerModal } from '../../modals';
 import { PopoverComponent } from '../../components/popover/popover.component';
-
+import { Title } from '@angular/platform-browser';
  
 @Component({
   selector: 'app-home',
@@ -23,11 +23,13 @@ export class HomePage implements OnInit, OnDestroy {
   
   constructor(
     private router: Router,
+    private title:Title,
     private _auth: AuthService,
     private _tale: TaleService,
     private modalController: ModalController,
     private popoverController: PopoverController
   ) {
+    this.title.setTitle('Halo Tales - Welcome');
     this._auth.currentUser
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe(res => this.currentUser = res);
@@ -37,8 +39,9 @@ export class HomePage implements OnInit, OnDestroy {
     this._tale.getAll()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
-        result => {
-          let data = result as Tale[]; //Convert the result to an array of Stories
+        res => {
+          console.log('res:', res);
+          let data = res as Tale[]; //Convert the result to an array of Stories
           for (var i=0; i<data.length; i++) {
             this.tales.push(data[i]);
           }
@@ -103,11 +106,12 @@ export class HomePage implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  pledgesCount():number {
-    return this.currentUser.pledges.length;
+  get pledgesCount(): number {
+    return (this.currentUser && this.currentUser.pledges) ? this.currentUser.pledges.length : null;
   }
-  talesCount():number {
-    return this.currentUser.tales.length;
+
+  get talesCount(): number {
+    return (this.currentUser && this.currentUser.tales) ? this.currentUser.tales.length : null;
   }
 
   async onAvatarClick(ev: Event, userId: String, userDisplayName: String, relatedTaleTitle: String, relatedTaleSlug: String, relatedTestamonial: String) {
@@ -132,13 +136,13 @@ export class HomePage implements OnInit, OnDestroy {
 
   async showHelpActionPledgeModal() {
     const modal = await this.modalController.create({
-      component: HelpActionPledgePage
+      component: HelpActionPledgeModal
     });
     return await modal.present();
   }
   async showHelpAvocadometerModal() {
     const modal = await this.modalController.create({
-      component: HelpAvocadometerPage
+      component: HelpAvocadometerModal
     });
     return await modal.present();
   }

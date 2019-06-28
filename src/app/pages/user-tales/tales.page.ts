@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
 import { TalesModel } from './tales.model';
@@ -26,7 +27,9 @@ export class TalesPage implements OnInit {
     return (this.data && this.data.isShell) ? true : false;
   }
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private title: Title) { 
+    this.title.setTitle('Halo Tales - Tales');
+  }
 
   ngOnInit(): void {
     if (this.route && this.route.data) {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +19,9 @@ export class OnboardingPage implements OnInit {
     
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private title: Title) { 
+    this.title.setTitle('Halo Tales - Tour');
+  }
 
   ngOnInit() {
   }
@@ -29,9 +32,9 @@ export class OnboardingPage implements OnInit {
 
   slideChange(slider) {
 
-  //   slider.isEnd().subscribe(
-  //     res => {console.log('here', res);}
-  //   );
+  slider.isEnd().subscribe(
+  res => {console.log('here', res);}
+ );
     
   }
 }

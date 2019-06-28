@@ -4,12 +4,8 @@
   <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
     <div class="user-avatars-wrapper">
       <div class="user-avatars">
-        <div
-          *ngFor="let mostRecentAction of mostRecentActions; let i = index"
-          class="user-avatar-wrapper avatar{{ i + 1 }}"
-        >
-        <ion-item
-        (click)="
+        <div *ngFor="let mostRecentAction of mostRecentActions; let i = index" class="user-avatar-wrapper avatar{{ i + 1 }}">
+          <ion-item (click)="
           onAvatarClick(
             $event,
             mostRecentAction.userId,
@@ -18,12 +14,9 @@
             mostRecentAction.relatedTaleSlug,
             mostRecentAction.relatedTestamonial
           )
-        "
-        lines="none"
-      ><img [src]="mostRecentAction.imageUrl"  class="user-avatar" [alt]="mostRecentAction.displayName" />
-    </ion-item>
-          <ion-button
-            (click)="
+        " lines="none"><img [src]="mostRecentAction.imageUrl" class="user-avatar" [alt]="mostRecentAction.displayName" />
+          </ion-item>
+          <ion-button (click)="
               onAvatarClick(
                 $event,
                 mostRecentAction.userId,
@@ -32,9 +25,7 @@
                 mostRecentAction.relatedTaleSlug,
                 mostRecentAction.relatedTestamonial
               )
-            "
-            fill="clear"
-          >
+            " fill="clear">
             <ion-icon slot="icon-only" [name]="mostRecentAction.actionIcon"></ion-icon>
           </ion-button>
         </div>
@@ -49,9 +40,8 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title>
-          <ng-container *ngIf="currentUser; then titleLoggedIn; else titleLoggedOut"></ng-container>
-          <ng-template #titleLoggedIn>You're part of our story</ng-template>
-          <ng-template #titleLoggedOut>Be part of our story</ng-template>
+          {{currentUser ? "You're part of our story" : "Be part of our story" }}
+          <span *ngIf="!currentUser"><br>Let's make History</span>
         </ion-card-title>
       </ion-card-header>
 
@@ -64,9 +54,7 @@
               <ion-item class="testimonials">
                 <ion-icon slot="start" name="quote"></ion-icon>
                 <ion-label>
-                  <ng-container
-                    *ngIf="currentUser.testimonial != ''; then yesTestimonials; else noTestimonial"
-                  ></ng-container>
+                  <ng-container *ngIf="currentUser.testimonial != ''; then yesTestimonials; else noTestimonial"></ng-container>
                   <ng-template #yesTestimonials>
                     <a [routerLink]="['/profile', currentUser.id]">
                       Testimonial
@@ -86,16 +74,15 @@
               <ion-item class="pledges">
                 <ion-icon slot="start" name="trophy"></ion-icon>
                 <ion-label>
-                  {{ pledgesCount() }} Action
-                  <br />
-                  pledges
+                  {{ pledgesCount }} Action
+                  <br /> pledges
                 </ion-label>
               </ion-item>
               <ion-item class="tales">
                 <ion-icon slot="start" name="videocam"></ion-icon>
                 <ion-label>
-                  <ng-container *ngIf="talesCount() > 0; then yesTales; else noTales"></ng-container>
-                  <ng-template #yesTales>{{ talesCount() }} Stories</ng-template>
+                  <ng-container *ngIf="talesCount > 0; then yesTales; else noTales"></ng-container>
+                  <ng-template #yesTales>{{ talesCount }} Stories</ng-template>
                   <ng-template #noTales>
                     <a href="">
                       Add
@@ -125,11 +112,11 @@
     <p>Watch tales and take action by people who were transformed by the film.</p>
   </div>
 
-  <div class="tale-wrapper" *ngFor="let s of tales">
-    <a href="tale/{{ s.slug }}">
+  <div class="tale-wrapper" *ngFor="let tale of tales">
+    <a href="tale/{{ tale.slug }}">
       <div class="tale-header">
-        <ion-img [src]="s.image"></ion-img>
-        <h3 class="tale-title">{{ s.title }}</h3>
+        <ion-img [src]="tale.image"></ion-img>
+        <h3 class="tale-title">{{ tale.title }}</h3>
       </div>
     </a>
 
@@ -143,7 +130,7 @@
         </ion-item>
         <ion-item class="content">
           <ion-icon name="trophy" size="large"></ion-icon>
-          <ion-label>{{ s.pledgeCount }}</ion-label>
+          <ion-label>{{ tale.pledgeCount }}</ion-label>
         </ion-item>
       </div>
       <div class="avocadometer">
@@ -155,21 +142,21 @@
         </ion-item>
         <ion-item class="content">
           <ion-icon src="/assets/images/avocadometer.svg" size="large"></ion-icon>
-          <ion-label>{{ s.avocados }}</ion-label>
+          <ion-label>{{ tale.avocados }}</ion-label>
         </ion-item>
       </div>
     </div>
 
     <ion-item class="summary" lines="none">
-      <ion-label text-wrap>{{ s.summary }}</ion-label>
+      <ion-label text-wrap>{{ tale.summary }}</ion-label>
     </ion-item>
 
     <ion-item class="tale-meta" lines="none">
       <ion-avatar slot="start">
-        <img [src]="s.authorImg" />
+        <img [src]="tale.authorImg" />
       </ion-avatar>
       <ion-label>
-        <div class="authoring-info">{{ s.authorName }} &bull; {{ s.updatedAt }}</div>
+        <div class="authoring-info">{{ tale.authorName }} &bull; {{ tale.updatedAt }}</div>
       </ion-label>
     </ion-item>
   </div>

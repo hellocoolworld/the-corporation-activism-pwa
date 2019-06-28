@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadChildren: './pages/onboarding/onboarding.module#OnboardingPageModule' },
-  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
+  { path: '', loadChildren: './pages/home/home.module#HomePageModule' },
   { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },

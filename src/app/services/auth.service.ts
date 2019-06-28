@@ -12,7 +12,7 @@ export class AuthService {
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<User>(this.getUserOrNull());
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -20,17 +20,20 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
+  public getUserOrNull(): any {
+    let userData: any = JSON.parse(localStorage.getItem('currentUser'));
+    if (!userData || !userData.dt || userData.dt < new Date()) {
+      localStorage.removeItem('currentUser')
+      return null;
+    } else {
+      return userData.user;
+    } 
+  }
+
   login(email: string, password: string) {
     return this.http.post<any>(`${this.apiBaseURL}/users/authenticate`, { email, password }).pipe(
       map(user => {
-        // login successful if there's a jwt token in the response
-        if (user && user.token) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-        }
-
-        return user;
+        return this.storeUser(user);
       })
     );
   }
@@ -39,18 +42,24 @@ export class AuthService {
   verify(id: string, verificationCode: string) {
     return this.http.post<any>(`${this.apiBaseURL}/users/verify`, { id, verificationCode }).pipe(
       map(user => {
-        // verification successful if there's a jwt token in the response
-        if (user && user.isVerified) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-        }
-
-        return user;
+        return this.storeUser(user);
       })
     );
   }
 
+  storeUser(user: User) {
+    if (user && user.token) {
+      let dt: Date = new Date();
+      dt.setHours(dt.getHours() + 1);
+      let userData: any = {
+        user: user,
+        dt: dt
+      };
+      localStorage.setItem('currentUser', JSON.stringify(userData));
+      this.currentUserSubject.next(user);
+    }
+    return user;
+  }
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
