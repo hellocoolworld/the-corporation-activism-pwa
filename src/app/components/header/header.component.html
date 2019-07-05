@@ -3,12 +3,22 @@
     <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title text-left><a href="/"><img src="/assets/images/halo-tales-logo.svg" alt="Halo Tales Logo" class="header-logo"></a></ion-title>
+      <a href="/">
+        <img src="/assets/images/corp-logo-2.svg" alt="Halo Tales Logo" class="header-logo">
+      </a>
+
     <ion-buttons slot="end">
-      <ion-button *ngIf="!currentUser" href="/login">
+      <ion-button *ngIf="!currentUser" href="/signup">
+        <ion-label slot="start" class="header-navi-join">Join Us</ion-label>
+        <ion-icon slot="left" color="lightest" name="log-in"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="!currentUser" href="/signup">
         <ion-icon slot="icon-only" color="lightest" name="log-in"></ion-icon>
       </ion-button>
-      <!-- <ion-button *ngIf="currentUser" href="/tale/add">
+      <!-- 
+       
+      
+        <ion-button *ngIf="currentUser" href="/tale/add">
         <ion-icon slot="icon-only" color="lightest" name="videocam"></ion-icon>
       </ion-button> -->
       <ion-button *ngIf="currentUser" href="/notifications">
@@ -16,7 +26,7 @@
         <ion-badge color="primary">42</ion-badge>
       </ion-button>
       <ion-button *ngIf="currentUser" href="/user/profile">
-        <ion-avatar class="user-avatar" *ngIf="currentUser.imageUrl !== ''" >
+        <ion-avatar class="user-avatar" *ngIf="currentUser.imageUrl !== ''">
           <ion-img src="{{ currentUser.imageUrl }}" alt="{{ currentUser.displayName }}"></ion-img>
         </ion-avatar>
         <ion-icon *ngIf="currentUser.imageUrl === ''" color="lightest" name="contact"></ion-icon>

@@ -17,4 +17,5 @@
     verificationCode: string;
     createdAt: string;
     updatedAt: string;
+    hasSeenNewCorpThisSession: boolean;
 }

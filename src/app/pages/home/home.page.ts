@@ -134,6 +134,11 @@ export class HomePage implements OnInit, OnDestroy {
     this.router.navigate(['signup']);
   }
 
+  get isFirstPageThisSession(): boolean {
+    return this.currentUser && this.currentUser.hasSeenNewCorpThisSession ? false : true;
+  }
+
+
   async showHelpActionPledgeModal() {
     const modal = await this.modalController.create({
       component: HelpActionPledgeModal

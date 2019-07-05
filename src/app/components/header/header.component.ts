@@ -18,15 +18,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private router: Router,
     private _auth: AuthService,
     private _user: UserService
-    ) {
-      this._auth.currentUser
+  ) {
+    this._auth.currentUser
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(res => this.currentUser = res);
-    }
+  }
 
   ngOnInit() {
   }
 
+  
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

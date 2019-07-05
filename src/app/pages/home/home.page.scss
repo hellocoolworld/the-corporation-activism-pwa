@@ -4,39 +4,34 @@
 
 .home-splash {
   // width: 1024px;
-  height: 568px;
   position: relative;
   &.logged-in {
     background: url(/assets/images/home-logged-in.png) no-repeat top center;
-
+    height: 500px;
   }
   &.logged-out {
     background: url(/assets/images/home-logged-out.png) no-repeat top center;
-
+    height: 500px;
   }
-
   .user-avatars-wrapper {
     position: relative;
     width: 100%;
-    overflow:hidden;
-    z-index:1;
+    overflow: hidden;
+    z-index: 1;
     min-height: 210px;
     // top: 0;
     // left: 0;
-    
-
     img {
       border-radius: 100%;
     }
-
     .user-avatars {
       position: absolute;
       width: 1024px;
       height: 210px;
       top: 0;
       left: 50%;
-      margin-left:-512px; /* half of the width */
-
+      margin-left: -512px;
+      /* half of the width */
       .user-avatar-wrapper {
         display: flex;
         flex-direction: column;
@@ -51,12 +46,10 @@
           --padding-top: 0;
           height: 1.6rem;
         }
-
         .user-avatar {
           width: 55px;
           border: 2px solid var(--ion-color-primary);
         }
-
         &.avatar1 {
           position: absolute;
           top: 60px;
@@ -90,9 +83,8 @@
       margin: 168px auto 0;
     }
   }
-  
   ion-card {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     bottom: 0;
     margin: 0;
@@ -100,7 +92,6 @@
     color: white;
     width: 100%;
     border-bottom: 4px solid var(--ion-color-secondary);
-
     ion-card-header {
       max-width: 400px;
       margin-left: auto;
@@ -128,13 +119,12 @@
         text-transform: uppercase;
         --border-radius: var(--app-fair-radius);
       }
-
       .user-action-summary {
         background-color: var(--ion-color-light);
         border-radius: var(--app-broad-radius);
-        -webkit-box-shadow:0 0 10px white; 
-        -moz-box-shadow: 0 0 10px white; 
-        box-shadow:0 0 10px white;
+        -webkit-box-shadow: 0 0 10px white;
+        -moz-box-shadow: 0 0 10px white;
+        box-shadow: 0 0 10px white;
         h4 {
           color: var(--ion-color-purple);
           font-size: 1rem;
@@ -146,17 +136,17 @@
           justify-content: space-around;
           color: var(--ion-color-purple);
           padding-bottom: 1rem;
-
           ion-item {
             font-size: 0.8rem;
             --background: none;
             --padding-start: 0;
             --inner-border-width: 0;
             ion-icon {
-              margin:0 0.5rem 0 0;
+              margin: 0 0.5rem 0 0;
               font-size: 1.5rem;
             }
-            ion-label, ion-label a {
+            ion-label,
+            ion-label a {
               margin: 0;
               line-height: 1;
               color: var(--ion-color-purple);
@@ -170,7 +160,7 @@
 }
 
 .tales-section-intro {
-  margin:2rem 1rem 1rem;
+  margin: 2rem 1rem 1rem;
   p {
     text-align: center;
   }
@@ -178,12 +168,10 @@
 
 .tale-wrapper {
   margin-bottom: var(--page-margin);
-
   .tale-header {
     position: relative;
-
     h3.tale-title {
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0, 0, 0, 0.5);
       position: absolute;
       bottom: 0;
       margin-bottom: 0;
@@ -194,18 +182,16 @@
       width: 100%;
     }
   }
-
   .tale-action-summary {
     display: flex;
     justify-content: space-between;
     margin: 0.5rem 0.75rem;
     border: 1px solid var(--ion-color-medium);
     border-radius: var(--app-broad-radius);
-    
-    .pledges, .avocadometer {
+    .pledges,
+    .avocadometer {
       padding-left: 1rem;
       width: 50%;
-  
       .header {
         color: var(--ion-color-dark);
         font-size: 0.8rem;
@@ -213,8 +199,6 @@
         --padding-start: 0;
         --inner-border-width: 0;
         --min-height: 28px;
-        
-
         ion-button {
           color: var(--ion-color-dark);
           text-transform: uppercase;
@@ -227,7 +211,6 @@
         --inner-border-width: 0;
         --min-height: 28px;
         margin-bottom: 0.4rem;
-        
         ion-icon {
           color: var(--ion-color-secondary);
           padding-right: 0.5rem;
@@ -240,12 +223,10 @@
       }
     }
   }
-
   .summary {
     color: var(--ion-color-medium-dark);
     font-size: 0.9rem;
   }
-
   .tale-meta {
     .authoring-info {
       font-size: 0.8rem;
@@ -255,7 +236,6 @@
       display: flex;
       font-size: 0.75rem;
       color: var(--ion-color-medium-dark);
-
       div {
         display: flex;
         align-items: center;
@@ -268,4 +248,37 @@
   }
 }
 
+.home-message {
+  padding: 1rem;
+  text-align: center;
+  h1 {
+    font-weight: 900;
+  }
+  p {
+    font-weight: 900;
+  }
+}
 
+.ad {
+  // background-color: var(--ion-color-dark);
+  background: url(/assets/images/corp-barcode-bg.png) no-repeat;
+  background-size: cover;
+  padding: 1rem;
+  color: var(--ion-color-light);
+  text-align: center;
+  h1 {
+    font-weight: 900;
+  }
+  p {
+    font-weight: 400;
+  }
+  .call-to-action 
+  {
+    display: flex;
+    justify-content: center;
+  }
+  a {
+    text-decoration: underline;
+    color: inherit;
+  }
+}

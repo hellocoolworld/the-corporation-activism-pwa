@@ -8,8 +8,9 @@
     "slug": "stefano",
     "bio": "",
     "testemonial": "I am a product manager based in Brazil. I guide new product strategy and launch initial prototype build-outs. I also work with strategic partners to establish and develop new market opportunities.",
-    "joinMailingList": "true",
+    "joinMailingList": true,
     "notificationsType": ["email", "push"],
-    "Anonymous": "false" 
+    "Anonymous": false,
+    "hasSeenNewCorpThisSession": false
   }
   

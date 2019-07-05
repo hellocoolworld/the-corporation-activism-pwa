@@ -67,7 +67,7 @@ export class UserProfilePage implements OnInit {
         res => {
           this.toast.success('Public Profile Updated Succesfully', false, 2000);
           // this.router.navigate([`/profile/${this.currentUser.id}`]);
-          this.router.navigate([`/home`]);
+          this.router.navigate([`/`]);
           },
         err => {
           console.log('err')

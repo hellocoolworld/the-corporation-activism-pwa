@@ -29,7 +29,7 @@ export class SignupPage implements OnInit {
   ) {
       // redirect to home if already logged in
       if (this._auth.currentUserValue) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       }
 }
 

@@ -27,7 +27,7 @@ export class OnboardingPage implements OnInit {
   }
 
   onClickContinue() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
   }
 
   slideChange(slider) {

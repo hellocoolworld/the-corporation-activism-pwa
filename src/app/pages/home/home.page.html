@@ -1,6 +1,16 @@
 <ht-header></ht-header>
-
 <ion-content>
+  <div class="ad" *ngIf="isFirstPageThisSession">
+    <ion-text>
+      <h1>THE SEQUEL IS COMING!</h1>
+      <p>
+        Over a decade ago <a href="https://thecorporation.com/">The Corporation</a> film likened the dominant institution of our time to a psychopath. Now get ready for the sequel.
+      </p>
+      <!-- <div class="call-to-action">
+        <ion-button class="content-btn" href="https://thecorporation.com">Visit TheCorporation.com</ion-button>
+      </div> -->
+    </ion-text>
+  </div>
   <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
     <div class="user-avatars-wrapper">
       <div class="user-avatars">
@@ -38,10 +48,10 @@
       </div>
     </div>
     <ion-card>
+
       <ion-card-header>
         <ion-card-title>
-          {{currentUser ? "You're part of our story" : "Be part of our story" }}
-          <span *ngIf="!currentUser"><br>Let's make History</span>
+          {{currentUser ? "You're part of our story" : "Let's make History" }}
         </ion-card-title>
       </ion-card-header>
 
@@ -96,9 +106,7 @@
           </div>
         </ng-template>
         <ng-template #contentLoggedOut>
-          <p>
-            Join supporters of The Corporation films to take a stand against corporate power.
-          </p>
+          <p>Halo Tales is a story sharing app. A place to reimagine democracy and take action together.</p>
           <ion-button (click)="signUp()" expand="block" class="content-btn">
             Join us
           </ion-button>
@@ -107,9 +115,9 @@
     </ion-card>
   </div>
 
+
   <div class="tales-section-intro">
-    <h2>Watch Stories. Get Inspired.</h2>
-    <p>Watch tales and take action by people who were transformed by the film.</p>
+    <h2>Share Stories. Be Inspired.</h2>
   </div>
 
   <div class="tale-wrapper" *ngFor="let tale of tales">
@@ -161,5 +169,4 @@
     </ion-item>
   </div>
 
-  <ht-footer-ad></ht-footer-ad>
 </ion-content>
