@@ -22,7 +22,7 @@ export class AuthService {
 
   public getUserOrNull(): any {
     let userData: any = JSON.parse(localStorage.getItem('currentUser'));
-    if (!userData || !userData.dt || userData.dt < new Date()) {
+    if (!userData || !userData.dt || new Date() > userData.dt) {
       localStorage.removeItem('currentUser')
       return null;
     } else {
