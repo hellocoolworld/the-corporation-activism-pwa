@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Search</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="6.37458635e-05 0.000420814103 29.9709516 0.000420814103 29.9709516 29.9681 6.37458635e-05 29.9681"></polygon>
+    </defs>
+    <g id="The-Corporation-App-(Mobile)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Returning-User-(After-Sign-In)" transform="translate(-321.000000, -24.000000)">
+            <g id="Search" transform="translate(321.000000, 24.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M12.6337,22.7555 C7.0387,22.7535 2.5057,18.2165 2.5067,12.6215 C2.5087,7.0265 7.0447,2.4935 12.6397,2.4945 C18.2347,2.4965 22.7687,7.0335 22.7667,12.6275 C22.7597,18.2205 18.2267,22.7515 12.6337,22.7555 M29.6237,27.8555 L22.4117,20.6435 C26.8337,15.2435 26.0417,7.2825 20.6437,2.8605 C15.2437,-1.5605 7.2827,-0.7685 2.8617,4.6295 C-1.5613,10.0285 -0.7693,17.9895 4.6297,22.4115 C9.2857,26.2265 15.9867,26.2265 20.6427,22.4115 L27.8557,29.6175 C28.3517,30.0975 29.1427,30.0825 29.6207,29.5865 C30.0867,29.1035 30.0877,28.3395 29.6237,27.8555" id="Fill-1" fill="#010202" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

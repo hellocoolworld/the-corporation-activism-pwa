@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="29px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Add Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="The-Corporation-App-(Mobile)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Returning-User-(After-Sign-In)" transform="translate(-190.000000, -609.000000)" stroke="#FFFFFF">
+            <g id="Action-Pledges" transform="translate(143.000000, 554.000000)">
+                <g id="Add" transform="translate(49.000000, 57.000000)">
+                    <g>
+                        <circle id="Oval-Copy-3" stroke-width="3" fill="#B75085" fill-rule="nonzero" cx="12.5" cy="12.5" r="12.5"></circle>
+                        <path d="M17.8571429,11.6071429 L13.3928571,11.6071429 L13.3928571,7.14285714 C13.3928571,6.65178571 12.99375,6.25 12.5,6.25 C12.00625,6.25 11.6071429,6.65178571 11.6071429,7.14285714 L11.6071429,11.6071429 L7.14285714,11.6071429 C6.64910714,11.6071429 6.25,12.0089286 6.25,12.5 C6.25,12.9910714 6.64910714,13.3928571 7.14285714,13.3928571 L11.6071429,13.3928571 L11.6071429,17.8571429 C11.6071429,18.3482143 12.00625,18.75 12.5,18.75 C12.99375,18.75 13.3928571,18.3482143 13.3928571,17.8571429 L13.3928571,13.3928571 L17.8571429,13.3928571 C18.3508929,13.3928571 18.75,12.9910714 18.75,12.5 C18.75,12.0089286 18.3508929,11.6071429 17.8571429,11.6071429 L17.8571429,11.6071429 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

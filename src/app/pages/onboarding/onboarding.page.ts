@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./onboarding.page.scss'],
 })
 export class OnboardingPage implements OnInit {
-  
+
   onbordingOpts = {
     speed: 400,
     grabCursor: true,
@@ -16,10 +16,10 @@ export class OnboardingPage implements OnInit {
       el: '.swiper-pagination',
       type: 'bullets',
     }
-    
+
   };
 
-  constructor(private router: Router, private title: Title) { 
+  constructor(private router: Router, private title: Title) {
     this.title.setTitle('Halo Tales - Tour');
   }
 
@@ -35,6 +35,6 @@ export class OnboardingPage implements OnInit {
   slider.isEnd().subscribe(
   res => {console.log('here', res);}
  );
-    
+
   }
 }

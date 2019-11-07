@@ -13,7 +13,7 @@
   </div>
   <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
     <div class="user-avatars-wrapper">
-      <div class="user-avatars">
+      <!-- <div class="user-avatars">
         <div *ngFor="let mostRecentAction of mostRecentActions; let i = index" class="user-avatar-wrapper avatar{{ i + 1 }}">
           <ion-item (click)="
           onAvatarClick(
@@ -39,7 +39,7 @@
             <ion-icon slot="icon-only" [name]="mostRecentAction.actionIcon"></ion-icon>
           </ion-button>
         </div>
-      </div>
+      </div> -->
 
       <div class="main-user-avatar" *ngIf="currentUser">
         <a [routerLink]="['/profile', currentUser.id]">

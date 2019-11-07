@@ -1,5 +1,4 @@
-import { Component, Input, EventEmitter ,Output } from '@angular/core';
- 
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'ht-add-avocados',
   templateUrl: './add-avocados.component.html',
@@ -9,7 +8,8 @@ import { Component, Input, EventEmitter ,Output } from '@angular/core';
 })
 
 export class AddAvocadosComponent {
-  @Input() rating:number = 0;
+  // tslint:disable-next-line:no-inferrable-types
+  @Input() rating: number = 0;
   @Input() readOnly = false;
 
   // @todo casting EventEmitter as number?
@@ -17,8 +17,8 @@ export class AddAvocadosComponent {
 
   rate(index: number) {
     if (!this.readOnly && index >= 1 && index <= 5) {
-      console.log('index=>', index,'rating=>',this.rating);
-      if (index == this.rating){ //If the selected avocado clicked again, then unselect that one avocado
+      console.log('index=>', index, 'rating=>', this.rating);
+      if (index === this.rating) { // If the selected avocado clicked again, then unselect that one avocado
         this.rating = index - 1;
       } else {
         this.rating = index;
@@ -28,7 +28,7 @@ export class AddAvocadosComponent {
   }
 
   getOpacity (index: number): any {
-    if (index > this.rating) { //Is the selected index is above the rating
+    if (index > this.rating) { // Is the selected index is above the rating
       return 0.5;
 
     } else {

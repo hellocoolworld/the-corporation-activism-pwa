@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="305px" height="61px" viewBox="0 0 305 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Join Us</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="The-Corporation-App-(1920-x-1080-HD-Desktop)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="New-User" transform="translate(-1526.000000, -198.000000)">
+            <g id="Header-Area">
+                <g id="Join-Us" transform="translate(1526.000000, 198.000000)">
+                    <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="305" height="61" rx="8"></rect>
+                    <text id="JOIN-US" font-family="SFProText-Semibold, SF Pro Text" font-size="22" font-weight="500" line-spacing="25" fill="#422035">
+                        <tspan x="107" y="38">JOIN US</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
