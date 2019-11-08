@@ -1,0 +1,29 @@
+
+// ion-header  { //.scroll-y .overscroll
+//     background-color: --ion-color-tertiary-contrast;
+//     height: 100vh;
+//     width: 100vw;
+//     color: navajowhite;
+// }
+
+// .darkpurple {
+//     background-color: var(--ion-color-tertiary-contrast);
+//     background-size: 100vh;
+//   }
+
+  ion-menu {
+    --ion-background-color: var(--ion-color-tertiary-contrast);
+    --ion-text-color: var(--ion-color-primary-contrast);
+  }
+  
+    ion-toolbar {
+      --background: var(--ion-color-tertiary-contrast);
+    }
+  
+  
+
+//rgba(var("--ion-color-tertiary-rgb"), .5)
+    // --ion-background-color: var(--ion-color-tertiary-contrast-rgb);
+   // color: rgba(var(--ion-color-tertiary-contrast-rgb), 0.25);
+    // color: var(--ion-color-tertiary);
+    // color: "tertiary";

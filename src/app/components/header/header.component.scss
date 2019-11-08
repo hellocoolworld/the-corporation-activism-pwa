@@ -9,11 +9,15 @@
 }
 
 .header-navi-join {
-  text-transform: uppercase;
-  font-weight: 800;
-  color: var(--ion-color-light);
+  font-weight: 350;
+  text-align: right;
+  color: black;
 }
 
 .headerTitle {
-  font-style: semi-bold;
+  font-weight: 600;
+  text-align: center;
+  size: 17px;
+  color: #030303;
+  letter-spacing: -0.5;
 }
