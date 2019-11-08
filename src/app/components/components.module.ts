@@ -30,10 +30,10 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     ImageShellComponent,
 
     HeaderComponent,
-    FooterAdComponent, 
+    FooterAdComponent,
     AddAvocadosComponent,
     PopoverComponent,
-    
+
     CheckboxWrapperComponent,
     ShowHidePasswordComponent,
     CountdownTimerComponent,
@@ -46,10 +46,10 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     ImageShellComponent,
 
     HeaderComponent,
-    FooterAdComponent, 
+    FooterAdComponent,
     AddAvocadosComponent,
     PopoverComponent,
-    
+
     CheckboxWrapperComponent,
     ShowHidePasswordComponent,
     CountdownTimerComponent,

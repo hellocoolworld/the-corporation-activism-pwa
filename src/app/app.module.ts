@@ -13,12 +13,13 @@ import { ComponentsModule } from './components/components.module';
 import { JwtInterceptor, ErrorInterceptor } from './helpers';
 
 
+// tslint:disable-next-line:max-line-length
 import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from './modals';
 
 // used to create fake backend
 import { fakeBackendProvider } from './helpers';
 
- 
+
 
 @NgModule({
   imports: [
@@ -32,12 +33,12 @@ import { fakeBackendProvider } from './helpers';
 
   declarations: [
     AppComponent,
-    TermsOfServiceModal, 
+    TermsOfServiceModal,
     PrivacyPolicyModal,
-    AuthorBioModal, 
+    AuthorBioModal,
     AddPledgeModal,
-    HelpActionPledgeModal, 
-    HelpAvocadometerModal 
+    HelpActionPledgeModal,
+    HelpAvocadometerModal
   ],
 
   providers: [
@@ -52,11 +53,11 @@ import { fakeBackendProvider } from './helpers';
   exports: [],
 
   entryComponents: [
-    TermsOfServiceModal, 
-    PrivacyPolicyModal, 
+    TermsOfServiceModal,
+    PrivacyPolicyModal,
     AuthorBioModal,
-    AddPledgeModal, 
-    HelpActionPledgeModal, 
+    AddPledgeModal,
+    HelpActionPledgeModal,
     HelpAvocadometerModal
   ],
 

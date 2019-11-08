@@ -91,9 +91,42 @@
   --ion-toolbar-background : #EE1F46;
   --ion-toolbar-color : #ffffff !important;
 
+  //Define fonts for SF Pro
+
+  @font-face {
+    font-family: 'SF Pro Text';
+    src: url('../assets/fonts/SFProText/SF-Pro-Text-Light.ttf');
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/SFProText/SF-Pro-Text-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: 'SF Pro Text';
+    font-style: semi-bold;
+    font-weight: 600;
+    src: url('../assets/fonts/SFProText/SF-Pro-Text-Semibold.ttf');
+  }
+  
+  @font-face {
+    font-family: 'SF Pro Text';
+    font-style: bold;
+    font-weight: 700;
+    src: url('../assets/fonts/SFProText/SF-Pro-Text-Bold.ttf');
+  }
+  
+
+  //Bold - 700, semibold - 600, regular 400 and light 200
+
   // Set font family
-  --ion-font-family: "SFProText";
-  --ion-header-font-family: "SFProText";
+  --ion-font-family: "SF Pro Text";
+  --ion-header-font-family: "SF Pro Text";
 
 
   --app-background: #FFFFFF;
