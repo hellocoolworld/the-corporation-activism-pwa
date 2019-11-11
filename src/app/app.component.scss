@@ -1,4 +1,57 @@
 
+  ion-menu {
+    --ion-background-color: var(--ion-color-tertiary-contrast);
+    --ion-text-color: var(--ion-color-primary-contrast);
+    display: flex;
+  }
+  
+  ion-toolbar {
+    --background: var(--ion-color-tertiary-contrast);
+  }
+
+
+  .navitem {
+    margin: auto;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .visitUs {
+    font-weight: 600;
+  }
+
+  .navLink {
+    size: 10em;
+  }
+
+
+
+
+  // .visitUs {
+
+  // }
+//visit = reg
+// link = semibold
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ion-header  { //.scroll-y .overscroll
 //     background-color: --ion-color-tertiary-contrast;
 //     height: 100vh;
@@ -11,14 +64,7 @@
 //     background-size: 100vh;
 //   }
 
-  ion-menu {
-    --ion-background-color: var(--ion-color-tertiary-contrast);
-    --ion-text-color: var(--ion-color-primary-contrast);
-  }
-  
-    ion-toolbar {
-      --background: var(--ion-color-tertiary-contrast);
-    }
+
   
   
 
