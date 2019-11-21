@@ -9,6 +9,10 @@
     --background: var(--ion-color-tertiary-contrast);
   }
 
+  .bottom-nav-link-grid > ion-row > ion-col > p {
+    margin: 0rem 0rem 0rem;
+  }
+
 
   .navitem {
     margin: auto;

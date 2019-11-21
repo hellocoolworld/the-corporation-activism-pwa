@@ -1,6 +1,6 @@
 <ht-header></ht-header>
 <ion-content>
-  <div class="ad" *ngIf="isFirstPageThisSession">
+  <div class="welcomecrowd" *ngIf="isFirstPageThisSession">
     <ion-text>
       <!-- to build svg animation -->
     </ion-text>
@@ -81,7 +81,7 @@
     </ion-card>
   </div>
 
-  <ion-grid no-padding fixed>
+  <ion-grid no-padding fixed class="tales-section-intro-grid">
   <div class="tales-section-intro-wrapper">
       <ion-row >
         <ion-col>
@@ -152,5 +152,11 @@
       </ion-label>
     </ion-item>
   </div>
+
+  <div class="ad" *ngIf="isFirstPageThisSession">
+      <ion-text>
+        <!-- this is the barcode -->
+      </ion-text>
+    </div>
 
 </ion-content>
