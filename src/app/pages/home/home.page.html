@@ -2,7 +2,7 @@
 <ion-content>
   <div class="ad" *ngIf="isFirstPageThisSession">
     <ion-text>
-      <!-- enpty -->
+      <!-- to build svg animation -->
     </ion-text>
   </div>
   <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
@@ -73,7 +73,6 @@
           </div>
         </ng-template>
         <ng-template #contentLoggedOut>
-          <p>Halo Tales is a story sharing app. A place to reimagine democracy and take action together.</p>
           <ion-button (click)="signUp()" expand="block" class="content-btn">
             Join us
           </ion-button>
@@ -82,10 +81,27 @@
     </ion-card>
   </div>
 
-
+  <ion-grid no-padding fixed>
   <div class="tales-section-intro-wrapper">
-    <h2 class="tales-section-intro">Watch Stories. Be Inspired.</h2>
+      <ion-row >
+        <ion-col>
+    <h2 class="tales-section-intro">Watch Stories.</h2>
+  </ion-col>
+</ion-row>
+<ion-row >
+    <ion-col>
+    <h2 class="tales-section-intro">Get Inspired.</h2>
+  </ion-col>
+</ion-row>
+<ion-row >
+    <ion-col>
+    <p>Take action by people who were 
+        transformed by the film. 
+        Add your own story!</p>
+      </ion-col>
+      </ion-row>
   </div>
+  </ion-grid>
 
   <div class="tale-wrapper" *ngFor="let tale of tales">
     <a href="tale/{{ tale.slug }}">
