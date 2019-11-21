@@ -2,22 +2,23 @@
   ion-menu {
     --ion-background-color: var(--ion-color-tertiary-contrast);
     --ion-text-color: var(--ion-color-primary-contrast);
-    display: flex;
   }
   
   ion-toolbar {
     --background: var(--ion-color-tertiary-contrast);
   }
 
-  .bottom-nav-link-grid > ion-row > ion-col > p {
-    margin: 0rem 0rem 0rem;
-  }
-
-
-  .navitem {
+  .main-nav-item {
     margin: auto;
     text-align: center;
     font-weight: 600;
+  }
+
+  .bottom-nav-link-grid {
+    height: 24vh;
+    ion-row {
+      height: 33.33%;
+    }
   }
 
   .visitUs {
@@ -33,12 +34,11 @@
     text-align: center;
   }
 
-
-  // .visitUs {
-
-  // }
-//visit = reg
-// link = semibold
+  .nav-section-break, .bottom-nav-link-grid {
+    margin-right: 6vw; 
+    margin-left: 6vw;
+    border-bottom: 1px solid var(--ion-color-medium);
+}
 
 
 

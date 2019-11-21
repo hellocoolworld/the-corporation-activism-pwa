@@ -12,33 +12,33 @@
 
 
     <ion-content>
-      <ion-list>
+      <ion-list class="nav-section-break">
         <ion-menu-toggle auto-hide="false" >
-          <ion-item href="/" class="navitem" lines="none" >
+          <ion-item href="/" class="main-nav-item" lines="none" >
             <ion-label >Home</ion-label>
           </ion-item>
 
-          <ion-item href="/about" class="navitem" lines="none">
+          <ion-item href="/about" class="main-nav-item" lines="none">
             <ion-label>About</ion-label>
           </ion-item>
           
-          <ion-item [routerLink]="['/profile', currentUser.id]" *ngIf="currentUser" lines="none">
+          <ion-item [routerLink]="['/profile', currentUser.id]" *ngIf="currentUser" class="main-nav-item" lines="none">
             <ion-label>My Profile</ion-label>
           </ion-item>
 
-          <ion-item href="/user" *ngIf="currentUser" class="navitem" lines="none">
+          <ion-item href="/user" *ngIf="currentUser" class="main-nav-item" lines="none">
             <ion-label>Account Settings</ion-label>
           </ion-item>
 
-          <ion-item (click)="logout()" *ngIf="currentUser" class="navitem" lines="none">
+          <ion-item (click)="logout()" *ngIf="currentUser" class="main-nav-item" lines="none">
             <ion-label>Logout</ion-label>
           </ion-item>
 
-          <ion-item href="/login" *ngIf="!currentUser" class="navitem" lines="none"> 
+          <ion-item href="/login" *ngIf="!currentUser" class="main-nav-item" lines="none"> 
             <ion-label>Login</ion-label>
           </ion-item>
 
-          <ion-item href="/signup" *ngIf="!currentUser" class="navitem" lines="none">
+          <ion-item href="/signup" *ngIf="!currentUser" class="main-nav-item" lines="none">
             <ion-label>Join Us</ion-label>
           </ion-item>
         </ion-menu-toggle>
@@ -46,8 +46,8 @@
 
 
 
-      <ion-buttons>
-        <ion-grid>
+      <ion-buttons class="nav-section-break">
+        <ion-grid class="nav-social-links">
         <ion-row>
         <ion-col>
         <ion-button (click)="linkToSocialProfile('facebook')">
@@ -73,18 +73,19 @@
         </ion-button>
         </ion-col>
       </ion-row>
+
+      <ion-row>
+          <ion-col>
+          <ion-text  color="primary" class="navLink">
+            <p font-weight=400>Visit <a href="https://thecorporation.com" target="_blank" class="visitUs">TheCorporation.com</a></p>
+          </ion-text>
+        </ion-col>
+        </ion-row>
+
       </ion-grid>
       </ion-buttons>
 
     <ion-grid class="bottom-nav-link-grid">
-    <ion-row>
-      <ion-col>
-      <ion-text  color="primary" class="navLink">
-        <p font-weight=400>Visit <a href="https://thecorporation.com" target="_blank" class="visitUs">TheCorporation.com</a></p>
-      </ion-text>
-    </ion-col>
-    </ion-row>
-
     <ion-row>
       <ion-col>
       <p padding text-left small>
@@ -106,18 +107,13 @@
       </p>
       </ion-col>
      </ion-row>
-
-    <ion-row>
-      <ion-col>
-      <p padding text-left small>
-            Copyright 2019 <br>
-            Grant Street Productions<br>
-            Site by <a href="https://hellocoolworldmedia.com">Hello Cool World</a>
-      </p>
-      </ion-col>
-    </ion-row>
-    
     </ion-grid>
+
+      <p padding text-left small>
+          Copyright 2019 <br>
+          Grant Street Productions<br>
+          Site by <a href="https://hellocoolworldmedia.com">Hello Cool World</a>
+      </p>
     </ion-content>
   </ion-menu>
 
