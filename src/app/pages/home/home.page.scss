@@ -85,8 +85,7 @@
     }
   }
   ion-card {
-    background-color: white;
-    opacity: 60%;
+    background-color:rgba(255, 255, 255, 0.5);
     position: absolute;
     bottom: 0;
     margin: 0;
@@ -277,20 +276,20 @@
 
 
 .tales-section-intro-wrapper {
+  padding-top: 2vh;
   width: 100vw;
-  height: 8rem;
+  height: 20vh;
   margin-top: 0;
   background-color:  #421f35;
   p {
+    margin: 0rem 2rem 1rem;
     color: #E6C7D7;
     text-align: center;
-    margin-bottom: 1em;
   }
 }
 
-.tales-section-intro {          
-    // position: absolute;
-    margin: 0.1rem 2rem 0.1rem;
+.tales-section-intro {    
+    margin: 0rem 2rem 0rem;
     text-align: center;  
     color: white;
     font-style: semi-bold;
@@ -304,13 +303,13 @@
   .tale-header {
     position: relative;
     h3.tale-title {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.3);
       position: absolute;
       bottom: 0;
       margin-bottom: 0;
       color: white;
-      font-size: 1.125rem;
-      font-weight: 600;
+      font-size: 1.13rem;
+      font-weight: 500;
       padding: 0.75rem 1rem;
       width: 100%;
     }
