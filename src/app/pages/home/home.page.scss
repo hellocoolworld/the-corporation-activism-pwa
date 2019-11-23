@@ -300,6 +300,7 @@
 
 .tale-wrapper {
   margin-bottom: var(--page-margin);
+  position: relative;
   .tale-header {
     position: relative;
     h3.tale-title {
@@ -316,16 +317,22 @@
   }
 
   .tale-action-summary {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+     display: flex;
+    justify-content: space-between;    
+     width: 100%;
+    height: 25vh;
+
     // margin: 0.5rem 0.75rem;
     // margin: 0.5rem 0px 0.75rem;
     border-bottom: 1px solid var(--ion-color-medium);
-    // border-radius: var(--app-broad-radius);
-    .pledges-col {
-      border-right: 1px solid var(--ion-color-medium);
-    }
+    border-radius: var(--app-broad-radius);
+    // .pledges-col {
+    //   border-right: 1px solid var(--ion-color-medium);
+    // }
+    // .icon-container {
+    //   height: 100%;
+    //   width: 30%;
+    // }
     .pledges,
     .avocadometer {
       padding-left: 0px;

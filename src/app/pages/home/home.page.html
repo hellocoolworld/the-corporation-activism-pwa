@@ -125,14 +125,20 @@
     <ion-grid no-padding fixed>
       <div class="tale-action-summary">
         <ion-row align-items-center>
-        <ion-col size="6" class="pledges-col">
-        <div class="pledges">
-              <ion-icon src="../../../assets/images/action-pledges.svg" size="large"></ion-icon>
-            <ion-label>{{ tale.pledgeCount }}</ion-label>
+
+  <ion-col size="6" class="pledges-col">
+    <div class="pledges">
+
+        <!-- <div class='icon-container'> -->
+          <ion-icon src="../../../assets/images/action-pledges.svg" size="large"></ion-icon>
+        <!-- </div> -->
+        
+          <ion-label>{{ tale.pledgeCount }}</ion-label>
+
           <ion-button class="header" (click)="showHelpActionPledgeModal()">
               Action Pledges
               <ion-icon name="help-circle" slot="end"></ion-icon>
-            </ion-button>
+          </ion-button>
         </div>
     </ion-col>
 
