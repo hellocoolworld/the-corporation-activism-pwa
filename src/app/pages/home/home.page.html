@@ -122,38 +122,43 @@
       </div>
     </a>
 
-    <ion-grid no-padding fixed>
-      <div class="tale-action-summary">
+    <ion-grid no-padding fixed class="tale-action-summary">
         <ion-row align-items-center>
 
-  <ion-col size="6" class="pledges-col">
-    <div class="pledges">
-
-        <!-- <div class='icon-container'> -->
+         <ion-col no-padding size="2" class="icon-container">
           <ion-icon src="../../../assets/images/action-pledges.svg" size="large"></ion-icon>
-        <!-- </div> -->
+        </ion-col>
         
-          <ion-label>{{ tale.pledgeCount }}</ion-label>
+        <ion-col no-padding size="4" >
+          <div class="summary-top">
+              <ion-label class="story-stats">{{ tale.pledgeCount }}</ion-label>
+              <ion-icon name="help-circle" slot="end"></ion-icon>
+          </div>
 
-          <ion-button class="header" (click)="showHelpActionPledgeModal()">
+          <ion-button class="summary-header" (click)="showHelpActionPledgeModal()">
               Action Pledges
-              <ion-icon name="help-circle" slot="end"></ion-icon>
           </ion-button>
-        </div>
-    </ion-col>
+        </ion-col>
 
-    <ion-col size="6">
-        <div class="avocadometer">
+
+
+            <ion-col no-padding size="2" class="icon-container">
               <ion-icon src="../../../assets/images/avocado-meter.svg" size="large"></ion-icon>
-              <ion-label>{{ tale.avocados }}</ion-label>
-            <ion-button class="header" (click)="showHelpAvocadometerModal()">
-              Avocadometer
-              <ion-icon name="help-circle" slot="end"></ion-icon>
-            </ion-button>
-        </div>
-    </ion-col>
+            </ion-col>
+
+            <ion-col no-padding size="4" >
+                <div class="summary-top">
+                    <ion-label class="story-stats">{{ tale.avocados }}</ion-label>
+                    <ion-icon name="help-circle"></ion-icon>
+                
+
+              <ion-button class="summary-header" (click)="showHelpAvocadometerModal()">
+                Avocado Meter
+              </ion-button>
+            </div>
+            </ion-col>
     </ion-row>
-  </div>
+
   </ion-grid>
 
     <!-- <ion-item class="summary" lines="none">
