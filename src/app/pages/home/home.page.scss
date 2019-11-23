@@ -222,26 +222,35 @@
   top: 25%;
   p {
     position: absolute;
+    color: black;
     text-align: center;
-    padding: 5vh 5vh;
+    font-size: 2.2vh;
+    font-weight: 425;
     margin: 0;
   }
   .text-1 {
+    padding: 5vh 5vh;
     animation-name: ani1;
     animation-timing-function: ease-in-out;
     animation-duration: 3.5s;
     animation-fill-mode: forwards;
   }
   .text-2 {
+    padding-top: 6vh;
+    padding-bottom: 5vh;
+    padding-right: 5vh;
+    padding-left: 5vh;
     animation-name: ani2;
     animation-timing-function: ease-in-out;
     animation-duration: 7s;
     animation-fill-mode: forwards;
   }
   .text-3 {
+    padding: 7vh 7vh 5vh 12vh;
     animation-name: ani3;
     animation-timing-function: ease-in-out;
     animation-duration: 9.5s;
+    animation-fill-mode: forwards;
   }
 }
 
