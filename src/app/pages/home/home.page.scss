@@ -163,35 +163,81 @@
   0% {
     opacity: 1;
   }
-  90% {
+  70% {
     opacity: 1;
   }
   100% {
     opacity: 0;
   }
 }
+@keyframes ani2 {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
-.peoplesvgs {
+@keyframes ani3 {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animationcontainer {
   display: block;
-  margin-top: 2vh;
-  margin-bottom: 13vh;
+  position: relative;
+  height: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+}
+
+.peoplesvgs {
   .animation1 {
+    height: 75%;
+    margin-top: 2vh;
+    margin-left: 15%;
+    margin-right: auto;
+    position: absolute;
     animation-name: ani1;
     animation-timing-function: ease-in-out;
-    animation-duration: 5s;
+    animation-duration: 3.5s;
     animation-fill-mode: forwards;
   }
-  // .animation2 {
-  //   animation-name: fadeIn;
-  //   animation-duration: 4s;
-  // }
-  // .animation3 {
-  //   animation-name: fadeIn;
-  //   animation-duration: 4s;
-  // }
+  .animation2 {
+    position: absolute;
+    animation-name: ani2;
+    animation-timing-function: ease-in-out;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+  }
+  .animation3 {
+    position: absolute;
+    animation-name: ani3;
+    animation-timing-function: ease-in-out;
+    animation-duration: 9.5s;
+    animation-fill-mode: forwards;
+  }
 }
 
 
