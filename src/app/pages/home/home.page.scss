@@ -159,6 +159,18 @@
   }
 }
 
+@keyframes ani1 {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .peoplesvgs {
   display: block;
   margin-top: 2vh;
@@ -166,7 +178,22 @@
   margin-left: auto;
   margin-right: auto;
   width: 60%;
+  .animation1 {
+    animation-name: ani1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+  }
+  // .animation2 {
+  //   animation-name: fadeIn;
+  //   animation-duration: 4s;
+  // }
+  // .animation3 {
+  //   animation-name: fadeIn;
+  //   animation-duration: 4s;
+  // }
 }
+
 
 
 .tales-section-intro-wrapper {

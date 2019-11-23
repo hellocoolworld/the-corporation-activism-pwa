@@ -1,7 +1,13 @@
 <ht-header></ht-header>
 <ion-content>
   <div class="peoplesvgs" *ngIf="isFirstPageThisSession">
-      <img src="../../../assets/images/mobile-devi-logo.svg">
+      <img src="../../../assets/images/mobile-devi-logo.svg" class="animation1">
+      <!-- <div class="animation2-container">
+        <img src="../../../assets/images/mobile-devi-logo.svg" class="animation1">
+        <img src="../../../assets/images/mobile-devi-logo.svg" class="animation1">
+        <img src="../../../assets/images/mobile-devi-logo.svg" class="animation1">
+        <img src="../../../assets/images/mobile-devi-logo.svg" class="animation1">
+      </div> -->
   </div>
   <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
     <div class="user-avatars-wrapper" *ngIf="currentUser">
