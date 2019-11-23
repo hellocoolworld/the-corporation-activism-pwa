@@ -2,16 +2,21 @@
   --page-margin: var(--app-broad-margin);
 }
 
+
 .home-splash {
   position: relative;
-  &.logged-in {
-    background: url(/assets/images/home-logged-in.png) no-repeat top center;
-    height: 350px;
-  }
-  &.logged-out {
-    background: url(/assets/images/home-logged-out.png) no-repeat top center;
-    height: 350px;
-  }
+  // &.logged-in {
+  //   background: url(../../../assets/images/mobile-devi-logo.svg) no-repeat top center;
+  //   background-position: 0px 10px;
+  //   height: 350px;
+  // }
+  // &.logged-out {
+  //   animation-name: fadeIn;
+  //   animation-duration: 4s;
+  //   background: url(../../../assets/images/mobile-devi-logo.svg) no-repeat top center;
+  //   background-position:50% 15px;
+  //   height: 75vh;
+  // }
   .user-avatars-wrapper {
     position: relative;
     width: 100%;
@@ -154,9 +159,18 @@
   }
 }
 
+.peoplesvgs {
+  display: block;
+  margin-top: 2vh;
+  margin-bottom: 13vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
 
 .tales-section-intro-wrapper {
-  width: 100%;
+  width: 100vw;
   height: 8rem;
   margin-top: 0;
   background-color:  #421f35;
@@ -166,8 +180,6 @@
     margin-bottom: 1em;
   }
 }
-
-
 
 .tales-section-intro {          
     // position: absolute;
@@ -200,6 +212,7 @@
   .tale-action-summary {
     display: flex;
     justify-content: space-between;
+    width: 100%;
     // margin: 0.5rem 0.75rem;
     // margin: 0.5rem 0px 0.75rem;
     border-bottom: 1px solid var(--ion-color-medium);

@@ -1,14 +1,12 @@
 <ht-header></ht-header>
 <ion-content>
-  <div class="welcomecrowd" *ngIf="isFirstPageThisSession">
-    <ion-text>
-      <!-- to build svg animation -->
-    </ion-text>
+  <div class="peoplesvgs" *ngIf="isFirstPageThisSession">
+      <img src="../../../assets/images/mobile-devi-logo.svg">
   </div>
   <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
-    <div class="user-avatars-wrapper">
+    <div class="user-avatars-wrapper" *ngIf="currentUser">
 
-      <div class="main-user-avatar" *ngIf="currentUser">
+      <div class="main-user-avatar" >
         <a [routerLink]="['/profile', currentUser.id]">
           <img [src]="currentUser.imageUrl" [alt]="currentUser.displayName" />
         </a>
