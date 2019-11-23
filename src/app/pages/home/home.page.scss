@@ -325,7 +325,13 @@
     }
   }
 
-  // .tale-action-summary {
+  .tale-action-summary {
+    border-bottom: 2px solid var(--ion-color-medium);
+  }
+
+  .summary-divider {
+    border-left: 2px solid var(--ion-color-medium);
+  }
     //  display: flex;
     // // justify-content: space-between;    
     //  width: 100%;
@@ -347,6 +353,15 @@
     //   // position: relative;
     //   padding-left: 5rem;
     // }
+
+    .icon-container {
+      height: 100%;
+    }
+
+    .icon-container > ion-icon {
+      font-size: 6vh;
+    }
+
     .story-stats {
       color: #691446;
       font-weight: 800;
@@ -355,11 +370,6 @@
     }
       
   
-    // tale-action-summary >
-    // .pledges,
-    // .avocadometer {
-    //   .header ''
-      
       .summary-header {
         color: var(--ion-color-dark);
         font-size: 1rem;
