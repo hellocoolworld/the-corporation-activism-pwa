@@ -281,12 +281,16 @@
   }
 }
 
+.intro-grid {
+  margin: 0;
+  width: 100% !important;
+}
 
 .tales-section-intro-wrapper {
-  padding-top: 2vh;
-  width: 100vw;
-  height: 20vh;
-  margin-top: 0;
+  padding-top: 1rem;
+  width: 100%;
+  height: 18%;
+  margin: 0;
   background-color:  #421f35;
   p {
     margin: 0rem 2rem 1rem;
@@ -329,104 +333,48 @@ ion-grid.tale-action-summary {
   .pledge-col {
     border-right: 2px solid var(--ion-color-medium);
   }
-  .imgtest {
-    font-size: 2em;
+  ion-thumbnail{
     float: left;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
     --background: none;
-    --padding-start: 0;
+    // --padding-start: 2vw;
+    // --padding-end: 0;
+    // --padding-top: 2vh;
     --inner-border-width: 0;
     --min-height: 28px;
   }
     .header {
       color: var(--ion-color-dark);
-      font-size: 0.8rem;
+      font-size: 1.2rem;
       --background: none;
       --padding-start: 0;
+      --padding-end: 0;
       --inner-border-width: 0;
       --min-height: 28px;
       ion-button {
         color: var(--ion-color-dark);
+        --padding-top: 0;
         text-transform: inherit;
         font-weight: 600;
+        position: absolute;
+        bottom: 1px;
       }
     }
     .content {
       --background: none;
-      --padding-start: 0;
       --inner-border-width: 0;
       --min-height: 28px;
-      margin-bottom: 0.4rem;
       ion-label {
-        color: var(--ion-color-dark);
+        font-weight: 800;
+        color: var(--ion-color-tertiary);
         font-weight: 600;
+        font-size: 1.8em;
         margin: 0;
       }
     }
   }
 
-//   .tale-action-summary {
-//     position: relative;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     width: 100%;
-//     max-height: 18vh;
-//     margin: 0px;
-//     border-bottom: 2px solid var(--ion-color-medium);
-//       .tale-action-inner {
-//         position: relative;
-//         min-width: 0;
-//         flex-grow: 8;
-//         display: inline-block;
-//         img {
-//           display: block;
-//           float: left;
-//           padding: 2vh 1vw 0vh;
-//           max-width: 20vw;
-//           height: auto;
-//         }
-//       }
-//     }
-
-//       .action-divider { //border
-//         position: relative;
-//         flex-grow: 1;
-//         border-left: 2px solid var(--ion-color-medium);
-//       }
-  
-
-  
-//     .tale-detail-container {
-//       display: inline-block;
-//     }
-  
-
-//   .story-stats {
-//     font-weight: 800;
-//     color: var(--ion-color-tertiary);
-//     font-size: 2rem;
-//     padding: 0vh 0vw 0vh;
-//   }
-
-//   .info-btn {
-//     font-size: 1rem;
-//     float: right;
-//   }
-
-//   ion-button {
-//     position: absolute;
-//     bottom: 1vh;
-//     left: 16vw;
-//     --width: 20vw;
-//     font-size: 1.2rem;
-//     text-transform: inherit;
-//     color: var(--ion-color-dark);
-//     border-style: none;
-//     --padding-start: 0;
-//     margin:auto;
-//     margin-top:4vh;
-
-//   }
   
   .tale-meta {
     .authoring-info {
@@ -448,18 +396,31 @@ ion-grid.tale-action-summary {
 }
 
 .ad {
-  // background-color: var(--ion-color-dark);
+  position: relative;
+  height: 45vh;
   background: url('../../../assets/old-images/corp-barcode-bg.png') no-repeat;
   background-size: cover;
   padding: 1rem;
   color: var(--ion-color-light);
   text-align: center;
-  h1 {
-    font-weight: 900;
+  h3 {
+    background-color: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 0;
+      color: white;
+      font-size: 1.13rem;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      width: 100%;
   }
   p {
     font-weight: 400;
   }
+  //  {
+  //   --border-radius: var(--app-fair-radius);
+  //   --background: var(--ion-color-tertiary)
+  // }
   .call-to-action 
   {
     display: flex;
@@ -470,3 +431,22 @@ ion-grid.tale-action-summary {
     color: inherit;
   }
 }
+
+// .tale-wrapper {
+//   margin-bottom: var(--page-margin);
+//   position: relative;
+//   .tale-header {
+//     position: relative;
+//     h3.tale-title {
+//       background-color: rgba(0, 0, 0, 0.3);
+//       position: absolute;
+//       bottom: 0;
+//       margin-bottom: 0;
+//       color: white;
+//       font-size: 1.13rem;
+//       font-weight: 500;
+//       padding: 0.75rem 1rem;
+//       width: 100%;
+//     }
+//   }
+// }
