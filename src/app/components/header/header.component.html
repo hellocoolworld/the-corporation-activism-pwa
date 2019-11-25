@@ -4,12 +4,12 @@
       <ion-menu-button color="medium"></ion-menu-button>
     </ion-buttons>
 
-    <ion-title href="/" align="center" class="headerTitle">
+    <ion-title href="/" align="center" class="headerTitle ion-no-padding">
           The Corporation
       </ion-title>
 
-    <ion-buttons slot="end">
-      <ion-button *ngIf="!currentUser" href="/login">
+    <ion-buttons  class="ion-no-padding" slot="end">
+      <ion-button  class="ion-no-padding" *ngIf="!currentUser" href="/login">
         <ion-label slot="start" class="header-navi-join">Sign in</ion-label>
         <ion-icon slot="left" color="darkest" name="log-in"></ion-icon>
       </ion-button>
