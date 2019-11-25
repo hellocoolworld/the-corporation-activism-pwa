@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #ffffff; //#F8830E; // This one will take a lot of attention.
+  --ion-color-primary: #ffffff; //#F8830E; 
   --ion-color-primary-rgb: 248,131,14;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255,255,255;
@@ -88,7 +88,7 @@
   --ion-color-darkest-rgb: 0,0,0;
 
   /** Toolbar **/
-  --ion-toolbar-background : #f9f9f9;// was red #EE1F46;
+  --ion-toolbar-background : #f9f9f9;
   --ion-toolbar-color : #ffffff !important;
 
   //Define fonts for SF Pro

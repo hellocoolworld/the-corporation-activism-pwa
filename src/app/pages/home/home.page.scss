@@ -116,7 +116,6 @@
         font-size: 1rem;
       }
       ion-button {
-        text-transform: uppercase;
         --border-radius: var(--app-fair-radius);
         --background: var(--ion-color-tertiary);
       }
@@ -326,40 +325,41 @@
   }
 
   .tale-action-summary {
+    padding: 0px;
+    margin: 0px;
     border-bottom: 2px solid var(--ion-color-medium);
+    ion-row {
+      width: 100vw;
+      ion-col {
+        height: 100%;
+        ion-button {
+          width: 100%;
+          font-size: 0.7rem;
+          text-transform: inherit;
+          color: var(--ion-color-dark);
+          border-style: none;
+          --padding: 0;
+          margin: 0;
+        }
+        // ion-label ion-button {
+        //   border: 0;
+        //   padding: 0;
+        //   margin: 0;
+        // }
+      }
+    }
   }
 
   .summary-divider {
-    border-left: 2px solid var(--ion-color-medium);
+    border-right: 2px solid var(--ion-color-medium);
   }
-    //  display: flex;
-    // // justify-content: space-between;    
-    //  width: 100%;
-    // height: 30%;
-
-    // margin: 0.5rem 0.75rem;
-    // margin: 0.5rem 0px 0.75rem;
-    // border-bottom: 1px solid var(--ion-color-medium);
-    // border-radius: var(--app-broad-radius);
-   
-  
-    //   ion-icon {
-    //     height: 100%;
-    //   width: 500px;
-    //   }
-
-
-    // .summary-top {
-    //   // position: relative;
-    //   padding-left: 5rem;
-    // }
 
     .icon-container {
       height: 100%;
     }
 
     .icon-container > ion-icon {
-      font-size: 6vh;
+      font-size: 7vh;
     }
 
     .story-stats {
@@ -367,60 +367,15 @@
       font-weight: 800;
       color: var(--ion-color-dark);
       font-size: 1rem;
+      padding: 0;
     }
       
   
-      .summary-header {
-        color: var(--ion-color-dark);
-        font-size: 1rem;
-        --background: none;
-        --padding-start: 0;
-        --inner-border-width: 0;
-        --min-height: 28px;
-        ion-button {
-          color: var(--ion-color-dark);
-          text-transform: uppercase;
-          font-weight: 600;
-        }
-      }
   
-    //   .content {
-    //     --background: none;
-    //     --padding-start: 0;
-    //     --inner-border-width: 0;
-    //     --min-height: 28px;
-    //     margin-bottom: 0.4rem;
-    //     ion-icon {
-    //       color: var(--ion-color-secondary);
-    //       padding-right: 0.5rem;
-    //     }
-    //     ion-label {
-    //       color: var(--ion-color-dark);
-    //       font-weight: 600;
-    //       margin: 0;
-    //     }
-    //  
-  .summary {
-    color: var(--ion-color-medium-dark);
-    font-size: 0.9rem;
-  }
   .tale-meta {
     .authoring-info {
       font-size: 0.8rem;
       padding-bottom: 0.25rem;
-    }
-    .tale-in-numbers {
-      display: flex;
-      font-size: 0.75rem;
-      color: var(--ion-color-medium-dark);
-      div {
-        display: flex;
-        align-items: center;
-        padding-right: 1.5rem;
-        ion-icon {
-          padding-right: 5px;
-        }
-      }
     }
   }
 }

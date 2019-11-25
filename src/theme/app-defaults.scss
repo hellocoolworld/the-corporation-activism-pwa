@@ -34,9 +34,8 @@ hr {
 
 
 ion-button {
-  --border-radius: var(--app-fair-radius);
   font-weight: 600;
-
+  --border-radius: var(--app-fair-radius);
   &.content-btn {
     text-transform: uppercase;
     --background: var(--ion-color-secondary);
