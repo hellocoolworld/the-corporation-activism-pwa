@@ -325,49 +325,68 @@
   }
 
   .tale-action-summary {
-    padding: 0px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
     margin: 0px;
     border-bottom: 2px solid var(--ion-color-medium);
-    ion-row {
-      width: 100vw;
-      ion-col {
-        height: 100%;
-        ion-button {
-          width: 100%;
-          font-size: 0.7rem;
-          text-transform: inherit;
-          color: var(--ion-color-dark);
-          border-style: none;
-          --padding: 0;
-          margin: 0;
-        }
-        // ion-label ion-button {
-        //   border: 0;
-        //   padding: 0;
-        //   margin: 0;
-        // }
+      .tale-action-inner {
+        position: relative;
+        flex-grow: 8;
       }
-    }
+      .action-divider {
+        position: relative;
+        flex-grow: 1;
+        border-left: 2px solid var(--ion-color-medium);
+      }
   }
 
-  .summary-divider {
-    border-right: 2px solid var(--ion-color-medium);
-  }
-
-    .icon-container {
+  .tale-action-inner-flex {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // .icon-container {
+    //   flex-grow: 5;
+    //   padding: 2vh 1vw 0vh;
+      img {
+        flex-grow: 5;
+        padding: 2vh 1vw 0vh;
+        max-width: 12vw;
+        height: auto;
+      }
+  
+    .tale-detail-container {
+      flex-grow: 6;
+      align-items: flex-end;
       height: 100%;
+      padding: 1vh 0vh 0vh;
     }
+  }
 
-    .icon-container > ion-icon {
-      font-size: 7vh;
-    }
+  ion-button {
+    --width: 20vw;
+    font-size: 1rem;
+    text-transform: inherit;
+    color: var(--ion-color-dark);
+    border-style: none;
+    --padding-start: 0;
+    margin: 0;
+  }
 
     .story-stats {
-      color: #691446;
       font-weight: 800;
-      color: var(--ion-color-dark);
+      color: var(--ion-color-tertiary);
+      font-size: 2rem;
+      padding: 0vh 0vw 0vh;
+    }
+
+    .info-btn {
       font-size: 1rem;
-      padding: 0;
+      float: right;
+      // padding-left: 3vw;
     }
       
   
