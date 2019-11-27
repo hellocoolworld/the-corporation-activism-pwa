@@ -397,30 +397,43 @@ ion-grid.tale-action-summary {
 
 .ad {
   position: relative;
-  height: 45vh;
+  z-index:2;
+  height: 28%;
+  --background: transparent;
   background: url('../../../assets/old-images/corp-barcode-bg.png') no-repeat;
   background-size: cover;
-  padding: 1rem;
-  color: var(--ion-color-light);
+  padding-top: 5rem;
   text-align: center;
-  h3 {
-    background-color: rgba(0, 0, 0, 0.3);
-      position: absolute;
-      bottom: 0;
-      margin-bottom: 0;
-      color: white;
-      font-size: 1.13rem;
-      font-weight: 500;
-      padding: 0.75rem 1rem;
+}
+
+.ad-content {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+  z-index:1;
+  height: 10%;
+    h3 {
       width: 100%;
+      --background: rgba(0, 0, 0, 0.3);
+        color: white;
+        font-size: 1.13rem;
+        font-weight: 500;
+        padding: 0.75rem 1rem;
+        width: 100%;
+    }
+    .ad-footer{
+      --background: #D1B8C7;
+      p {
+        width: 100%;
+        font-weight: 400;
+      }
+      ion-button  {
+          --border-radius: var(--app-fair-radius);
+          --background: var(--ion-color-tertiary-shade)
+      }
+    }
   }
-  p {
-    font-weight: 400;
-  }
-  //  {
-  //   --border-radius: var(--app-fair-radius);
-  //   --background: var(--ion-color-tertiary)
-  // }
+
   .call-to-action 
   {
     display: flex;
@@ -430,7 +443,7 @@ ion-grid.tale-action-summary {
     text-decoration: underline;
     color: inherit;
   }
-}
+
 
 // .tale-wrapper {
 //   margin-bottom: var(--page-margin);
