@@ -1,19 +1,48 @@
 <ht-header></ht-header>
 
 <ion-content class="home-main-container">
-    <ion-grid class="desktop-header hidden-sm">
-        <ion-row>
-          <ion-col no-padding>
-          <ion-thumbnail>
-              <img src="../../../assets/images/desktop-header-logo.svg">
-          </ion-thumbnail>
-          </ion-col>
-          <ion-col no-padding size="6">
-            <h1>THE SEQUEL IS COMING!</h1>
-          </ion-col>
-          <ion-col no-padding></ion-col>
-        </ion-row>
-      </ion-grid>
+
+      <div class="header-flex-container hidden-sm">
+      <div class="desktop-header">
+            <div class="header-start">
+                  <img src="../../../assets/images/desktop-header-logo.svg">
+            </div>
+            <div class="header-middle">
+              <div class="header-mid-flex">
+                <h1>THE SEQUEL IS COMING!</h1>
+                <p>Over a decade ago The Corporation film likened the dominant institution  of our time to a psychopath. Now get ready for the sequel.</p>
+                <div class="header-links">
+                    <a href="/">Home</a>
+                    <a href="/">About</a>
+                    <a href="/">Sign In</a>
+                    <a href="/">TheCorporation.com</a>
+                </div>
+              </div>
+            </div>
+            <div class="header-end">
+              <div class="social-buttons">
+                    <a (click)="linkToSocialProfile('facebook')">
+                      <img src="../../../assets/images/mobile-facebook.svg">
+                    </a>
+            
+                    <a (click)="linkToSocialProfile('twitter')">
+                      <img src="../../../assets/images/mobile-twitter.svg">
+                    </a>
+            
+                    <a (click)="linkToSocialProfile('youtube')">
+                      <img src="../../../assets/images/mobile-youtube.svg">
+                    </a>
+            
+                    <a (click)="linkToSocialProfile('vimeo')">
+                      <img src="../../../assets/images/mobile-vimeo.svg">
+                    </a>
+                </div>
+                <ion-button (click)="signUp()" expand="block" class="content-btn">
+                  Join us
+                </ion-button>
+            </div>
+          </div>
+        </div>
 
   <div class="hidden-lg crowd-container" *ngIf="isFirstPageThisSession">
     <div class="peoplesvgs">
@@ -33,6 +62,8 @@
   </div>
   <div class="hidden-sm desktop-crowd-container">
       <img src="../../../assets/images/crowd-of-people.svg">
+      <h1 class="desktop-crowd-text">YOU ARE PART OF OUR STORY
+          LET’S MAKE HISTORY</h1>
   </div>
   <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
     <div class="user-avatars-wrapper" *ngIf="currentUser">
@@ -51,7 +82,7 @@
         </ion-card-title>
       </ion-card-header>
 
-      <ion-card-content>
+      <ion-card-content class="hidden-lg">
         <ng-container *ngIf="currentUser; then contentLoggedIn; else contentLoggedOut"></ng-container>
         <ng-template #contentLoggedIn>
           <div class="user-action-summary">

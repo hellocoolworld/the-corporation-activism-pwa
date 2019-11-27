@@ -2,21 +2,87 @@
   --page-margin: var(--app-broad-margin);
 }
 
+.header-flex-container {
+  width: 100%;
+  margin: 0;
+
 .desktop-header {
   position: relative;
+  overflow: hidden;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
   margin: 0;
-  height: 18vh;
-  background-color:  #421f35;
-  ion-thumbnail {
-    margin-top: 0.5em;
-    margin-left: 0.5em;
-    width: 50%;
+  height: 20vw;
+  width: 100%;
+  padding: 1vw 2vw 2vw;
+  --background: transparent;
+  background-color:  #421f35 !important;
+  .header-start {
+    align-items: center;
+    max-height: 150px;
+    min-height: 20px;
+    width: 16vw;
     height: auto;
+    margin-right: 2vw;
   }
-  h1 {
-    color: white;
-    font-weight: 600;
+  .header-middle {
+    position: relative;
+    .header-mid-flex{
+      max-width: 75%;
+      display: -webkit-flex;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      align-items: left;
+      border-left: 1px solid white;
+      margin: 0;
+      h1 {
+        color: white;
+        font-weight: 600;
+        padding-bottom: 0;
+        padding-top: 0;
+        padding-left: 2vw;
+      }
+      p {
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 2vw;
+        padding-left: 2vw;
+        color: white;
+      }
+      a {
+        color: var(--ion-color-tertiary-shade);
+        text-decoration: none;
+        font-weight: 600;
+        padding-right: 2vw;
+        padding-left: 2vw;
+      }
+    }
   }
+  .header-end {
+    align-items: center;
+    width: 20vw;
+    height: auto;
+    .social-buttons {
+      display: -webkit-flex;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      align-items: center;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      margin: 0;
+      ion-button {
+        width: 100%;
+      }
+    }
+    .content-btn {
+      --background: var(--ion-color-primary);
+      color: black;
+    }
+  }
+}
 }
 
 
@@ -220,11 +286,20 @@
   margin-left: 0;
 }
 .desktop-crowd-container {
-  display: inline-block;
   position: relative;
-  height: auto;
-  width: 100%;
-  margin: 0;
+  text-align: center;
+  img {
+    height: auto;
+    width: 100%;
+  }
+  h1 {
+    position: absolute;
+    font-weight: 900;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 
