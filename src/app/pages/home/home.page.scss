@@ -52,12 +52,18 @@
         padding-left: 2vw;
         color: white;
       }
-      a {
-        color: var(--ion-color-tertiary-shade);
-        text-decoration: none;
-        font-weight: 600;
-        padding-right: 2vw;
-        padding-left: 2vw;
+      .header-links {
+        display: -webkit-flex;
+        flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-wrap: nowrap;
+        a {
+          color: var(--ion-color-tertiary-shade);
+          text-decoration: none;
+          font-weight: 600;
+          padding-right: 2vw;
+          padding-left: 2vw;
+        }
       }
     }
   }
@@ -272,39 +278,9 @@
   }
 }
 
-.home-main-container {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.crowd-container {
-  display: inline-block;
-  position: relative;
-  height: 80%;
-  width: 100%;
-  margin-left: 0;
-}
-.desktop-crowd-container {
-  position: relative;
-  text-align: center;
-  img {
-    height: auto;
-    width: 100%;
-  }
-  h1 {
-    position: absolute;
-    font-weight: 900;
-    color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-
 .intro-story {
   position: absolute;
+  z-index: 4;
   width: 100%;
   height: 23%;
   background-color: white;
@@ -317,6 +293,9 @@
     font-size: 2.2vh;
     font-weight: 425;
     margin: 0;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
   }
   .text-1 {
     padding: 5vh 5vh;
@@ -344,32 +323,87 @@
   }
 }
 
-.peoplesvgs {
-  .ani1 {
-    height: 75%;
-    margin-top: 2vh;
-    margin-left: 15%;
-    margin-right: auto;
-    position: absolute;
-    animation-name: ani1;
-    animation-timing-function: ease-in-out;
-    animation-duration: 3.5s;
-    animation-fill-mode: forwards;
+.home-main-container {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.crowd-container {
+  text-align: center;
+  flex-grow: 2;
+  height: 38rem;
+  width: 100%;
+  margin: 0;
+  position: relative;
+
+  .peoplesvgs {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    div {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .ani1 {
+      background-image: url("../../../assets/images/mobile-devi-logo.svg");
+      background-repeat: no-repeat;
+      left: 10vw;
+      z-index: 1;
+      animation-name: ani1;
+      animation-timing-function: ease-in-out;
+      animation-duration: 3.5s;
+      animation-fill-mode: forwards;
+    }
+    .ani2 {
+      background-image: url("../../../assets/images/group1.svg");
+      background-repeat: no-repeat;
+      z-index: 2;
+      animation-name: ani2;
+      animation-timing-function: ease-in-out;
+      animation-duration: 7s;
+      animation-fill-mode: forwards;
+    }
+    .ani3 {
+      background-image: url("../../../assets/images/group2.svg");
+      background-repeat: no-repeat;
+      z-index: 3;
+      animation-name: ani3;
+      animation-timing-function: ease-in-out;
+      animation-duration: 9.5s;
+      animation-fill-mode: forwards;
+    }
   }
-  .ani2 {
-    position: absolute;
-    animation-name: ani2;
-    animation-timing-function: ease-in-out;
-    animation-duration: 7s;
-    animation-fill-mode: forwards;
+}
+
+
+.desktop-crowd-container {
+  position: relative;
+  text-align: center;
+  img {
+    height: auto;
+    width: 100%;
   }
-  .ani3 {
+  h1 {
     position: absolute;
-    animation-name: ani3;
-    animation-timing-function: ease-in-out;
-    animation-duration: 9.5s;
-    animation-fill-mode: forwards;
+    font-weight: 900;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+  }
+
+.mobile-join-us-card {
+  z-index: 5;
 }
 
 .intro-grid {
