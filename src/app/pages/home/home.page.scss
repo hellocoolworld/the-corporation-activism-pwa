@@ -2,29 +2,32 @@
   --page-margin: var(--app-broad-margin);
 }
 
+.desktop-header {
+  position: relative;
+  margin: 0;
+  height: 18vh;
+  background-color:  #421f35;
+  ion-thumbnail {
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    width: 50%;
+    height: auto;
+  }
+  h1 {
+    color: white;
+    font-weight: 600;
+  }
+}
+
 
 .home-splash {
   position: relative;
-  // &.logged-in {
-  //   background: url(../../../assets/images/mobile-devi-logo.svg) no-repeat top center;
-  //   background-position: 0px 10px;
-  //   height: 350px;
-  // }
-  // &.logged-out {
-  //   animation-name: fadeIn;
-  //   animation-duration: 4s;
-  //   background: url(../../../assets/images/mobile-devi-logo.svg) no-repeat top center;
-  //   background-position:50% 15px;
-  //   height: 75vh;
-  // }
   .user-avatars-wrapper {
     position: relative;
     width: 100%;
     overflow: hidden;
     z-index: 1;
     min-height: 210px;
-    // top: 0;
-    // left: 0;
     img {
       border-radius: 100%;
     }
@@ -203,14 +206,27 @@
   }
 }
 
-.animationcontainer {
-  display: block;
+.home-main-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crowd-container {
+  display: inline-block;
   position: relative;
   height: 80%;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
 }
+.desktop-crowd-container {
+  display: inline-block;
+  position: relative;
+  height: auto;
+  width: 100%;
+  margin: 0;
+}
+
 
 .intro-story {
   position: absolute;

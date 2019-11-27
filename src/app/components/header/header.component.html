@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar class="hidden-lg">
+<ion-header class="hidden-lg">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button color="medium"></ion-menu-button>
     </ion-buttons>
@@ -27,4 +27,32 @@
     </ion-buttons>
 
   </ion-toolbar>
+  <ion-toolbar class="hidden-sm">
+      <ion-buttons slot="start">
+        <ion-menu-button color="medium"></ion-menu-button>
+      </ion-buttons>
+  
+      <ion-title href="/" align="center" class="headerTitle ion-no-padding">
+            The Corporation
+        </ion-title>
+  
+      <ion-buttons  class="ion-no-padding" slot="end">
+        <ion-button  class="ion-no-padding" *ngIf="!currentUser" href="/login">
+          <ion-label slot="start" class="header-navi-join">Sign in</ion-label>
+          <ion-icon slot="left" color="darkest" name="log-in"></ion-icon>
+        </ion-button>
+        
+        <ion-button *ngIf="currentUser" href="/notifications">
+          <ion-icon color="lightest" name="notifications"></ion-icon>
+          <ion-badge color="primary">42</ion-badge>
+        </ion-button>
+        <ion-button *ngIf="currentUser" href="/user/profile">
+          <ion-avatar class="user-avatar" *ngIf="currentUser.imageUrl !== ''">
+            <ion-img src="{{ currentUser.imageUrl }}" alt="{{ currentUser.displayName }}"></ion-img>
+          </ion-avatar>
+          <ion-icon *ngIf="currentUser.imageUrl === ''" color="lightest" name="contact"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  
+    </ion-toolbar>
 </ion-header>

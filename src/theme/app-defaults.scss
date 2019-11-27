@@ -81,6 +81,12 @@ ion-button {
 
 .hidden-lg {
   @media (min-width: 820px) {
-    display: none;
+    display: none !important;
+  }
+}
+
+.hidden-sm {
+  @media (max-width: 820px) {
+    display: none !important;
   }
 }

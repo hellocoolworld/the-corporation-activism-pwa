@@ -1,6 +1,21 @@
 <ht-header></ht-header>
-<ion-content>
-  <div class="animationcontainer hidden-lg" *ngIf="isFirstPageThisSession">
+
+<ion-content class="home-main-container">
+    <ion-grid class="desktop-header hidden-sm">
+        <ion-row>
+          <ion-col no-padding>
+          <ion-thumbnail>
+              <img src="../../../assets/images/desktop-header-logo.svg">
+          </ion-thumbnail>
+          </ion-col>
+          <ion-col no-padding size="6">
+            <h1>THE SEQUEL IS COMING!</h1>
+          </ion-col>
+          <ion-col no-padding></ion-col>
+        </ion-row>
+      </ion-grid>
+
+  <div class="hidden-lg crowd-container" *ngIf="isFirstPageThisSession">
     <div class="peoplesvgs">
       <img src="../../../assets/images/mobile-devi-logo.svg" class="ani1">
       <img src="../../../assets/images/group1.svg" class="ani2">
@@ -16,6 +31,9 @@
        <p class="text-3">These are our stories</p>
     </div>
   </div>
+  <div class="hidden-sm desktop-crowd-container">
+      <img src="../../../assets/images/crowd-of-people.svg">
+  </div>
   <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
     <div class="user-avatars-wrapper" *ngIf="currentUser">
 
@@ -27,7 +45,7 @@
     </div>
     <ion-card>
 
-      <ion-card-header>
+      <ion-card-header class="hidden-lg">
         <ion-card-title>
           {{"SEQUEL COMING SOON"}}
         </ion-card-title>
@@ -84,7 +102,7 @@
           </div>
         </ng-template>
         <ng-template #contentLoggedOut>
-          <ion-button (click)="signUp()" expand="block" class="content-btn">
+          <ion-button (click)="signUp()" expand="block" class="content-btn hidden-lg">
             Join us
           </ion-button>
         </ng-template>
@@ -128,7 +146,7 @@
          <ion-row class="nowrap">
           <ion-col class="ion-align-self-end pledge-col">
 
-              <ion-thumbnail item-start class="action-img">
+              <ion-thumbnail item-start>
                 <img src="../../../assets/images/action-pledges.svg">
               </ion-thumbnail>
 
@@ -145,7 +163,7 @@
             </ion-col>
 
             <ion-col > 
-            <ion-thumbnail item-start class="action-img">
+            <ion-thumbnail item-start >
               <img src="../../../assets/images/avocado-meter.svg">
             </ion-thumbnail>
 
