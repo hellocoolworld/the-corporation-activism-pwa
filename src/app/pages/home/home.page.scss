@@ -527,13 +527,16 @@ ion-grid.tale-action-summary {
 
 .ad {
     position: relative;
+    // width: 100%;
+    // height: auto;
+    margin: 0;
     z-index: 2;
-    height: 28%;
-    --background: transparent;
-    background: url('../../../assets/old-images/corp-barcode-bg.png') no-repeat;
-    background-size: cover;
+    height: 30%;
+    // --background: transparent;
+    // // background: url('../../../assets/old-images/corp-barcode-bg.png') no-repeat;
+    // // background-size: cover;
     padding-top: 5rem;
-    text-align: center;
+    // text-align: center;
 }
 
 .ad-content {
@@ -573,22 +576,3 @@ a {
     text-decoration: underline;
     color: inherit;
 }
-
-// .tale-wrapper {
-//   margin-bottom: var(--page-margin);
-//   position: relative;
-//   .tale-header {
-//     position: relative;
-//     h3.tale-title {
-//       background-color: rgba(0, 0, 0, 0.3);
-//       position: absolute;
-//       bottom: 0;
-//       margin-bottom: 0;
-//       color: white;
-//       font-size: 1.13rem;
-//       font-weight: 500;
-//       padding: 0.75rem 1rem;
-//       width: 100%;
-//     }
-//   }
-// }
