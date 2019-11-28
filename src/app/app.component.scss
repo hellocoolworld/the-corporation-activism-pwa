@@ -8,10 +8,24 @@
     --background: var(--ion-color-tertiary-contrast);
   }
 
-  .main-nav-item {
-    margin: auto;
-    text-align: center;
-    font-weight: 600;
+  .nav-section {
+    padding-bottom: 5vw;
+    margin-bottom: 0;
+    .main-nav-item {
+      margin: auto;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+    .navLink {
+      padding-left: 2vw;
+      font-size: 1.2em;
+      text-align: center;
+    }
+  }
+
+  .nav-social-links {
+    margin-top: 2vw;
   }
 
   .bottom-nav-link-grid {
@@ -25,10 +39,6 @@
     font-weight: 600;
   }
 
-  .navLink {
-    size: 120px;
-    text-align: center;
-  }
   ion-button {
     width: 100%;
     text-align: center;
