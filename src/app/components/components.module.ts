@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { HeaderComponent } from './header/header.component';
+import { HeaderDesktopComponent } from './header-desktop/header-desktop.component';
 import { FooterAdComponent } from './footer-ad/footer-ad.component';
 import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
 import { PopoverComponent } from './popover/popover.component';
@@ -30,6 +31,7 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     ImageShellComponent,
 
     HeaderComponent,
+    HeaderDesktopComponent,
     FooterAdComponent,
     AddAvocadosComponent,
     PopoverComponent,
@@ -45,6 +47,7 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     TextShellComponent,
     ImageShellComponent,
 
+    HeaderDesktopComponent,
     HeaderComponent,
     FooterAdComponent,
     AddAvocadosComponent,

@@ -1,245 +1,196 @@
 <ht-header></ht-header>
+<ht-header-desktop></ht-header-desktop>
+
+
 
 <ion-content class="home-main-container">
 
-      <div class="header-flex-container hidden-sm">
-      <div class="desktop-header">
-            <div class="header-start">
-                  <img src="../../../assets/images/desktop-header-logo.svg">
-            </div>
-            <div class="header-middle">
-              <div class="header-mid-flex">
-                <div class="header-divider">
-                  <h1>THE SEQUEL IS COMING!</h1>
-                  <p>Over a decade ago The Corporation film likened the dominant institution  of our time to a psychopath. Now get ready for the sequel.</p>
-                </div>
-                  <div class="header-links">
-                    <a href="/">Home</a>
-                    <a href="/">About</a>
-                    <a href="/">Sign In</a>
-                    <a href="/">TheCorporation.com</a>
-                </div>
-              </div>
-            </div>
-            <div class="header-end">
-              <div class="social-buttons">
-                    <a (click)="linkToSocialProfile('facebook')">
-                      <img src="../../../assets/images/mobile-facebook.svg">
-                    </a>
-            
-                    <a (click)="linkToSocialProfile('twitter')">
-                      <img src="../../../assets/images/mobile-twitter.svg">
-                    </a>
-            
-                    <a (click)="linkToSocialProfile('youtube')">
-                      <img src="../../../assets/images/mobile-youtube.svg">
-                    </a>
-            
-                    <a (click)="linkToSocialProfile('vimeo')">
-                      <img src="../../../assets/images/mobile-vimeo.svg">
-                    </a>
-                </div>
-                <ion-button (click)="signUp()" expand="block" class="content-btn">
-                  Join us
-                </ion-button>
-            </div>
-          </div>
+
+
+    <div class="hidden-lg crowd-container" *ngIf="isFirstPageThisSession">
+        <div class="peoplesvgs">
+            <div class="ani1"></div>
+            <div class="ani2"></div>
+            <div class="ani3"></div>
         </div>
-
-  <div class="hidden-lg crowd-container" *ngIf="isFirstPageThisSession">
-    <div class="peoplesvgs">
-      <div class="ani1"></div>
-      <div class="ani2"></div>
-      <div class="ani3"></div>
+        <div class="intro-story">
+            <p class="text-1">In 2003 The Corporation film revealed society’s dominant institution as a psychopath.</p>
+            <p class="text-2">Millions were inspired to get up off their couch and do something!</p>
+            <p class="text-3">These are our stories</p>
+        </div>
     </div>
-    <div class="intro-story">
-      <p class="text-1">In 2003 The Corporation film
-          revealed society’s dominant
-          institution as a psychopath.</p>
-      <p class="text-2">Millions were inspired 
-          to get up off their 
-          couch and do something!</p>
-       <p class="text-3">These are our stories</p>
+    <div class="hidden-sm desktop-crowd-container">
+        <img src="../../../assets/images/crowd-of-people.svg">
+        <h1>YOU ARE PART OF OUR STORY LET’S MAKE HISTORY</h1>
     </div>
-  </div>
-  <div class="hidden-sm desktop-crowd-container">
-      <img src="../../../assets/images/crowd-of-people.svg">
-      <h1>YOU ARE PART OF OUR STORY
-          LET’S MAKE HISTORY</h1>
-  </div>
-  <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
-    <div class="user-avatars-wrapper" *ngIf="currentUser">
+    <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
+        <div class="user-avatars-wrapper" *ngIf="currentUser">
 
-      <div class="main-user-avatar" >
-        <a [routerLink]="['/profile', currentUser.id]">
-          <img [src]="currentUser.imageUrl" [alt]="currentUser.displayName" />
-        </a>
-      </div>
-    </div>
-    <ion-card>
+            <div class="main-user-avatar">
+                <a [routerLink]="['/profile', currentUser.id]">
+                    <img [src]="currentUser.imageUrl" [alt]="currentUser.displayName" />
+                </a>
+            </div>
+        </div>
+        <ion-card>
 
-      <ion-card-header class="hidden-lg mobile-join-us-card">
-        <ion-card-title>
-          {{"SEQUEL COMING SOON"}}
-        </ion-card-title>
-      </ion-card-header>
+            <ion-card-header class="hidden-lg mobile-join-us-card">
+                <ion-card-title>
+                    {{"SEQUEL COMING SOON"}}
+                </ion-card-title>
+            </ion-card-header>
 
-      <ion-card-content class="hidden-lg">
-        <ng-container *ngIf="currentUser; then contentLoggedIn; else contentLoggedOut"></ng-container>
-        <ng-template #contentLoggedIn>
-          <div class="user-action-summary">
-            <h4>{{ currentUser.displayName }}</h4>
-            <div class="action-wrapper">
-              <ion-item class="testimonials">
-                <ion-icon slot="start" name="quote"></ion-icon>
-                <ion-label>
-                  <ng-container *ngIf="currentUser.testimonial != ''; then yesTestimonials; else noTestimonial"></ng-container>
-                  <ng-template #yesTestimonials>
-                    <a [routerLink]="['/profile', currentUser.id]">
+            <ion-card-content class="hidden-lg">
+                <ng-container *ngIf="currentUser; then contentLoggedIn; else contentLoggedOut"></ng-container>
+                <ng-template #contentLoggedIn>
+                    <div class="user-action-summary">
+                        <h4>{{ currentUser.displayName }}</h4>
+                        <div class="action-wrapper">
+                            <ion-item class="testimonials">
+                                <ion-icon slot="start" name="quote"></ion-icon>
+                                <ion-label>
+                                    <ng-container *ngIf="currentUser.testimonial != ''; then yesTestimonials; else noTestimonial"></ng-container>
+                                    <ng-template #yesTestimonials>
+                                        <a [routerLink]="['/profile', currentUser.id]">
                       Testimonial
                       <br />
                       given
                     </a>
-                  </ng-template>
-                  <ng-template #noTestimonial>
-                    <a href="/user/profile">
+                                    </ng-template>
+                                    <ng-template #noTestimonial>
+                                        <a href="/user/profile">
                       Add
                       <br />
                       testimonial
                     </a>
-                  </ng-template>
-                </ion-label>
-              </ion-item>
-              <ion-item class="pledges">
-                <ion-icon slot="start" name="trophy" ></ion-icon>
-                <ion-label>
-                  {{ pledgesCount }} Action
-                  <br /> pledges
-                </ion-label>
-              </ion-item>
-              <ion-item class="tales">
-                <ion-icon slot="start" name="videocam"></ion-icon>
-                <ion-label>
-                  <ng-container *ngIf="talesCount > 0; then yesTales; else noTales"></ng-container>
-                  <ng-template #yesTales>{{ talesCount }} Stories</ng-template>
-                  <ng-template #noTales>
-                    <a href="">
+                                    </ng-template>
+                                </ion-label>
+                            </ion-item>
+                            <ion-item class="pledges">
+                                <ion-icon slot="start" name="trophy"></ion-icon>
+                                <ion-label>
+                                    {{ pledgesCount }} Action
+                                    <br /> pledges
+                                </ion-label>
+                            </ion-item>
+                            <ion-item class="tales">
+                                <ion-icon slot="start" name="videocam"></ion-icon>
+                                <ion-label>
+                                    <ng-container *ngIf="talesCount > 0; then yesTales; else noTales"></ng-container>
+                                    <ng-template #yesTales>{{ talesCount }} Stories</ng-template>
+                                    <ng-template #noTales>
+                                        <a href="">
                       Add
                       <br />
                       story
                     </a>
-                  </ng-template>
-                </ion-label>
-              </ion-item>
+                                    </ng-template>
+                                </ion-label>
+                            </ion-item>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template #contentLoggedOut>
+                    <ion-button (click)="signUp()" expand="block" class="content-btn hidden-lg">
+                        Join us
+                    </ion-button>
+                </ng-template>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+
+    <ion-grid fixed no-padding class="intro-grid">
+        <div class="tales-section-intro-wrapper">
+            <ion-row>
+                <ion-col>
+                    <h2 class="tales-section-intro">Watch Stories.</h2>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <h2 class="tales-section-intro">Get Inspired.</h2>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <p>Take action by people who were<br /> transformed by the film.<br /> Add your own story!</p>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+
+    <div class="tale-wrapper" *ngFor="let tale of tales">
+        <a href="tale/{{ tale.slug }}">
+            <div class="tale-header">
+                <ion-img [src]="tale.image"></ion-img>
+                <h3 class="tale-title">{{ tale.title }}</h3>
             </div>
-          </div>
-        </ng-template>
-        <ng-template #contentLoggedOut>
-          <ion-button (click)="signUp()" expand="block" class="content-btn hidden-lg">
-            Join us
-          </ion-button>
-        </ng-template>
-      </ion-card-content>
-    </ion-card>
-  </div>
-
-  
-  <ion-grid fixed no-padding class="intro-grid">
-  <div class="tales-section-intro-wrapper">
-    <ion-row >
-    <ion-col>
-    <h2 class="tales-section-intro">Watch Stories.</h2>
-  </ion-col>
-</ion-row>
-<ion-row >
-    <ion-col>
-    <h2 class="tales-section-intro">Get Inspired.</h2>
-  </ion-col>
-</ion-row>
-<ion-row >
-    <ion-col>
-    <p>Take action by people who were<br /> 
-        transformed by the film.<br />
-        Add your own story!</p>
-      </ion-col>
-      </ion-row>
-  </div>
-  </ion-grid>
-
-  <div class="tale-wrapper" *ngFor="let tale of tales">
-    <a href="tale/{{ tale.slug }}">
-      <div class="tale-header">
-        <ion-img [src]="tale.image"></ion-img>
-        <h3 class="tale-title">{{ tale.title }}</h3>
-      </div>
-    </a>
+        </a>
 
 
-       <ion-grid no-padding class="tale-action-summary">
-         <ion-row class="nowrap">
-          <ion-col class="ion-align-self-end pledge-col">
+        <ion-grid no-padding class="tale-action-summary">
+            <ion-row class="nowrap">
+                <ion-col class="ion-align-self-end pledge-col">
 
-              <ion-thumbnail item-start>
-                <img src="../../../assets/images/action-pledges.svg">
-              </ion-thumbnail>
+                    <ion-thumbnail item-start>
+                        <img src="../../../assets/images/action-pledges.svg">
+                    </ion-thumbnail>
 
-            <ion-item class="content">
-              <ion-label>{{ tale.pledgeCount }}</ion-label>
-            </ion-item>
+                    <ion-item class="content">
+                        <ion-label>{{ tale.pledgeCount }}</ion-label>
+                    </ion-item>
 
-            <ion-item class="header">
-                <ion-button fill="clear" (click)="showHelpActionPledgeModal()">
-                  Action Pledges
-                  <ion-icon no-padding slot="end" src="../../../assets/images/info.svg"></ion-icon>
-                </ion-button>
-              </ion-item>
-            </ion-col>
+                    <ion-item class="header">
+                        <ion-button fill="clear" (click)="showHelpActionPledgeModal()">
+                            Action Pledges
+                            <ion-icon no-padding slot="end" src="../../../assets/images/info.svg"></ion-icon>
+                        </ion-button>
+                    </ion-item>
+                </ion-col>
 
-            <ion-col > 
-            <ion-thumbnail item-start >
-              <img src="../../../assets/images/avocado-meter.svg">
-            </ion-thumbnail>
+                <ion-col>
+                    <ion-thumbnail item-start>
+                        <img src="../../../assets/images/avocado-meter.svg">
+                    </ion-thumbnail>
 
-            <ion-item class="content">
-              <ion-label>{{ tale.avocados }}</ion-label>
-            </ion-item>
-            <ion-item class="header">
-                <ion-button fill="clear" (click)="showHelpAvocadometerModal()">
-                  Avocadometer
-                  <ion-icon slot="end" src="../../../assets/images/info.svg"></ion-icon>
-                </ion-button>
-              </ion-item>
-          </ion-col>
-          </ion-row>
+                    <ion-item class="content">
+                        <ion-label>{{ tale.avocados }}</ion-label>
+                    </ion-item>
+                    <ion-item class="header">
+                        <ion-button fill="clear" (click)="showHelpAvocadometerModal()">
+                            Avocadometer
+                            <ion-icon slot="end" src="../../../assets/images/info.svg"></ion-icon>
+                        </ion-button>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
         </ion-grid>
 
 
-    <ion-item class="tale-meta" lines="none">
-      <ion-avatar slot="start">
-        <img [src]="tale.authorImg" />
-      </ion-avatar>
-      <ion-label>
-        <div class="authoring-info">{{ tale.authorName }} &bull; {{ tale.updatedAt }}</div>
-      </ion-label>
-    </ion-item>
-  </div>
+        <ion-item class="tale-meta" lines="none">
+            <ion-avatar slot="start">
+                <img [src]="tale.authorImg" />
+            </ion-avatar>
+            <ion-label>
+                <div class="authoring-info">{{ tale.authorName }} &bull; {{ tale.updatedAt }}</div>
+            </ion-label>
+        </ion-item>
+    </div>
 
 
-  <ion-content class="ad hidden-lg" *ngIf="isFirstPageThisSession">
+    <ion-content class="ad hidden-lg" *ngIf="isFirstPageThisSession">
 
-  <ion-item class="ad-content">
-      <h3>THE SEQUEL IS COMING</h3>
+        <ion-item class="ad-content">
+            <h3>THE SEQUEL IS COMING</h3>
 
-    <div class="ad-footer">
-      <p>More than a decade after The Corporation 
-          likened the dominant institution of our 
-          time to a psychopath, its creators are 
-          now working on a follow-up film.</p>
-          <ion-button href="/" expand="block" class="content-btn">
-            VISIT THECORPORATION.COM
-          </ion-button>
-      </div>
-      </ion-item>
-   </ion-content> 
+            <div class="ad-footer">
+                <p>More than a decade after The Corporation likened the dominant institution of our time to a psychopath, its creators are now working on a follow-up film.</p>
+                <ion-button href="/" expand="block" class="content-btn">
+                    VISIT THECORPORATION.COM
+                </ion-button>
+            </div>
+        </ion-item>
+    </ion-content>
 
 </ion-content>

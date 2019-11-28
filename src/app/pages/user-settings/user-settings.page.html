@@ -1,88 +1,89 @@
 <ht-header></ht-header>
+<ht-header-desktop></ht-header-desktop>
 
 <ion-content class="user-account-content">
-  <h2>Settings</h2>
+    <h2>Settings</h2>
 
-  <ion-item-group>
-    <ion-item-divider>
-      <ion-label>Join the Mailing List</ion-label>
-    </ion-item-divider>
-    <ion-item class="input-item" lines="none">
-      <ion-label text-wrap>
-        Stay connected to all the latest news about the sequel
-      </ion-label>
-      <ion-toggle color="primary" [(ngModel)]="currentUser.joinMailingList" (ionChange)="onToggleChange()"></ion-toggle>
-    </ion-item>
-  </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider>
+            <ion-label>Join the Mailing List</ion-label>
+        </ion-item-divider>
+        <ion-item class="input-item" lines="none">
+            <ion-label text-wrap>
+                Stay connected to all the latest news about the sequel
+            </ion-label>
+            <ion-toggle color="primary" [(ngModel)]="currentUser.joinMailingList" (ionChange)="onToggleChange()"></ion-toggle>
+        </ion-item>
+    </ion-item-group>
 
-  <ion-item-group>
-      <ion-item-divider>
-      <ion-label>Notifications</ion-label>
-    </ion-item-divider>
-    <ion-item lines="none">
-      <ion-label text-wrap>
-        Push Notifications
-      </ion-label>
-      <ion-toggle color="primary" [(ngModel)]="currentUser.allowPushNotification" (ionChange)="onToggleChange()"></ion-toggle>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label text-wrap>
-        Email notification
-      </ion-label>
-      <ion-toggle color="primary" [(ngModel)]="currentUser.allowEmailNotification" (ionChange)="onToggleChange()"></ion-toggle>
-    </ion-item>
-  </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider>
+            <ion-label>Notifications</ion-label>
+        </ion-item-divider>
+        <ion-item lines="none">
+            <ion-label text-wrap>
+                Push Notifications
+            </ion-label>
+            <ion-toggle color="primary" [(ngModel)]="currentUser.allowPushNotification" (ionChange)="onToggleChange()"></ion-toggle>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-label text-wrap>
+                Email notification
+            </ion-label>
+            <ion-toggle color="primary" [(ngModel)]="currentUser.allowEmailNotification" (ionChange)="onToggleChange()"></ion-toggle>
+        </ion-item>
+    </ion-item-group>
 
-  
 
-  <form [formGroup]="UserSettingsForm" (ngSubmit)="onSubmit()">
-  <ion-item-group>
-      <ion-item-divider>
-      <ion-label>Update Your Credentials</ion-label>
-    </ion-item-divider>
-    <ion-item class="input-item">
-        <ion-label position="floating">Email Address</ion-label>
-        <ion-input type="email" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
-      </ion-item>
-      <div *ngIf="f.email.errors" class="error-container">
-        <div class="error-message" *ngIf="f.email.errors.required && f.email.touched">
-          <ion-icon name="information-circle-outline"></ion-icon>
-          <span>Email is required.</span>
-        </div>
-        <div class="error-message" *ngIf="f.email.errors.email && f.email.touched">
-          <ion-icon name="information-circle-outline"></ion-icon>
-          <span>Enter a valid email.</span>
-        </div>
-      </div>
 
-    <ion-item class="input-item">
-      <ion-label position="floating">Password</ion-label>
-      <app-show-hide-password>
-        <ion-input type="password" formControlName="password"></ion-input>
-      </app-show-hide-password>
-    </ion-item>
-    <div *ngIf="f.password.errors" class="error-container">
-      <div class="error-message" *ngIf="f.password.errors.minlength && f.password.touched">
-        <ion-icon name="information-circle-outline"></ion-icon>
-        <span>Password must be at least 5 characters long.</span>
-      </div>
-    </div>
+    <form [formGroup]="UserSettingsForm" (ngSubmit)="onSubmit()">
+        <ion-item-group>
+            <ion-item-divider>
+                <ion-label>Update Your Credentials</ion-label>
+            </ion-item-divider>
+            <ion-item class="input-item">
+                <ion-label position="floating">Email Address</ion-label>
+                <ion-input type="email" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
+            </ion-item>
+            <div *ngIf="f.email.errors" class="error-container">
+                <div class="error-message" *ngIf="f.email.errors.required && f.email.touched">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>Email is required.</span>
+                </div>
+                <div class="error-message" *ngIf="f.email.errors.email && f.email.touched">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>Enter a valid email.</span>
+                </div>
+            </div>
 
-    <ion-item class="input-item">
-      <ion-label position="floating">Confirm Password</ion-label>
-      <app-show-hide-password>
-        <ion-input type="password" formControlName="confirmPassword"></ion-input>
-      </app-show-hide-password>
-    </ion-item>
-    <div *ngIf="f.confirmPassword.errors" class="error-container">
-      <div class="error-message" *ngIf="f.confirmPassword.errors.mustMatch && f.confirmPassword.touched">
-        <ion-icon name="information-circle-outline"></ion-icon>
-        <span>Password mismatch</span>
-      </div>
-    </div>
-  </ion-item-group>
-    <ion-button type="submit" expand="block" fill="solid"  [disabled]="UserSettingsForm.invalid">
-      Save Credentials
-    </ion-button>
-  </form>
+            <ion-item class="input-item">
+                <ion-label position="floating">Password</ion-label>
+                <app-show-hide-password>
+                    <ion-input type="password" formControlName="password"></ion-input>
+                </app-show-hide-password>
+            </ion-item>
+            <div *ngIf="f.password.errors" class="error-container">
+                <div class="error-message" *ngIf="f.password.errors.minlength && f.password.touched">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>Password must be at least 5 characters long.</span>
+                </div>
+            </div>
+
+            <ion-item class="input-item">
+                <ion-label position="floating">Confirm Password</ion-label>
+                <app-show-hide-password>
+                    <ion-input type="password" formControlName="confirmPassword"></ion-input>
+                </app-show-hide-password>
+            </ion-item>
+            <div *ngIf="f.confirmPassword.errors" class="error-container">
+                <div class="error-message" *ngIf="f.confirmPassword.errors.mustMatch && f.confirmPassword.touched">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>Password mismatch</span>
+                </div>
+            </div>
+        </ion-item-group>
+        <ion-button type="submit" expand="block" fill="solid" [disabled]="UserSettingsForm.invalid">
+            Save Credentials
+        </ion-button>
+    </form>
 </ion-content>

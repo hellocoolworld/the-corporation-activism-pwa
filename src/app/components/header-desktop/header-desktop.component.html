@@ -1,0 +1,43 @@
+<div class="header-flex-container hidden-sm">
+    <div class="desktop-header">
+        <div class="header-start">
+            <img src="../../../assets/images/desktop-header-logo.svg">
+        </div>
+        <div class="header-middle">
+            <div class="header-mid-flex">
+                <div class="header-divider">
+                    <h1>THE SEQUEL IS COMING!</h1>
+                    <p>Over a decade ago The Corporation film likened the dominant institution of our time to a psychopath. Now get ready for the sequel.</p>
+                </div>
+                <div class="header-links">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/sign-in">Sign In</a>
+                    <a href="/">TheCorporation.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-end">
+            <div class="social-buttons">
+                <a (click)="linkToSocialProfile('facebook')">
+                    <img src="../../../assets/images/mobile-facebook.svg">
+                </a>
+
+                <a (click)="linkToSocialProfile('twitter')">
+                    <img src="../../../assets/images/mobile-twitter.svg">
+                </a>
+
+                <a (click)="linkToSocialProfile('youtube')">
+                    <img src="../../../assets/images/mobile-youtube.svg">
+                </a>
+
+                <a (click)="linkToSocialProfile('vimeo')">
+                    <img src="../../../assets/images/mobile-vimeo.svg">
+                </a>
+            </div>
+            <ion-button (click)="signUp()" expand="block" class="content-btn">
+                Join us
+            </ion-button>
+        </div>
+    </div>
+</div>

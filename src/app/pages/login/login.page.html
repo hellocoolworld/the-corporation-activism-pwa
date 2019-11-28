@@ -1,66 +1,67 @@
 <ht-header></ht-header>
+<ht-header-desktop></ht-header-desktop>
 
 <ion-content class="login-content">
-  <h2>Login</h2>
-  <p>Welcome back to HaloTales.</p>
+    <h2>Login</h2>
+    <p>Welcome back to HaloTales.</p>
 
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <ion-list class="inputs-list" lines="full">
-      <ion-item class="input-item">
-        <ion-label position="floating">Email Address</ion-label>
-        <ion-input type="email" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
-      </ion-item>
-      <div *ngIf="f.email.errors" class="error-container">
-        <div class="error-message" *ngIf="f.email.errors.required && f.email.touched">
-          <ion-icon name="information-circle-outline"></ion-icon>
-          <span>Email is required.</span>
-        </div>
-        <div class="error-message" *ngIf="f.email.errors.email && f.email.touched">
-          <ion-icon name="information-circle-outline"></ion-icon>
-          <span>Enter a valid email.</span>
-        </div>
-      </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <ion-list class="inputs-list" lines="full">
+            <ion-item class="input-item">
+                <ion-label position="floating">Email Address</ion-label>
+                <ion-input type="email" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
+            </ion-item>
+            <div *ngIf="f.email.errors" class="error-container">
+                <div class="error-message" *ngIf="f.email.errors.required && f.email.touched">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>Email is required.</span>
+                </div>
+                <div class="error-message" *ngIf="f.email.errors.email && f.email.touched">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>Enter a valid email.</span>
+                </div>
+            </div>
 
-      <ion-item class="input-item">
-        <ion-label position="floating">Password</ion-label>
-        <app-show-hide-password>
-          <ion-input type="password" formControlName="password"></ion-input>
-        </app-show-hide-password>
-      </ion-item>
-      <div *ngIf="f.password.errors" class="error-container">
-        <div class="error-message" *ngIf="f.password.errors.required && f.password.touched">
-          <ion-icon name="information-circle-outline"></ion-icon>
-          <span>Password is required.</span>
-        </div>
-        <div class="error-message" *ngIf="f.password.errors.minlength  && f.password.touched">
-          <ion-icon name="information-circle-outline"></ion-icon>
-          <span>Password must be at least 5 characters long.</span>
-        </div>
-      </div>
-    </ion-list>
-    <ion-button class="system-btn" type="submit" expand="block" [disabled]="loginForm.invalid">Log In</ion-button>
-    <p text-right>
-      <a [routerLink]="['/forgot-password']">Forgot Password?</a>
+            <ion-item class="input-item">
+                <ion-label position="floating">Password</ion-label>
+                <app-show-hide-password>
+                    <ion-input type="password" formControlName="password"></ion-input>
+                </app-show-hide-password>
+            </ion-item>
+            <div *ngIf="f.password.errors" class="error-container">
+                <div class="error-message" *ngIf="f.password.errors.required && f.password.touched">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>Password is required.</span>
+                </div>
+                <div class="error-message" *ngIf="f.password.errors.minlength  && f.password.touched">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>Password must be at least 5 characters long.</span>
+                </div>
+            </div>
+        </ion-list>
+        <ion-button class="system-btn" type="submit" expand="block" [disabled]="loginForm.invalid">Log In</ion-button>
+        <p text-right>
+            <a [routerLink]="['/forgot-password']">Forgot Password?</a>
+        </p>
+    </form>
+
+    <p class="options-divider">Or, sign in with:</p>
+    <div class="social-auth-options">
+        <ion-button class="social-auth-btn facebook-auth-btn" size="small" color="facebook" (click)="clickProvider('facebook')">
+            <ion-icon slot="start" name="logo-facebook"></ion-icon>
+            Facebook
+        </ion-button>
+        <ion-button class="social-auth-btn google-auth-btn" size="small" color="google" (click)="clickProvider('google')">
+            <ion-icon slot="start" name="logo-google"></ion-icon>
+            Google
+        </ion-button>
+        <ion-button class="social-auth-btn twitter-auth-btn" size="small" color="twitter" (click)="clickProvider('twitter')">
+            <ion-icon slot="start" name="logo-twitter"></ion-icon>
+            Twitter
+        </ion-button>
+    </div>
+
+    <p class="options-divider">
+        Don't have an account? <a [routerLink]="['/signup']">Sign up now</a>
     </p>
-  </form>
-
-  <p class="options-divider">Or, sign in with:</p>
-  <div class="social-auth-options">
-    <ion-button class="social-auth-btn facebook-auth-btn" size="small" color="facebook" (click)="clickProvider('facebook')">
-      <ion-icon slot="start" name="logo-facebook"></ion-icon>
-      Facebook
-    </ion-button>
-    <ion-button class="social-auth-btn google-auth-btn" size="small" color="google" (click)="clickProvider('google')">
-      <ion-icon slot="start" name="logo-google"></ion-icon>
-      Google
-    </ion-button>
-    <ion-button class="social-auth-btn twitter-auth-btn" size="small" color="twitter" (click)="clickProvider('twitter')">
-      <ion-icon slot="start" name="logo-twitter"></ion-icon>
-      Twitter
-    </ion-button>
-  </div>
-
-  <p class="options-divider">
-    Don't have an account? <a [routerLink]="['/signup']">Sign up now</a>
-  </p>
 </ion-content>
