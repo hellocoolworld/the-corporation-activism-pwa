@@ -99,8 +99,15 @@
         </ion-card>
     </div>
 
+    <div class="mobile-tales-section-intro hidden-lg">
+            <h2>PEOPLE ARE HITTING <br>
+                 THE STREETS AGAIN!</h2>
+            <p>Speaking up like never before about
+                climate change and economic injustice </p>
+    </div>
 
-    <ion-grid fixed no-padding class="intro-grid">
+
+    <ion-grid fixed no-padding class="intro-grid hidden-sm">
         <div class="tales-section-intro-wrapper">
             <ion-row>
                 <ion-col>
@@ -167,7 +174,10 @@
             </ion-row>
         </ion-grid>
 
-
+        <ion-item class="summary" lines="none">
+            <ion-label text-wrap>{{ tale.summary }}</ion-label>
+        </ion-item>
+          
         <ion-item class="tale-meta" lines="none">
             <ion-avatar slot="start">
                 <img [src]="tale.authorImg" />
