@@ -444,54 +444,103 @@
             width: 100%;
         }
     }
+
+    .tale-action-summary {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        border-bottom: 2px solid var(--ion-color-medium);
+        .summary-box {
+            display: inline-flex;
+            flex-direction: row;
+            width: 50vw;
+            margin: 0;
+            ion-thumbnail {
+                float: left;
+                margin-top: 0.5em;
+                margin-left: 0.5em;
+                --background: none;
+                --padding-start: 2vw;
+                --padding-end: 0;
+                --padding-top: 2vh;
+                --inner-border-width: 0;
+                --min-height: 28px;
+            }
+            .header {
+                color: var(--ion-color-dark);
+                font-size: 1.2rem;
+                --background: none;
+                --padding: 0;
+                --inner-border-width: 0;
+                ion-label {
+                    font-weight: 800;
+                    color: var(--ion-color-tertiary);
+                    font-weight: 600;
+                    font-size: 1.8em;
+                    margin: 0;
+                }
+                ion-button {
+                color: var(--ion-color-dark);
+                --padding: 0;
+                text-transform: inherit;
+                font-weight: 600;
+                position: relative;
+                bottom: 1px;
+                }
+            }
+        }
+    }
 }
 
-ion-grid.tale-action-summary {
-    border-bottom: 2px solid var(--ion-color-medium);
-    .pledge-col {
-        border-right: 2px solid var(--ion-color-medium);
-    }
-    ion-thumbnail {
-        float: left;
-        margin-top: 0.5em;
-        margin-left: 0.5em;
-        --background: none;
-        // --padding-start: 2vw;
-        // --padding-end: 0;
-        // --padding-top: 2vh;
-        --inner-border-width: 0;
-        --min-height: 28px;
-    }
-    .header {
-        color: var(--ion-color-dark);
-        font-size: 1.2rem;
-        --background: none;
-        --padding-start: 0;
-        --padding-end: 0;
-        --inner-border-width: 0;
-        --min-height: 28px;
-        ion-button {
-            color: var(--ion-color-dark);
-            --padding-top: 0;
-            text-transform: inherit;
-            font-weight: 600;
-            position: absolute;
-            bottom: 1px;
-        }
-    }
-    .content {
-        --background: none;
-        --inner-border-width: 0;
-        --min-height: 28px;
-        ion-label {
-            font-weight: 800;
-            color: var(--ion-color-tertiary);
-            font-weight: 600;
-            font-size: 1.8em;
-            margin: 0;
-        }
-    }
-}
+// tale-action-summary {
+//     border-bottom: 2px solid var(--ion-color-medium);
+//     .pledge-col {
+//         border-right: 2px solid var(--ion-color-medium);
+//     }
+//     ion-thumbnail {
+//         float: left;
+//         margin-top: 0.5em;
+//         margin-left: 0.5em;
+//         --background: none;
+//         // --padding-start: 2vw;
+//         // --padding-end: 0;
+//         // --padding-top: 2vh;
+//         --inner-border-width: 0;
+//         --min-height: 28px;
+//     }
+//     .header {
+//         color: var(--ion-color-dark);
+//         font-size: 1.2rem;
+//         --background: none;
+//         --padding-start: 0;
+//         --padding-end: 0;
+//         --inner-border-width: 0;
+//         --min-height: 28px;
+//         ion-button {
+//             color: var(--ion-color-dark);
+//             --padding-top: 0;
+//             text-transform: inherit;
+//             font-weight: 600;
+//             position: absolute;
+//             bottom: 1px;
+//         }
+//     }
+//     .content {
+//         --background: none;
+//         --inner-border-width: 0;
+//         --min-height: 28px;
+//         ion-label {
+//             font-weight: 800;
+//             color: var(--ion-color-tertiary);
+//             font-weight: 600;
+//             font-size: 1.8em;
+//             margin: 0;
+//         }
+//     }
+// }
 
 .summary {
     height: 20%;

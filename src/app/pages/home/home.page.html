@@ -133,9 +133,40 @@
                 <h3 class="tale-title">{{ tale.title }}</h3>
             </div>
         </a>
+        <div class="tale-action-summary">
+                <div class="pledges summary-box">
+                    <div>
+                        <ion-thumbnail item-start>
+                                <img src="../../../assets/images/action-pledges.svg">
+                        </ion-thumbnail>
+                    </div>
+
+                    <div class="header">
+                     <ion-label>{{ tale.pledgeCount }}</ion-label>
+                    <ion-button fill="clear" (click)="showHelpActionPledgeModal()">
+                      Action Pledges
+                    </ion-button>
+                    </div>
+                </div>
+
+                <div class="avocadometer summary-box">
+                    <div>
+                        <ion-thumbnail item-start>
+                            <img src="../../../assets/images/avocado-meter.svg">
+                        </ion-thumbnail>
+                    </div>
+
+                    <div class="header">
+                        <ion-label>{{ tale.avocados }}</ion-label>
+                        <ion-button fill="clear" (click)="showHelpAvocadometerModal()">
+                        Avocadometer
+                        </ion-button>
+                    </div>
+                </div>
+              </div>
 
 
-        <ion-grid no-padding class="tale-action-summary">
+        <!-- <ion-grid no-padding class="tale-action-summary">
             <ion-row class="nowrap">
                 <ion-col class="ion-align-self-end pledge-col">
 
@@ -171,7 +202,7 @@
                     </ion-item>
                 </ion-col>
             </ion-row>
-        </ion-grid>
+        </ion-grid> -->
 
         <ion-item class="summary" lines="none">
             <ion-label text-wrap>{{ tale.summary }}</ion-label>
@@ -186,38 +217,6 @@
             </ion-label>
         </ion-item>
     </div>
-
-    <!-- <div class="ad hidden-lg" *ngIf="isFirstPageThisSession">
-        <ion-item class="ad-content">
-            <h3>THE SEQUEL IS COMING</h3>
-
-            <div class="ad-footer">
-                <p>More than a decade after The Corporation likened the dominant institution of our time to a psychopath, its creators are now working on a follow-up film.</p>
-                <ion-button href="/" expand="block" class="content-btn">
-                    VISIT THECORPORATION.COM
-                </ion-button>
-            </div>
-        </ion-item>
-    </div> -->
-<!-- 
-    <ion-card class="adheader" *ngIf="isFirstPageThisSession">
-        <ion-card-header>THE SEQUEL IS COMING</ion-card-header> 
-        <ion-card-content>
-                More than a decade after The Corporation 
-                likened the dominant institution of our 
-                time to a psychopath, its creators are 
-                now working on a follow-up film.
-        </ion-card-content>
-    </ion-card> -->
-
-    <!-- <ion-card class="adheader" *ngIf="isFirstPageThisSession">
-        <ion-card-content>
-                More than a decade after The Corporation 
-                likened the dominant institution of our 
-                time to a psychopath, its creators are 
-                now working on a follow-up film.
-        </ion-card-content>
-    </ion-card> -->
 
 <ht-footer-ad *ngIf="isFirstPageThisSession"></ht-footer-ad>
 
