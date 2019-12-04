@@ -135,32 +135,28 @@
         </a>
         <div class="tale-action-summary">
                 <div class="pledges summary-box">
-                    <div>
-                        <ion-thumbnail item-start>
-                                <img src="../../../assets/images/action-pledges.svg">
-                        </ion-thumbnail>
+                    <div class="summary-icon">
+                        <img src="../../../assets/images/action-pledges.svg">
                     </div>
 
                     <div class="header">
                      <ion-label>{{ tale.pledgeCount }}</ion-label>
-                    <ion-button fill="clear" (click)="showHelpActionPledgeModal()">
-                      Action Pledges
-                    </ion-button>
+                        <a (click)="showHelpActionPledgeModal()">
+                        Action Pledges
+                        </a>
                     </div>
                 </div>
 
                 <div class="avocadometer summary-box">
-                    <div>
-                        <ion-thumbnail item-start>
-                            <img src="../../../assets/images/avocado-meter.svg">
-                        </ion-thumbnail>
+                    <div class="summary-icon">
+                        <img src="../../../assets/images/avocado-meter.svg">
                     </div>
 
                     <div class="header">
                         <ion-label>{{ tale.avocados }}</ion-label>
-                        <ion-button fill="clear" (click)="showHelpAvocadometerModal()">
+                        <a (click)="showHelpAvocadometerModal()">
                         Avocadometer
-                        </ion-button>
+                        </a>
                     </div>
                 </div>
               </div>
