@@ -1,6 +1,6 @@
 <ht-header></ht-header>
 
-<ion-content>
+<ion-content class="home-main-container">
     <ht-header-desktop></ht-header-desktop>
 
     <div class="hidden-lg crowd-container" *ngIf="isFirstPageThisSession">
@@ -187,11 +187,8 @@
         </ion-item>
     </div>
 
-
-    <ion-content class="ad hidden-lg" *ngIf="isFirstPageThisSession">
-        <img src="../../../assets/images/naughty-footer.svg">
-
-        <!-- <ion-item class="ad-content">
+    <!-- <div class="ad hidden-lg" *ngIf="isFirstPageThisSession">
+        <ion-item class="ad-content">
             <h3>THE SEQUEL IS COMING</h3>
 
             <div class="ad-footer">
@@ -200,7 +197,28 @@
                     VISIT THECORPORATION.COM
                 </ion-button>
             </div>
-        </ion-item> -->
-    </ion-content>
+        </ion-item>
+    </div> -->
+<!-- 
+    <ion-card class="adheader" *ngIf="isFirstPageThisSession">
+        <ion-card-header>THE SEQUEL IS COMING</ion-card-header> 
+        <ion-card-content>
+                More than a decade after The Corporation 
+                likened the dominant institution of our 
+                time to a psychopath, its creators are 
+                now working on a follow-up film.
+        </ion-card-content>
+    </ion-card> -->
+
+    <!-- <ion-card class="adheader" *ngIf="isFirstPageThisSession">
+        <ion-card-content>
+                More than a decade after The Corporation 
+                likened the dominant institution of our 
+                time to a psychopath, its creators are 
+                now working on a follow-up film.
+        </ion-card-content>
+    </ion-card> -->
+
+<ht-footer-ad *ngIf="isFirstPageThisSession"></ht-footer-ad>
 
 </ion-content>

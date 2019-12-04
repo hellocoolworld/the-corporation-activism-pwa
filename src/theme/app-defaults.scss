@@ -38,9 +38,9 @@ ion-button {
   --border-radius: var(--app-fair-radius);
   &.content-btn {
     text-transform: uppercase;
-    --background: var(--ion-color-secondary);
-    font-weight: 14px;
-    font-size: 0.9rem;
+    --background: var(--ion-color-tertiary);
+    font-weight: 15px;
+    font-size: 0.95rem;
   }
   &.system-btn {
     text-transform: capitalize;

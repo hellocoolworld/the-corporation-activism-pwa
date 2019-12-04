@@ -2,6 +2,14 @@
     --page-margin: var(--app-broad-margin);
 }
 
+.home-main-container {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .home-splash {
     position: relative;
     .user-avatars-wrapper {
@@ -99,10 +107,6 @@
             p {
                 margin-bottom: 1rem;
                 font-size: 1rem;
-            }
-            ion-button {
-                --border-radius: var(--app-fair-radius);
-                --background: var(--ion-color-tertiary);
             }
             .user-action-summary {
                 background-color: var(--ion-color-light);
@@ -373,7 +377,7 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     width: 100%;
-    height: 24%;
+    height: auto;
     margin: 0;
     background-color: #421f35;
     text-align: center;
@@ -386,7 +390,7 @@
         font-size: 1.4rem;
     }
     p {
-        margin: 1rem 2rem 1rem;
+        margin: 1rem 2rem 0.2rem;
         color: #E6C7D7;
         text-align: center;
         font-size: 1.1rem;
@@ -516,56 +520,4 @@ ion-grid.tale-action-summary {
     p {
         font-weight: 900;
     }
-}
-
-.ad {
-    position: relative;
-    // width: 100%;
-    // height: auto;
-    margin: 0;
-    z-index: 2;
-    height: 30%;
-    // --background: transparent;
-    // // background: url('../../../assets/old-images/corp-barcode-bg.png') no-repeat;
-    // // background-size: cover;
-    padding-top: 5rem;
-    // text-align: center;
-}
-
-.ad-content {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 0;
-    z-index: 1;
-    height: 10%;
-    h3 {
-        width: 100%;
-        --background: rgba(0, 0, 0, 0.3);
-        color: white;
-        font-size: 1.13rem;
-        font-weight: 500;
-        padding: 0.75rem 1rem;
-        width: 100%;
-    }
-    .ad-footer {
-        --background: #D1B8C7;
-        p {
-            width: 100%;
-            font-weight: 400;
-        }
-        ion-button {
-            --border-radius: var(--app-fair-radius);
-            --background: var(--ion-color-tertiary-shade)
-        }
-    }
-}
-
-.call-to-action {
-    display: flex;
-    justify-content: center;
-}
-
-a {
-    text-decoration: underline;
-    color: inherit;
 }

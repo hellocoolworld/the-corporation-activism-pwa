@@ -1,20 +1,28 @@
 .ad {
-    // background-color: var(--ion-color-dark);
-    background: url('../../../assets/old-images/corp-barcode-bg.png') no-repeat;
-    background-size: cover;
-    padding: 1rem;
-    color: var(--ion-color-light);
+    color: black;
     text-align: center;
+    width: 100%;
+    height: auto;
     h1 {
-      font-weight: 900;
+      background-color: rgba(0, 0, 0, 0.47) !important;
+      color: white;
+      font-weight: 450;
+      font-size: 135%;
+      margin: 0;
+      padding: 8% 0;
     }
-    .call-to-action {
-      display: flex;
-      justify-content: center;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
+    ion-card {
+      border-radius: 0;
+      --background: var(--ion-color-tertiary-shade);
+      margin: 0;
+      padding: 0.4rem 1rem 1.5rem;
+      p {
+        color: black;
+        font-size: 125%;
+        line-height: 150%;
+        font-weight: 400;
+        text-align: left;
+        padding: 0 4vw;
+      }
     }
   }
-  
