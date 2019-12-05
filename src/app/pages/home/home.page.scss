@@ -148,6 +148,18 @@
     }
 }
 
+@keyframes intro-text-box {
+    0% {
+        opacity: 1;
+    }
+    98% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 @keyframes ani-first-crowd {
     0% {
         opacity: 1;
@@ -164,13 +176,13 @@
     0% {
         opacity: 0;
     }
-    48% {
+    55% {
         opacity: 0;
     }
-    55% {
+    60% {
         opacity: 1;
     }
-    98% {
+    95% {
         opacity: 1
     }
     100% {
@@ -178,50 +190,14 @@
     }
 }
 
-@keyframes ani-third-text {
+@keyframes ani-final-card {
     0% {
         opacity: 0;
     }
-    65% {
+    92.25% {
         opacity: 0;
     }
-    69% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 1;
-    }
-    85% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes ani-final-text {
-    0% {
-        opacity: 0;
-    }
-    89% {
-        opacity: 0;
-    }
-    92% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes ani-final-crowd {
-    0% {
-        opacity: 0;
-    }
-    65% {
-        opacity: 0;
-    }
-    69% {
+    96.5% {
         opacity: 1;
     }
     100% {
@@ -238,14 +214,18 @@
     z-index: 4;
     width: 100%;
     height: 21%;
-    background-color: white;
-    opacity: 0.75;
+    background-color: rgba(255, 255, 255, 0.5);
     top: 28.5%;
+    animation-name: intro-text-box;
+    animation-timing-function: ease-in-out;
+    animation-duration: 13.5s;
+    animation-fill-mode: forwards;
     p {
         position: absolute;
         color: black;
         font-size: 1.15rem;
-        font-weight: 700;
+        line-height: 1.35;
+        font-weight: 650;
         align-self: center;
         margin: 0;
         left: 10vw;
@@ -255,21 +235,13 @@
     .text-1 {
         animation-name: ani-first-crowd;
         animation-timing-function: ease-in-out;
-        animation-duration: 5.5s;
+        animation-duration: 7.5s;
         animation-fill-mode: forwards;
     }
     .text-2 {
         animation-name: ani-second-crowd;
         animation-timing-function: ease-in-out;
-        animation-duration: 11s;
-        animation-fill-mode: forwards;
-    }
-    .text-3 {
-        font-size: 1.25rem;
-        padding-bottom: 2vw;
-        animation-name: ani-third-text;
-        animation-timing-function: ease-in-out;
-        animation-duration: 16.5s;
+        animation-duration: 13.5s;
         animation-fill-mode: forwards;
     }
 }
@@ -282,13 +254,13 @@
     width: 100%;
     height: 25%;
     top: 30.5%;
-    .text-4 {
+    .text-3 {
         padding-bottom: 2vw;
         font-weight: 650;
-        color: black;
-        animation-name: ani-final-text;
+        color: white;
+        animation-name: ani-final-card;
         animation-timing-function: ease-in-out;
-        animation-duration: 16.5s;
+        animation-duration: 14.5s;
         animation-fill-mode: forwards;
     }
 }
@@ -323,7 +295,7 @@
             z-index: 1;
             animation-name: ani-first-crowd;
             animation-timing-function: ease-in-out;
-            animation-duration: 5.5s;
+            animation-duration: 7.5s;
             animation-fill-mode: forwards;
         }
         .ani2 {
@@ -333,7 +305,7 @@
             z-index: 2;
             animation-name: ani-second-crowd;
             animation-timing-function: ease-in-out;
-            animation-duration: 11s;
+            animation-duration: 13.5s;
             animation-fill-mode: forwards;
         }
         .ani3 {
@@ -343,9 +315,9 @@
             left: 2.5vw;
             top: 3vw;
             z-index: 3;
-            animation-name: ani-final-crowd;
+            animation-name: ani-final-card;
             animation-timing-function: ease-in-out;
-            animation-duration: 16.5s;
+            animation-duration: 14.5s;
             animation-fill-mode: forwards;
         }
     }
