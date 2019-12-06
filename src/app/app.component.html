@@ -46,70 +46,49 @@
 
 
 
-      <ion-buttons class="nav-section-break">
-        <ion-grid class="nav-social-links">
-        <ion-row>
+     <ion-grid class="nav-social-links">
+        <ion-row class="social-link-row">
         <ion-col>
-        <ion-button (click)="linkToSocialProfile('facebook')">
+        <ion-button fill="clear" (click)="linkToSocialProfile('facebook')">
           <img src="./assets/images/mobile-facebook.svg">
         </ion-button>
       </ion-col>
 
         <ion-col>
-        <ion-button (click)="linkToSocialProfile('twitter')">
+        <ion-button fill="clear" (click)="linkToSocialProfile('twitter')">
           <img src="./assets/images/mobile-twitter.svg">
         </ion-button>
       </ion-col>
 
         <ion-col>
-        <ion-button (click)="linkToSocialProfile('youtube')">
+        <ion-button fill="clear" (click)="linkToSocialProfile('youtube')">
           <img src="./assets/images/mobile-youtube.svg">
         </ion-button>
       </ion-col>
 
         <ion-col>
-        <ion-button (click)="linkToSocialProfile('vimeo')">
+        <ion-button fill="clear" (click)="linkToSocialProfile('vimeo')">
           <img src="./assets/images/mobile-vimeo.svg">
         </ion-button>
         </ion-col>
       </ion-row>
 
       <ion-row>
-          <ion-col>
-          <ion-text  color="primary" class="navLink">
+          <ion-col class="navLink">
             <p font-weight=400>Visit <a href="https://thecorporation.com" target="_blank" class="visitUs">TheCorporation.com</a></p>
-          </ion-text>
         </ion-col>
         </ion-row>
-
       </ion-grid>
-      </ion-buttons>
 
-    <ion-grid class="bottom-nav-link-grid">
-    <ion-row>
-      <ion-col>
-      <p padding text-left small>
-        <a class="legal-action" (click)="showPrivacyModal()">Privacy Policy</a>
-      </p>
-    </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-      <p padding text-left small>
-        <a class="legal-action" (click)="showTermsModal()">Terms of use</a>
-      </p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-      <p padding text-left small>
-        <a class="legal-action" (click)="showTermsModal()">Contact Us</a>
-      </p>
-      </ion-col>
-     </ion-row>
-    </ion-grid>
+    <div class="bottom-nav-link-grid">
+      <a class="legal-action" (click)="showPrivacyModal()">Privacy Policy</a>
 
-      <p padding text-left small>
+      <a class="legal-action" (click)="showTermsModal()">Terms of use</a>
+
+      <a class="legal-action" (click)="showTermsModal()">Contact Us</a>
+    </div>
+
+      <p class="copyright-text">
           Copyright 2019 <br>
           Grant Street Productions<br>
           Site by <a href="https://hellocoolworldmedia.com">Hello Cool World</a>
