@@ -43,7 +43,7 @@
                     <div class="user-action-summary">
                         <h4>{{ currentUser.displayName }}</h4>
                         <div class="action-wrapper">
-                            <ion-item class="testimonials">
+                            <ion-item>
                                 <ion-icon slot="start" name="quote"></ion-icon>
                                 <ion-label>
                                     <ng-container *ngIf="currentUser.testimonial != ''; then yesTestimonials; else noTestimonial"></ng-container>
@@ -63,14 +63,14 @@
                                     </ng-template>
                                 </ion-label>
                             </ion-item>
-                            <ion-item class="pledges">
+                            <ion-item >
                                 <ion-icon slot="start" name="trophy"></ion-icon>
                                 <ion-label>
                                     {{ pledgesCount }} Action
                                     <br /> pledges
                                 </ion-label>
                             </ion-item>
-                            <ion-item class="tales">
+                            <ion-item>
                                 <ion-icon slot="start" name="videocam"></ion-icon>
                                 <ion-label>
                                     <ng-container *ngIf="talesCount > 0; then yesTales; else noTales"></ng-container>
@@ -131,7 +131,7 @@
                 <h3 class="tale-title">{{ tale.title }}</h3>
             </div>
         </a>
-        <div class="tale-action-summary">
+         <div class="tale-action-summary">
                 <div class="pledges summary-box">
                     <div class="summary-icon">
                         <img src="../../../assets/images/action-pledges.svg">
@@ -142,7 +142,7 @@
                         <a (click)="showHelpActionPledgeModal()">
                         Action Pledges
                         </a>
-                    </div>
+                  </div>
                 </div>
 
                 <div class="avocadometer summary-box">
@@ -158,45 +158,6 @@
                     </div>
                 </div>
               </div>
-
-
-        <!-- <ion-grid no-padding class="tale-action-summary">
-            <ion-row class="nowrap">
-                <ion-col class="ion-align-self-end pledge-col">
-
-                    <ion-thumbnail item-start>
-                        <img src="../../../assets/images/action-pledges.svg">
-                    </ion-thumbnail>
-
-                    <ion-item class="content">
-                        <ion-label>{{ tale.pledgeCount }}</ion-label>
-                    </ion-item>
-
-                    <ion-item class="header">
-                        <ion-button fill="clear" (click)="showHelpActionPledgeModal()">
-                            Action Pledges
-                            <ion-icon no-padding slot="end" src="../../../assets/images/info.svg"></ion-icon>
-                        </ion-button>
-                    </ion-item>
-                </ion-col>
-
-                <ion-col>
-                    <ion-thumbnail item-start>
-                        <img src="../../../assets/images/avocado-meter.svg">
-                    </ion-thumbnail>
-
-                    <ion-item class="content">
-                        <ion-label>{{ tale.avocados }}</ion-label>
-                    </ion-item>
-                    <ion-item class="header">
-                        <ion-button fill="clear" (click)="showHelpAvocadometerModal()">
-                            Avocadometer
-                            <ion-icon slot="end" src="../../../assets/images/info.svg"></ion-icon>
-                        </ion-button>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-        </ion-grid> -->
 
         <ion-item class="summary" lines="none">
             <ion-label text-wrap>{{ tale.summary }}</ion-label>
