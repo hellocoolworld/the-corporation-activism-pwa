@@ -31,13 +31,13 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this._auth.currentUser.subscribe(res => this.currentUser = res);
+    this._auth.user.subscribe(res => this.currentUser = res);
     this.platform.ready().then(() => {
     });
   }
 
   logout() {
-    this._auth.logout();
+    this._auth.signOut();
     this.router.navigate(['/']);
   }
 

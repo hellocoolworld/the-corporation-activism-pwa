@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     private _auth: AuthService,
     private toast: ToastService
   ) {
-    let currentUser = this._auth.currentUserValue;
+    let currentUser = this._auth.user;
 
     if (currentUser) {
       // if user is loged in and not verified

@@ -1,0 +1,89 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button fill="clear" size="small" color="medium" (click)="closeModal()">
+      <ion-icon mode="md" src="assets/icons/x.svg"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{ 'edit-profile-component.title' | translate }}
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="content-scroll" *ngIf="currentUser">
+        <!-- profile image -->
+        <div class="profile-image" [image-loader]="currentUser.photoURL">
+          <ion-icon size="large" color="light" prefix src="assets/icons/camera.svg" (click)="changePhoto()"></ion-icon>
+        </div>
+        <div class="profile-detail">
+          <!-- display name -->
+          <div class="form-label">{{ 'edit-profile-component.display-name-label' | translate }}</div>
+          <form-field fill="true" color="medium">
+            <ion-icon prefix src="assets/icons/user.svg"></ion-icon>
+            <ion-input inputRef required [(ngModel)]="currentUser.displayName"></ion-input>
+          </form-field>
+
+          <!-- email -->
+          <div class="form-label">{{ 'edit-profile-component.email-label' | translate }}</div>
+          <form-field fill="true" color="medium">
+            <ion-icon prefix src="assets/icons/mail.svg"></ion-icon>
+            <ion-input inputRef email required [(ngModel)]="currentUser.email"></ion-input>
+          </form-field>
+
+          <!-- status message -->
+          <div class="form-label">{{ 'edit-profile-component.status-message-label' | translate }}</div>
+          <form-field fill="true" color="medium" class="textarea">
+            <ion-icon prefix src="assets/icons/copy.svg"></ion-icon>
+            <textarea
+              inputRef
+              autosize
+              maxRows="3"
+              placeholder="Status Message"
+              [(ngModel)]="currentUser.statusMessage"
+            ></textarea>
+          </form-field>
+
+          <!-- country selection -->
+          <div class="form-label">{{ 'edit-profile-component.country-label' | translate }}</div>
+          <form-field fill="true" color="medium">
+            <ion-icon prefix src="assets/icons/map-pin.svg"></ion-icon>
+            <ion-select inputRef required [(ngModel)]="currentUser.country" [interfaceOptions]="countrySelectOptions">
+              <ion-select-option [value]="item.alpha2Code" *ngFor="let item of countrySelectOptions.data | async">
+                {{ item.name }}
+              </ion-select-option>
+            </ion-select>
+          </form-field>
+
+          <!-- phone -->
+          <div class="form-label">{{ 'edit-profile-component.mobile-label' | translate }}</div>
+          <form-field fill="true" color="medium">
+            <ion-icon prefix src="assets/icons/phone-call.svg"></ion-icon>
+            <ion-input
+              inputRef
+              [phone]="currentUser.country"
+              [disabled]="!currentUser.country"
+              [(ngModel)]="currentUser.mobile"
+            ></ion-input>
+            <div
+              *ngIf="currentUser.country"
+              class="flag-img"
+              suffix
+              image-loader="assets/images/flags/{{ currentUser.country.toLowerCase() }}.svg"
+            ></div>
+          </form-field>
+        </div>
+
+        <ion-button expand="full" (click)="save()">{{ 'edit-profile-component.update-button' | translate }}</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<app-spinner *ngIf="loading"></app-spinner>
+
+<!-- required for browser file upload -->
+<input hidden #fileInputButton type="file" (change)="detectFiles($event)" multiple="false" />

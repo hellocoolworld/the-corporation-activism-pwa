@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar mode="md" color="dark">
+    <ion-buttons slot="start">
+      <ion-button size="small" color="light" (click)="closeModal()">
+        <ion-icon src="assets/icons/x.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button size="small" color="light" (click)="remove()" *ngIf="images.length > 1">
+        <ion-icon src="assets/icons/trash.svg"></ion-icon>
+      </ion-button>
+      <ion-button size="small" color="light" (click)="save()">
+        <ion-icon src="assets/icons/save.svg"></ion-icon>
+      </ion-button>
+      <ion-button size="small" color="light" (click)="share()">
+        <ion-icon src="assets/icons/share.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content-wrapper">
+    <div class="image-options" *ngIf="images.length > 1">
+      <div class="images">
+        <div
+          class="image"
+          [ngClass]="{ active: selectedImageIndex === i }"
+          *ngFor="let item of images; let i = index"
+          [image-loader]="item"
+          (click)="mainImage = item; selectedImageIndex = i"
+        ></div>
+      </div>
+    </div>
+    <div class="main-image" [image-loader]="mainImage"></div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="custom-form" color="dark">
+    <textarea autosize maxRows="3" name="message" placeholder="Type message here..." [(ngModel)]="textMsg"></textarea>
+
+    <ion-buttons slot="end">
+      <ion-button shape="round" color="primary" fill="solid" (click)="send(textMsg, images)">
+        <ion-icon src="assets/icons/send.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

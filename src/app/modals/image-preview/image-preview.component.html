@@ -1,0 +1,26 @@
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper" [image-loader]="image"></div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="circle" fill="clear" color="secondary" (click)="save(image)">
+        <ion-icon src="assets/icons/save.svg"></ion-icon>
+      </ion-button>
+      <ion-button [btnStatus]="loading" class="circle" fill="clear" color="primary" (click)="share(image)">
+        <ion-icon src="assets/icons/share.svg"></ion-icon>
+      </ion-button>
+
+      <!-- <ion-button [btnStatus]="loading" class="circle" fill="clear" color="danger" (click)="delete(image)">
+        <ion-icon src="assets/icons/trash.svg"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button [btnStatus]="loading" class="circle" fill="clear" color="primary" (click)="closeModal()">
+        <ion-icon src="assets/icons/x.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

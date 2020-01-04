@@ -1,0 +1,61 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button fill="clear" size="small" color="medium" (click)="savePreference(model); closeModal()">
+      <ion-icon mode="md" src="assets/icons/x.svg"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{ 'notification-setting-component.title' | translate }}
+      </div>
+    </div>
+
+    <div class="wrapper" *ngIf="model">
+      <div class="content-scroll">
+        <p class="info">
+          {{ 'notification-setting-component.info' | translate }}
+        </p>
+
+        <p class="text-line-through-background">
+          <span> {{ 'notification-setting-component.app-notifications' | translate }}</span>
+        </p>
+
+        <div class="notification-item">
+          <div class="detail">
+            <h2>{{ 'notification-setting-component.msg-preview-title' | translate }}</h2>
+            <p>{{ 'notification-setting-component.msg-preview-description' | translate }}</p>
+          </div>
+          <ion-toggle [(ngModel)]="model.messagePreview"></ion-toggle>
+        </div>
+
+        <div class="notification-item">
+          <div class="detail">
+            <h2>{{ 'notification-setting-component.in-app-notifications-title' | translate }}</h2>
+            <p>{{ 'notification-setting-component.in-app-notifications-description' | translate }}</p>
+          </div>
+          <ion-toggle [(ngModel)]="model.inAppNotifications"></ion-toggle>
+        </div>
+
+        <div class="notification-item">
+          <div class="detail">
+            <h2>{{ 'notification-setting-component.in-app-vibration-title' | translate }}</h2>
+            <p>{{ 'notification-setting-component.in-app-vibration-description' | translate }}</p>
+          </div>
+          <ion-toggle [(ngModel)]="model.vibration"></ion-toggle>
+        </div>
+
+        <div class="notification-item">
+          <div class="detail">
+            <h2>{{ 'notification-setting-component.app-banner-title' | translate }}</h2>
+            <p>{{ 'notification-setting-component.app-banner-description' | translate }}</p>
+          </div>
+          <ion-toggle [(ngModel)]="model.showBanner"></ion-toggle>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

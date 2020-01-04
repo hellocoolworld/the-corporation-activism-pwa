@@ -17,7 +17,7 @@ import { JwtInterceptor, ErrorInterceptor } from './helpers';
 import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from './modals';
 
 // used to create fake backend
-import { fakeBackendProvider } from './helpers';
+//import { fakeBackendProvider } from './helpers';
 
 
 
@@ -47,7 +47,7 @@ import { fakeBackendProvider } from './helpers';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     Title,
     // provider used to create fake backend
-    fakeBackendProvider
+    //fakeBackendProvider
   ],
 
   exports: [],

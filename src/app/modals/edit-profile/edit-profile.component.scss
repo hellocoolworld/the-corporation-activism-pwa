@@ -1,0 +1,61 @@
+:host {
+  .content-wrapper {
+    .wrapper {
+      display: flex;
+      height: 100%;
+
+      .content-scroll {
+        width: 100%;
+        padding: 0 15px;
+        .profile-image {
+          height: 80px;
+          width: 80px;
+          background-blend-mode: color-burn;
+          background-color: rgba(var(--ion-color-medium-rgb), 0.3);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          margin: auto;
+        }
+
+        .profile-detail {
+          display: flex;
+          flex-direction: column;
+          background: var(--ion-color-light);
+          padding: 20px 0;
+
+          .form-label {
+            font-size: 12px;
+            padding-left: 10px;
+            color: var(--ion-color-primary);
+          }
+
+          form-field {
+            .flag-img {
+              width: 20px;
+              height: 20px;
+            }
+            &.textarea {
+              ::ng-deep {
+                .input-wrapper {
+                  height: auto;
+
+                  .input {
+                    textarea {
+                      background: none;
+                      resize: none;
+                      border: none;
+                      width: 100%;
+                      outline: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border">
+      <div class="title">
+        {{ 'social-share-component.title' | translate }}
+      </div>
+      <div class="options">
+        <ion-button fill="clear" size="small" color="medium" (click)="closeModal()">
+          <ion-icon mode="md" src="assets/icons/x.svg"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <div class="content-scroll">
+      <ion-button
+        fill="outline"
+        expand="block"
+        [color]="item.color ? item.color : item.type"
+        *ngFor="let item of socialButtons"
+        [shareButton]="item.type"
+        (click)="closeModal()"
+      >
+        <ion-icon slot="start" src="assets/icons/{{ item.icon ? item.icon : item.type }}.svg"></ion-icon
+        >{{ item.text }}</ion-button
+      >
+    </div>
+  </div>
+</ion-content>

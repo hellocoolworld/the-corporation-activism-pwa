@@ -1,0 +1,49 @@
+:host {
+  .content-wrapper {
+    .wrapper {
+      display: flex;
+      height: 100%;
+
+      .content-scroll {
+        height: calc(100% - 44px) !important;
+        width: 100%;
+        padding: 0 15px;
+
+        .info {
+          margin: 0;
+          font-size: 12px;
+          color: var(--ion-color-medium-shade);
+        }
+
+        .text-line-through-background {
+          span {
+            background: var(--ion-color-light);
+          }
+        }
+
+        .notification-item {
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+
+          .detail {
+            flex: 1;
+
+            h2,
+            p {
+              margin: 5px 0;
+            }
+
+            h2 {
+              font-size: 16px;
+            }
+
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
