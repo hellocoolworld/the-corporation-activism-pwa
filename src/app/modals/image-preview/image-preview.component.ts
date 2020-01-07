@@ -1,8 +1,8 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { NavParams } from '@ionic/angular';
-import { Extender } from 'src/shared/helpers/extender';
-import { FirestoreService } from 'src/shared/services/firestore/firestore.service';
+import { Extender } from 'src/app/helpers/extender';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-image-preview',

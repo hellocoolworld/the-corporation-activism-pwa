@@ -53,7 +53,7 @@ export class AuthService extends Extender {
   /** sign up user to firebase and update user details */
   public async signUp(displayName: string, email: string, password: string) {
     const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-    await credential.user.updateProfile({ displayName, photoURL: null });
+    await credential.user.updateProfile({ displayName, photoUrl: null });
     return this.updateUserData(credential.user);
   }
 
@@ -103,7 +103,7 @@ export class AuthService extends Extender {
    * on browser. on complete update user details
    */
   public async socialogin(providerType: number) {
-    let credential: { user: { uid: any; email: any; displayName: any; photoURL: any } };
+    let credential: { user: { uid: any; email: any; displayName: any; photoUrl: any } };
     let provider: firebase.auth.GoogleAuthProvider | firebase.auth.FacebookAuthProvider | firebase.auth.AuthProvider;
     if (providerType === SocialAuthProvider.google) {
       provider = new firebase.auth.GoogleAuthProvider();
@@ -123,12 +123,12 @@ export class AuthService extends Extender {
   }
 
   /** update user details in users list */
-  private updateUserData({ uid, email, displayName, photoURL }) {
+  private updateUserData({ uid, email, displayName, photoUrl }) {
     const data = {
       uid,
       email,
       displayName,
-      photoURL
+      photoUrl
     };
     return this.firestoreService.set<IUser>(`users/${uid}`, data);
   }

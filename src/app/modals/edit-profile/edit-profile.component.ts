@@ -1,9 +1,9 @@
 import { Component, ElementRef, Injector, OnInit, ViewChild } from '@angular/core';
-import { IUser } from 'src/pages/auth/helpers/model';
-import { AuthService } from 'src/pages/auth/services/auth/auth.service';
-import { Extender } from 'src/shared/helpers/extender';
-import { CommonService } from 'src/shared/services/common/common.service';
-import { FirestoreService } from 'src/shared/services/firestore/firestore.service';
+import { IUser } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
+import { Extender } from 'src/app/helpers/extender';
+import { CommonService } from 'src/app/services/common.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import { isArray } from 'util';
 
 @Component({
@@ -13,10 +13,7 @@ import { isArray } from 'util';
 })
 export class EditProfileComponent extends Extender implements OnInit {
   public user: IUser;
-  public countrySelectOptions = {
-    header: this.translate.instant('edit-profile-component.select-country'),
-    data: this.commonService.getCountries()
-  };
+  
   @ViewChild('fileInputButton', null) private fileInputButton: ElementRef;
 
   constructor(
@@ -39,22 +36,22 @@ export class EditProfileComponent extends Extender implements OnInit {
    */
   public async changePhoto() {
     const actionSheet = await this.actionSheetCtrl.create({
-      header: this.translate.instant('edit-profile-component.change-profile-image'),
+      header: 'Change Profile Image',
       buttons: [
         {
-          text: this.translate.instant('other.camera'),
+          text: 'camera',
           handler: () => {
             this.getPicture(1);
           }
         },
         {
-          text: this.translate.instant('other.library'),
+          text: 'library',
           handler: () => {
             this.getPicture(0);
           }
         },
         {
-          text: this.translate.instant('other.close'),
+          text: 'close',
           role: 'cancel'
         }
       ]
@@ -79,7 +76,7 @@ export class EditProfileComponent extends Extender implements OnInit {
   public save(close = true) {
     this.loading = true;
     this.firestoreService
-      .upsert<IUser>(`users/${this.user.uid}`, this.user)
+      .upsert<IUser>(`users/${this.user.id}`, this.user)
       .then(() => {
         this.loading = false;
         if (close) {
@@ -116,11 +113,11 @@ export class EditProfileComponent extends Extender implements OnInit {
    * the upload function returns a download data which is then saved to user.photoUrl property
    */
   private uploadImage(imageData: string) {
-    this.user.photoURL = imageData;
+    this.user.photoUrl = imageData;
     this.firestoreService
-      .uploadImage(this.user.photoURL, this.user.uid, 'profile-images')
-      .then((photoURL) => {
-        this.user.photoURL = photoURL;
+      .uploadImage(this.user.photoUrl, this.user.id, 'profile-images')
+      .then((photoUrl) => {
+        this.user.photoUrl = photoUrl;
         this.save(false);
         this.loading = false;
       })

@@ -1,8 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { AuthService } from 'src/pages/auth/services/auth/auth.service';
-import { IPreference } from 'src/pages/setting/model/preference';
-import { Extender } from 'src/shared/helpers/extender';
-import { FirestoreService } from 'src/shared/services/firestore/firestore.service';
+import { IPreference } from 'src/app//models/ipreference';
+import { Extender } from 'src/app/helpers/extender';
+import { FirestoreService, AuthService } from 'src/app/services';
 
 @Component({
   selector: 'app-notification-settings',

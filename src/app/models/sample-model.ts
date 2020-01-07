@@ -1,7 +1,7 @@
 export interface IUser {
   uid: string;
   email: string;
-  photoURL?: string;
+  photoUrl?: string;
   displayName?: string;
   favoriteColor?: string;
   statusMessage?: string;
@@ -17,7 +17,7 @@ export interface IUser {
 export class User {
   public uid: string;
   public email: string;
-  public photoURL?: string;
+  public photoUrl?: string;
   public displayName?: string;
   public favoriteColor?: string;
   public statusMessage?: string;

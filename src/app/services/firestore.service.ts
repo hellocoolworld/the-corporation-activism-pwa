@@ -12,7 +12,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import * as firebase from 'firebase/app';
 import { from, Observable } from 'rxjs';
 import { expand, map, mergeMap, take, takeWhile, tap } from 'rxjs/operators';
-import { Upload } from 'src/helpers/upload';
+import { Upload } from 'src/app/helpers/upload';
 
 type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;
 type DocPredicate<T> = string | AngularFirestoreDocument<T>;

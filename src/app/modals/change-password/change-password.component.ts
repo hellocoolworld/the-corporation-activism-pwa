@@ -1,8 +1,8 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { IUser } from 'src/pages/auth/helpers/model';
-import { AuthService } from 'src/pages/auth/services/auth/auth.service';
-import { Extender } from 'src/shared/helpers/extender';
-import { FirestoreService } from 'src/shared/services/firestore/firestore.service';
+import { IUser } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
+import { Extender } from 'src/app/helpers/extender';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 /** present screen to allow user to change password */
 @Component({

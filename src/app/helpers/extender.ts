@@ -4,7 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ActionSheetController, AlertController, ModalController, ToastController } from '@ionic/angular';
 // import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { SubscriptionsService } from '../services/subscriptions.service';
+import { SubscriptionsService } from 'src/app/services/subscriptions.service';
 // import { IRoutes, Routes } from './routes';
 
 /**

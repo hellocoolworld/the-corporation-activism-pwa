@@ -7,10 +7,10 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { of } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators';
-import { AuthService } from 'src/pages/auth/services/auth/auth.service';
-import { Extender } from 'src/shared/helpers/extender';
-import { SocialShareComponent } from 'src/shared/modals/social-share/social-share.component';
-import { FirestoreService } from '../firestore/firestore.service';
+import { AuthService } from './auth.service';
+import { Extender } from 'src/app/helpers/extender';
+import { SocialShareComponent } from 'src/app/modals/social-share/social-share.component';
+import { FirestoreService } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -83,7 +83,7 @@ export class CommonService extends Extender {
     if ((window as any).cordova) {
       return await this.socialSharing
         .share(message, subject, file, url)
-        .then(() => this.toast(this.translate.instant('feed-component.share-confirm')));
+        .then(() => this.toast('share-confirm'));
     } else {
       const modal = await this.openModal(SocialShareComponent, url, 'custom-modal');
       modal.present();

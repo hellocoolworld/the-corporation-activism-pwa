@@ -21,10 +21,10 @@
                 <ion-badge color="primary">42</ion-badge>
             </ion-button>
             <ion-button *ngIf="user" href="/user/profile">
-                <ion-avatar class="user-avatar" *ngIf="user.imageUrl !== ''">
-                    <ion-img src="{{ user.imageUrl }}" alt="{{ user.displayName }}"></ion-img>
+                <ion-avatar class="user-avatar" *ngIf="user.photoUrl !== ''">
+                    <ion-img src="{{ user.photoUrl }}" alt="{{ user.displayName }}"></ion-img>
                 </ion-avatar>
-                <ion-icon *ngIf="user.imageUrl === ''" color="lightest" name="contact"></ion-icon>
+                <ion-icon *ngIf="user.photoUrl === ''" color="lightest" name="contact"></ion-icon>
             </ion-button>
         </ion-buttons>
 
@@ -49,10 +49,10 @@
                 <ion-badge color="primary">42</ion-badge>
             </ion-button>
             <ion-button *ngIf="user" href="/user/profile">
-                <ion-avatar class="user-avatar" *ngIf="user.imageUrl !== ''">
-                    <ion-img src="{{ user.imageUrl }}" alt="{{ user.displayName }}"></ion-img>
+                <ion-avatar class="user-avatar" *ngIf="user.photoUrl !== ''">
+                    <ion-img src="{{ user.photoUrl }}" alt="{{ user.displayName }}"></ion-img>
                 </ion-avatar>
-                <ion-icon *ngIf="user.imageUrl === ''" color="lightest" name="contact"></ion-icon>
+                <ion-icon *ngIf="user.photoUrl === ''" color="lightest" name="contact"></ion-icon>
             </ion-button>
         </ion-buttons>
 

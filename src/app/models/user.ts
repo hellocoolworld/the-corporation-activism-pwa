@@ -3,7 +3,7 @@
     email: string;
     password: string;
     displayName: string;
-    imageUrl: string;
+    photoUrl: string;
     testimonial: string;
     tales: Array<{taleId: string, image: string, title: string, link: string}>;
     pledges: Array<{pledgeId: string, taleId: string,  image: string, title: string, link: string}>;
@@ -26,7 +26,7 @@ export class User {
     email: string;
     password: string;
     displayName: string;
-    imageUrl: string;
+    photoUrl: string;
     testimonial: string;
     tales: Array<{taleId: string, image: string, title: string, link: string}>;
     pledges: Array<{pledgeId: string, taleId: string,  image: string, title: string, link: string}>;

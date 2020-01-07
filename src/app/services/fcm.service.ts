@@ -4,9 +4,9 @@ import { FirebaseX } from '@ionic-native/firebase-x/ngx';
 import { Platform } from '@ionic/angular';
 import * as app from 'firebase/app';
 import { tap } from 'rxjs/internal/operators';
-import { AuthService } from 'src/pages/auth/services/auth/auth.service';
-import { Extender } from 'src/shared/helpers/extender';
-import { FirestoreService } from '../firestore/firestore.service';
+import { AuthService } from './auth.service';
+import { Extender } from 'src/app/helpers/extender';
+import { FirestoreService } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'

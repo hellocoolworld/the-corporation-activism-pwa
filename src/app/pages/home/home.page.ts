@@ -56,7 +56,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.mostRecentActions = [
       {
         'userId' : '2r22fw2f',
-        'imageUrl' : "/assets/sample-images/user/person_1.jpg",
+        'photoUrl' : "/assets/sample-images/user/person_1.jpg",
         'displayName' : 'Hank Aaron',
         'actionIcon' : 'hand',
         'relatedTaleTitle' : '',
@@ -65,7 +65,7 @@ export class HomePage implements OnInit, OnDestroy {
       },
       {
         'userId' : 'qv4tc4a3',
-        'imageUrl' : "/assets/sample-images/user/person_3.jpg",
+        'photoUrl' : "/assets/sample-images/user/person_3.jpg",
         'displayName' : 'Frank Abagnale',
         'actionIcon' : 'quote',
         'relatedTaleTitle' : '',
@@ -74,7 +74,7 @@ export class HomePage implements OnInit, OnDestroy {
       },
       {
         'userId' : 'wv4s4rt4',
-        'imageUrl' : "/assets/sample-images/user/person_5.jpg",
+        'photoUrl' : "/assets/sample-images/user/person_5.jpg",
         'displayName' : 'Edward Abbey',
         'actionIcon' : 'trophy',
         'relatedTaleTitle' : 'How Does Halo Tales Empower People To Fight Corporate Power?',
@@ -83,7 +83,7 @@ export class HomePage implements OnInit, OnDestroy {
       },
       {
         'userId' : 'qcwafwert3',
-        'imageUrl' : "/assets/sample-images/user/person_6.jpg",
+        'photoUrl' : "/assets/sample-images/user/person_6.jpg",
         'displayName' : 'James Abourezk',
         'actionIcon' : 'hand',
         'relatedTaleTitle' : '',
@@ -92,7 +92,7 @@ export class HomePage implements OnInit, OnDestroy {
       },
       {
         'userId' : '562wcrtr3wt4',
-        'imageUrl' : "/assets/sample-images/user/person_7.jpg",
+        'photoUrl' : "/assets/sample-images/user/person_7.jpg",
         'displayName' : 'Jane Ace',
         'actionIcon' : 'hand',
         'relatedTaleTitle' : '',

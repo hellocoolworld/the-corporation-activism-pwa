@@ -2,7 +2,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { NavParams } from '@ionic/angular';
 import { ShareService } from '@ngx-share/core';
 import { environment } from 'src/environments/environment';
-import { Extender } from 'src/shared/helpers/extender';
+import { Extender } from 'src/app/helpers/extender';
 
 /** browser social share using @ngx-share/core*/
 @Component({
