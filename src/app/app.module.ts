@@ -16,10 +16,6 @@ import { ErrorInterceptor } from './helpers';
 // tslint:disable-next-line:max-line-length
 import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from './modals';
 
-// used to create fake backend
-//import { fakeBackendProvider } from './helpers';
-
-
 
 @NgModule({
   imports: [
@@ -44,9 +40,7 @@ import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    Title,
-    // provider used to create fake backend
-    //fakeBackendProvider
+    Title
   ],
 
   exports: [],
