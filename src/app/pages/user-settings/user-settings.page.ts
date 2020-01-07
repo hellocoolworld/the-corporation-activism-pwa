@@ -19,26 +19,26 @@ import { first } from 'rxjs/operators';
 })
 export class UserSettingsPage implements OnInit {
   UserSettingsForm: FormGroup;
-  currentUser: User;
+  user: User;
 
   
   constructor(
     private title: Title,
     private router: Router, 
     private fb: FormBuilder, 
-    private _auth: AuthService,
+    private authService: AuthService,
     private toast: ToastService,
     private _user: UserService,
     private modalController: ModalController) {
       
-    this.currentUser = this._auth.currentUserValue;
-    if (this.currentUser) {
+    this.user = this.authService.user;
+    if (this.user) {
       // if user is loged in and not verified
       // redirect to verify-user page
-      if (!this.currentUser.isVerified) {
+      if (!this.user.isVerified) {
         this.router.navigate(['/verify-account']);
       } else {
-        this.title.setTitle(`Halo Tales - ${this.currentUser.displayName}`);
+        this.title.setTitle(`Halo Tales - ${this.user.displayName}`);
       }
     } else {
       // if not logged in, redirect to login
@@ -49,7 +49,7 @@ export class UserSettingsPage implements OnInit {
   ngOnInit() {
     this.UserSettingsForm = this.fb.group(
       {
-        email: [this.currentUser.email, [Validators.required, Validators.email]],
+        email: [this.user.email, [Validators.required, Validators.email]],
         password: ['', [Validators.minLength(5)]],
         confirmPassword: ['', ]
       },
@@ -61,7 +61,7 @@ export class UserSettingsPage implements OnInit {
   }
 
   onToggleChange () {
-    this._user.update(this.currentUser).subscribe(
+    this._user.update(this.user).subscribe(
       res => {
         //Do nothing if success
         },
@@ -79,12 +79,12 @@ export class UserSettingsPage implements OnInit {
     }
 
     // Set the new fields values into the current user opject
-    this.currentUser.email = this.f.email.value;
+    this.user.email = this.f.email.value;
     if (this.f.password.value !== "") {
-      this.currentUser.password = this.f.password.value;
+      this.user.password = this.f.password.value;
     }
 
-    await this._user.update(this.currentUser)
+    await this._user.update(this.user)
       .pipe(first())
       .subscribe(
         res => {

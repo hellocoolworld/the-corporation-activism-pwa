@@ -16,7 +16,7 @@ export class ChangePasswordComponent extends Extender implements OnInit {
     password: null,
     rpassword: null
   };
-  public currentUser: IUser;
+  public user: IUser;
 
   constructor(protected injector: Injector, private authService: AuthService, private firestoreService: FirestoreService) {
     super(injector);
@@ -24,7 +24,7 @@ export class ChangePasswordComponent extends Extender implements OnInit {
 
   /** get current user */
   public async ngOnInit() {
-    this.currentUser = await this.authService.getUser();
+    this.user = await this.authService.getUser();
   }
 
   /**

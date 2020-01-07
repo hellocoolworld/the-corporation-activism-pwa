@@ -12,7 +12,7 @@ import { isArray } from 'util';
   styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent extends Extender implements OnInit {
-  public currentUser: IUser;
+  public user: IUser;
   public countrySelectOptions = {
     header: this.translate.instant('edit-profile-component.select-country'),
     data: this.commonService.getCountries()
@@ -30,7 +30,7 @@ export class EditProfileComponent extends Extender implements OnInit {
 
   /** get current user */
   public async ngOnInit() {
-    this.currentUser = await this.authService.getUser();
+    this.user = await this.authService.getUser();
   }
 
   /**
@@ -74,16 +74,16 @@ export class EditProfileComponent extends Extender implements OnInit {
   }
 
   /**
-   * update currentUser and close modal, show toast if any error occurs
+   * update user and close modal, show toast if any error occurs
    */
   public save(close = true) {
     this.loading = true;
     this.firestoreService
-      .upsert<IUser>(`users/${this.currentUser.uid}`, this.currentUser)
+      .upsert<IUser>(`users/${this.user.uid}`, this.user)
       .then(() => {
         this.loading = false;
         if (close) {
-          this.closeModal(this.currentUser);
+          this.closeModal(this.user);
         }
       })
       .catch((err) => this.failPromise(err));
@@ -113,14 +113,14 @@ export class EditProfileComponent extends Extender implements OnInit {
 
   /**
    * append base 64 string to image data, upload image data to firebase storage.
-   * the upload function returns a download data which is then saved to currentUser.photoUrl property
+   * the upload function returns a download data which is then saved to user.photoUrl property
    */
   private uploadImage(imageData: string) {
-    this.currentUser.photoURL = imageData;
+    this.user.photoURL = imageData;
     this.firestoreService
-      .uploadImage(this.currentUser.photoURL, this.currentUser.uid, 'profile-images')
+      .uploadImage(this.user.photoURL, this.user.uid, 'profile-images')
       .then((photoURL) => {
-        this.currentUser.photoURL = photoURL;
+        this.user.photoURL = photoURL;
         this.save(false);
         this.loading = false;
       })

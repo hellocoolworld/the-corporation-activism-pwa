@@ -1,7 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { NavParams } from '@ionic/angular';
-import { Extender } from 'src/shared/helpers/extender';
+import { Extender } from 'src/helpers/extender';
 import { isArray } from 'util';
 
 @Component({

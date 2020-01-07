@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { AuthService, ToastService } from '../../services';
+import { User } from 'src/app/models';
+import { SignupPage } from '../signup/signup.page';
 
 @Component({
   selector: 'app-login',
@@ -15,20 +17,24 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   loading = false;
   returnUrl: string;
-  
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private _auth: AuthService,
+    private authService: AuthService,
     private toast: ToastService
   ) {
-    let currentUser = this._auth.user;
 
-    if (currentUser) {
+  }
+
+  async ngOnInit() {
+    let user: User = await this.authService.getUser();
+
+    if (user) {
       // if user is loged in and not verified
       // redirect to verify-user page
-      if (!currentUser.isVerified) {
+      if (!user.isVerified) {
         this.router.navigate(['/verify-account']);
 
       } else {
@@ -36,10 +42,7 @@ export class LoginPage implements OnInit {
         this.router.navigate(['/']);
       }
     }
-  }
 
-  ngOnInit() {
-    
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]]
@@ -56,25 +59,26 @@ export class LoginPage implements OnInit {
     }
 
     this.loading = true;
-
-    this._auth
-      .login(this.f.email.value, this.f.password.value)
-      .pipe(first())
-      .subscribe(
-        res => {
-          if (!res.isVerified) {
-            this.router.navigate(['/verify-account']);
-          } else {
-            this.router.navigate([this.returnUrl]);
-          }
-        },
-        err => {
-          this.toast.error(err, true);
-          this.loading = false;
-        }
-      );
+    this.authService
+      .signIn(this.f.email.value, this.f.password.value)
+      .then((res) => {
+        console.log('res: ', res);
+        this.onSignIn();
+      })
+      .catch((err) => {
+        this.toast.error(err, true);
+        this.loading = false;
+      });
   }
 
+  async onSignIn() {
+    const user: User = await this.authService.getUser();
+    if (!user.isVerified) {
+      this.router.navigate(['/verify-account']);
+    } else {
+      this.router.navigate([this.returnUrl]);
+    }
+  }
   clickProvider(providerName: String): void {
     console.log('facebook login');
   }

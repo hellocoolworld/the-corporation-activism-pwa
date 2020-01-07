@@ -8,22 +8,22 @@ import { User } from '../models';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private apiBaseURL: String = 'https://www.halotales.com/api';
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  private userSubject: BehaviorSubject<User>;
+  public user: Observable<User>;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(this.getUserOrNull());
-    this.currentUser = this.currentUserSubject.asObservable();
+    this.userSubject = new BehaviorSubject<User>(this.getUserOrNull());
+    this.user = this.userSubject.asObservable();
   }
 
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
+  public get user(): User {
+    return this.userSubject.value;
   }
 
   public getUserOrNull(): any {
-    let userData: any = JSON.parse(localStorage.getItem('currentUser'));
+    let userData: any = JSON.parse(localStorage.getItem('user'));
     if (!userData || !userData.dt || new Date() > userData.dt) {
-      localStorage.removeItem('currentUser')
+      localStorage.removeItem('user')
       return null;
     } else {
       return userData.user;
@@ -55,15 +55,15 @@ export class AuthService {
         user: user,
         dt: dt
       };
-      localStorage.setItem('currentUser', JSON.stringify(userData));
-      this.currentUserSubject.next(user);
+      localStorage.setItem('user', JSON.stringify(userData));
+      this.userSubject.next(user);
     }
     return user;
   }
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+    localStorage.removeItem('user');
+    this.userSubject.next(null);
   }
 
 }

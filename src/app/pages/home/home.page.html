@@ -19,13 +19,13 @@
     <div class="hidden-sm desktop-crowd-container">
         <img src="../../../assets/images/crowd-of-people.svg">
     </div>
-    
-    <div class="home-splash" [class.logged-in]="currentUser" [class.logged-out]="!currentUser">
-        <div class="user-avatars-wrapper" *ngIf="currentUser">
+
+    <div class="home-splash" [class.logged-in]="user" [class.logged-out]="!user">
+        <div class="user-avatars-wrapper" *ngIf="user">
 
             <div class="main-user-avatar">
-                <a [routerLink]="['/profile', currentUser.id]">
-                    <img [src]="currentUser.imageUrl" [alt]="currentUser.displayName" />
+                <a [routerLink]="['/profile', user.id]">
+                    <img [src]="user.imageUrl" [alt]="user.displayName" />
                 </a>
             </div>
         </div>
@@ -38,17 +38,17 @@
             </ion-card-header>
 
             <ion-card-content class="hidden-lg">
-                <ng-container *ngIf="currentUser; then contentLoggedIn; else contentLoggedOut"></ng-container>
+                <ng-container *ngIf="user; then contentLoggedIn; else contentLoggedOut"></ng-container>
                 <ng-template #contentLoggedIn>
                     <div class="user-action-summary">
-                        <h4>{{ currentUser.displayName }}</h4>
+                        <h4>{{ user.displayName }}</h4>
                         <div class="action-wrapper">
                             <ion-item>
                                 <ion-icon slot="start" name="quote"></ion-icon>
                                 <ion-label>
-                                    <ng-container *ngIf="currentUser.testimonial != ''; then yesTestimonials; else noTestimonial"></ng-container>
+                                    <ng-container *ngIf="user.testimonial != ''; then yesTestimonials; else noTestimonial"></ng-container>
                                     <ng-template #yesTestimonials>
-                                        <a [routerLink]="['/profile', currentUser.id]">
+                                        <a [routerLink]="['/profile', user.id]">
                       Testimonial
                       <br />
                       given
@@ -63,7 +63,7 @@
                                     </ng-template>
                                 </ion-label>
                             </ion-item>
-                            <ion-item >
+                            <ion-item>
                                 <ion-icon slot="start" name="trophy"></ion-icon>
                                 <ion-label>
                                     {{ pledgesCount }} Action
@@ -97,10 +97,8 @@
     </div>
 
     <div class="mobile-tales-section-intro hidden-lg">
-            <h2>PEOPLE ARE HITTING <br>
-                 THE STREETS AGAIN!</h2>
-            <p>Speaking up like never before about
-                climate change and economic injustice </p>
+        <h2>PEOPLE ARE HITTING <br> THE STREETS AGAIN!</h2>
+        <p>Speaking up like never before about climate change and economic injustice </p>
     </div>
 
 
@@ -131,38 +129,38 @@
                 <h3 class="tale-title">{{ tale.title }}</h3>
             </div>
         </a>
-         <div class="tale-action-summary">
-                <div class="pledges summary-box">
-                    <div class="summary-icon">
-                        <img src="../../../assets/images/action-pledges.svg">
-                    </div>
+        <div class="tale-action-summary">
+            <div class="pledges summary-box">
+                <div class="summary-icon">
+                    <img src="../../../assets/images/action-pledges.svg">
+                </div>
 
-                    <div class="header">
-                     <ion-label>{{ tale.pledgeCount }}</ion-label>
-                        <a (click)="showHelpActionPledgeModal()">
+                <div class="header">
+                    <ion-label>{{ tale.pledgeCount }}</ion-label>
+                    <a (click)="showHelpActionPledgeModal()">
                         Action Pledges
                         </a>
-                  </div>
+                </div>
+            </div>
+
+            <div class="avocadometer summary-box">
+                <div class="summary-icon">
+                    <img src="../../../assets/images/avocado-meter.svg">
                 </div>
 
-                <div class="avocadometer summary-box">
-                    <div class="summary-icon">
-                        <img src="../../../assets/images/avocado-meter.svg">
-                    </div>
-
-                    <div class="header">
-                        <ion-label>{{ tale.avocados }}</ion-label>
-                        <a (click)="showHelpAvocadometerModal()">
+                <div class="header">
+                    <ion-label>{{ tale.avocados }}</ion-label>
+                    <a (click)="showHelpAvocadometerModal()">
                         Avocadometer
                         </a>
-                    </div>
                 </div>
-              </div>
+            </div>
+        </div>
 
         <ion-item class="summary" lines="none">
             <ion-label text-wrap>{{ tale.summary }}</ion-label>
         </ion-item>
-          
+
         <ion-item class="tale-meta" lines="none">
             <ion-avatar slot="start">
                 <img [src]="tale.authorImg" />
@@ -173,6 +171,6 @@
         </ion-item>
     </div>
 
-<ht-footer-ad *ngIf="isFirstPageThisSession"></ht-footer-ad>
+    <ht-footer-ad *ngIf="isFirstPageThisSession"></ht-footer-ad>
 
 </ion-content>

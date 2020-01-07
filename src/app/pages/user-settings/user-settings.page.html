@@ -2,7 +2,7 @@
 
 <ion-content class="user-account-content">
     <ht-header-desktop></ht-header-desktop>
-    
+
     <h2>Settings</h2>
 
     <ion-item-group>
@@ -13,7 +13,7 @@
             <ion-label text-wrap>
                 Stay connected to all the latest news about the sequel
             </ion-label>
-            <ion-toggle color="primary" [(ngModel)]="currentUser.joinMailingList" (ionChange)="onToggleChange()"></ion-toggle>
+            <ion-toggle color="primary" [(ngModel)]="user.joinMailingList" (ionChange)="onToggleChange()"></ion-toggle>
         </ion-item>
     </ion-item-group>
 
@@ -25,13 +25,13 @@
             <ion-label text-wrap>
                 Push Notifications
             </ion-label>
-            <ion-toggle color="primary" [(ngModel)]="currentUser.allowPushNotification" (ionChange)="onToggleChange()"></ion-toggle>
+            <ion-toggle color="primary" [(ngModel)]="user.allowPushNotification" (ionChange)="onToggleChange()"></ion-toggle>
         </ion-item>
         <ion-item lines="none">
             <ion-label text-wrap>
                 Email notification
             </ion-label>
-            <ion-toggle color="primary" [(ngModel)]="currentUser.allowEmailNotification" (ionChange)="onToggleChange()"></ion-toggle>
+            <ion-toggle color="primary" [(ngModel)]="user.allowEmailNotification" (ionChange)="onToggleChange()"></ion-toggle>
         </ion-item>
     </ion-item-group>
 

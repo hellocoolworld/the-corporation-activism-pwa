@@ -22,13 +22,13 @@ export class SignupPage implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private _auth: AuthService,
+    private authService: AuthService,
     private _user: UserService,
     private toast: ToastService,
     private modalController: ModalController
   ) {
       // redirect to home if already logged in
-      if (this._auth.currentUserValue) {
+      if (this.authService.user) {
         this.router.navigate(['/']);
       }
 }
@@ -59,7 +59,7 @@ export class SignupPage implements OnInit {
           res => {
             this.toast.success('Registration successful. Check your inbox for verification code', true);
             // automatically authenticate the user
-            this._auth.login(this.f.email.value, this.f.password.value)
+            this.authService.login(this.f.email.value, this.f.password.value)
             .pipe(first())
             .subscribe(
               data => {

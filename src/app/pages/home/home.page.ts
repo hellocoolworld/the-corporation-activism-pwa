@@ -16,7 +16,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit, OnDestroy {
-  currentUser: User;
+  user: User;
   tales: Tale[] = [];
   mostRecentActions = [];
   private unsubscribe$: Subject<void> = new Subject();
@@ -24,15 +24,15 @@ export class HomePage implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private title:Title,
-    private _auth: AuthService,
+    private authService: AuthService,
     private _tale: TaleService,
     private modalController: ModalController,
     private popoverController: PopoverController
   ) {
     this.title.setTitle('Halo Tales - Welcome');
-    this._auth.currentUser
+    this.authService.user
     .pipe(takeUntil(this.unsubscribe$))
-    .subscribe(res => this.currentUser = res);
+    .subscribe(res => this.user = res);
   }
   
   ngOnInit() {
@@ -107,11 +107,11 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   get pledgesCount(): number {
-    return (this.currentUser && this.currentUser.pledges) ? this.currentUser.pledges.length : null;
+    return (this.user && this.user.pledges) ? this.user.pledges.length : null;
   }
 
   get talesCount(): number {
-    return (this.currentUser && this.currentUser.tales) ? this.currentUser.tales.length : null;
+    return (this.user && this.user.tales) ? this.user.tales.length : null;
   }
 
   async onAvatarClick(ev: Event, userId: String, userDisplayName: String, relatedTaleTitle: String, relatedTaleSlug: String, relatedTestamonial: String) {
@@ -135,7 +135,7 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   get isFirstPageThisSession(): boolean {
-    return this.currentUser && this.currentUser.hasSeenNewCorpThisSession ? false : true;
+    return this.user && this.user.hasSeenNewCorpThisSession ? false : true;
   }
 
 

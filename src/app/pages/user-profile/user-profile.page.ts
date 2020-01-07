@@ -15,25 +15,25 @@ import { first } from 'rxjs/operators';
 })
 export class UserProfilePage implements OnInit {
   UserProfileForm: FormGroup;
-  currentUser: User;
+  user: User;
 
   
   constructor(
     private title: Title,
     private router: Router, 
     private fb: FormBuilder, 
-    private _auth: AuthService,
+    private authService: AuthService,
     private _user: UserService,
     private toast: ToastService) {
 
-    this.currentUser = this._auth.currentUserValue;
-    if (this.currentUser) {
+    this.user = this.authService.user;
+    if (this.user) {
       // if user is loged in and not verified
       // redirect to verify-user page
-      if (!this.currentUser.isVerified) {
+      if (!this.user.isVerified) {
         this.router.navigate(['/verify-account']);
       } else {
-        this.title.setTitle(`Halo Tales - ${this.currentUser.displayName}`);
+        this.title.setTitle(`Halo Tales - ${this.user.displayName}`);
       }
     } else {
       // if not logged in, redirect to login
@@ -44,8 +44,8 @@ export class UserProfilePage implements OnInit {
   ngOnInit() {
     this.UserProfileForm = this.fb.group(
       {
-        displayName: [this.currentUser.displayName, [Validators.required]],
-        testimonial: [this.currentUser.testimonial, []]
+        displayName: [this.user.displayName, [Validators.required]],
+        testimonial: [this.user.testimonial, []]
       }
     );
 
@@ -58,15 +58,15 @@ export class UserProfilePage implements OnInit {
     }
 
     // Set the new fields values into the current user opject
-    this.currentUser.displayName = this.form.displayName.value;
-    this.currentUser.testimonial = this.form.testimonial.value;
+    this.user.displayName = this.form.displayName.value;
+    this.user.testimonial = this.form.testimonial.value;
 
-    await this._user.update(this.currentUser)
+    await this._user.update(this.user)
       .pipe(first())
       .subscribe(
         res => {
           this.toast.success('Public Profile Updated Succesfully', false, 2000);
-          // this.router.navigate([`/profile/${this.currentUser.id}`]);
+          // this.router.navigate([`/profile/${this.user.id}`]);
           this.router.navigate([`/`]);
           },
         err => {

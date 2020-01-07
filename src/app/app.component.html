@@ -1,104 +1,104 @@
 <ion-app>
-  <ion-split-pane when="min-width: 820px | disabled=true">
-  <ion-menu>
+    <ion-split-pane when="min-width: 820px | disabled=true">
+        <ion-menu>
 
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start" >
-          <ion-button (click)="close()" color="light"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-
-
-    <ion-content>
-      <ion-list class="nav-section">
-        <ion-menu-toggle auto-hide="false" >
-          <ion-item href="/" class="main-nav-item" lines="none" >
-            <ion-label>Home</ion-label>
-          </ion-item>
-
-          <ion-item href="/about" class="main-nav-item" lines="none">
-            <ion-label>About</ion-label>
-          </ion-item>
-          
-          <ion-item [routerLink]="['/profile', currentUser.id]" *ngIf="currentUser" class="main-nav-item" lines="none">
-            <ion-label>My Profile</ion-label>
-          </ion-item>
-
-          <ion-item href="/user" *ngIf="currentUser" class="main-nav-item" lines="none">
-            <ion-label>Account Settings</ion-label>
-          </ion-item>
-
-          <ion-item (click)="logout()" *ngIf="currentUser" class="main-nav-item" lines="none">
-            <ion-label>Logout</ion-label>
-          </ion-item>
-
-          <ion-item href="/login" *ngIf="!currentUser" class="main-nav-item" lines="none"> 
-            <ion-label>Login</ion-label>
-          </ion-item>
-
-          <ion-item href="/signup" *ngIf="!currentUser" class="main-nav-item" lines="none">
-            <ion-label>Join Us</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-      </ion-list>
+            <ion-header>
+                <ion-toolbar>
+                    <ion-buttons slot="start">
+                        <ion-button (click)="close()" color="light">
+                            <ion-icon name="close-circle-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </ion-toolbar>
+            </ion-header>
 
 
+            <ion-content>
+                <ion-list class="nav-section">
+                    <ion-menu-toggle auto-hide="false">
+                        <ion-item href="/" class="main-nav-item" lines="none">
+                            <ion-label>Home</ion-label>
+                        </ion-item>
 
-     <ion-grid class="nav-social-links">
-        <ion-row class="social-link-row">
-        <ion-col>
-        <ion-button fill="clear" (click)="linkToSocialProfile('facebook')">
-          <img src="./assets/images/mobile-facebook.svg">
-        </ion-button>
-      </ion-col>
+                        <ion-item href="/about" class="main-nav-item" lines="none">
+                            <ion-label>About</ion-label>
+                        </ion-item>
 
-        <ion-col>
-        <ion-button fill="clear" (click)="linkToSocialProfile('twitter')">
-          <img src="./assets/images/mobile-twitter.svg">
-        </ion-button>
-      </ion-col>
+                        <ion-item [routerLink]="['/profile', user.id]" *ngIf="user" class="main-nav-item" lines="none">
+                            <ion-label>My Profile</ion-label>
+                        </ion-item>
 
-        <ion-col>
-        <ion-button fill="clear" (click)="linkToSocialProfile('youtube')">
-          <img src="./assets/images/mobile-youtube.svg">
-        </ion-button>
-      </ion-col>
+                        <ion-item href="/user" *ngIf="user" class="main-nav-item" lines="none">
+                            <ion-label>Account Settings</ion-label>
+                        </ion-item>
 
-        <ion-col>
-        <ion-button fill="clear" (click)="linkToSocialProfile('vimeo')">
-          <img src="./assets/images/mobile-vimeo.svg">
-        </ion-button>
-        </ion-col>
-      </ion-row>
+                        <ion-item (click)="logout()" *ngIf="user" class="main-nav-item" lines="none">
+                            <ion-label>Logout</ion-label>
+                        </ion-item>
 
-      <ion-row>
-          <ion-col class="navLink">
-            <p font-weight=400>Visit <a href="https://thecorporation.com" target="_blank" class="visitUs">TheCorporation.com</a></p>
-        </ion-col>
-        </ion-row>
-      </ion-grid>
+                        <ion-item href="/login" *ngIf="!user" class="main-nav-item" lines="none">
+                            <ion-label>Login</ion-label>
+                        </ion-item>
 
-    <div class="bottom-nav-link-grid">
-      <a  (click)="showPrivacyModal()">Privacy Policy</a>
-
-      <a  (click)="showTermsModal()">Terms of use</a>
-
-      <a  (click)="showTermsModal()">Contact Us</a>
-    </div>
-
-      <p class="copyright-text">
-          Copyright 2019 <br>
-          Grant Street Productions<br>
-          Site by <a href="https://hellocoolworldmedia.com">Hello Cool World</a>
-      </p>
-    </ion-content>
-  </ion-menu>
+                        <ion-item href="/signup" *ngIf="!user" class="main-nav-item" lines="none">
+                            <ion-label>Join Us</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
 
 
-  <ion-router-outlet main></ion-router-outlet>
 
-</ion-split-pane>
+                <ion-grid class="nav-social-links">
+                    <ion-row class="social-link-row">
+                        <ion-col>
+                            <ion-button fill="clear" (click)="linkToSocialProfile('facebook')">
+                                <img src="./assets/images/mobile-facebook.svg">
+                            </ion-button>
+                        </ion-col>
+
+                        <ion-col>
+                            <ion-button fill="clear" (click)="linkToSocialProfile('twitter')">
+                                <img src="./assets/images/mobile-twitter.svg">
+                            </ion-button>
+                        </ion-col>
+
+                        <ion-col>
+                            <ion-button fill="clear" (click)="linkToSocialProfile('youtube')">
+                                <img src="./assets/images/mobile-youtube.svg">
+                            </ion-button>
+                        </ion-col>
+
+                        <ion-col>
+                            <ion-button fill="clear" (click)="linkToSocialProfile('vimeo')">
+                                <img src="./assets/images/mobile-vimeo.svg">
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col class="navLink">
+                            <p font-weight=400>Visit <a href="https://thecorporation.com" target="_blank" class="visitUs">TheCorporation.com</a></p>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+                <div class="bottom-nav-link-grid">
+                    <a (click)="showPrivacyModal()">Privacy Policy</a>
+
+                    <a (click)="showTermsModal()">Terms of use</a>
+
+                    <a (click)="showTermsModal()">Contact Us</a>
+                </div>
+
+                <p class="copyright-text">
+                    Copyright 2019 <br> Grant Street Productions<br> Site by <a href="https://hellocoolworldmedia.com">Hello Cool World</a>
+                </p>
+            </ion-content>
+        </ion-menu>
+
+
+        <ion-router-outlet main></ion-router-outlet>
+
+    </ion-split-pane>
 
 </ion-app>

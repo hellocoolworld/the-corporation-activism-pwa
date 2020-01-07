@@ -12,7 +12,7 @@ import { IonInput } from '@ionic/angular';
 export class ShowHidePasswordComponent {
   show = false;
 
-  @ContentChild(IonInput) input: IonInput;
+  @ContentChild(IonInput, { static: true }) input: IonInput;
 
   constructor() {}
 

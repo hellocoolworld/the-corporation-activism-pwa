@@ -18,12 +18,12 @@ import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
 
 
 export class AppComponent {
-  public currentUser: User;
+  public user: User;
 
   constructor(
     private platform: Platform,
     private router: Router,
-    private _auth: AuthService,
+    private authService: AuthService,
     private menuController: MenuController,
     private modalController: ModalController
   ) {
@@ -31,13 +31,13 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this._auth.user.subscribe(res => this.currentUser = res);
+    this.authService.user.subscribe(res => this.user = res);
     this.platform.ready().then(() => {
     });
   }
 
   logout() {
-    this._auth.signOut();
+    this.authService.signOut();
     this.router.navigate(['/']);
   }
 

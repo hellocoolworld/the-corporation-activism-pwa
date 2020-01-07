@@ -14,17 +14,17 @@ import { User } from '../../models';
 })
 export class VerifyAccountPage implements OnInit {
   verifyForm: FormGroup;
-  currentUser: User;
+  user: User;
   returnUrl: string;
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private _auth: AuthService,
+    private authService: AuthService,
     private toast: ToastService
     ) {
-      this.currentUser = this._auth.currentUserValue;
-      if (!this.currentUser) {
+      this.user = this.authService.user;
+      if (!this.user) {
         // if user is not logged in forward to login page
         this.router.navigate(['/login']); 
         return;
@@ -48,7 +48,7 @@ export class VerifyAccountPage implements OnInit {
       return;
     }
 
-    this._auth.verify(this.currentUser.id, this.f.verificationCode.value)
+    this.authService.verify(this.user.id, this.f.verificationCode.value)
       .pipe(first())
       .subscribe(
         res => {

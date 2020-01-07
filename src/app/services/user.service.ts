@@ -23,7 +23,7 @@ export class UserService {
         return this.http.put(`${this._apiBaseURL}/users`, user).pipe(
             map(user => {
                 // store user details in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('user', JSON.stringify(user));
             })
         );
     }

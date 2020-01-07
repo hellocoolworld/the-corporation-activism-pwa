@@ -5,9 +5,9 @@ import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs/internal/observable/of';
 import { first, switchMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Extender } from 'src/helpers/šextender';
-import { FirestoreService } from 'src/services/firestore.service';
-import { SocialAuthProvider } from '../models/constants';
+import { Extender } from 'src/app/helpers/extender';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { SocialAuthProvider } from 'src/app/helpers/constants';
 import { IUser } from '../models/user';
 
 /**
@@ -46,12 +46,12 @@ export class AuthService extends Extender {
   }
 
   /** sign in user with email and password using firebase library */
-  public async signIn({ email, password }) {
+  public async signIn(email: string, password: string) {
     return await this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   /** sign up user to firebase and update user details */
-  public async signUp({ displayName, email, password }) {
+  public async signUp(displayName: string, email: string, password: string) {
     const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
     await credential.user.updateProfile({ displayName, photoURL: null });
     return this.updateUserData(credential.user);
@@ -71,7 +71,7 @@ export class AuthService extends Extender {
   public async updateEmail(email: string) {
     const user = await this.getUser();
     user.email = email;
-    await this.firestoreService.set<IUser>(`users/${user.uid}`, user);
+    await this.firestoreService.set<IUser>(`users/${user.id}`, user);
     return await firebase.auth().currentUser.updateEmail(email);
   }
 
@@ -79,7 +79,7 @@ export class AuthService extends Extender {
   public async updatePassword(oldPassword: string, password: string) {
     const user = firebase.auth().currentUser;
     const credential = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPassword);
-    return user.reauthenticateAndRetrieveDataWithCredential(credential).then(() => {
+    return user.reauthenticateWithCredential(credential).then(() => {
       return firebase.auth().currentUser.updatePassword(password);
     });
   }
@@ -104,15 +104,15 @@ export class AuthService extends Extender {
    */
   public async socialogin(providerType: number) {
     let credential: { user: { uid: any; email: any; displayName: any; photoURL: any } };
-  let provider: firebase.auth.GoogleAuthProvider | firebase.auth.FacebookAuthProvider | firebase.auth.AuthProvider;
+    let provider: firebase.auth.GoogleAuthProvider | firebase.auth.FacebookAuthProvider | firebase.auth.AuthProvider;
     if (providerType === SocialAuthProvider.google) {
       provider = new firebase.auth.GoogleAuthProvider();
     } else {
       provider = new firebase.auth.FacebookAuthProvider();
     }
-      await this.afAuth.auth.signInWithPopup(provider);
-  
-      return await this.updateUserData(credential.user);
+    await this.afAuth.auth.signInWithPopup(provider);
+
+    return await this.updateUserData(credential.user);
   }
 
   /** sign out of the app and after sign out destroy all subscriptions to avoid missing permissions error */

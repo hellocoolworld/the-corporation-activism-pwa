@@ -11,17 +11,17 @@ import { UserService, AuthService } from '../../services';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  currentUser: User;
+  user: User;
   private unsubscribe$: Subject<void> = new Subject();
 
   constructor(
     private router: Router,
-    private _auth: AuthService,
+    private authService: AuthService,
     private _user: UserService
   ) {
-    this._auth.currentUser
+    this.authService.user
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(res => this.currentUser = res);
+      .subscribe(res => this.user = res);
   }
 
   ngOnInit() {
