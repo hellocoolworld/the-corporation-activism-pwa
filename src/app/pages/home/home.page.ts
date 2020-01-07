@@ -9,7 +9,7 @@ import { AuthService, TaleService } from '../../services';
 import { HelpActionPledgeModal, HelpAvocadometerModal } from '../../modals';
 import { PopoverComponent } from '../../components/popover/popover.component';
 import { Title } from '@angular/platform-browser';
- 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

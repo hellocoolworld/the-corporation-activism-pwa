@@ -10,7 +10,7 @@ import { UserService } from '../../services';
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
-  profile: User = new User();
+  profile: User;
   profileData: String = 'testimonial';
 
   constructor(private activatedRoute: ActivatedRoute,

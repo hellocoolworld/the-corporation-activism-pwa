@@ -10,7 +10,7 @@
     <div class="content-wrapper">
         <div class="header no-border has-toolbar">
             <div class="title">
-                {{ 'edit-profile-component.title' | translate }}
+                Edit Profile
             </div>
         </div>
 
@@ -22,50 +22,33 @@
                 </div>
                 <div class="profile-detail">
                     <!-- display name -->
-                    <div class="form-label">{{ 'edit-profile-component.display-name-label' | translate }}</div>
+                    <div class="form-label">Display Name</div>
                     <form-field fill="true" color="medium">
                         <ion-icon prefix src="assets/icons/user.svg"></ion-icon>
                         <ion-input inputRef required [(ngModel)]="user.displayName"></ion-input>
                     </form-field>
 
                     <!-- email -->
-                    <div class="form-label">{{ 'edit-profile-component.email-label' | translate }}</div>
+                    <div class="form-label">Email</div>
                     <form-field fill="true" color="medium">
                         <ion-icon prefix src="assets/icons/mail.svg"></ion-icon>
                         <ion-input inputRef email required [(ngModel)]="user.email"></ion-input>
                     </form-field>
 
                     <!-- status message -->
-                    <div class="form-label">{{ 'edit-profile-component.status-message-label' | translate }}</div>
+                    <div class="form-label">Status Message</div>
                     <form-field fill="true" color="medium" class="textarea">
                         <ion-icon prefix src="assets/icons/copy.svg"></ion-icon>
                         <textarea inputRef autosize maxRows="3" placeholder="Status Message" [(ngModel)]="user.statusMessage"></textarea>
                     </form-field>
 
-                    <!-- country selection -->
-                    <div class="form-label">{{ 'edit-profile-component.country-label' | translate }}</div>
-                    <form-field fill="true" color="medium">
-                        <ion-icon prefix src="assets/icons/map-pin.svg"></ion-icon>
-                        <ion-select inputRef required [(ngModel)]="user.country" [interfaceOptions]="countrySelectOptions">
-                            <ion-select-option [value]="item.alpha2Code" *ngFor="let item of countrySelectOptions.data | async">
-                                {{ item.name }}
-                            </ion-select-option>
-                        </ion-select>
-                    </form-field>
 
-                    <!-- phone -->
-                    <div class="form-label">{{ 'edit-profile-component.mobile-label' | translate }}</div>
-                    <form-field fill="true" color="medium">
-                        <ion-icon prefix src="assets/icons/phone-call.svg"></ion-icon>
-                        <ion-input inputRef [phone]="user.country" [disabled]="!user.country" [(ngModel)]="user.mobile"></ion-input>
-                        <div *ngIf="user.country" class="flag-img" suffix image-loader="assets/images/flags/{{ user.country.toLowerCase() }}.svg"></div>
-                    </form-field>
+
+
+                    <ion-button expand="full" (click)="save()">Update</ion-button>
                 </div>
-
-                <ion-button expand="full" (click)="save()">{{ 'edit-profile-component.update-button' | translate }}</ion-button>
             </div>
         </div>
-    </div>
 </ion-content>
 <app-spinner *ngIf="loading"></app-spinner>
 

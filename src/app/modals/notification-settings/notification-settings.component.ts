@@ -17,8 +17,8 @@ export class NotificationSettingsComponent extends Extender implements OnInit {
 
   /** get settings and current user */
   public async ngOnInit() {
-    const { uid } = await this.authService.getUser();
-    this.firestoreService.doc$<IPreference>(`preferences/${uid}`).subscribe((setting: IPreference) => (this.model = setting));
+    const { id } = await this.authService.getUser();
+    this.firestoreService.doc$<IPreference>(`preferences/${id}`).subscribe((setting: IPreference) => (this.model = setting));
   }
 
   /** save preference */

@@ -59,7 +59,7 @@ export class SignupPage implements OnInit {
           res => {
             this.toast.success('Registration successful. Check your inbox for verification code', true);
             // automatically authenticate the user
-            this.authService.login(this.f.email.value, this.f.password.value)
+            this.authService.signUp('', this.f.email.value, this.f.password.value)
             .pipe(first())
             .subscribe(
               data => {

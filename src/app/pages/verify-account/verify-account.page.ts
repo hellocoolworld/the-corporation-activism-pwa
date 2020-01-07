@@ -23,12 +23,12 @@ export class VerifyAccountPage implements OnInit {
     private authService: AuthService,
     private toast: ToastService
     ) {
-      this.user = this.authService.user;
+      /*this.user = this.authService.user;
       if (!this.user) {
         // if user is not logged in forward to login page
         this.router.navigate(['/login']); 
         return;
-      }  
+      } */ 
     }
  
   ngOnInit() {
@@ -47,7 +47,7 @@ export class VerifyAccountPage implements OnInit {
     if (this.verifyForm.invalid) {
       return;
     }
-
+    /*
     this.authService.verify(this.user.id, this.f.verificationCode.value)
       .pipe(first())
       .subscribe(
@@ -58,7 +58,7 @@ export class VerifyAccountPage implements OnInit {
         err => {
             this.toast.error(err, true);
         }
-      );
+      );*/
   }
 
 
