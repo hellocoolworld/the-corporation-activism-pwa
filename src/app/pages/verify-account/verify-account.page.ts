@@ -58,7 +58,7 @@ export class VerifyAccountPage implements OnInit {
         err => {
             this.toast.error(err, true);
         }
-      );*/
+      );*/  8
   }
 
 

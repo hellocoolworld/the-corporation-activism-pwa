@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ToastService, AuthService, UserService } from '../../services';
 import { User } from '../../models';
 import { first } from 'rxjs/operators';
+import { setupMaster } from 'cluster';
 
 
 @Component({
@@ -26,7 +27,11 @@ export class UserProfilePage implements OnInit {
     private _user: UserService,
     private toast: ToastService) {
 
-    this.user = this.authService.user;
+    setUser();
+  }
+
+  async setUser() {
+    this.user = await this.authService.user;
     if (this.user) {
       // if user is loged in and not verified
       // redirect to verify-user page
@@ -40,7 +45,6 @@ export class UserProfilePage implements OnInit {
       this.router.navigate(['/login']); 
     }
   }
-
   ngOnInit() {
     this.UserProfileForm = this.fb.group(
       {

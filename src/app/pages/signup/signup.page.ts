@@ -28,7 +28,7 @@ export class SignupPage implements OnInit {
     private modalController: ModalController
   ) {
       // redirect to home if already logged in
-      if (this.authService.user) {
+      if (this.authService.getUser()) {
         this.router.navigate(['/']);
       }
 }
