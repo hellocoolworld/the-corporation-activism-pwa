@@ -29,8 +29,7 @@ export class LoginPage implements OnInit {
   }
 
   async ngOnInit() {
-    let user: User = await this.authService.getUser();
-
+    const user: User = await this.authService.getUser();
     if (user) {
       // if user is loged in and not verified
       // redirect to verify-user page

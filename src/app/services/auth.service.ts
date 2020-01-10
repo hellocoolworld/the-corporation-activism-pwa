@@ -102,7 +102,7 @@ export class AuthService extends Extender {
   /** select type of social login, either facebook or google, use native login with cordova plugins if on device or web login
    * on browser. on complete update user details
    */
-  public async socialogin(providerType: number) {
+  public async sociaLogin(providerType: number) {
     let credential: { user: { uid: any; email: any; displayName: any; photoUrl: any } };
     let provider: firebase.auth.GoogleAuthProvider | firebase.auth.FacebookAuthProvider | firebase.auth.AuthProvider;
     if (providerType === SocialAuthProvider.google) {

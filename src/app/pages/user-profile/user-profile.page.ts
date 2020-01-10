@@ -27,11 +27,11 @@ export class UserProfilePage implements OnInit {
     private _user: UserService,
     private toast: ToastService) {
 
-    setUser();
+    this.setUser();
   }
 
   async setUser() {
-    this.user = await this.authService.user;
+    this.user = await this.authService.getUser();
     if (this.user) {
       // if user is loged in and not verified
       // redirect to verify-user page

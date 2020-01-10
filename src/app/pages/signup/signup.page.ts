@@ -1,37 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { Router } from '@angular/router';
-// tslint:disable-next-line: no-unused-expression
-import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
-
-import { first } from 'rxjs/operators';
-
-import { AuthService, UserService, ToastService } from '../../services';
+import { User } from 'src/app/models/user';
+import { AuthService } from '../../services';
 import { PrivacyPolicyModal, TermsOfServiceModal } from '../../modals';
+import { Extender, SocialAuthProvider } from 'src/app/helpers';
+
+
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
 })
-export class SignupPage implements OnInit {
+export class SignupPage extends Extender implements OnInit {
 
   signupForm: FormGroup;
+  loading: boolean = false;
 
   constructor(
+    protected injector: Injector,
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthService,
-    private _user: UserService,
-    private toast: ToastService,
     private modalController: ModalController
   ) {
-      // redirect to home if already logged in
-      if (this.authService.getUser()) {
-        this.router.navigate(['/']);
-      }
-}
+    super(injector);
+    if (this.noUser()) {
+      this.router.navigate(['/']);
+    }
+  }
+
+  async noUser() {
+    const user: User = await this.authService.getUser();
+    return !user;
+  }
 
   ngOnInit() {
     this.signupForm = this.fb.group({
@@ -51,37 +55,25 @@ export class SignupPage implements OnInit {
     if (this.signupForm.invalid) {
       return;
     }
-
-    try {
-      await this._user.register(this.signupForm.value)
-        .pipe(first())
-        .subscribe (
-          res => {
-            this.toast.success('Registration successful. Check your inbox for verification code', true);
-            // automatically authenticate the user
-            this.authService.signUp('', this.f.email.value, this.f.password.value)
-            .pipe(first())
-            .subscribe(
-              data => {
-                // Redirect user to the verification page.
-                this.router.navigate(['/verify-account']);
-                },
-              err => {
-                  this.toast.error(err, true);
-              }
-            );
-          },
-          err => {
-            this.toast.error(err, true);
-          });
-
-    } catch (err) {
-      this.toast.error(err, true);
-    }
+    this.authService.signUp('', this.f.email.value, this.f.password.value)
+      .then(this.successPromise)
+      .catch((err) => this.failPromise(err));
   }
 
+  /** send verification email to the users email and navigate to verify page */
+  private successPromise = () => {
+    this.loading = false;
+    this.authService.sendEmailVerification();
+    this.router.navigate(['/verify-account']);
+  };
+
+  private failPromise = (err: any) => {
+    this.loading = false;
+    this.toast(err);
+  };
+
   clickProvider(providerName: String): void {
-    console.log('facebook login');
+    this.authService.sociaLogin(Provder)
   }
 
 

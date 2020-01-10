@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { HeaderDesktopComponent } from './header-desktop/header-desktop.component';
 import { FooterAdComponent } from './footer-ad/footer-ad.component';
 import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
+import 
 import { PopoverComponent } from './popover/popover.component';
 
 import { AspectRatioComponent } from './aspect-ratio/aspect-ratio.component';
