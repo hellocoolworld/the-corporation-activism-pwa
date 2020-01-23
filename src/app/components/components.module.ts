@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { HeaderDesktopComponent } from './header-desktop/header-desktop.component';
 import { FooterAdComponent } from './footer-ad/footer-ad.component';
 import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
-import 
+import { SocialAuthComponent } from './social-auth/social-auth.component';
 import { PopoverComponent } from './popover/popover.component';
 
 import { AspectRatioComponent } from './aspect-ratio/aspect-ratio.component';
@@ -36,7 +36,7 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     FooterAdComponent,
     AddAvocadosComponent,
     PopoverComponent,
-
+    SocialAuthComponent,
     CheckboxWrapperComponent,
     ShowHidePasswordComponent,
     CountdownTimerComponent,
@@ -53,7 +53,7 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     FooterAdComponent,
     AddAvocadosComponent,
     PopoverComponent,
-
+    SocialAuthComponent,
     CheckboxWrapperComponent,
     ShowHidePasswordComponent,
     CountdownTimerComponent,

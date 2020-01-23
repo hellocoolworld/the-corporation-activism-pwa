@@ -41,7 +41,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               // save new user
               newUser.id = Math.random().toString(20).substring(2);
               newUser.displayName = '';
-              newUser.photoUrl = './assets/images/default-mask-avatar.png';
+              newUser.photoURL = './assets/images/default-mask-avatar.png';
               newUser.testimonial = '';
               newUser.tales = [Math.random().toString(20).substring(2)];
               newUser.pledges = [Math.random().toString(20).substring(2), Math.random().toString(20).substring(2)];
@@ -167,7 +167,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                       filteredUsers[0].email = request.body.email;
                       filteredUsers[0].password = request.body.password;
                       filteredUsers[0].displayName = request.body.displayName;
-                      filteredUsers[0].photoUrl = request.body.photoUrl;
+                      filteredUsers[0].photoURL = request.body.photoURL;
                       filteredUsers[0].testimonial = request.body.testimonial;
                       filteredUsers[0].tales = request.body.tales;
                       filteredUsers[0].pledges = request.body.pledges;

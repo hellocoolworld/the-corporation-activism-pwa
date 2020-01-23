@@ -17,7 +17,7 @@
         <div class="wrapper">
             <div class="content-scroll" *ngIf="user">
                 <!-- profile image -->
-                <div class="profile-image" [image-loader]="user.photoUrl">
+                <div class="profile-image" [image-loader]="user.photoURL">
                     <ion-icon size="large" color="light" prefix src="assets/icons/camera.svg" (click)="changePhoto()"></ion-icon>
                 </div>
                 <div class="profile-detail">

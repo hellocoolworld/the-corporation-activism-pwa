@@ -3,7 +3,8 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +25,8 @@ import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
 
   declarations: [

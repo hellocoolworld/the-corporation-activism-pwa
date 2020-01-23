@@ -1,5 +1,8 @@
 export enum SocialAuthProvider {
   google,
   facebook,
-  twitter
+  twitter,
+  youtube,
+  vimeo
 }
+

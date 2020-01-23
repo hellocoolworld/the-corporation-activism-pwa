@@ -1,0 +1,17 @@
+<div>
+    <p class="options-divider">{{state === 'signin' ? 'Or, sign in with:' : 'Or, p'}}</pß>
+    <div class="social-auth-options">
+        <ion-button class="social-auth-btn facebook-auth-btn" size="small" color="facebook" (click)="socialLoginIn(provider.facebook)">
+            <ion-icon slot="start" name="logo-facebook"></ion-icon>
+            Facebook
+        </ion-button>
+        <ion-button class="social-auth-btn google-auth-btn" size="small" color="google" (click)="socialLoginIn(provider.google)">
+            <ion-icon slot="start" name="logo-google"></ion-icon>
+            Google
+        </ion-button>
+        <ion-button class="social-auth-btn twitter-auth-btn" size="small" color="twitter" (click)="socialLoginIn(provider.twitter)">
+            <ion-icon slot="start" name="logo-twitter"></ion-icon>
+            Twitter
+        </ion-button>
+    </div>
+</div>

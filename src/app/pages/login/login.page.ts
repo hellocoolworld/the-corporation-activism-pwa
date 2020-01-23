@@ -35,7 +35,6 @@ export class LoginPage implements OnInit {
       // redirect to verify-user page
       if (!user.isVerified) {
         this.router.navigate(['/verify-account']);
-
       } else {
         // redirect to home if already logged in and Verified
         this.router.navigate(['/']);
@@ -78,9 +77,7 @@ export class LoginPage implements OnInit {
       this.router.navigate([this.returnUrl]);
     }
   }
-  clickProvider(providerName: String): void {
-    console.log('facebook login');
-  }
+
 
   // convenience getter for easy access to form fields
   get f() {

@@ -3,7 +3,7 @@
     "authType": "password",
     "email": "stefano@stef.com",
     "password": "erew",
-    "photoUrl": "./assets/sample-images/user/person_1.jpg",
+    "photoURL": "./assets/sample-images/user/person_1.jpg",
     "displayName": "Stefano",
     "slug": "stefano",
     "bio": "",

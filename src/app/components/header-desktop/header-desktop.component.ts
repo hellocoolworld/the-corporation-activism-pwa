@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { User } from '../../models';
 import { UserService, AuthService } from '../../services';
+import { SocialAuthProvider } from 'src/app/helpers/constants';
+
 
 @Component({
   selector: 'ht-header-desktop',
@@ -13,7 +15,7 @@ import { UserService, AuthService } from '../../services';
 export class HeaderDesktopComponent implements OnInit, OnDestroy {
   user: User;
   private unsubscribe$: Subject<void> = new Subject();
-
+  public provider = SocialAuthProvider;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -24,9 +26,17 @@ export class HeaderDesktopComponent implements OnInit, OnDestroy {
       .subscribe(res => this.user = res);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.user = await this.authService.getUser();
   }
 
+  linkToSocialProfile(ß) {
+
+  }
+
+  signUp() {
+    
+  }
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

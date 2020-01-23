@@ -1,5 +1,5 @@
 export interface IUser {
-  uid: string;
+  id: string;
   email: string;
   photoUrl?: string;
   displayName?: string;
@@ -15,7 +15,7 @@ export interface IUser {
 }
 
 export class User {
-  public uid: string;
+  public id: string;
   public email: string;
   public photoUrl?: string;
   public displayName?: string;

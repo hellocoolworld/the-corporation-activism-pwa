@@ -110,14 +110,14 @@ export class EditProfileComponent extends Extender implements OnInit {
 
   /**
    * append base 64 string to image data, upload image data to firebase storage.
-   * the upload function returns a download data which is then saved to user.photoUrl property
+   * the upload function returns a download data which is then saved to user.photoURL property
    */
   private uploadImage(imageData: string) {
-    this.user.photoUrl = imageData;
+    this.user.photoURL = imageData;
     this.firestoreService
-      .uploadImage(this.user.photoUrl, this.user.id, 'profile-images')
-      .then((photoUrl) => {
-        this.user.photoUrl = photoUrl;
+      .uploadImage(this.user.photoURL, this.user.id, 'profile-images')
+      .then((photoURL) => {
+        this.user.photoURL = photoURL;
         this.save(false);
         this.loading = false;
       })

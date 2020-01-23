@@ -53,7 +53,7 @@ export class AuthService extends Extender {
   /** sign up user to firebase and update user details */
   public async signUp(displayName: string, email: string, password: string) {
     const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-    await credential.user.updateProfile({ displayName, photoUrl: null });
+    await credential.user.updateProfile({ displayName, photoURL: null });
     return this.updateUserData(credential.user);
   }
 
@@ -103,7 +103,7 @@ export class AuthService extends Extender {
    * on browser. on complete update user details
    */
   public async sociaLogin(providerType: number) {
-    let credential: { user: { uid: any; email: any; displayName: any; photoUrl: any } };
+    let credential: { user: { uid: any; email: any; displayName: any; photoURL: any } };
     let provider: firebase.auth.GoogleAuthProvider | firebase.auth.FacebookAuthProvider | firebase.auth.AuthProvider;
     if (providerType === SocialAuthProvider.google) {
       provider = new firebase.auth.GoogleAuthProvider();
@@ -123,25 +123,15 @@ export class AuthService extends Extender {
   }
 
   /** update user details in users list */
-  private updateUserData({ uid, email, displayName, photoUrl }) {
+  private updateUserData({ uid, email, displayName, photoURL }) {
     const data = {
-      uid,
+      id,
       email,
       displayName,
-      photoUrl
+      photoURL
     };
     return this.firestoreService.set<IUser>(`users/${uid}`, data);
   }
 
 
-  /** do web login for third party providers, specify providerType */
-  private async webLogin(providerType: number): Promise<any> {
-    let provider: firebase.auth.GoogleAuthProvider | firebase.auth.FacebookAuthProvider | firebase.auth.AuthProvider;
-    if (providerType === SocialAuthProvider.google) {
-      provider = new firebase.auth.GoogleAuthProvider();
-    } else {
-      provider = new firebase.auth.FacebookAuthProvider();
-    }
-    return await this.afAuth.auth.signInWithPopup(provider);
-  }
 }

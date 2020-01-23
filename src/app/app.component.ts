@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Platform, ModalController, MenuController } from '@ionic/angular';
 
 import { AuthService } from './services';
-import { User } from './models';
+import { IUser } from './models';
 
 import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
 
@@ -18,7 +18,7 @@ import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
 
 
 export class AppComponent {
-  public user: User;
+  public user: IUser;
 
   constructor(
     private platform: Platform,
@@ -30,8 +30,8 @@ export class AppComponent {
     this.initializeApp();
   }
 
-  initializeApp() {
-    this.authService.user.subscribe(res => this.user = res);
+  async initializeApp() {
+    this.user = await this.authService.getUser();
     this.platform.ready().then(() => {
     });
   }

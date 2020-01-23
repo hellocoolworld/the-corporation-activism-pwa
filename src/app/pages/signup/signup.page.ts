@@ -1,11 +1,10 @@
 import { Component, OnInit, Injector } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { User } from 'src/app/models/user';
 import { AuthService } from '../../services';
 import { PrivacyPolicyModal, TermsOfServiceModal } from '../../modals';
-import { Extender, SocialAuthProvider } from 'src/app/helpers';
+import { Extender, SocialAuthProvider } from '../../helpers';
 
 
 
@@ -16,12 +15,12 @@ import { Extender, SocialAuthProvider } from 'src/app/helpers';
 })
 export class SignupPage extends Extender implements OnInit {
 
-  signupForm: FormGroup;
-  loading: boolean = false;
+  public provider = SocialAuthProvider;
+  public signupForm: FormGroup;
+  public loading: boolean = false;
 
   constructor(
     protected injector: Injector,
-    private router: Router,
     private fb: FormBuilder,
     private authService: AuthService,
     private modalController: ModalController
@@ -72,9 +71,11 @@ export class SignupPage extends Extender implements OnInit {
     this.toast(err);
   };
 
-  clickProvider(providerName: String): void {
-    this.authService.sociaLogin(Provder)
+  clickProvider(provider: SocialAuthProvider): void {
+    this.authService.sociaLogin(provider)
   }
+
+  
 
 
   async showTermsModal() {

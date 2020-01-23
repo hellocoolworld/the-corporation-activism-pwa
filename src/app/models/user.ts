@@ -1,9 +1,9 @@
 ﻿export interface IUser {
-    id: string;
+    uid: string;
     email: string;
     password: string;
-    displayName: string;
-    photoUrl: string;
+    displayName?: string;
+    photoURL?: string;
     testimonial: string;
     tales: Array<{taleId: string, image: string, title: string, link: string}>;
     pledges: Array<{pledgeId: string, taleId: string,  image: string, title: string, link: string}>;
@@ -22,11 +22,11 @@
 }
 
 export class User {
-    id: string;
+    usid: string;
     email: string;
     password: string;
-    displayName: string;
-    photoUrl: string;
+    displayName?: string;
+    photoURL?: string;
     testimonial: string;
     tales: Array<{taleId: string, image: string, title: string, link: string}>;
     pledges: Array<{pledgeId: string, taleId: string,  image: string, title: string, link: string}>;

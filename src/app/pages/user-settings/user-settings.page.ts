@@ -31,22 +31,12 @@ export class UserSettingsPage implements OnInit {
     private _user: UserService,
     private modalController: ModalController) {
       
-    this.user = this.authService.user;
-    if (this.user) {
-      // if user is loged in and not verified
-      // redirect to verify-user page
-      if (!this.user.isVerified) {
-        this.router.navigate(['/verify-account']);
-      } else {
-        this.title.setTitle(`Halo Tales - ${this.user.displayName}`);
-      }
-    } else {
-      // if not logged in, redirect to login
-      this.router.navigate(['/login']); 
-    }
+    
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.user = await this.authService.getUser();
+   
     this.UserSettingsForm = this.fb.group(
       {
         email: [this.user.email, [Validators.required, Validators.email]],

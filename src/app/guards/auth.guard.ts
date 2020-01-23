@@ -18,4 +18,17 @@ export class AuthGuard implements CanActivate {
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
         return false;
     }
+
+    /*async ngOnInit() {
+        const user: User = await this.authService.getUser();
+        if (user) {
+          // if user is loged in and not verified
+          // redirect to verify-user page
+          if (!user.isVerified) {
+            this.router.navigate(['/verify-account']);
+          } else {
+            // redirect to home if already logged in and Verified
+            this.router.navigate(['/']);
+          }
+        }*/
 }
