@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { User } from '../../models';
+import { IUser } from '../../models';
 import { UserService, AuthService } from '../../services';
 
 @Component({
@@ -11,7 +11,7 @@ import { UserService, AuthService } from '../../services';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  user: User;
+  user: IUser;
   private unsubscribe$: Subject<void> = new Subject();
 
   constructor(
@@ -19,14 +19,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private _user: UserService
   ) {
-    this.authService.user
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(res => this.user = res);
+    //this.authService.user
+    //  .pipe(takeUntil(this.unsubscribe$))
+    //  .subscribe(res => this.user = res);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.user = await this.authService.getUser();
   }
 
+  
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

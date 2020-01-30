@@ -71,7 +71,7 @@ export class AuthService extends Extender {
   public async updateEmail(email: string) {
     const user = await this.getUser();
     user.email = email;
-    await this.firestoreService.set<IUser>(`users/${user.id}`, user);
+    await this.firestoreService.set<IUser>(`users/${user.uid}`, user);
     return await firebase.auth().currentUser.updateEmail(email);
   }
 
@@ -125,7 +125,7 @@ export class AuthService extends Extender {
   /** update user details in users list */
   private updateUserData({ uid, email, displayName, photoURL }) {
     const data = {
-      id,
+      uid,
       email,
       displayName,
       photoURL

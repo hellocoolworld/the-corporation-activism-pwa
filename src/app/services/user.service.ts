@@ -19,7 +19,7 @@ export class UserService {
     }
 
     update(user: User) {
-//        return this.http.put(`${this._apiBaseURL}/users/${user.id}`, user).pipe(
+//        return this.http.put(`${this._apiBaseURL}/users/${user.uid}`, user).pipe(
         return this.http.put(`${this._apiBaseURL}/users`, user).pipe(
             map(user => {
                 // store user details in local storage to keep user logged in between page refreshes

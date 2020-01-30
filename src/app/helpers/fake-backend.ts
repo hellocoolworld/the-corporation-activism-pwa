@@ -39,7 +39,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               }
 
               // save new user
-              newUser.id = Math.random().toString(20).substring(2);
+              newUser.uid = Math.random().toString(20).substring(2);
               newUser.displayName = '';
               newUser.photoURL = './assets/images/default-mask-avatar.png';
               newUser.testimonial = '';
@@ -86,7 +86,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               //if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                 // find user by id in users array
                 const filteredUsers = users.filter(user => {
-                  return user.id === request.body.id;
+                  return user.uid === request.body.id;
                 });
 
                 if (filteredUsers.length) {
@@ -140,7 +140,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 const id = urlParts[urlParts.length - 1];
                 // find user by id in users array
                 const matchedUsers = users.filter(user => {
-                  return user.id === id;
+                  return user.uid === id;
                 });
                 const user = matchedUsers.length ? matchedUsers[0] : null;
 
@@ -157,7 +157,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
               // find user by id in users array
                 const filteredUsers = users.filter(user => {
-                  return user.id === request.body.id;
+                  return user.uid === request.body.id;
                 });
 
                 if (filteredUsers.length) {
@@ -203,7 +203,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 const id = parseInt(urlParts[urlParts.length - 1]);
                 for (let i = 0; i < users.length; i++) {
                   const user = users[i];
-                  if (user.id === id) {
+                  if (user.uid === id) {
                     // delete user
                     users.splice(i, 1);
                     localStorage.setItem('users', JSON.stringify(users));

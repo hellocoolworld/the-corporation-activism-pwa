@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { User } from '../../models';
+import { IUser } from '../../models';
 import { UserService, AuthService } from '../../services';
 import { SocialAuthProvider } from 'src/app/helpers/constants';
 
@@ -13,7 +13,7 @@ import { SocialAuthProvider } from 'src/app/helpers/constants';
   styleUrls: ['./header-desktop.component.scss']
 })
 export class HeaderDesktopComponent implements OnInit, OnDestroy {
-  user: User;
+  user: IUser;
   private unsubscribe$: Subject<void> = new Subject();
   public provider = SocialAuthProvider;
   constructor(
@@ -21,9 +21,7 @@ export class HeaderDesktopComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private _user: UserService
   ) {
-    this.authService.user
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(res => this.user = res);
+    //
   }
 
   async ngOnInit() {
@@ -35,8 +33,9 @@ export class HeaderDesktopComponent implements OnInit, OnDestroy {
   }
 
   signUp() {
-    
+    //
   }
+  
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

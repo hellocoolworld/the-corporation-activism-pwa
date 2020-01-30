@@ -4,9 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ToastService, AuthService, UserService } from '../../services';
-import { User } from '../../models';
+import { IUser } from '../../models';
 import { first } from 'rxjs/operators';
-import { setupMaster } from 'cluster';
 
 
 @Component({
@@ -16,7 +15,7 @@ import { setupMaster } from 'cluster';
 })
 export class UserProfilePage implements OnInit {
   UserProfileForm: FormGroup;
-  user: User;
+  user: IUser;
 
   
   constructor(
@@ -70,7 +69,7 @@ export class UserProfilePage implements OnInit {
       .subscribe(
         res => {
           this.toast.success('Public Profile Updated Succesfully', false, 2000);
-          // this.router.navigate([`/profile/${this.user.id}`]);
+          // this.router.navigate([`/profile/${this.user.uid}`]);
           this.router.navigate([`/`]);
           },
         err => {

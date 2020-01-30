@@ -22,7 +22,7 @@
 }
 
 export class User {
-    usid: string;
+    uid: string;
     email: string;
     password: string;
     displayName?: string;

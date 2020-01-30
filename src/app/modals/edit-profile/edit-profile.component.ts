@@ -76,7 +76,7 @@ export class EditProfileComponent extends Extender implements OnInit {
   public save(close = true) {
     this.loading = true;
     this.firestoreService
-      .upsert<IUser>(`users/${this.user.id}`, this.user)
+      .upsert<IUser>(`users/${this.user.uid}`, this.user)
       .then(() => {
         this.loading = false;
         if (close) {
@@ -115,7 +115,7 @@ export class EditProfileComponent extends Extender implements OnInit {
   private uploadImage(imageData: string) {
     this.user.photoURL = imageData;
     this.firestoreService
-      .uploadImage(this.user.photoURL, this.user.id, 'profile-images')
+      .uploadImage(this.user.photoURL, this.user.uid, 'profile-images')
       .then((photoURL) => {
         this.user.photoURL = photoURL;
         this.save(false);

@@ -24,7 +24,7 @@
         <div class="user-avatars-wrapper" *ngIf="user">
 
             <div class="main-user-avatar">
-                <a [routerLink]="['/profile', user.id]">
+                <a [routerLink]="['/profile', user.uid]">
                     <img [src]="user.photoURL" [alt]="user.displayName" />
                 </a>
             </div>
@@ -48,7 +48,7 @@
                                 <ion-label>
                                     <ng-container *ngIf="user.testimonial != ''; then yesTestimonials; else noTestimonial"></ng-container>
                                     <ng-template #yesTestimonials>
-                                        <a [routerLink]="['/profile', user.id]">
+                                        <a [routerLink]="['/profile', user.uid]">
                       Testimonial
                       <br />
                       given

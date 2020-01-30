@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnDestroy, Injector } from '@angular/core';
-import { User } from '../../models';
+import { IUser } from '../../models';
 import { AuthService } from '../../services';
 import { Extender, SocialAuthProvider } from '../../helpers';
 
@@ -10,7 +10,7 @@ import { Extender, SocialAuthProvider } from '../../helpers';
   styleUrls: ['./social-auth.component.scss']
 })
 export class SocialAuthComponent extends Extender implements OnInit, OnDestroy {
-  user: User;
+  user: IUser;
   public provider = SocialAuthProvider;
   @Input() state:string;
   
@@ -19,7 +19,8 @@ export class SocialAuthComponent extends Extender implements OnInit, OnDestroy {
   }
   async ngOnInit() {
     this.user = await this.authService.getUser();
-  }               
+  }
+  
   /** users facebook or google social to login based on provider type
    * on success, navigate to dashboard page
    */
@@ -43,6 +44,10 @@ export class SocialAuthComponent extends Extender implements OnInit, OnDestroy {
   private failPromise = (err: any) => {
     this.toast(err);
   };
+
+  public get label() {
+    return (this. state === 'signin') ? 'Or, sign in with:' : 'Or, please sign-up';
+  }
   ngOnDestroy() {
   
   }

@@ -52,14 +52,14 @@ export class FcmService extends Extender {
 
   // Save the token to firestore
   private async saveTokenToFirestore(token: string) {
-    const { id } = await this.authService.getUser();
+    const { uid } = await this.authService.getUser();
     if (!token) {
       return;
     }
-    if (id) {
+    if (uid) {
       const docData = {
         token,
-        id
+        uid
       };
 
       return this.firestoreService.set(`fcm-devices/${token}`, docData);
