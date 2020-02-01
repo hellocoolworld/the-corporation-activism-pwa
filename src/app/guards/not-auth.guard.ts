@@ -13,7 +13,6 @@ export class NotAuthGuard implements CanActivate {
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         let user: User = await this.authService.getUser();
         if (user) {
-            this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
             return false;
         }
         return true;

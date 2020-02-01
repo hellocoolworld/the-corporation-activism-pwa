@@ -34,7 +34,7 @@ import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal
     AngularFireAuthModule,
     AngularFireMessagingModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule  
   ],
 
   declarations: [

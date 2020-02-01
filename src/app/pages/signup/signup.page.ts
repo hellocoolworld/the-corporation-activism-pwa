@@ -26,27 +26,28 @@ export class SignupPage extends Extender implements OnInit {
     private modalController: ModalController
   ) {
     super(injector);
-    if (this.noUser()) {
-      this.router.navigate(['/']);
-    }
   }
 
   async noUser() {
     const user: User = await this.authService.getUser();
-    return !user;
+    return user ? false : true;
   }
 
   ngOnInit() {
-    this.signupForm = this.fb.group({
-      'email': ['', [
-        Validators.required,
-        Validators.email
-      ]],
-      'password': ['', [
-        Validators.required,
-        Validators.minLength(5)
-      ]]
-    });
+    if (this.noUser()) {
+      this.signupForm = this.fb.group({
+        'email': ['', [
+          Validators.required,
+          Validators.email
+        ]],
+        'password': ['', [
+          Validators.required,
+          Validators.minLength(5)
+        ]]
+      });
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 
   async onSubmit() {
@@ -54,7 +55,7 @@ export class SignupPage extends Extender implements OnInit {
     if (this.signupForm.invalid) {
       return;
     }
-    this.authService.signUp('', this.f.email.value, this.f.password.value)
+    this.authService.register('', this.f.email.value, this.f.password.value)
       .then(this.successPromise)
       .catch((err) => this.failPromise(err));
   }
@@ -71,9 +72,7 @@ export class SignupPage extends Extender implements OnInit {
     this.toast(err);
   };
 
-  clickProvider(provider: SocialAuthProvider): void {
-    this.authService.sociaLogin(provider)
-  }
+
 
   
 

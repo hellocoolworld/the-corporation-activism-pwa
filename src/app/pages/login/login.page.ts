@@ -28,18 +28,7 @@ export class LoginPage implements OnInit {
 
   }
 
-  async ngOnInit() {
-    const user: User = await this.authService.getUser();
-    if (user) {
-      // if user is loged in and not verified
-      // redirect to verify-user page
-      if (!user.isVerified) {
-        this.router.navigate(['/verify-account']);
-      } else {
-        // redirect to home if already logged in and Verified
-        this.router.navigate(['/']);
-      }
-    }
+   ngOnInit() {
 
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -58,7 +47,7 @@ export class LoginPage implements OnInit {
 
     this.loading = true;
     this.authService
-      .signIn(this.f.email.value, this.f.password.value)
+      .login(this.f.email.value, this.f.password.value)
       .then((res) => {
         console.log('res: ', res);
         this.onSignIn();

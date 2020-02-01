@@ -39,14 +39,14 @@
                 </div>
             </div>
         </ion-list>
-        <ion-button class="system-btn" type="submit" expand="block" [disabled]="loginForm.invalid">Log In</ion-button>
+        <ion-button class="system-btn" type="submit" expand="block">Log In</ion-button>
         <p text-right>
             <a [routerLink]="['/forgot-password']">Forgot Password?</a>
         </p>
     </form>
 
-    <social-auth [state]="login"></social-auth>
+
     <p class="options-divider">
-        Don't have an account? <a [routerLink]="['/signup']">Sign up now</a>
+        Don't have an account? <a [routerLink]="['/register']">Sign up now</a>
     </p>
 </ion-content>

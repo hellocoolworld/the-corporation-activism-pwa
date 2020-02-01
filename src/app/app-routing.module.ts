@@ -5,7 +5,7 @@ import { AuthGuard, NotAuthGuard } from 'src/app/guards';
 const routes: Routes = [
   { path: '', loadChildren: './pages/home/home.module#HomePageModule' },
   { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
-  { path: 'signup', canActivate:[NotAuthGuard], loadChildren: './pages/signup/signup.module#SignupPageModule' },
+  { path: 'register', canActivate:[NotAuthGuard], loadChildren: './pages/signup/signup.module#SignupPageModule' },
   { path: 'login', canActivate:[NotAuthGuard], loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'forgot-password', loadChildren: './pages/forgot-password/forgot-password.module#ForgotPasswordPageModule' },
   { path: 'reset-password', loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule' },

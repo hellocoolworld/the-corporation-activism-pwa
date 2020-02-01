@@ -46,12 +46,12 @@ export class AuthService extends Extender {
   }
 
   /** sign in user with email and password using firebase library */
-  public async signIn(email: string, password: string) {
+  public async login(email: string, password: string) {
     return await this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   /** sign up user to firebase and update user details */
-  public async signUp(displayName: string, email: string, password: string) {
+  public async register(displayName: string, email: string, password: string) {
     const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
     await credential.user.updateProfile({ displayName, photoURL: null });
     return this.updateUserData(credential.user);

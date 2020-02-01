@@ -32,8 +32,8 @@ export class HeaderDesktopComponent implements OnInit, OnDestroy {
 
   }
 
-  signUp() {
-    //
+  register() {
+    this.router.navigate(['register']);
   }
   
   ngOnDestroy() {

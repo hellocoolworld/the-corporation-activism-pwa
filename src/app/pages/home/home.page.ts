@@ -130,8 +130,8 @@ export class HomePage implements OnInit, OnDestroy {
     return await popover.present();
   }
 
-  signUp() {
-    this.router.navigate(['signup']);
+  register() {
+    this.router.navigate(['register']);
   }
 
   get isFirstPageThisSession(): boolean {

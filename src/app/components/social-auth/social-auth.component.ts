@@ -24,6 +24,7 @@ export class SocialAuthComponent extends Extender implements OnInit, OnDestroy {
   /** users facebook or google social to login based on provider type
    * on success, navigate to dashboard page
    */
+ 
   public socialLoginIn(provider: number) {
     console.log('provider: ', provider);
     this.authService
@@ -46,7 +47,7 @@ export class SocialAuthComponent extends Extender implements OnInit, OnDestroy {
   };
 
   public get label() {
-    return (this. state === 'signin') ? 'Or, sign in with:' : 'Or, please sign-up';
+    return (this. state === 'login') ? 'Or, login with:' : 'Or, please register';
   }
   ngOnDestroy() {
   
