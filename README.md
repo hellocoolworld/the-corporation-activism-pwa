@@ -1,1 +1,1 @@
-# halo-tales-pwa
+# corp-app-pwa
