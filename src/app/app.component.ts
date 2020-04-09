@@ -14,9 +14,6 @@ import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
   styleUrls: ['./app.component.scss']
 })
 
-
-
-
 export class AppComponent {
   public user: IUser;
 
@@ -28,6 +25,25 @@ export class AppComponent {
     private modalController: ModalController
   ) {
     this.initializeApp();
+  }
+
+  get showLogin() {
+    const test: boolean = !this.user && this.router.url !== '/login';
+    console.log('showLogin: ', test);
+    return test;
+  }
+
+  get showLogout() {
+    //const test: boolean = this.user;
+    //console.log('showLogout: ', test);
+    //return test;
+    return false;
+  }
+
+  get showRegister() {
+    const test: boolean = !this.user && this.router.url !== '/register';
+    console.log('showRegister: ', test);
+    return test;
   }
 
   async initializeApp() {

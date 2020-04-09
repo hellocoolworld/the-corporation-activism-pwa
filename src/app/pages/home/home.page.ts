@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController, PopoverController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-
+import { Extender } from 'src/app/helpers';
 import { User, Tale, TaleType } from '../../models';
 import { AuthService, TaleService } from '../../services';
 import { HelpActionPledgeModal, HelpAvocadometerModal } from '../../modals';
@@ -15,20 +15,20 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss']
 })
-export class HomePage implements OnInit, OnDestroy {
+export class HomePage extends Extender implements OnInit, OnDestroy {
   user: User;
   tales: Tale[] = [];
-  mostRecentActions = [];
   private unsubscribe$: Subject<void> = new Subject();
   
   constructor(
-    private router: Router,
+    protected injector: Injector,
     private title:Title,
     private authService: AuthService,
-    private _tale: TaleService,
+    private taleService: TaleService,
     private modalController: ModalController,
     private popoverController: PopoverController
   ) {
+    super(injector);
     this.title.setTitle('Halo Tales - Welcome');
     this.authService.user
     .pipe(takeUntil(this.unsubscribe$))
@@ -36,7 +36,7 @@ export class HomePage implements OnInit, OnDestroy {
   }
   
   ngOnInit() {
-    this._tale.getAll()
+    this.taleService.getAll()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         res => {
@@ -53,57 +53,10 @@ export class HomePage implements OnInit, OnDestroy {
           // console.log( this.tales );
         }
       );
-    this.mostRecentActions = [
-      {
-        'userId' : '2r22fw2f',
-        'photoURL' : "/assets/sample-images/user/person_1.jpg",
-        'displayName' : 'Hank Aaron',
-        'actionIcon' : 'hand',
-        'relatedTaleTitle' : '',
-        'relatedTaleSlug' : '',
-        'relatedTestamonial' : ''
-      },
-      {
-        'userId' : 'qv4tc4a3',
-        'photoURL' : "/assets/sample-images/user/person_3.jpg",
-        'displayName' : 'Frank Abagnale',
-        'actionIcon' : 'quote',
-        'relatedTaleTitle' : '',
-        'relatedTaleSlug' : '',
-        'relatedTestamonial' : 'In the case of a dynamically loaded component and in order for a ComponentFactory to be generated, the component must also be added to the module’s entryComponents'
-      },
-      {
-        'userId' : 'wv4s4rt4',
-        'photoURL' : "/assets/sample-images/user/person_5.jpg",
-        'displayName' : 'Edward Abbey',
-        'actionIcon' : 'trophy',
-        'relatedTaleTitle' : 'How Does Halo Tales Empower People To Fight Corporate Power?',
-        'relatedTaleSlug' : 'how-does-halo-tales-empower-people-to-fight-corporate-power',
-        'relatedTestamonial' : ''
-      },
-      {
-        'userId' : 'qcwafwert3',
-        'photoURL' : "/assets/sample-images/user/person_6.jpg",
-        'displayName' : 'James Abourezk',
-        'actionIcon' : 'hand',
-        'relatedTaleTitle' : '',
-        'relatedTaleSlug' : '',
-        'relatedTestamonial' : ''
-      },
-      {
-        'userId' : '562wcrtr3wt4',
-        'photoURL' : "/assets/sample-images/user/person_7.jpg",
-        'displayName' : 'Jane Ace',
-        'actionIcon' : 'hand',
-        'relatedTaleTitle' : '',
-        'relatedTaleSlug' : '',
-        'relatedTestamonial' : ''
-      }
-    ]
+    
   }
+
   ngOnDestroy() {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
   get pledgesCount(): number {
@@ -112,22 +65,6 @@ export class HomePage implements OnInit, OnDestroy {
 
   get talesCount(): number {
     return (this.user && this.user.tales) ? this.user.tales.length : null;
-  }
-
-  async onAvatarClick(ev: Event, userId: String, userDisplayName: String, relatedTaleTitle: String, relatedTaleSlug: String, relatedTestamonial: String) {
-    const popover = await this.popoverController.create({
-      component: PopoverComponent,
-      componentProps: {
-        userId: userId,
-        userDisplayName: userDisplayName,
-        relatedTaleTitle: relatedTaleTitle,
-        relatedTaleSlug: relatedTaleSlug,
-        relatedTestamonial: relatedTestamonial
-      },
-      event: ev,
-      translucent: true
-    });
-    return await popover.present();
   }
 
   register() {

@@ -10,32 +10,31 @@
                     <p>Over a decade ago The Corporation film likened the dominant institution of our time to a psychopath. Now get ready for the sequel.</p>
                 </div>
                 <div class="header-links">
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/sign-in">Sign In</a>
-                    <a href="/">TheCorporation.com</a>
+                    <a routerLink="/">Home</a>
+                    <a routerLink="/about">About</a>
+                    <a routerLink="/login">Login</a>
                 </div>
             </div>
         </div>
-        <div class="header-end">
-            <div class="social-buttons">
-                <a (click)="linkToSocialProfile(provider.facebook)">
-                    <img src="../../../assets/images/mobile-facebook.svg">
+        <div class="header-end ">
+            <div class="social-buttons ">
+                <a (click)="linkToSocialProfile(provider.facebook) ">
+                    <img src="../../../assets/images/mobile-facebook.svg ">
                 </a>
 
-                <a (click)="linkToSocialProfile(provider.twitter)">
-                    <img src="../../../assets/images/mobile-twitter.svg">
+                <a (click)="linkToSocialProfile(provider.twitter) ">
+                    <img src="../../../assets/images/mobile-twitter.svg ">
                 </a>
 
-                <a (click)="linkToSocialProfile(provider.youtube)">
-                    <img src="../../../assets/images/mobile-youtube.svg">
+                <a (click)="linkToSocialProfile(provider.youtube) ">
+                    <img src="../../../assets/images/mobile-youtube.svg ">
                 </a>
 
-                <a (click)="linkToSocialProfile(provider.vimeo)">
-                    <img src="../../../assets/images/mobile-vimeo.svg">
+                <a (click)="linkToSocialProfile(provider.vimeo) ">
+                    <img src="../../../assets/images/mobile-vimeo.svg ">
                 </a>
             </div>
-            <ion-button (click)="register()" expand="block" class="content-btn">
+            <ion-button (click)="register() " expand="block " class="content-btn ">
                 Join us
             </ion-button>
         </div>

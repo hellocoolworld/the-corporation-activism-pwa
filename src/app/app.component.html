@@ -16,11 +16,11 @@
             <ion-content>
                 <ion-list class="nav-section">
                     <ion-menu-toggle auto-hide="false">
-                        <ion-item href="/" class="main-nav-item" lines="none">
+                        <ion-item [routerLink]="['/']" class="main-nav-item" lines="none">
                             <ion-label>Home</ion-label>
                         </ion-item>
 
-                        <ion-item href="/about" class="main-nav-item" lines="none">
+                        <ion-item [routerLink]="['/about']" class="main-nav-item" lines="none">
                             <ion-label>About</ion-label>
                         </ion-item>
 
@@ -32,15 +32,15 @@
                             <ion-label>Account Settings</ion-label>
                         </ion-item>
 
-                        <ion-item (click)="logout()" *ngIf="user" class="main-nav-item" lines="none">
+                        <ion-item (click)="logout()" *ngIf="showLogout" class="main-nav-item" lines="none">
                             <ion-label>Logout</ion-label>
                         </ion-item>
 
-                        <ion-item (click)="login()" *ngIf="!user" class="main-nav-item" lines="none">
+                        <ion-item [routerLink]="['/login']" *ngIf="showLogin" class="main-nav-item" lines="none">
                             <ion-label>Login</ion-label>
                         </ion-item>
 
-                        <ion-item (click)="register()" *ngIf="!user" class="main-nav-item" lines="none">
+                        <ion-item [routerLink]="['/register']" *ngIf="showRegister" class="main-nav-item" lines="none">
                             <ion-label>Join Us</ion-label>
                         </ion-item>
                     </ion-menu-toggle>

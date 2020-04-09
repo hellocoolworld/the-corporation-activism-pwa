@@ -6,7 +6,7 @@ import { User } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-    private _apiBaseURL: String = 'https://www.halotales.com/api';
+    private _apiBaseURL: String = 'https://api.com/api';
 
     constructor(private http: HttpClient) { }
 
@@ -28,7 +28,5 @@ export class UserService {
         );
     }
 
-    delete(id: string) {
-        return this.http.delete(`${this._apiBaseURL}/users/${id}`);
-    }
+    
 }

@@ -123,10 +123,10 @@
     </ion-grid>
 
     <div class="tale-wrapper" *ngFor="let tale of tales">
-        <a href="tale/{{ tale.slug }}">
+        <a href="story/{{ tale.slug }}">
             <div class="tale-header">
                 <ion-img [src]="tale.image"></ion-img>
-                <h3 class="tale-title">{{ tale.title }}</h3>
+                <h3 class="tale-title">{{ tale.title }}{{ tale.slug }}</h3>
             </div>
         </a>
         <div class="tale-action-summary">
