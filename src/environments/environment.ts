@@ -8,6 +8,7 @@ export const environment = {
     debug: false,
     networkDelay: 2000
   },
+  api: 'http://localhost:1337',
   hosting: 'http://localhost:8100',
   firebaseConfig: {
     apiKey: 'AIzaSyBj0pEH4_R60noIX9eFbMCQH73gTHK5K-c',

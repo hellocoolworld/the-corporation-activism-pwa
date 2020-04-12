@@ -35,7 +35,7 @@ export class DetailsPage implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const slug = params.get('slug');
-      this.taleService.getBySlug(slug).subscribe(
+      this.storiesService.getBySlug(slug).subscribe(
         res => {
           let data: Array<Story> = res as Story[]; //Convert the result to an array of Story
           data.some(story => {
