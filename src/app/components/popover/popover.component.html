@@ -1,44 +1,38 @@
 <ion-item (click)="loadUserProfile(userId)" color="primary" lines="none" detail>
-  <ion-label text-wrap>
-    {{ userDisplayName }}
-  </ion-label>
+    <ion-label text-wrap>
+        {{ userDisplayName }}
+    </ion-label>
 </ion-item>
 
-<ion-item *ngIf="relatedTaleTitle == '' && relatedTestamonial == ''" lines="none">
-  <ion-label text-wrap>
-    Has joined us
-  </ion-label>
+<ion-item *ngIf="relatedStoryTitle == '' && relatedTestamonial == ''" lines="none">
+    <ion-label text-wrap>
+        Has joined us
+    </ion-label>
 </ion-item>
 
-<ion-item *ngIf="relatedTaleTitle != '' && relatedTaleSlug != ''" lines="none">
-  <ion-label text-wrap><strong>Has pledged action on:</strong></ion-label>
+<ion-item *ngIf="relatedStoryTitle != '' && relatedStorySlug != ''" lines="none">
+    <ion-label text-wrap><strong>Has pledged action on:</strong></ion-label>
 </ion-item>
-<ion-item
-  *ngIf="relatedTaleTitle != '' && relatedTaleSlug != ''"
-  lines="none"
-  (click)="loadTale(relatedTaleSlug)"
-  detail
->
-  <ion-label text-wrap>
-    {{ relatedTaleTitle }}
-  </ion-label>
+<ion-item *ngIf="relatedStoryTitle != '' && relatedStorySlug != ''" lines="none" (click)="loadStory(relatedStorySlug)" detail>
+    <ion-label text-wrap>
+        {{ relatedStoryTitle }}
+    </ion-label>
 </ion-item>
 
 <ion-item lines="none" *ngIf="relatedTestamonial != ''">
-  <ion-label text-wrap>
-    <strong>Added a testimonial:</strong>
-    <br />
-    {{ relatedTestamonial }}
-  </ion-label>
+    <ion-label text-wrap>
+        <strong>Added a testimonial:</strong>
+        <br /> {{ relatedTestamonial }}
+    </ion-label>
 </ion-item>
 
 <ion-item lines="none">
-  <ion-button (click)="dismiss()">
-    <ion-icon slot="start" name="close-circle-outline"></ion-icon>
-    Close
-  </ion-button>
-  <ion-button (click)="dismiss()">
-    <ion-icon slot="start" name="list-box"></ion-icon>
-    All activity
-  </ion-button>
+    <ion-button (click)="dismiss()">
+        <ion-icon slot="start" name="close-circle-outline"></ion-icon>
+        Close
+    </ion-button>
+    <ion-button (click)="dismiss()">
+        <ion-icon slot="start" name="list-box"></ion-icon>
+        All activity
+    </ion-button>
 </ion-item>

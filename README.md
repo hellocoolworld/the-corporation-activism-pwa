@@ -1,1 +1,1 @@
-# halo-tales-pwa
+# halo-stories-pwa

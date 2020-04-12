@@ -1,7 +1,7 @@
 ﻿export class Pledge {
     id: string;
     userId: string;
-    taleId: string;
+    storyId: string;
     image: string;
     title: string;
     slug: string;

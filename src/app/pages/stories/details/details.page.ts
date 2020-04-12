@@ -5,8 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
 import { ModalController } from '@ionic/angular';
 
-import { TaleService, ToastService } from '../../../services';
-import { Tale, TaleType } from '../../../models';
+import { StoriesService, ToastService } from '../../../services';
+import { Story, StoryType } from '../../../models';
 
 import { AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from '../../../modals';
 
@@ -16,7 +16,7 @@ import { AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometer
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-  tale: Tale = new Tale;
+  story: Story = new Story;
 
   //Fake data
   pledgeCount: number;
@@ -26,7 +26,7 @@ export class DetailsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private title: Title,
-    private taleService: TaleService,
+    private storiesService: StoriesService,
     private toast: ToastService,
     private sanitizer: DomSanitizer,
     private modalController: ModalController
@@ -37,12 +37,12 @@ export class DetailsPage implements OnInit {
       const slug = params.get('slug');
       this.taleService.getBySlug(slug).subscribe(
         res => {
-          let data: Array<Tale> = res as Tale[]; //Convert the result to an array of Tales
-          data.some(tale => {
-            console.log('slug:', tale.slug, slug);
-            if (tale.slug === slug) {
-              this.tale = tale;
-              this.title.setTitle(`Halo Tales - ${this.tale.title}`);
+          let data: Array<Story> = res as Story[]; //Convert the result to an array of Story
+          data.some(story => {
+            console.log('slug:', story.slug, slug);
+            if (story.slug === slug) {
+              this.story = story;
+              this.title.setTitle(`The Corporation - ${this.story.title}`);
               return true;
             } else {
               return false;
@@ -53,8 +53,8 @@ export class DetailsPage implements OnInit {
           this.toast.error(err, true);
         },
         () => {
-          this.pledgeCount = this.tale.pledgeCount;
-          this.avocados = this.tale.avocados;
+          this.pledgeCount = this.story.pledgeCount;
+          this.avocados = this.story.avocados;
           this.userAvocados = 0;
         }
       )

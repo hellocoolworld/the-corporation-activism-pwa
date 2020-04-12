@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class PopoverComponent implements OnInit {
   userId: String = null;
   userDisplayName: String = null;
-  relatedTaleTitle: String = null;
-  relatedTaleSlug: String = null;
+  relatedStoryTitle: String = null;
+  relatedStorySlug: String = null;
   relatedTestamonial: String = null;
 
   constructor(private router: Router, private navParams: NavParams, private popoverController: PopoverController) { }
@@ -19,8 +19,8 @@ export class PopoverComponent implements OnInit {
   ngOnInit() {
     this.userId = this.navParams.get('userId');
     this.userDisplayName = this.navParams.get('userDisplayName');
-    this.relatedTaleTitle = this.navParams.get('relatedTaleTitle');
-    this.relatedTaleSlug = this.navParams.get('relatedTaleSlug');
+    this.relatedStoryTitle = this.navParams.get('relatedStoryTitle');
+    this.relatedStorySlug = this.navParams.get('relatedStorySlug');
     this.relatedTestamonial = this.navParams.get('relatedTestamonial');
   }
 
@@ -29,8 +29,8 @@ export class PopoverComponent implements OnInit {
     this.dismiss();
   }
 
-  loadTale(taleSlug: String) {
-    this.router.navigate(['tale/'+taleSlug]);
+  loadStory(storySlug: String) {
+    this.router.navigate(['story/'+storySlug]);
     this.dismiss();
   }
 

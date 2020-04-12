@@ -22,15 +22,14 @@
 
     <div class="home-splash" [class.logged-in]="user" [class.logged-out]="!user">
         <div class="user-avatars-wrapper" *ngIf="user">
-
             <div class="main-user-avatar">
                 <a [routerLink]="['/profile', user.uid]">
                     <img [src]="user.photoURL" [alt]="user.displayName" />
                 </a>
             </div>
         </div>
-        <ion-card>
 
+        <ion-card>
             <ion-card-header class="hidden-lg mobile-join-us-card">
                 <ion-card-title>
                     {{"SEQUEL COMING SOON"}}
@@ -73,9 +72,9 @@
                             <ion-item>
                                 <ion-icon slot="start" name="videocam"></ion-icon>
                                 <ion-label>
-                                    <ng-container *ngIf="talesCount > 0; then yesTales; else noTales"></ng-container>
-                                    <ng-template #yesTales>{{ talesCount }} Stories</ng-template>
-                                    <ng-template #noTales>
+                                    <ng-container *ngIf="storiesCount > 0; then yesStories; else noStories"></ng-container>
+                                    <ng-template #yesStories>{{ storiesCount }} Stories</ng-template>
+                                    <ng-template #noStories>
                                         <a href="">
                       Add
                       <br />
@@ -96,22 +95,22 @@
         </ion-card>
     </div>
 
-    <div class="mobile-tales-section-intro hidden-lg">
+    <div class="mobile-stories-section-intro hidden-lg">
         <h2>PEOPLE ARE HITTING <br> THE STREETS AGAIN!</h2>
         <p>Speaking up like never before about climate change and economic injustice </p>
     </div>
 
 
     <ion-grid fixed no-padding class="intro-grid hidden-sm">
-        <div class="tales-section-intro-wrapper">
+        <div class="stories-section-intro-wrapper">
             <ion-row>
                 <ion-col>
-                    <h2 class="tales-section-intro">Watch Stories.</h2>
+                    <h2 class="stories-section-intro">Watch Stories.</h2>
                 </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col>
-                    <h2 class="tales-section-intro">Get Inspired.</h2>
+                    <h2 class="stories-section-intro">Get Inspired.</h2>
                 </ion-col>
             </ion-row>
             <ion-row>
@@ -122,21 +121,21 @@
         </div>
     </ion-grid>
 
-    <div class="tale-wrapper" *ngFor="let tale of tales">
-        <a href="story/{{ tale.slug }}">
-            <div class="tale-header">
-                <ion-img [src]="tale.image"></ion-img>
-                <h3 class="tale-title">{{ tale.title }}{{ tale.slug }}</h3>
+    <div class="story-wrapper" *ngFor="let story of stories">
+        <a href="story/{{ story.slug }}">
+            <div class="story-header">
+                <ion-img [src]="story.image"></ion-img>
+                <h3 class="story-title">{{ story.title }}{{ story.slug }}</h3>
             </div>
         </a>
-        <div class="tale-action-summary">
+        <div class="story-action-summary">
             <div class="pledges summary-box">
                 <div class="summary-icon">
                     <img src="../../../assets/images/action-pledges.svg">
                 </div>
 
                 <div class="header">
-                    <ion-label>{{ tale.pledgeCount }}</ion-label>
+                    <ion-label>{{ story.pledgeCount }}</ion-label>
                     <a (click)="showHelpActionPledgeModal()">
                         Action Pledges
                         </a>
@@ -149,7 +148,7 @@
                 </div>
 
                 <div class="header">
-                    <ion-label>{{ tale.avocados }}</ion-label>
+                    <ion-label>{{ story.avocados }}</ion-label>
                     <a (click)="showHelpAvocadometerModal()">
                         Avocadometer
                         </a>
@@ -158,15 +157,15 @@
         </div>
 
         <ion-item class="summary" lines="none">
-            <ion-label text-wrap>{{ tale.summary }}</ion-label>
+            <ion-label text-wrap>{{ story.summary }}</ion-label>
         </ion-item>
 
-        <ion-item class="tale-meta" lines="none">
+        <ion-item class="story-meta" lines="none">
             <ion-avatar slot="start">
-                <img [src]="tale.authorImg" />
+                <img [src]="story.authorImg" />
             </ion-avatar>
             <ion-label>
-                <div class="authoring-info">{{ tale.authorName }} &bull; {{ tale.updatedAt }}</div>
+                <div class="authoring-info">{{ story.authorName }} &bull; {{ story.updatedAt }}</div>
             </ion-label>
         </ion-item>
     </div>

@@ -1,22 +1,22 @@
 <ht-header></ht-header>
 
-<ion-content class="tale-details-content">
+<ion-content class="story-details-content">
     <ht-header-desktop></ht-header-desktop>
-    
-    <div [style]="sanatizeVideoResponsiveStyles(tale.aspectRatio)">
-        <iframe [src]="sanatizeVideoUrl(tale.vimeoCode)" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+    <div [style]="sanatizeVideoResponsiveStyles(story.aspectRatio)">
+        <iframe [src]="sanatizeVideoUrl(story.vimeoCode)" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
     <script src="https://player.vimeo.com/api/player.js"></script>
 
-    <h2>{{ tale.title }}</h2>
-    <p>{{ tale.summary }}</p>
-    <ion-item (click)="loadAuthorBio(tale.id)" [detail]="tale.authorBioFull == '' ? false : true" lines="none" class="author-info">
+    <h2>{{ story.title }}</h2>
+    <p>{{ story.summary }}</p>
+    <ion-item (click)="loadAuthorBio(story.id)" [detail]="story.authorBioFull == '' ? false : true" lines="none" class="author-info">
         <ion-avatar slot="start">
-            <img [src]="tale.authorImg" />
+            <img [src]="story.authorImg" />
         </ion-avatar>
         <ion-label text-wrap>
-            <h4>{{ tale.authorName }}</h4>
-            <p>{{ tale.authorBioSummary }}</p>
+            <h4>{{ story.authorName }}</h4>
+            <p>{{ story.authorBioSummary }}</p>
         </ion-label>
     </ion-item>
 
@@ -65,13 +65,13 @@
         </ion-row>
     </ion-grid>
 
-    <div *ngIf="tale.body !== ''" class="tale-body-section" [innerHTML]="sanatizeHTML(tale.body)"></div>
-    <hr *ngIf="tale.body !== ''" />
+    <div *ngIf="story.body !== ''" class="story-body-section" [innerHTML]="sanatizeHTML(story.body)"></div>
+    <hr *ngIf="story.body !== ''" />
 
-    <div class="tale-body-section">
-        <h3>Take Action To Support This Tale</h3>
-        <p>{{ tale.takeActionSummary }}</p>
-        <div [innerHTML]="sanatizeHTML(tale.takeActionBody)"></div>
+    <div class="story-body-section">
+        <h3>Take Action To Support This Story</h3>
+        <p>{{ story.takeActionSummary }}</p>
+        <div [innerHTML]="sanatizeHTML(story.takeActionBody)"></div>
     </div>
 
     <div class="share-buttons">
@@ -84,7 +84,7 @@
     </div>
 
     <div class="published-date">
-        {{ tale.updatedAt }}
+        {{ story.updatedAt }}
     </div>
 
     <ht-footer-ad></ht-footer-ad>

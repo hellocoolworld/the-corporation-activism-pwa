@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { HeaderDesktopComponent } from './header-desktop/header-desktop.component';
 import { FooterAdComponent } from './footer-ad/footer-ad.component';
 import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
-import { SocialAuthComponent } from './social-auth/social-auth.component';
 import { PopoverComponent } from './popover/popover.component';
 
 import { AspectRatioComponent } from './aspect-ratio/aspect-ratio.component';
@@ -15,8 +14,6 @@ import { TextShellComponent } from './text-shell/text-shell.component';
 import { ImageShellComponent } from './image-shell/image-shell.component';
 
 import { CheckboxWrapperComponent } from './checkbox-wrapper/checkbox-wrapper.component';
-import { ShowHidePasswordComponent } from './show-hide-password/show-hide-password.component';
-import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 import { CounterInputComponent } from './counter-input/counter-input.component';
 import { RatingInputComponent } from './rating-input/rating-input.component';
 
@@ -36,10 +33,7 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     FooterAdComponent,
     AddAvocadosComponent,
     PopoverComponent,
-    SocialAuthComponent,
     CheckboxWrapperComponent,
-    ShowHidePasswordComponent,
-    CountdownTimerComponent,
     CounterInputComponent,
     RatingInputComponent
   ],
@@ -47,16 +41,12 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     AspectRatioComponent,
     TextShellComponent,
     ImageShellComponent,
-
     HeaderDesktopComponent,
     HeaderComponent,
     FooterAdComponent,
     AddAvocadosComponent,
     PopoverComponent,
-    SocialAuthComponent,
     CheckboxWrapperComponent,
-    ShowHidePasswordComponent,
-    CountdownTimerComponent,
     CounterInputComponent,
     RatingInputComponent
   ],

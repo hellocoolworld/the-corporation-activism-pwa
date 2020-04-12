@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 export class ListingPage implements OnInit {
 
   constructor(private title: Title) {
-    this.title.setTitle('Halo Tales - Listing');
+    this.title.setTitle('Listing');
   }
 
   ngOnInit() {

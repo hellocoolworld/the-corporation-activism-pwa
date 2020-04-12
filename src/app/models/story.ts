@@ -1,11 +1,11 @@
-﻿export enum TaleType {
+﻿export enum StoryType {
   video,
   image,
   text
 }
-export class Tale {
+export class Story {
     id: string;
-    type: TaleType;
+    type: StoryType;
     vimeoCode: string;
     aspectRatio: string;
     image: string;
