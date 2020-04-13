@@ -4,7 +4,6 @@ import { FirebaseX } from '@ionic-native/firebase-x/ngx';
 import { Platform } from '@ionic/angular';
 import * as app from 'firebase/app';
 import { tap } from 'rxjs/internal/operators';
-import { AuthService } from './auth.service';
 import { Extender } from 'src/app/helpers/extender';
 import { FirestoreService } from './firestore.service';
 
@@ -15,7 +14,6 @@ export class FcmService extends Extender {
   constructor(
     protected injector: Injector,
     private firebaseNative: FirebaseX,
-    private authService: AuthService,
     private firestoreService: FirestoreService,
     private platform: Platform,
     private afMessaging: AngularFireMessaging
@@ -52,7 +50,7 @@ export class FcmService extends Extender {
 
   // Save the token to firestore
   private async saveTokenToFirestore(token: string) {
-    const { uid } = await this.authService.getUser();
+    const { uid } = this.preferenceService.getUserToken();
     if (!token) {
       return;
     }

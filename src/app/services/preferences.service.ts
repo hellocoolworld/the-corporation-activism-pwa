@@ -2,13 +2,13 @@
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-import { User } from '../models';
+import { Preference } from '../models';
 
 @Injectable({ providedIn: 'root' })
-export class UserService {
+export class PreferenceService {
     private _apiBaseURL: String = 'https://api.com/api';
 
-    constructor(private http: HttpClient) { }
+    constructor(private injec) { }
 
     getById(id: string) {
         return this.http.get(`${this._apiBaseURL}/users/${id}`);

@@ -47,7 +47,7 @@ export class AppComponent {
   }
 
   async initializeApp() {
-    this.user = await this.authService.getUser();
+    this.userToken = await this.authService.getUser();
     this.platform.ready().then(() => {
     });
   }

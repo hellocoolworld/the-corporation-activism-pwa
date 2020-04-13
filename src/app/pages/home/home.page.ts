@@ -29,13 +29,11 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
     private popoverController: PopoverController
   ) {
     super(injector);
-    this.title.setTitle('The Corporation - Welcome');
-    this.authService.user
-    .pipe(takeUntil(this.unsubscribe$))
-    .subscribe(res => this.user = res);
   }
   
   ngOnInit() {
+    this.title.setTitle('The Corporation - Welcome');
+
     this.storyService.getAll()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
@@ -67,8 +65,8 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
     return (this.user && this.user.stories) ? this.user.stories.length : null;
   }
 
-  register() {
-    this.router.navigate(['register']);
+  join() {
+    this.router.navigate(['join']);
   }
 
   get isFirstPageThisSession(): boolean {

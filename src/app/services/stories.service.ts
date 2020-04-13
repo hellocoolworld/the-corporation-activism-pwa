@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { environment } from '/src/environments/environment';
 
 import { Story, StoryType } from '../models';
 
@@ -13,10 +14,15 @@ export class StoriesService {
    */
   private _apiBaseURL: String = '/assets/mock-data';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    protected injector: Injector,
+    private http: HttpClient
+  ) {
+    super(injector);
+  }
 
   getById(id: string) {
-    return this.http.get(`${this._apiBaseURL}/story/${id}`);
+    return this.http.get(`${environment.api}/story/${id}`);
   }
 
   getBySlug(slug: string) {

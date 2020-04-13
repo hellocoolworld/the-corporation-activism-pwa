@@ -27,8 +27,6 @@ export class CommonService extends Extender {
   constructor(
     protected injector: Injector,
     @Inject(HttpClient) protected http: HttpClient,
-    private authService: AuthService,
-    private firestoreService: FirestoreService,
     private camera: Camera,
     private callNumber: CallNumber,
     private imagePicker: ImagePicker,
