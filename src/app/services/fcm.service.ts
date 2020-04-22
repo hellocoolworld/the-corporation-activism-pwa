@@ -50,7 +50,7 @@ export class FcmService extends Extender {
 
   // Save the token to firestore
   private async saveTokenToFirestore(token: string) {
-    const { uid } = this.preferenceService.getUserToken();
+    const { uid } = this.settingsService.getUserToken();
     if (!token) {
       return;
     }

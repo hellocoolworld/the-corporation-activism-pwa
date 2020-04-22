@@ -4,10 +4,9 @@ import { ModalController, PopoverController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Extender } from 'src/app/helpers';
-import { User, Story, StoryType } from '../../models';
-import { AuthService, StoriesService } from '../../services';
-import { HelpActionPledgeModal, HelpAvocadometerModal } from '../../modals';
-import { PopoverComponent } from '../../components/popover/popover.component';
+import { User, Story, StoryType } from 'src/app/models';
+import { SettingsService, StoriesService } from 'src/app/services';
+import { HelpActionPledgeModal, HelpAvocadometerModal } from 'src/app/modals';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -23,17 +22,16 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
   constructor(
     protected injector: Injector,
     private title:Title,
-    private authService: AuthService,
+    private settingsService: SettingsService,
     private storyService: StoriesService,
     private modalController: ModalController,
-    private popoverController: PopoverController
-  ) {
+      ) {
     super(injector);
   }
   
   ngOnInit() {
     this.title.setTitle('The Corporation - Welcome');
-
+    
     this.storyService.getAll()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(

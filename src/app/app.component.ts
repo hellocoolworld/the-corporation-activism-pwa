@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform, ModalController, MenuController } from '@ionic/angular';
 
-import { AuthService } from './services';
-import { IUser } from './models';
 
 import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
 
@@ -15,47 +13,24 @@ import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
 })
 
 export class AppComponent {
-  public user: IUser;
-
+  
   constructor(
     private platform: Platform,
     private router: Router,
-    private authService: AuthService,
     private menuController: MenuController,
     private modalController: ModalController
   ) {
     this.initializeApp();
   }
 
-  get showLogin() {
-    const test: boolean = !this.user && this.router.url !== '/login';
-    console.log('showLogin: ', test);
-    return test;
-  }
-
-  get showLogout() {
-    //const test: boolean = this.user;
-    //console.log('showLogout: ', test);
-    //return test;
-    return false;
-  }
-
-  get showRegister() {
-    const test: boolean = !this.user && this.router.url !== '/register';
-    console.log('showRegister: ', test);
-    return test;
-  }
-
+ 
+ 
   async initializeApp() {
-    this.userToken = await this.authService.getUser();
     this.platform.ready().then(() => {
     });
   }
 
-  logout() {
-    this.authService.signOut();
-    this.router.navigate(['/']);
-  }
+  
 
   linkToSocialProfile(provider: String) {
     if (provider === 'facebook') {

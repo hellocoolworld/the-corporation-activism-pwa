@@ -100,12 +100,12 @@ export class DetailsPage implements OnInit {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
-  async loadAuthorBio(taleId: string) {
-    console.log('id:', taleId);
+  async loadAuthorBio(storyId: string) {
+    console.log('id:', storyId);
     const modal = await this.modalController.create({
       component: AuthorBioModal,
       componentProps: {
-        'taleId': taleId
+        'storyId': storyId
       }
     });
     return await modal.present();

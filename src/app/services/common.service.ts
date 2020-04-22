@@ -7,10 +7,10 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { of } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators';
-import { AuthService } from './auth.service';
+import { SettingsService } from './settings.service';
 import { Extender } from 'src/app/helpers/extender';
-import { SocialShareComponent } from 'src/app/modals/social-share/social-share.component';
-import { FirestoreService } from './firestore.service';
+import { SocialShareModal } from 'src/app/modals/social-share/social-share.modal';
+import { constants } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,8 @@ export class CommonService extends Extender {
     private camera: Camera,
     private callNumber: CallNumber,
     private imagePicker: ImagePicker,
-    private socialSharing: SocialSharing
+    private socialSharing: SocialSharing,
+    private settings: SettingsService
   ) {
     super(injector);
   }
@@ -83,7 +84,7 @@ export class CommonService extends Extender {
         .share(message, subject, file, url)
         .then(() => this.toast('share-confirm'));
     } else {
-      const modal = await this.openModal(SocialShareComponent, url, 'custom-modal');
+      const modal = await this.openModal(SocialShareModal, url, 'custom-modal');
       modal.present();
     }
   }
@@ -150,5 +151,11 @@ export class CommonService extends Extender {
           this.toast('fail' + err);
         });
     });
+  }
+
+  openSocialProvider(p) {
+    
+    this.settingss.socialProviders[p].link;
+    
   }
 }

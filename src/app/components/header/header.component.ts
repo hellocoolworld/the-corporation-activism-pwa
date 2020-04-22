@@ -2,9 +2,8 @@ import { Component, OnInit, OnDestroy, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { IUser } from '../../models';
-import { UserService, AuthService } from '../../services';
 import { Extender } from 'src/app/helpers';
+import { Preference } from 'src/app/models';
 
 @Component({
   selector: 'ht-header',
@@ -13,27 +12,20 @@ import { Extender } from 'src/app/helpers';
 })
 export class HeaderComponent extends Extender implements OnInit, OnDestroy {
   
-  user: IUser;
-
+  
   constructor(
     protected injector: Injector,
-    private authService: AuthService,
-    private _user: UserService
+    private settingsService: Preference
   ) {
     super(injector);
   }
 
   async ngOnInit() {
-    this.user = await this.authService.getUser();
-    // this.subscriptions.push(
-    //  this.authService.user
-    //  .subscribe(res => this.user = res) 
-    // };
-
+    
   }
 
-  get showLogin() {
-    const test:boolean = !this.user && this.router.url !== '/login';
+  get showJoin() { 
+    const test:boolean = !this.settingsService.hasToken();
     console.log('test: ', test);
     return test;
   }

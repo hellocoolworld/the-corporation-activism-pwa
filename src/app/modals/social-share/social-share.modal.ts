@@ -7,10 +7,10 @@ import { Extender } from 'src/app/helpers/extender';
 /** browser social share using @ngx-share/core*/
 @Component({
   selector: 'app-social-share',
-  templateUrl: './social-share.component.html',
-  styleUrls: ['./social-share.component.scss']
+  templateUrl: './social-share.modal.html',
+  styleUrls: ['./social-share.modal.scss']
 })
-export class SocialShareComponent extends Extender implements OnInit {
+export class SocialShareModal extends Extender implements OnInit {
   public socialButtons: Array<{ text: string; icon?: string; type: string; color?: string }>;
 
   constructor(protected injector: Injector, private navParam: NavParams, private share: ShareService) {
