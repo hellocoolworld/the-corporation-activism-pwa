@@ -12,7 +12,6 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import * as firebase from 'firebase/app';
 import { from, Observable } from 'rxjs';
 import { expand, map, mergeMap, take, takeWhile, tap } from 'rxjs/operators';
-import { Upload } from 'src/app/helpers/upload';
 
 type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;
 type DocPredicate<T> = string | AngularFirestoreDocument<T>;
@@ -134,82 +133,6 @@ export class FirestoreService {
     return doc.then((snap: Action<DocumentSnapshotDoesNotExist | DocumentSnapshotExists<T>>) => {
       return snap.payload.exists ? this.update(ref, data) : this.set(ref, data);
     });
-  }
-
-  /// *************
-  /// Upload Data to Firestore
-  /// *************
-
-  /** configure storage name for image upload,
-   * if image is a URI, encode to data_url and upload using putString function in firebase storage reference
-   * if image isn't a URI just call putString without encoding
-   */
-  public uploadImage(imageURI: string, filename: string, store: string, isURI = false): Promise<any> {
-    return new Promise<any>((resolve, reject) => {
-      const name = `${store}/${filename}`;
-      const storageRef = this.afStorage.storage.ref();
-      const imageRef = storageRef.child(name);
-      if (isURI) {
-        this.encodeImageUri(imageURI, (image64: string) => {
-          this.uploadWithPutString(imageRef, image64, name, resolve, reject);
-        });
-      } else {
-        this.uploadWithPutString(imageRef, imageURI, name, resolve, reject);
-      }
-    });
-  }
-
-  /** upload a file to firebase and save file metadata in files document */
-  public uploadFile(upload: Upload, store: string) {
-    const storageRef = this.afStorage.storage.ref();
-    const uploadTask = storageRef.child(`${store}/${upload.file.name}`).put(upload.file);
-
-    return uploadTask.on(
-      firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) => {
-        // upload in progress
-        upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      },
-      (error) => {
-        // upload failed
-        console.log(error);
-      },
-      () => {
-        // upload success
-        upload.url = uploadTask.snapshot.downloadURL;
-        upload.name = upload.file.name;
-        this.saveFileData(upload);
-      }
-    );
-  }
-
-  /** get token from download url, use token as id to file file in files collection,
-   * delete file and use name from file doc to delete from storage
-   */
-  public async deleteUpload(url: string) {
-    const token = this.getDownloadToken(url);
-    if (token) {
-      return this.doc$<{ name: string; url: string }>(`files/${token}`).subscribe(async (file) => {
-        await this.deleteFileData(token);
-        return await this.deleteFileStorage(file.name);
-      });
-    }
-  }
-
-  /** encode uri to data url */
-  public encodeImageUri(imageUri: string, callback: { (image64: any): void; (arg0: any): void }) {
-    const c = document.createElement('canvas');
-    const ctx = c.getContext('2d');
-    const img = new Image();
-    img.onload = function() {
-      const aux: any = this;
-      c.width = aux.width;
-      c.height = aux.height;
-      ctx.drawImage(img, 0, 0);
-      const dataURL = c.toDataURL('image/jpeg');
-      callback(dataURL);
-    };
-    img.src = imageUri;
   }
 
   /// **************

@@ -29,9 +29,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
     });
   }
-
-  
-
+ d
   linkToSocialProfile(provider: String) {
     if (provider === 'facebook') {
       window.open('https://facebook.com', '_blank');
@@ -60,6 +58,10 @@ export class AppComponent {
       component: PrivacyPolicyModal
     });
     return await modal.present();
+  }
+
+  get copyrightYear() {
+    return new Date().getFullYear();
   }
 
 

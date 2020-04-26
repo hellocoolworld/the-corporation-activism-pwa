@@ -10,7 +10,7 @@ import { map } from 'rxjs/internal/operators';
 import { SettingsService } from './settings.service';
 import { Extender } from 'src/app/helpers/extender';
 import { SocialShareModal } from 'src/app/modals/social-share/social-share.modal';
-import { constants } from 'os';
+import { SocialAuthProvider } from 'src/app/helpers';
 
 @Injectable({
   providedIn: 'root'
@@ -155,7 +155,7 @@ export class CommonService extends Extender {
 
   openSocialProvider(p) {
     
-    this.settingss.socialProviders[p].link;
+    this.settings.socialProviders[p].link;
     
   }
 }
