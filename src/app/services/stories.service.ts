@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 
-import { Story, StoryType } from '../models';
-import { Extender } from '../helpers';
+import { Story, StoryType } from 'src/app/models';
+import { Extender } from 'src/app/helpers';
 
 @Injectable({
   providedIn: 'root'

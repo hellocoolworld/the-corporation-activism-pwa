@@ -6,6 +6,7 @@ import * as app from 'firebase/app';
 import { tap } from 'rxjs/internal/operators';
 import { Extender } from 'src/app/helpers/extender';
 import { FirestoreService } from './firestore.service';
+import { SettingsService } from './settings.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class FcmService extends Extender {
     private firebaseNative: FirebaseX,
     private firestoreService: FirestoreService,
     private platform: Platform,
+    private settingsService: SettingsService,
     private afMessaging: AngularFireMessaging
   ) {
     super(injector);
@@ -50,7 +52,8 @@ export class FcmService extends Extender {
 
   // Save the token to firestore
   private async saveTokenToFirestore(token: string) {
-    const { uid } = this.settingsService.getUserToken();
+    // const { uid } = this.settingsService.getDeviceToken();
+    const uid = this.settingsService.getDeviceToken();
     if (!token) {
       return;
     }

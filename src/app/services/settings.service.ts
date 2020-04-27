@@ -4,7 +4,8 @@ import { Setting } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class SettingsService extends Extender implements OnInit {
-    get socialProviders {
+
+    get socialProviders() {
         return this.settings.socialProviders;
     }
 
@@ -38,6 +39,10 @@ export class SettingsService extends Extender implements OnInit {
         } else {
             return false;
         }
+    }
+
+    public getDeviceToken() {
+        return this.settings.deviceToken;
     }
 
 }

@@ -15,7 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ComponentsModule } from './components/components.module';
-import { ErrorInterceptor } from './helpers';
 
 
 // tslint:disable-next-line:max-line-length
@@ -49,7 +48,6 @@ import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal
 
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     Title
   ],
 
