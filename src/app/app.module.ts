@@ -4,10 +4,8 @@ import { RouteReuseStrategy } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -18,7 +16,13 @@ import { ComponentsModule } from './components/components.module';
 
 
 // tslint:disable-next-line:max-line-length
-import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from './modals';
+import {  PrivacyPolicyModal,
+          TermsOfServiceModal,
+          AuthorBioModal,
+          AddPledgeModal,
+          HelpActionPledgeModal, 
+          HelpAvocadometerModal 
+        } from './modals';
 
 
 @NgModule({
@@ -30,10 +34,8 @@ import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal
     AppRoutingModule,
     ComponentsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
     AngularFireMessagingModule,
-    AngularFirestoreModule,
-    AngularFireStorageModule  
+    AngularFirestoreModule
   ],
 
   declarations: [

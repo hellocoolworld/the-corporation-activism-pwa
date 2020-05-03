@@ -18,9 +18,6 @@ import { AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometer
 export class DetailsPage implements OnInit {
   story: Story = new Story;
 
-  //Fake data
-  pledgeCount: number;
-  avocados: number;
   userAvocados: number;
 
   constructor(
@@ -42,7 +39,7 @@ export class DetailsPage implements OnInit {
             console.log('slug:', story.slug, slug);
             if (story.slug === slug) {
               this.story = story;
-              this.title.setTitle(`The Corporation - ${this.story.title}`);
+              this.title.setTitle(`The New Corporation - ${this.story.title}`);
               return true;
             } else {
               return false;
@@ -53,11 +50,9 @@ export class DetailsPage implements OnInit {
           this.toast.error(err, true);
         },
         () => {
-          this.pledgeCount = this.story.pledgeCount;
-          this.avocados = this.story.avocados;
           this.userAvocados = 0;
         }
-      )
+      );
     });
   }
 
@@ -65,13 +60,14 @@ export class DetailsPage implements OnInit {
    * @todo use ngClass and a getter 
    */
   onAddYourPledge() {
-    this.pledgeCount += 1;
+    this.story.pledgeCount += 1;
     this.showAddPledgeModal();
-    let addYourPledge = document.getElementById('add-your-pledge');
-    addYourPledge.classList.add("hidden");
-    let youHavePledged = document.getElementById('you-have-pledged');
-    youHavePledged.classList.remove("hidden");
+    const addYourPledge = document.getElementById('add-your-pledge');
+    addYourPledge.classList.add('hidden');
+    const youHavePledged = document.getElementById('you-have-pledged');
+    youHavePledged.classList.remove('hidden');
   }
+
   sharePledge() {
     console.log('noop');
   }
@@ -81,9 +77,9 @@ export class DetailsPage implements OnInit {
    */
   onAddAvocados(rating: number) {
     if (rating < this.userAvocados) {
-      this.avocados -= this.userAvocados - rating;
+      this.story.avocados -= this.userAvocados - rating;
     } else if (rating > this.userAvocados) {
-      this.avocados += rating - this.userAvocados;
+      this.story.avocados += rating - this.userAvocados;
     }
     this.userAvocados = rating;
   }

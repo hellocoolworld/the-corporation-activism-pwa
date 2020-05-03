@@ -32,7 +32,7 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.settings = this.settingsService.getAllSettings();
-    this.title.setTitle('The Corporation - Welcome');
+    this.title.setTitle('The New Corporation - Welcome');
     this.storyService.getAll()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
