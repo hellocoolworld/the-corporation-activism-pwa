@@ -10,6 +10,8 @@ scp -r "$LOCAL" do-user@dev.halotales.com:"$REMOTE"
 #sudo systemctl restart nginx
 #sudo nginx -t
 #sudo nginx -T
-  
+
+
+scp -r "${PWD}" do-user@coolworld.cloud:/opt/corp/coming-soon/
 
 

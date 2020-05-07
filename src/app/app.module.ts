@@ -8,7 +8,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { environment } from 'src/environments/environment';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -21,7 +20,8 @@ import {  PrivacyPolicyModal,
           AuthorBioModal,
           AddPledgeModal,
           HelpActionPledgeModal, 
-          HelpAvocadometerModal 
+          HelpAvocadometerModal,
+          SocialShareModal
         } from './modals';
 
 
@@ -45,7 +45,8 @@ import {  PrivacyPolicyModal,
     AuthorBioModal,
     AddPledgeModal,
     HelpActionPledgeModal,
-    HelpAvocadometerModal
+    HelpAvocadometerModal,
+    SocialShareModal
   ],
 
   providers: [

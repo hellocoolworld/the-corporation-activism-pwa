@@ -8,10 +8,11 @@ export class SettingsService extends Extender implements OnInit {
     get socialProviders() {
         return this.settings.socialProviders;
     }
+    private settings: Setting;
 
     constructor(
         protected injector: Injector,
-        private settings: Setting) {
+        ) {
         super(injector);
     }
 

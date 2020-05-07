@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform, ModalController, MenuController } from '@ionic/angular';
-
+import { Setting } from 'src/app/models/setting';
 
 import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
+import { SettingsService } from './services';
 
 
 @Component({
@@ -13,18 +14,17 @@ import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
 })
 
 export class AppComponent {
-  
+
   constructor(
     private platform: Platform,
-    private router: Router,
+    private settings: SettingsService,
     private menuController: MenuController,
     private modalController: ModalController
   ) {
+    
     this.initializeApp();
   }
 
- 
- 
   async initializeApp() {
     this.platform.ready().then(() => {
     });
@@ -40,6 +40,10 @@ export class AppComponent {
     } else if (provider === 'instagram') {
       window.open('https://instagram.com', '_blank');
     }
+  }
+
+  showJoin () {
+    return this.settings.getSetting('deviceToken');
   }
 
   close(): void {

@@ -4,7 +4,7 @@ import { ModalController, PopoverController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Extender } from 'src/app/helpers';
-import { Story, StoryType, Setting } from 'src/app/models';
+import { Story, Setting } from 'src/app/models';
 import { SettingsService, StoriesService } from 'src/app/services';
 import { HelpActionPledgeModal, HelpAvocadometerModal } from 'src/app/modals';
 import { Title } from '@angular/platform-browser';
