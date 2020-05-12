@@ -12,6 +12,8 @@ scp -r "$LOCAL" do-user@dev.halotales.com:"$REMOTE"
 #sudo nginx -T
 
 
-#scp -r "${PWD}" do-user@coolworld.cloud:/opt/corp/pwa/
+scp -r "${PWD}"/* do-user@coolworld.cloud:/opt/corp/pwa
+
+
 
 
