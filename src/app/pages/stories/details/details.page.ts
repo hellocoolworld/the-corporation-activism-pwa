@@ -77,9 +77,9 @@ export class DetailsPage implements OnInit {
    */
   onAddAvocados(rating: number) {
     if (rating < this.userAvocados) {
-      this.story.avocados -= this.userAvocados - rating;
+      this.story.avocadoCount -= this.userAvocados - rating;
     } else if (rating > this.userAvocados) {
-      this.story.avocados += rating - this.userAvocados;
+      this.story.avocadoCount += rating - this.userAvocados;
     }
     this.userAvocados = rating;
   }

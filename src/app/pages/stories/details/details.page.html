@@ -1,7 +1,7 @@
 <ht-header></ht-header>
-
+<ht-header-desktop></ht-header-desktop>
 <ion-content class="story-details-content">
-    <ht-header-desktop></ht-header-desktop>
+
 
     <div [style]="sanatizeVideoResponsiveStyles(story.aspectRatio)">
         <iframe [src]="sanatizeVideoUrl(story.vimeoCode)" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -56,7 +56,7 @@
                 <ion-item class="content">
                     <div class="stats">
                         <ion-icon src="/assets/images/avocadometer.svg" size="large"></ion-icon>
-                        <ion-label>{{ avocados }}</ion-label>
+                        <ion-label>{{ story.avocadoCount }}</ion-label>
                     </div>
                 </ion-item>
                 <h4>Add avocados:</h4>

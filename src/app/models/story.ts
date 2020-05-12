@@ -17,7 +17,8 @@ export class Story {
     authorBioSummary: string;
     authorBioFull: string;
     authorId: string;
-    avocados: number;
+    avocadoCount: number;
+    avocadoRating: number;
     pledgeCount: number;
     takeActionSummary: string;
     takeActionBody: string;
