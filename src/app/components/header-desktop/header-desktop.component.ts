@@ -24,10 +24,12 @@ export class HeaderDesktopComponent extends Extender implements OnInit, OnDestro
   }
 
   linkToSocialProfile(p: number) {
+    console.log('p: ', p);
     this.commonService.openSocialProvider(p);
   }
 
   join() {
+    console.log('joIn');
     this.router.navigate(['join']);
   }
 

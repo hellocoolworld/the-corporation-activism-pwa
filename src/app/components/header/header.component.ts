@@ -1,7 +1,5 @@
-import { Component, OnInit, OnDestroy, Injector } from '@angular/core';
-import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy, Injector, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { Extender } from 'src/app/helpers';
 import { Setting } from 'src/app/models';
 import { SettingsService } from 'src/app/services';
@@ -14,6 +12,7 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
   public settings: Setting;
   constructor(
     protected injector: Injector,
+    @Inject(DOCUMENT) private document,
     private settingsService: SettingsService
   ) {
     super(injector);
@@ -25,7 +24,10 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
   }
 
   get showJoin() { 
-    const test:boolean = !this.settings.deviceToken;
+    let test:boolean = !this.settings.deviceToken;
+    if (this.document.location.pathname.indexOf('join') !== -1) {
+      test = false;
+    }
     console.log('test: ', test);
     return test;
   }

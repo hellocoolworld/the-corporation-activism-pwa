@@ -11,7 +11,7 @@
         </ion-title>
 
         <ion-buttons class="ion-no-padding" slot="end">
-            <ion-button class="ion-no-padding" *ngIf="showJoin" routerLink="/join">
+            <ion-button class="ion-no-padding" *ngIf="showJoin" (click)="goto('/join')">
                 <ion-label slot="start" class="header-navi-join">Join Us</ion-label>
             </ion-button>
         </ion-buttons>

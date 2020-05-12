@@ -20,7 +20,7 @@ npm-debug.log*
 .versions/
 coverage/
 deploy/
-www/
+dist/
 node_modules/
 tmp/
 temp/
@@ -34,3 +34,4 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .firebase/
+*.DS_Store

@@ -3,7 +3,7 @@ import { Extender } from 'src/app/helpers/extender';
 import { Setting } from '../models';
 
 @Injectable({ providedIn: 'root' })
-export class SettingsService extends Extender implements OnInit {
+export class SettingsService extends Extender {
 
     get socialProviders() {
         return this.settings.socialProviders;
@@ -14,10 +14,12 @@ export class SettingsService extends Extender implements OnInit {
         protected injector: Injector,
         ) {
         super(injector);
+        this.init();
     }
 
-    public ngOnInit() {
-        this.settings = new Setting(JSON.parse(localStorage.getItem('settings')));
+    private init() {
+        const s = JSON.parse(localStorage.getItem('settings'));
+        this.settings = new Setting(s);
     }
 
     public getAllSettings() {

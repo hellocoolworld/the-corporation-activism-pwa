@@ -17,6 +17,8 @@ import { CheckboxWrapperComponent } from './checkbox-wrapper/checkbox-wrapper.co
 import { CounterInputComponent } from './counter-input/counter-input.component';
 import { RatingInputComponent } from './rating-input/rating-input.component';
 
+import { StoriesListingComponent } from './stories-listing/stories-listing.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +29,6 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     AspectRatioComponent,
     TextShellComponent,
     ImageShellComponent,
-
     HeaderComponent,
     HeaderDesktopComponent,
     FooterAdComponent,
@@ -35,7 +36,8 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     PopoverComponent,
     CheckboxWrapperComponent,
     CounterInputComponent,
-    RatingInputComponent
+    RatingInputComponent,
+    StoriesListingComponent
   ],
   exports: [
     AspectRatioComponent,
@@ -48,7 +50,8 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
     PopoverComponent,
     CheckboxWrapperComponent,
     CounterInputComponent,
-    RatingInputComponent
+    RatingInputComponent,
+    StoriesListingComponent
   ],
   entryComponents: [PopoverComponent],
 })

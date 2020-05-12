@@ -22,35 +22,35 @@
 
     <div class="home-splash">
         <ion-card>
-            <ion-card-header class=" hidden-lg mobile-join-us-card ">
+            <ion-card-header class="hidden-lg mobile-join-us-card">
                 <ion-card-title>
                     SEQUEL COMING SOON
                 </ion-card-title>
             </ion-card-header>
-            <ion-card-content class="hidden-lg ">
-                <ion-button (click)="join() " expand="block " class="content-btn hidden-lg ">
+            <ion-card-content class="hidden-lg">
+                <ion-button (click)="join()" expand="block" class="content-btn hidden-lg">
                     Join us
                 </ion-button>
             </ion-card-content>
         </ion-card>
     </div>
 
-    <div class="mobile-stories-section-intro hidden-lg ">
+    <div class="mobile-stories-section-intro hidden-lg">
         <h2>PEOPLE ARE HITTING <br> THE STREETS AGAIN!</h2>
         <p>Speaking up like never before about climate change and economic injustice </p>
     </div>
 
 
-    <ion-grid fixed no-padding class="intro-grid hidden-sm ">
-        <div class="stories-section-intro-wrapper ">
+    <ion-grid fixed no-padding class="intro-grid hidden-sm">
+        <div class="stories-section-intro-wrapper">
             <ion-row>
                 <ion-col>
-                    <h2 class="stories-section-intro ">Watch Stories.</h2>
+                    <h2 class="stories-section-intro">Watch Stories.</h2>
                 </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col>
-                    <h2 class="stories-section-intro ">Get Inspired.</h2>
+                    <h2 class="stories-section-intro">Get Inspired.</h2>
                 </ion-col>
             </ion-row>
             <ion-row>
@@ -61,55 +61,9 @@
         </div>
     </ion-grid>
 
-    <div class="story-wrapper " *ngFor="let story of stories ">
-        <a href="story/{{ story.slug }} ">
-            <div class="story-header ">
-                <ion-img [src]="story.image "></ion-img>
-                <h3 class="story-title ">{{ story.title }}{{ story.slug }}</h3>
-            </div>
-        </a>
-        <div class="story-action-summary ">
-            <div class="pledges summary-box ">
-                <div class="summary-icon ">
-                    <img src="../../../assets/images/action-pledges.svg ">
-                </div>
-
-                <div class="header ">
-                    <ion-label>{{ story.pledgeCount }}</ion-label>
-                    <a (click)="showHelpActionPledgeModal() ">
-                        Action Pledges
-                        </a>
-                </div>
-            </div>
-
-            <div class="avocadometer summary-box ">
-                <div class="summary-icon ">
-                    <img src="../../../assets/images/avocado-meter.svg ">
-                </div>
-
-                <div class="header ">
-                    <ion-label>{{ story.avocados }}</ion-label>
-                    <a (click)="showHelpAvocadometerModal() ">
-                        Avocadometer
-                        </a>
-                </div>
-            </div>
-        </div>
-
-        <ion-item class="summary " lines="none ">
-            <ion-label text-wrap>{{ story.summary }}</ion-label>
-        </ion-item>
-
-        <ion-item class="story-meta " lines="none ">
-            <ion-avatar slot="start ">
-                <img [src]="story.authorImg " />
-            </ion-avatar>
-            <ion-label>
-                <div class="authoring-info ">{{ story.authorName }} &bull; {{ story.updatedAt }}</div>
-            </ion-label>
-        </ion-item>
-    </div>
-
-    <ht-footer-ad *ngIf="isFirstPageThisSession "></ht-footer-ad>
+    <app-stories-listing>
+    </app-stories-listing>
+    <ht-footer-ad *ngIf="isFirstPageThisSession">
+    </ht-footer-ad>
 
 </ion-content>

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { ElementRef, Inject, Injectable, Injector } from '@angular/core';
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import {  Inject, Injectable, Injector } from '@angular/core';
 import { of } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators';
@@ -13,13 +12,11 @@ import { SocialShareModal } from 'src/app/modals/social-share/social-share.modal
   providedIn: 'root'
 })
 export class CommonService extends Extender {
-  
   public countries: any[] = [];
 
   constructor(
     protected injector: Injector,
     @Inject(HttpClient) protected http: HttpClient,
-    private socialSharing: SocialSharing,
     private settings: SettingsService
   ) {
     super(injector);
@@ -54,20 +51,14 @@ export class CommonService extends Extender {
    * otherwise using open social share component
    */
   public async share(message: string, subject?: string, file?: string | string[], url?: string) {
-    if ((window as any).cordova) {
-      return await this.socialSharing
-        .share(message, subject, file, url)
-        .then(() => this.toast('share-confirm'));
-    } else {
       const modal = await this.openModal(SocialShareModal, url, 'custom-modal');
       modal.present();
-    }
   }
 
  
   public openSocialProvider(provider: number) {
-    console.log('openSocialProvider');   
-    const link = this.settings.socialProviders[provider].link;
+    console.log('openSocialProvider');
+    const link = this.settings.socialProviders.find(p => p.provider === provider).link;
     console.log('link: ', link);
     window.open(link, '_blank');
   }

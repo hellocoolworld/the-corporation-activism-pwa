@@ -1,17 +1,19 @@
 import { Component, OnInit, OnDestroy, Injector } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Extender } from 'src/app/helpers';
 import { Story, Setting } from 'src/app/models';
 import { SettingsService, StoriesService } from 'src/app/services';
-import { Title } from '@angular/platform-browser';
+import { HelpActionPledgeModal, HelpAvocadometerModal } from 'src/app/modals';
+
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss']
+  selector: 'app-stories-listing',
+  templateUrl: './stories-listing.component.html',
+  styleUrls: ['./stories-listing.component.scss']
 })
-export class HomePage extends Extender implements OnInit, OnDestroy {
+export class StoriesListingComponent extends Extender implements OnInit, OnDestroy {
   settings: Setting;
   stories: Story[] = [];
   
@@ -19,9 +21,9 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
   
   constructor(
     protected injector: Injector,
-    private title: Title,
     private settingsService: SettingsService,
-    private storyService: StoriesService
+    private storyService: StoriesService,
+    private modalController: ModalController,
       ) {
     super(injector);
   }
@@ -29,7 +31,6 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
   ngOnInit() {
     this.settings = this.settingsService.getAllSettings();
     console.log('this.settings: ', this.settings);
-    this.title.setTitle('The New Corporation - Welcome');
     this.storyService.getAll()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
@@ -46,18 +47,24 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
         ()   => {
           // console.log( this.stories );
         }
-      );
+      );    
   }
 
   ngOnDestroy() {
   }
 
-  join() {
-    this.router.navigate(['join']);
+  async showHelpActionPledgeModal() {
+    const modal = await this.modalController.create({
+      component: HelpActionPledgeModal
+    });
+    return await modal.present();
   }
 
-  get isFirstPageThisSession(): boolean {
-    return this.settings.seenAnimation ? false : true;
+  async showHelpAvocadometerModal() {
+    const modal = await this.modalController.create({
+      component: HelpAvocadometerModal
+    });
+    return await modal.present();
   }
 
 

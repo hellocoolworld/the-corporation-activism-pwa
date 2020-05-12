@@ -1,7 +1,7 @@
 #!/bin/bash
-ssh do-user@dev.halotales.com "source /home/do-user/.bashrc; rm -rf /var/www/client/backup/*; cp /var/www/client/dev/www /var/www/client/backup/; mkdir /var/www/client/dev/www;"
-LOCAL="/Users/davdwaynegriffith/CodeRoot/halo-tales-pwa/www/"
-REMOTE="/var/www/client/dev"
+#ssh do-user@coolworld.cloud "source /home/do-user/.bashrc; rm -rf /opt/corp/pwa; cd /opt/corp; mkdir pwa;"
+LOCAL="/Users/davdwaynegriffith/Code/corp-app-pwa/www/*"
+REMOTE="/opt/corp/pwa/*"
 scp -r "$LOCAL" do-user@dev.halotales.com:"$REMOTE"
 
 
@@ -12,6 +12,6 @@ scp -r "$LOCAL" do-user@dev.halotales.com:"$REMOTE"
 #sudo nginx -T
 
 
-scp -r "${PWD}" do-user@coolworld.cloud:/opt/corp/coming-soon/
+#scp -r "${PWD}" do-user@coolworld.cloud:/opt/corp/pwa/
 
 
