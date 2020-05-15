@@ -5,4 +5,5 @@ export * from './common.service';
 export * from './fcm.service';
 export * from './firestore.service';
 export * from './subscriptions.service';
+export * from './screen.service';
 

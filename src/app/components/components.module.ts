@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { HeaderComponent } from './header/header.component';
-import { HeaderDesktopComponent } from './header-desktop/header-desktop.component';
-import { FooterAdComponent } from './footer-ad/footer-ad.component';
 import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
 import { PopoverComponent } from './popover/popover.component';
 
@@ -29,9 +26,6 @@ import { StoriesListingComponent } from './stories-listing/stories-listing.compo
     AspectRatioComponent,
     TextShellComponent,
     ImageShellComponent,
-    HeaderComponent,
-    HeaderDesktopComponent,
-    FooterAdComponent,
     AddAvocadosComponent,
     PopoverComponent,
     CheckboxWrapperComponent,
@@ -43,9 +37,6 @@ import { StoriesListingComponent } from './stories-listing/stories-listing.compo
     AspectRatioComponent,
     TextShellComponent,
     ImageShellComponent,
-    HeaderDesktopComponent,
-    HeaderComponent,
-    FooterAdComponent,
     AddAvocadosComponent,
     PopoverComponent,
     CheckboxWrapperComponent,

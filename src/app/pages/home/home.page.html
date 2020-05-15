@@ -1,53 +1,100 @@
+<style>
+    /* Container holding the image and the text */
+    
+    .container {
+        position: relative;
+        text-align: center;
+        color: black;
+    }
+    /* Bottom left text */
+    
+    .bottom-left {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+    }
+    /* Top left text */
+    
+    .top-left {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+    }
+    /* Top right text */
+    
+    .top-right {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+    }
+    /* Bottom right text */
+    
+    .bottom-right {
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+    }
+    /* Centered text */
+    
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .responsive {
+        width: 100%;
+        height: auto;
+    }
+    
+    .margin-1 {
+        margin: 25px;
+    }
+    
+    .sky {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-image: url(/assets/new/sky-bg-tile-300.png);
+        background-repeat: repeat-x;
+    }
+    
+    .buildings {
+        position: relative;
+        right: 0;
+        top: 0;
+        background-image: url(/assets/new/buildings-bg-1000.png);
+        background-repeat: no-repeat;
+    }
+    
+    .logo-home {
+        position: relative;
+        top: 300;
+        left: 30vw;
+        right: 30vw;
+    }
+</style>
 <ht-header></ht-header>
 <ht-header-desktop></ht-header-desktop>
-<ion-content class="home-main-container">
+<ion-content>
+    <div class="sky">
+        <div class="buildings">
+
+            <img src="/assets/new/logo-home.svg" alt="The New Corporation" class="logo-home" />
+            <div class="container">
+                <h2>The Unfortunately Necessary Sequel</h2>
+                <h3>Coming Soon</h3>
+
+                <app-stories-listing>
+                </app-stories-listing>
+            </div>
 
 
-    <div class="hidden-lg crowd-container" *ngIf="isFirstPageThisSession">
-        <div class="peoplesvgs">
-            <div class="ani1"></div>
-            <div class="ani2"></div>
-            <div class="ani3"></div>
         </div>
-        <div class="intro-story">
-            <p class="text-1">In 2003 The New Corporation film revealed society’s dominant institution as a psychopath.</p>
-            <p class="text-2">Millions were inspired<br>to get up off their couch<br>and do something!</p>
-            <h1 class="text-3">WATCH STORIES.<br>BE INSPIRED</h1>
-        </div>
+
     </div>
-
-    <div class="hidden-sm desktop-crowd-container">
-        <img src="../../../assets/images/crowd-of-people.svg">
-    </div>
-
-    <div class="home-splash">
-        <ion-card>
-            <ion-card-header class="hidden-lg mobile-join-us-card">
-                <ion-card-title>
-                    The New Corporation Coming Soon
-                </ion-card-title>
-            </ion-card-header>
-            <ion-card-content class="hidden-lg">
-                <ion-button (click)="join()" expand="block" class="content-btn hidden-lg">
-                    Join us
-                </ion-button>
-            </ion-card-content>
-        </ion-card>
-    </div>
-
-    <ion-grid fixed no-padding class="intro-grid">
-        <div class="stories-section-intro-wrapper">
-            <ion-row>
-                <ion-col>
-                    <h2 class="stories-section-intro">Watch Stories. Get Inspired.</h2>
-                </ion-col>
-            </ion-row>
-        </div>
-    </ion-grid>
-
-    <app-stories-listing>
-    </app-stories-listing>
-    <ht-footer-ad *ngIf="isFirstPageThisSession">
-    </ht-footer-ad>
-
 </ion-content>
+<ht-footer-ad>
+</ht-footer-ad>

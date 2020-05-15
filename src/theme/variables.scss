@@ -5,9 +5,9 @@
 
 :root {
     /** primary **/
-    --ion-color-primary: #ffffff; //#F8830E; 
-    --ion-color-primary-rgb: 248, 131, 14;
-    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary: #000000; //#F8830E; 
+    --ion-color-primary-rgb: 0, 0, 0;
+    --ion-color-primary-contrast: #000000;
     --ion-color-primary-contrast-rgb: 255, 255, 255;
     --ion-color-primary-shade: #da730c;
     --ion-color-primary-tint: #f98f26;
@@ -112,10 +112,10 @@
     --ion-header-font-family: SF-Pro-Text-Regular,
     Roboto,
     sans-serif;
-    --app-background: #FFFFFF;
+    --app-background: var(--ion-color-darkest);
     --app-background-shade: var(--ion-background-color-step-50,
     #F2F2F2);
-    --app-background-alt: var(--ion-color-primary);
+    --app-background-alt: var(--ion-color-darkest);
     --app-background-alt-shade: var(--ion-color-primary-shade);
     --app-narrow-margin: 12px;
     --app-fair-margin: 16px;

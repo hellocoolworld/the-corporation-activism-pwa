@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Injector, HostListener } from '@angular/core';
 import { Platform, ModalController, MenuController } from '@ionic/angular';
-import { Setting } from 'src/app/models/setting';
-
+import { Setting } from './models';
 import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
-import { SettingsService } from './services';
+import { SettingsService, ScreenService, CommonService } from './services';
+import { Extender } from './helpers';
+
 
 
 @Component({
@@ -13,37 +13,55 @@ import { SettingsService } from './services';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-
+export class AppComponent extends Extender implements OnInit {
+  isDesktop: boolean;
+  public settings: Setting;
   constructor(
+    protected injector: Injector,
     private platform: Platform,
-    private settings: SettingsService,
     private menuController: MenuController,
-    private modalController: ModalController
-  ) {
-    
+    private modalController: ModalController,
+    private screenService: ScreenService,
+    private settingsService: SettingsService,
+    private commonService: CommonService) {
+    super(injector);
     this.initializeApp();
   }
 
   async initializeApp() {
     this.platform.ready().then(() => {
+      this.screenService.onResize(this.platform.width());
     });
   }
- d
-  linkToSocialProfile(provider: String) {
-    if (provider === 'facebook') {
-      window.open('https://facebook.com', '_blank');
 
-    } else if (provider === 'twitter') {
-      window.open('https://twitter.com', '_blank');
-
-    } else if (provider === 'instagram') {
-      window.open('https://instagram.com', '_blank');
-    }
+  @HostListener('window:resize', ['$event'])
+  private onResize(event) {
+    this.screenService.onResize(event.target.innerWidth);
   }
 
-  showJoin () {
-    return this.settings.getSetting('deviceToken');
+  ngOnInit() {
+    this.settings = this.settingsService.getAllSettings();
+    this.screenService.isDesktopView().subscribe(isDesktop => {
+      if (this.isDesktop && !isDesktop) {
+        // Reload because our routing is out of place
+        window.location.reload();
+      }
+      this.isDesktop = isDesktop;
+    });
+  }
+
+  linkToSocialProfile(p: number) {
+    console.log('p: ', p);
+    this.commonService.openSocialProvider(p);
+  }
+
+  join() {
+    console.log('joIn');
+    this.router.navigate(['join']);
+  }
+
+  showJoin() {
+    return this.settings.deviceToken;
   }
 
   close(): void {

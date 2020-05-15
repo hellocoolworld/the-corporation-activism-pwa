@@ -5,3 +5,4 @@ export * from './help-avocadometer/help-avocadometer.modal';
 export * from './privacy-policy/privacy-policy.modal';
 export * from './terms-of-service/terms-of-service.modal';
 export * from './social-share/social-share.modal';
+export * from './intro/intro.modal';

@@ -85,8 +85,74 @@
             </ion-content>
         </ion-menu>
 
+        <ion-header *ngIf="!isDesktop">
+            <ion-toolbar>
+                <ion-buttons slot="start" class="side-menu">
+                    <ion-menu-toggle>
+                        <ion-icon name="menu"></ion-icon>
+                    </ion-menu-toggle>
+                </ion-buttons>
+                <ion-title routerLink="/" align="center" class="header-title ion-no-padding">
+                    The New Corporation
+                </ion-title>
+                <ion-buttons class="ion-no-padding" slot="end">
+                    <ion-button class="ion-no-padding" *ngIf="showJoin" (click)="goto('/join')">
+                        <ion-label slot="start" class="header-navi-join">Join Us</ion-label>
+                    </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
 
-        <ion-router-outlet main></ion-router-outlet>
+
+        <div *ngIf="isDesktop" class="desktop">
+            <ion-header mode="ios">
+                <ion-toolbar>
+                    <ion-col class="ion-align-items-center">
+                        <ion-col size="2">
+                            <img src="/images/new/logo-header.png" class="logo ion-text-left">
+                        </ion-col>
+                        <ion-col size="8">
+                            <div class="navbar" class="ion-text-center">
+                                <ion-button fill="clear" routerLink="/" routerDirection="root" routerLinkActive="active-link" class="link">
+                                    Home
+                                </ion-button>
+                                <ion-button fill="clear" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">
+                                    Stories
+                                </ion-button>
+                                <ion-button fill="clear" routerLink="/about" routerDirection="root" routerLinkActive="active-link" class="link">
+                                    About
+                                </ion-button>
+                                <ion-button fill="clear" routerLink="/contact" routerDirection="root" routerLinkActive="active-link" class="link">
+                                    Contact
+                                </ion-button>
+                            </div>
+                        </ion-col>
+                        <ion-col size="2">
+                            <ion-button (click)="join()" expand="block " class="content-btn ">
+                                Join us
+                            </ion-button>
+                        </ion-col>
+                        <ion-col>
+                            <div class="social-buttons">
+                                <a (click)="linkToSocialProfile(provider.facebook) ">
+                                    <img src="/assets/images/mobile-facebook.svg ">
+                                </a>
+                                <a (click)="linkToSocialProfile(provider.twitter) ">
+                                    <img src="/assets/images/mobile-twitter.svg ">
+                                </a>
+                                <a (click)="linkToSocialProfile(provider.youtube) ">
+                                    <img src="/assets/images/mobile-youtube.svg ">
+                                </a>
+                                <a (click)="linkToSocialProfile(provider.vimeo) ">
+                                    <img src="/assets/images/mobile-vimeo.svg ">
+                                </a>
+                            </div>
+                        </ion-col>
+                        </ion-row>
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-router-outlet main></ion-router-outlet>
 
     </ion-split-pane>
     <script src="https://forms.coolworld.cloud/shared/iframeResizer.min.js" type="text/javascript "></script>

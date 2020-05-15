@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { ComponentsModule } from './components/components.module';
 
 
@@ -21,7 +20,8 @@ import {  PrivacyPolicyModal,
           AddPledgeModal,
           HelpActionPledgeModal, 
           HelpAvocadometerModal,
-          SocialShareModal
+          SocialShareModal,
+          IntroModal
         } from './modals';
 
 
@@ -46,7 +46,8 @@ import {  PrivacyPolicyModal,
     AddPledgeModal,
     HelpActionPledgeModal,
     HelpAvocadometerModal,
-    SocialShareModal
+    SocialShareModal,
+    IntroModal
   ],
 
   providers: [
@@ -62,7 +63,9 @@ import {  PrivacyPolicyModal,
     AuthorBioModal,
     AddPledgeModal,
     HelpActionPledgeModal,
-    HelpAvocadometerModal
+    HelpAvocadometerModal,
+    SocialShareModal,
+    IntroModal
   ],
 
   bootstrap: [AppComponent]
