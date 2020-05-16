@@ -4,7 +4,7 @@ import { Extender } from 'src/app/helpers';
 import { Setting } from 'src/app/models';
 import { SettingsService, ScreenService } from 'src/app/services';
 @Component({
-  selector: 'ht-header',
+  selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
@@ -22,7 +22,6 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-
     this.settings = this.settingsService.getAllSettings();
     this.screenService.isDesktopView().subscribe(isDesktop => {
       if (this.isDesktop && !isDesktop) {
@@ -33,12 +32,20 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     });
   }
 
+  
+  get isNotHome() {
+    console.log('this.document.location.pathname ', this.document.location.pathname);
+    if (this.document.location.pathname === '') {
+      return false;
+    }
+    return true;
+  }
+
   get showJoin() {
     let test: boolean = !this.settings.deviceToken;
     if (this.document.location.pathname.indexOf('join') !== -1) {
       test = false;
     }
-    console.log('test: ', test);
     return test;
   }
 

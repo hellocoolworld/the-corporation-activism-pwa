@@ -15,6 +15,7 @@ import { CounterInputComponent } from './counter-input/counter-input.component';
 import { RatingInputComponent } from './rating-input/rating-input.component';
 
 import { StoriesListingComponent } from './stories-listing/stories-listing.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { StoriesListingComponent } from './stories-listing/stories-listing.compo
     CheckboxWrapperComponent,
     CounterInputComponent,
     RatingInputComponent,
-    StoriesListingComponent
+    StoriesListingComponent,
+    HeaderComponent
   ],
   exports: [
     AspectRatioComponent,
@@ -42,7 +44,8 @@ import { StoriesListingComponent } from './stories-listing/stories-listing.compo
     CheckboxWrapperComponent,
     CounterInputComponent,
     RatingInputComponent,
-    StoriesListingComponent
+    StoriesListingComponent,
+    HeaderComponent
   ],
   entryComponents: [PopoverComponent],
 })

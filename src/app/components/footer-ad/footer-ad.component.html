@@ -10,4 +10,20 @@
             <ion-button class="content-btn" href="https://thecorporation.com">Visit TheCorporation.com</ion-button>
         </div>
     </ion-card>
+    <ion-col>
+        <div class="social-buttons">
+            <a (click)="linkToSocialProfile(provider.facebook) ">
+                <img src="/assets/images/mobile-facebook.svg ">
+            </a>
+            <a (click)="linkToSocialProfile(provider.twitter) ">
+                <img src="/assets/images/mobile-twitter.svg ">
+            </a>
+            <a (click)="linkToSocialProfile(provider.youtube) ">
+                <img src="/assets/images/mobile-youtube.svg ">
+            </a>
+            <a (click)="linkToSocialProfile(provider.vimeo) ">
+                <img src="/assets/images/mobile-vimeo.svg ">
+            </a>
+        </div>
+    </ion-col>
 </div>

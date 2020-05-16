@@ -9,8 +9,8 @@
     --ion-color-primary-rgb: 0, 0, 0;
     --ion-color-primary-contrast: #000000;
     --ion-color-primary-contrast-rgb: 255, 255, 255;
-    --ion-color-primary-shade: #da730c;
-    --ion-color-primary-tint: #f98f26;
+    --ion-color-primary-shade: #181818;
+    --ion-color-primary-tint: #2b2a2a;
     /** secondary **/
     --ion-color-secondary: #EE1F46; // IN USE
     --ion-color-secondary-rgb: 238, 31, 70;
@@ -19,11 +19,11 @@
     --ion-color-secondary-shade: #d11b3e;
     --ion-color-secondary-tint: #f03559;
     /** tertiary – PURPLE SCHEME **/
-    --ion-color-tertiary: #691147; // mid purple – buttons etc.
-    --ion-color-tertiary-rgb: 0, 175, 255;
-    --ion-color-tertiary-contrast: #421f35; //dark purple - large blocks.
+    --ion-color-tertiary: #bfefef; // mid purple – buttons etc.
+    --ion-color-tertiary-rgb: 0, 0, 0;
+    --ion-color-tertiary-contrast: #cccccc; //dark purple - large blocks.
     --ion-color-tertiary-contrast-rgb: 66, 31, 53; //same as above
-    --ion-color-tertiary-shade: #d1b8c7; //lightest purple tint
+    --ion-color-tertiary-shade: #eeeeee; //lightest purple tint
     --ion-color-tertiary-tint: #f9f9f9; //light grey for topnav, etc.
     /** success **/
     --ion-color-success: #20dc6a;
@@ -79,11 +79,11 @@
     --ion-color-darkest-rgb: 0, 0, 0;
     /** Toolbar **/
     --ion-toolbar-background: #f9f9f9;
-    --ion-toolbar-color: #ffffff !important;
+    --ion-toolbar-color: #000000 !important;
     //Define fonts for SF Pro
     @font-face {
-        font-family: 'SF-Pro-Text-Light';
-        src: url('../assets/fonts/SFProText/SF-Pro-Text-Light.ttf');
+        font-family: 'geo-extralight';
+        src: url(/assets/fonts/geomanist/Geomanist-ExtraLight.otf);
         font-weight: 200;
         font-style: normal;
     }
@@ -106,17 +106,14 @@
         src: url('../assets/fonts/SFProText/SF-Pro-Text-Bold.ttf');
     }
     // Set font family
-    --ion-font-family: 'SF-Pro-Text-Regular'!important,
+    --ion-font-family: 'geo-extralight'!important;
+    --ion-header-font-family:'geo-extralight'!important,
     'Roboto',
     sans-serif;
-    --ion-header-font-family: SF-Pro-Text-Regular,
-    Roboto,
-    sans-serif;
     --app-background: var(--ion-color-darkest);
-    --app-background-shade: var(--ion-background-color-step-50,
-    #F2F2F2);
+    --app-background-shade: var(--ion-color-darkest);
     --app-background-alt: var(--ion-color-darkest);
-    --app-background-alt-shade: var(--ion-color-primary-shade);
+    --app-background-alt-shade: var(--ion-color-darkest);
     --app-narrow-margin: 12px;
     --app-fair-margin: 16px;
     --app-broad-margin: 20px;

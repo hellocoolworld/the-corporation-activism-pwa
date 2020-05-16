@@ -5,11 +5,11 @@ import { Extender, SocialAuthProvider } from 'src/app/helpers';
 
 
 @Component({
-  selector: 'ht-header-desktop',
-  templateUrl: './header-desktop.component.html',
-  styleUrls: ['./header-desktop.component.scss']
+  selector: 'app-sid-bar',
+  templateUrl: './side-bar.component.html',
+  styleUrls: ['./side-bar.component.scss']
 })
-export class HeaderDesktopComponent extends Extender implements OnInit, OnDestroy {
+export class SideBarComponent extends Extender implements OnInit, OnDestroy {
   public provider = SocialAuthProvider;
   public settings: Setting;
   constructor(

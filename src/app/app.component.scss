@@ -1,5 +1,3 @@
-.body {}
-
 ion-menu {
     --ion-background-color: var(--ion-color-tertiary-contrast);
     --ion-text-color: var(--ion-color-primary-contrast);
@@ -55,32 +53,6 @@ ion-toolbar {
             font-weight: 600;
         }
     }
-}
-
-.side-menu {
-    img {
-        padding-top: 1vw;
-        padding-left: 1vw;
-    }
-}
-
-user-avatar {
-    width: 24px;
-    height: 24px;
-}
-
-.header-navi-join {
-    font-weight: 350;
-    text-align: right;
-    color: black;
-}
-
-.header-title {
-    font-weight: 600;
-    text-align: center;
-    size: 20vw;
-    color: #030303;
-    letter-spacing: -0.5;
 }
 
 .bottom-nav-link-grid {

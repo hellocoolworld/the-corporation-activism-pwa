@@ -53,7 +53,7 @@
     }
     
     .sky {
-        position: relative;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -62,7 +62,7 @@
     }
     
     .buildings {
-        position: relative;
+        position: absolute;
         right: 0;
         top: 0;
         background-image: url(/assets/new/buildings-bg-1000.png);
@@ -76,12 +76,10 @@
         right: 30vw;
     }
 </style>
-<ht-header></ht-header>
-<ht-header-desktop></ht-header-desktop>
+<app-header></app-header>
 <ion-content>
     <div class="sky">
         <div class="buildings">
-
             <img src="/assets/new/logo-home.svg" alt="The New Corporation" class="logo-home" />
             <div class="container">
                 <h2>The Unfortunately Necessary Sequel</h2>
@@ -96,5 +94,3 @@
 
     </div>
 </ion-content>
-<ht-footer-ad>
-</ht-footer-ad>
