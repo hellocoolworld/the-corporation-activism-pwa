@@ -32,7 +32,6 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     });
   }
 
-  
   get isNotHome() {
     console.log('this.document.location.pathname ', this.document.location.pathname);
     if (this.document.location.pathname === '') {

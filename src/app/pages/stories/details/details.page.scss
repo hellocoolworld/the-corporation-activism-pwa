@@ -10,7 +10,7 @@
     }
     h3 {
         font-size: 1.125rem;
-        font-weight: 600;
+        font-weight: 300;
     }
     p {
         text-align: left;
@@ -25,7 +25,7 @@
             margin-top: 0;
             margin-bottom: 0;
             h4 {
-                font-weight: 600;
+                font-weight: 300;
             }
             p {
                 margin: 0
@@ -103,7 +103,7 @@
             ion-button {
                 color: var(--ion-color-dark);
                 text-transform: uppercase;
-                font-weight: 600;
+                font-weight: 300;
             }
         }
         .content {
@@ -123,7 +123,7 @@
                 }
                 ion-label {
                     color: var(--ion-color-dark);
-                    font-weight: 600;
+                    font-weight: 300;
                     margin: 0;
                 }
             }
@@ -144,7 +144,7 @@
         h4,
         .you-have-pledged h4 {
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 300;
             text-align: center;
         }
     }
