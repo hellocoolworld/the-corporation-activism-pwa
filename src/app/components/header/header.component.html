@@ -1,8 +1,8 @@
-<ion-header *ngIf="!isDesktop">
+<ion-header *ngIf="!isDesktop && !isHome">
     <ion-toolbar>
         <ion-buttons slot="start" class="header-hamburger">
             <ion-menu-toggle>
-                <ion-icon name="menu-outline"></ion-icon>
+                <ion-icon name="menu"></ion-icon>
             </ion-menu-toggle>
         </ion-buttons>
         <ion-title routerLink="/" align="center" class="header-title ion-no-padding">
@@ -17,7 +17,7 @@
 </ion-header>
 
 
-<ion-header *ngIf="isDesktop" class="header-desktop">
+<ion-header *ngIf="isDesktop && !isHome">
     <ion-toolbar>
         <ion-row class="ion-align-items-center">
             <ion-col size="2">
@@ -34,13 +34,10 @@
                     <ion-button fill="clear" (click)="goto('/about')" routerLink="/about" routerDirection="root" routerLinkActive="active-link" class="link">
                         About
                     </ion-button>
-                    <ion-button fill="clear" (click)="goto('/contact')" routerLink="/contact" routerDirection="root" routerLinkActive="active-link" class="link">
-                        Contact
-                    </ion-button>
                 </div>
             </ion-col>
             <ion-col size="2">
-                <ion-button (click)="join()" expand="block" class="content-btn">
+                <ion-button *ngIf="showJoin" (click)="goto('/join')" class="header-btn">
                     Join us
                 </ion-button>
             </ion-col>

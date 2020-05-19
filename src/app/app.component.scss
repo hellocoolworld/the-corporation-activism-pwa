@@ -7,17 +7,12 @@ ion-toolbar {
     --background: var(--ion-color-tertiary-contrast);
 }
 
-.nav-section {
-    padding-bottom: 5vw;
-    margin-bottom: 0;
-    .main-nav-item {
-        margin: auto;
-        text-align: center;
-        font-weight: 300;
-        ion-label {
-            font-size: 1.2em;
-        }
-    }
+ion-label {
+    font-family: 'Geomanist-Light';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 1.2em;
+    color: #ffffff;
 }
 
 .social-buttons {
@@ -66,6 +61,7 @@ ion-toolbar {
     a {
         font-size: 1.1em;
         font-weight: 300;
+        columns: #ffffff;
     }
 }
 

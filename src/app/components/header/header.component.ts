@@ -32,12 +32,12 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     });
   }
 
-  get isNotHome() {
+  get isHome() {
     console.log('this.document.location.pathname ', this.document.location.pathname);
-    if (this.document.location.pathname === '') {
-      return false;
+    if (this.document.location.pathname === '/') {
+      return true;
     }
-    return true;
+    return false;
   }
 
   get showJoin() {

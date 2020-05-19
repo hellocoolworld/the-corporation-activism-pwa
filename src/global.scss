@@ -1,123 +1,144 @@
-// Import Custom Fonts
-@import url('https://use.typekit.net/zdo4egu.css');
-// http://ionicframework.com/docs/theming/
-@import '~@ionic/angular/css/core.css';
-@import '~@ionic/angular/css/normalize.css';
-@import '~@ionic/angular/css/structure.css';
-@import '~@ionic/angular/css/typography.css';
-@import '~@ionic/angular/css/padding.css';
-@import '~@ionic/angular/css/float-elements.css';
-@import '~@ionic/angular/css/text-alignment.css';
-@import '~@ionic/angular/css/text-transformation.css';
-@import '~@ionic/angular/css/flex-utils.css';
-// EXTRA GLOBAL STYLES
-// Add custom Ionic Colors
-@import "./theme/custom-ion-colors.scss";
-// Add base app styles
-@import "./theme/app-defaults.scss";
-// Add base shell styles
-@import "./theme/shell-defaults.scss";
-@font-face {
-    font-family: 'Geomanist-Black';
-    src: url('/assets/geomanist/hinted-Geomanist-Black.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Geomanist-Light';
-    src: url('/assets/geomanist/hinted-Geomanist-Light.eot');
-    src: url('/assets/geomanist/hinted-Geomanist-Light.eot?#iefix') format('embedded-opentype'), url('/assets/geomanist/hinted-Geomanist-Light.woff2') format('woff2'), url('/assets/geomanist/hinted-Geomanist-Light.woff') format('woff'), url('/assets/geomanist/hinted-Geomanist-Light.ttf') format('truetype'), url('/assets/geomanist/hinted-Geomanist-Light.svg#Geomanist-Light') format('svg');
-    font-weight: 300;
-    font-style: normal;
-}
-
-body {
-    width: 100%;
-    margin: auto;
-    position: relative;
-    background-color: #000000;
-    .scroll-content {
-        overflow-y: auto;
+    // http://ionicframework.com/docs/theming/
+    @import '~@ionic/angular/css/core.css';
+    @import '~@ionic/angular/css/normalize.css';
+    @import '~@ionic/angular/css/structure.css';
+    @import '~@ionic/angular/css/typography.css';
+    @import '~@ionic/angular/css/padding.css';
+    @import '~@ionic/angular/css/float-elements.css';
+    @import '~@ionic/angular/css/text-alignment.css';
+    @import '~@ionic/angular/css/text-transformation.css';
+    @import '~@ionic/angular/css/flex-utils.css';
+    // EXTRA GLOBAL STYLES
+    // Add custom Ionic Colors
+    @import "./theme/custom-ion-colors.scss";
+    // Add base app styles
+    @import "./theme/shell-defaults.scss";
+    @font-face {
+        font-family: 'Geomanist-Black';
+        src: url('/assets/geomanist/hinted-Geomanist-Black.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
     }
-}
-
-* {
-    font-family: 'Geomanist-Light';
-    font-weight: 300;
-    font-style: normal;
-    ;
-}
-
-// ion-card{
-//     display: flex;
-//     flex-direction: column;
-//     width: 100% !important;
-//     max-width : 380px !important;
-//     margin-top: 3!important;
-// }
-.ion-title {
-    font-weight: 900;
-    letter-spacing: 0.4px;
-    padding-left: 60px;
-    a {
-        color: #fff;
-        text-decoration: none;
+    
+    @font-face {
+        font-family: 'Geomanist-Light';
+        src: url('/assets/geomanist/hinted-Geomanist-Light.eot');
+        src: url('/assets/geomanist/hinted-Geomanist-Light.eot?#iefix') format('embedded-opentype'), url('/assets/geomanist/hinted-Geomanist-Light.woff2') format('woff2'), url('/assets/geomanist/hinted-Geomanist-Light.woff') format('woff'), url('/assets/geomanist/hinted-Geomanist-Light.ttf') format('truetype'), url('/assets/geomanist/hinted-Geomanist-Light.svg#Geomanist-Light') format('svg');
+        font-weight: 300;
+        font-style: normal;
     }
-}
-
-ion-badge {
-    color: #fff;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    font-size: 0.5rem;
-    padding: 0.25rem;
-    border-radius: 100%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Geomanist-Black';
-    font-weight: 900;
-    font-style: normal;
-}
-
-h2 {
-    color: var(--ion-color-secondary);
-    margin-top: 0.25rem;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-hr {
-    border-top: 1px solid #cccccc;
-}
-
-ion-button {
-    font-weight: 900;
-    --border-radius: var(--app-fair-radius);
-    &.content-btn {
-        text-transform: uppercase;
-        --background: var(--ion-color-tertiary);
-        font-size: 0.75rem;
+    
+    * {
+        font-family: 'Geomanist-Light';
+        font-weight: 300;
+        font-style: normal;
     }
-    &.system-btn {
-        text-transform: capitalize;
-        margin: calc(var(--page-margin) / 2) 0px;
+    
+     :root {
+        body {
+            width: 100%;
+            margin: auto;
+            position: relative;
+            background-color: #000000;
+        }
+        ion-content {
+            --ion-background-color: #000000;
+        }
+        .centered {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -20%);
+        }
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+        h // ion-card{
+        //     display: flex;
+        //     flex-direction: column;
+        //     width: 100% !important;
+        //     max-width : 380px !important;
+        //     margin-top: 3!important;
+        // }
+        ion-title {
+            font-weight: 900;
+            letter-spacing: 0.4px;
+            padding-left: 60px;
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+        ion-badge {
+            color: #fff;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            font-size: 0.5rem;
+            padding: 0.25rem;
+            border-radius: 100%;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Geomanist-Light';
+            font-weight: 300;
+            font-style: normal;
+        }
+        h1 {
+            color: var(--ion-color-lightest);
+            font-weight: 300;
+            font-style: normal;
+        }
+        h2 {
+            color: var(--ion-color-secondary);
+            font-weight: 300;
+            font-style: normal;
+        }
+        p {
+            color: white;
+            line-height: 2em;
+            text-size-adjust: 2.3em;
+        }
+        hr {
+            border-top: 1px solid #cccccc;
+        }
+        .text-muted {
+            color: var(--ion-color-medium);
+            margin: calc(var(--page-margin) / 2) 0px;
+        }
     }
-}
-
-// This style is for the onboarding
-.swiper-container-horizontal>.swiper-pagination-bullets {
-    bottom: 50px !important;
-}
-
-.text-muted {
-    color: var(--ion-color-medium);
-    margin: calc(var(--page-margin) / 2) 0px;
-}
+    
+    ion-button {
+        --border-radius: var(--app-fair-radius);
+        &.content-btn {
+            text-transform: uppercase;
+            color: black;
+            --background: white;
+            font-style: normal;
+            font-weight: 900;
+        }
+        &.page-btn {
+            text-transform: uppercase;
+            color: black;
+            --background: white;
+            font-style: normal;
+            font-weight: 900;
+        }
+        &.header-btn {
+            text-transform: uppercase;
+            color: white;
+            --background: black;
+            font-style: normal;
+            font-weight: 900;
+        }
+    }
+    
+    // This style is for the onboarding
+    .swiper-container-horizontal>.swiper-pagination-bullets {
+        bottom: 50px !important;
+    }

@@ -1,50 +1,22 @@
-<div class="story-wrapper" *ngFor="let story of stories">
-    <a href="story/{{ story.slug }}">
-        <div class="story-header">
-            <ion-img [src]="story.image"></ion-img>
-            <h3 class="story-title">{{ story.title }}</h3>
-        </div>
-    </a>
-    <div class="story-action-summary">
-        <div class="pledges summary-box">
-            <div class="summary-icon">
-                <img src="../../../assets/images/action-pledges.svg">
-            </div>
-            <div class="header">
-                <ion-label>{{ story.pledgeCount }}</ion-label>
-                <a (click)="showHelpActionPledgeModal()">
-                        Action Pledges
+<ion-grid>
+    <ion-row>
+        <ion-col size="6" *ngFor="let story of stories">
+            <div class="story-wrapper">
+                <a href="story/{{ story.slug }}">
+                    <div class="story-header">
+                        <ion-img [src]="story.image"></ion-img>
+                        <h3 class="story-title">{{ story.title }}</h3>
+                    </div>
                 </a>
+                <ion-item class="story-meta" lines="none">
+                    <ion-avatar slot="start">
+                        <img [src]="story.authorImg" />
+                    </ion-avatar>
+                    <ion-label>
+                        <div class="authoring-info">{{ story.authorName }} &bull; {{ story.updatedAt }}</div>
+                    </ion-label>
+                </ion-item>
             </div>
-        </div>
-        <div class="avocadometer summary-box">
-            <div class="summary-icon">
-                <img src="../../../assets/images/avocado-meter.svg">
-            </div>
-
-            <div class="header">
-                <ion-label>{{ story.avocadoCount }}</ion-label>
-                <a (click)="showHelpAvocadometerModal()">
-                        Avocadometer
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <ion-item class="summary" lines="none">
-        <ion-label text-wrap>
-            <div>
-                {{ story.summary }}
-            </div>
-        </ion-label>
-    </ion-item>
-
-    <ion-item class="story-meta" lines="none">
-        <ion-avatar slot="start">
-            <img [src]="story.authorImg" />
-        </ion-avatar>
-        <ion-label>
-            <div class="authoring-info">{{ story.authorName }} &bull; {{ story.updatedAt }}</div>
-        </ion-label>
-    </ion-item>
-</div>
+        </ion-col>
+    </ion-row>
+</ion-grid>

@@ -47,13 +47,15 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
           // console.log( this.stories );
         }
       );
+      
   }
 
   ngOnDestroy() {
   }
 
   join() {
-    this.router.navigate(['join']);
+    console.log('join: ');
+    this.router.navigate(['/join']);
   }
 
   get isFirstPageThisSession(): boolean {

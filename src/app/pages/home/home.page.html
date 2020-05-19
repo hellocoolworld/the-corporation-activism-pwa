@@ -1,96 +1,99 @@
 <style>
-    /* Container holding the image and the text */
-    
-    .container {
-        position: relative;
-        text-align: center;
-        color: black;
-    }
-    /* Bottom left text */
-    
-    .bottom-left {
-        position: absolute;
-        bottom: 8px;
-        left: 16px;
-    }
-    /* Top left text */
-    
-    .top-left {
-        position: absolute;
-        top: 8px;
-        left: 16px;
-    }
-    /* Top right text */
-    
-    .top-right {
-        position: absolute;
-        top: 8px;
-        right: 16px;
-    }
-    /* Bottom right text */
-    
-    .bottom-right {
-        position: absolute;
-        bottom: 8px;
-        right: 16px;
-    }
-    /* Centered text */
-    
-    .centered {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    .responsive {
-        width: 100%;
-        height: auto;
-    }
-    
-    .margin-1 {
-        margin: 25px;
-    }
-    
-    .sky {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-image: url(/assets/new/sky-bg-tile-300.png);
-        background-repeat: repeat-x;
-    }
-    
     .buildings {
         position: absolute;
-        right: 0;
-        top: 0;
-        background-image: url(/assets/new/buildings-bg-1000.png);
+        height: 95%;
+        width: 100%;
+        background-image: url(/assets/new/background-1000.png);
+        background-size: contain;
         background-repeat: no-repeat;
+        background-color: #000000;
     }
     
     .logo-home {
         position: relative;
-        top: 300;
-        left: 10vw;
-        right: 10vw;
+        top: 23%;
+        width: 50%;
+        height: auto;
+        text-align: center;
+    }
+    
+    .dumbass {
+        position: relative;
+        width: auto;
+        padding: 0;
+        margin: 0;
+    }
+    
+    @media (max-width: 576px) {
+        h1 {
+            font-size: 2rem !important;
+        }
+        h2 {
+            font-size: 3.5rem !important;
+        }
+        .logo-home {
+            width: 70%;
+        }
+    }
+    
+    @media (min-width: 576px) {
+        h1 {
+            font-size: 4.5rem !important;
+        }
+        h2 {
+            font-size: 8.5rem !important;
+        }
+        .logo-home {
+            top: 40%;
+            width: 65%;
+        }
+    }
+    
+    .dumbass h1 {
+        position: relative;
+        font-family: 'Geomanist-Light';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 2.8em;
+        text-transform: uppercase;
+        color: rgb(208, 29, 39);
+        text-align: center;
+        text-align-last: center;
+    }
+    
+    .dumbass h2 {
+        font-family: 'Geomanist-Light';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 5.2vw;
+        text-transform: uppercase;
+        color: #ffffff;
+        width: inherit;
+        text-align: center;
+        text-align-last: center;
     }
 </style>
+
 <app-header></app-header>
 <ion-content>
-    <div class="sky">
-        <div class="buildings">
-            <img src="/assets/new/logo-home.svg" alt="The New Corporation" class="logo-home" />
-            <div class="container">
-                <h2>The Unfortunately Necessary Sequel</h2>
-                <h3>Coming Soon</h3>
 
-                <app-stories-listing>
-                </app-stories-listing>
+    <div class="buildings">
+        <div class="logo-home centered">
+            <img src="/assets/new/logo-home.png" alt="The New Corporation" />
+
+            <div class="dumbass">
+                <h1>The Unfortunately Necessary Sequel<br></h1>
+                <h2>Coming Soon<br></h2>
+                <div class="">
+                    <ion-button color="light" size="large" (click)="goto('/stories')">
+                        Stories
+                    </ion-button>
+                    <ion-button color="light" size="large" (click)="join()">
+                        Join Us
+                    </ion-button>
+                </div>
             </div>
-
-
         </div>
-
     </div>
+
 </ion-content>
