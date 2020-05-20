@@ -16,7 +16,10 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
 
 import { StoriesListingComponent } from './stories-listing/stories-listing.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
+import { HomeStaticComponent } from './home-static/home-static.component';
+import { HomeIntroComponent } from './home-intro/home-intro.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -33,7 +36,10 @@ import { HeaderComponent } from './header/header.component';
     CounterInputComponent,
     RatingInputComponent,
     StoriesListingComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeStaticComponent,
+    HomeIntroComponent,
+    FooterComponent
   ],
   exports: [
     AspectRatioComponent,
@@ -45,7 +51,10 @@ import { HeaderComponent } from './header/header.component';
     CounterInputComponent,
     RatingInputComponent,
     StoriesListingComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeStaticComponent,
+    HomeIntroComponent,
+    FooterComponent
   ],
   entryComponents: [PopoverComponent],
 })

@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Extender } from 'src/app/helpers';
 import { Story, Setting } from 'src/app/models';
-import { SettingsService, StoriesService, ScreenService } from 'src/app/services';
+import { SettingsService, StoriesService } from 'src/app/services';
 import { HelpActionPledgeModal, HelpAvocadometerModal } from 'src/app/modals';
 
 
@@ -17,14 +17,13 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
   settings: Setting;
   stories: Story[] = [];
   
-  isDesktop:boolean;
   private unsubscribe$: Subject<void> = new Subject();
+  
   constructor(
     protected injector: Injector,
     private settingsService: SettingsService,
     private storyService: StoriesService,
     private modalController: ModalController,
-    private screenService: ScreenService
       ) {
     super(injector);
   }
@@ -48,15 +47,10 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
         ()   => {
           // console.log( this.stories );
         }
-      );
-      this.screenService.isDesktopView().subscribe(isDesktop => {
-        console.log('isDesktop: ', isDesktop);
-        this.isDesktop = isDesktop;
-      });
+      );    
   }
 
-  get storiesGridSize() {
-    return this.isDesktop ? 6 : 12;
+  ngOnDestroy() {
   }
 
   async showHelpActionPledgeModal() {
@@ -72,9 +66,6 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
     });
     return await modal.present();
   }
-  
 
-  ngOnDestroy() {
-  }
 
 }

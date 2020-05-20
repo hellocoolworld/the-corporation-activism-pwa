@@ -80,8 +80,8 @@
     /** Toolbar **/
     --ion-toolbar-background: #f9f9f9;
     --ion-toolbar-color: #000000 !important;
-    --ion-font-family: 'Geomanist';
-    --app-background: var(--ion-color-darkest);
+    --ion-font-family: 'Geomanist-Light';
+    --app-background: white;
     --app-background-shade: var(--ion-color-darkest);
     --app-background-alt: var(--ion-color-darkest);
     --app-background-alt-shade: var(--ion-color-darkest);
@@ -91,7 +91,7 @@
     --app-narrow-radius: 3px;
     --app-fair-radius: 4px;
     --app-broad-radius: 6px;
-    --page-background: #000000;
+    --page-background: white;
 }
 
 // html.ios {

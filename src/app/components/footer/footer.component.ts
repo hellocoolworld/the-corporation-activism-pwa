@@ -1,21 +1,23 @@
 import { Component, OnInit, OnDestroy, Injector, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { Extender } from 'src/app/helpers';
+import { Extender, SocialAuthProvider } from 'src/app/helpers';
 import { Setting } from 'src/app/models';
-import { SettingsService, ScreenService } from 'src/app/services';
+import { SettingsService, ScreenService, CommonService } from 'src/app/services';
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss']
 })
-export class HeaderComponent extends Extender implements OnInit, OnDestroy {
+export class FooterComponent extends Extender implements OnInit, OnDestroy {
   isDesktop: boolean;
+  public provider = SocialAuthProvider;
   public settings: Setting;
   constructor(
     protected injector: Injector,
     @Inject(DOCUMENT) private document,
     private settingsService: SettingsService,
-    private screenService: ScreenService
+    private screenService: ScreenService,
+    private commonService: CommonService
   ) {
     super(injector);
   }
@@ -24,6 +26,10 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
   ngOnInit() {
     this.settings = this.settingsService.getAllSettings();
     this.screenService.isDesktopView().subscribe(isDesktop => {
+      if (this.isDesktop && !isDesktop) {
+        // Reload because our routing is out of place
+        window.location.reload();
+      }
       this.isDesktop = isDesktop;
     });
   }
@@ -44,6 +50,11 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
       test = false;
     }
     return test;
+  }
+  
+  linkToSocialProfile(p: number) {
+    console.log('p: ', p);
+    this.commonService.openSocialProvider(p);
   }
 
   ngOnDestroy() {

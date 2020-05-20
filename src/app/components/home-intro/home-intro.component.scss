@@ -1,0 +1,89 @@
+@keyframes ani-first {
+    0% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes ani-second {
+    0% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes ani-final-card {
+    0% {
+        opacity: 0;
+    }
+    92.25% {
+        opacity: 0;
+    }
+    96.5% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.intro-story {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 4;
+    width: 100%;
+    height: 21%;
+    background-color: rgba(255, 255, 255, 0.5);
+    top: 28.5%;
+    p {
+        position: absolute;
+        color: black;
+        font-size: 1rem;
+        line-height: 1.45;
+        font-weight: 650;
+        align-self: center;
+        margin: 0;
+        left: 10vw;
+        right: 10vw;
+        text-transform: uppercase;
+    }
+    .text-1 {
+        animation-name: ani-first;
+        animation-timing-function: ease-in-out;
+        animation-duration: 7.5s;
+        animation-fill-mode: forwards;
+    }
+    .text-2 {
+        animation-name: ani-second;
+        animation-timing-function: ease-in-out;
+        animation-duration: 13.5s;
+        animation-fill-mode: forwards;
+    }
+    .text-3 {
+        margin-top: 9.5%;
+        font-size: 1.4rem;
+        font-weight: 650;
+        color: black;
+        animation-name: ani-final-card;
+        animation-timing-function: ease-in-out;
+        animation-duration: 14.5s;
+        animation-fill-mode: forwards;
+    }
+}

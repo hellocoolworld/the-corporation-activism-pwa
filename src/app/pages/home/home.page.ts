@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy, Injector } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { Extender } from 'src/app/helpers';
 import { Story, Setting } from 'src/app/models';
-import { SettingsService, StoriesService } from 'src/app/services';
+import { SettingsService, ScreenService } from 'src/app/services';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -14,14 +12,13 @@ import { Title } from '@angular/platform-browser';
 export class HomePage extends Extender implements OnInit, OnDestroy {
   settings: Setting;
   stories: Story[] = [];
-  
-  private unsubscribe$: Subject<void> = new Subject();
+  isDesktop:boolean;
   
   constructor(
     protected injector: Injector,
     private title: Title,
     private settingsService: SettingsService,
-    private storyService: StoriesService
+    private screenService: ScreenService
       ) {
     super(injector);
   }
@@ -30,24 +27,9 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
     this.settings = this.settingsService.getAllSettings();
     console.log('this.settings: ', this.settings);
     this.title.setTitle('The New Corporation - Welcome');
-    this.storyService.getAll()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(
-        res => {
-          console.log('res:', res);
-          const data = res as Story[]; //Convert the result to an array of Stories
-          for (let i = 0; i < data.length; i++) {
-            this.stories.push(data[i]);
-          }
-        },
-        error => { 
-          console.log('Error in recieving data'); 
-        },
-        ()   => {
-          // console.log( this.stories );
-        }
-      );
-      
+    this.screenService.isDesktopView().subscribe(isDesktop => {
+      this.isDesktop = isDesktop;
+    });
   }
 
   ngOnDestroy() {
@@ -59,6 +41,7 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
   }
 
   get isFirstPageThisSession(): boolean {
+    return false;
     return this.settings.seenAnimation ? false : true;
   }
 

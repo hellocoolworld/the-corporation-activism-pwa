@@ -20,8 +20,7 @@ import {  PrivacyPolicyModal,
           AddPledgeModal,
           HelpActionPledgeModal, 
           HelpAvocadometerModal,
-          SocialShareModal,
-          IntroModal
+          SocialShareModal
         } from './modals';
 
 
@@ -46,8 +45,7 @@ import {  PrivacyPolicyModal,
     AddPledgeModal,
     HelpActionPledgeModal,
     HelpAvocadometerModal,
-    SocialShareModal,
-    IntroModal
+    SocialShareModal
   ],
 
   providers: [
@@ -64,8 +62,7 @@ import {  PrivacyPolicyModal,
     AddPledgeModal,
     HelpActionPledgeModal,
     HelpAvocadometerModal,
-    SocialShareModal,
-    IntroModal
+    SocialShareModal
   ],
 
   bootstrap: [AppComponent]

@@ -10,55 +10,54 @@
                     </ion-buttons>
                 </ion-toolbar>
             </ion-header>
-            <ion-content>
-                <ion-list class="nav-section">
-                    <ion-menu-toggle auto-hide="false">
-                        <ion-item [routerLink]="['/']" class="main-nav-item" lines="none">
-                            <ion-label>Home</ion-label>
-                        </ion-item>
-                        <ion-item [routerLink]="['/stories']" class="main-nav-item" lines="none">
-                            <ion-label>Stories</ion-label>
-                        </ion-item>
-                        <ion-item [routerLink]="['/about']" class="main-nav-item" lines="none">
-                            <ion-label>About</ion-label>
-                        </ion-item>
-                        <ion-item [routerLink]="['/join']" *ngIf="showJoin" class="main-nav-item" lines="none">
-                            <ion-label>Join Us</ion-label>
-                        </ion-item>
-                    </ion-menu-toggle>
-                </ion-list>
-                <ion-grid class="nav-social-links">
-                    <ion-row class="social-link-row">
-                        <ion-col>
-                            <ion-button fill="clear" (click)="linkToSocialProfile('facebook')">
-                                <img src="./assets/images/mobile-facebook.svg">
-                            </ion-button>
-                        </ion-col>
-                        <ion-col>
-                            <ion-button fill="clear" (click)="linkToSocialProfile('twitter')">
-                                <img src="./assets/images/mobile-twitter.svg">
-                            </ion-button>
-                        </ion-col>
-                        <ion-col>
-                            <ion-button fill="clear" (click)="linkToSocialProfile('youtube')">
-                                <img src="./assets/images/mobile-youtube.svg">
-                            </ion-button>
-                        </ion-col>
-                        <ion-col>
-                            <ion-button fill="clear" (click)="linkToSocialProfile('vimeo')">
-                                <img src="./assets/images/mobile-vimeo.svg">
-                            </ion-button>
-                        </ion-col>
-                    </ion-row>
 
-                    <ion-row>
-                        <div class="call-to-action">
-                            <ion-button class="content-btn" href="https://thecorporation.com">TheNewCorporation.movie</ion-button>
-                        </div>
-                    </ion-row>
-                </ion-grid>
+            <ion-list>
+                <ion-menu-toggle auto-hide="false">
+                    <ion-item [routerLink]="['/']" class="main-nav-item" lines="none">
+                        Home
+                    </ion-item>
+                    <ion-item [routerLink]="['/stories']" class="main-nav-item" lines="none">
+                        Stories
+                    </ion-item>
+                    <ion-item [routerLink]="['/about']" class="main-nav-item" lines="none">
+                        About
+                    </ion-item>
+                    <ion-item [routerLink]="['/join']" *ngIf="showJoin" class="main-nav-item" lines="none">
+                        Join Us
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+            <!--
+            <ion-grid class="nav-social-links">
+                <ion-row class="social-link-row">
+                    <ion-col>
+                        <ion-button fill="clear" (click)="linkToSocialProfile('facebook')">
+                            <img src="./assets/images/mobile-facebook.svg">
+                        </ion-button>
+                    </ion-col>
+                    <ion-col>
+                        <ion-button fill="clear" (click)="linkToSocialProfile('twitter')">
+                            <img src="./assets/images/mobile-twitter.svg">
+                        </ion-button>
+                    </ion-col>
+                    <ion-col>
+                        <ion-button fill="clear" (click)="linkToSocialProfile('youtube')">
+                            <img src="./assets/images/mobile-youtube.svg">
+                        </ion-button>
+                    </ion-col>
+                    <ion-col>
+                        <ion-button fill="clear" (click)="linkToSocialProfile('vimeo')">
+                            <img src="./assets/images/mobile-vimeo.svg">
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
 
-                <!--
+                <ion-row>
+                    <div class="call-to-action">
+                        <ion-button class="content-btn" href="https://thecorporation.com">TheNewCorporation.movie</ion-button>
+                    </div>
+                </ion-row>
+            </ion-grid>
                 <div class="bottom-nav-link-grid">
                     <a (click)="showPrivacyModal()">Privacy Policy</a>
 
@@ -67,21 +66,13 @@
                     <a (click)="showTermsModal()">Contact Us</a>
                 </div>
                 -->
-                <p class="copyright-text">
-                    Copyright {{ copyrightYear }} <br> Grant Street Productions<br> Site by <a href="https://hellocoolworldmedia.com">Hello Cool World</a>
-                </p>
-            </ion-content>
+            <p>
+                Copyright {{ copyrightYear }} <br> Grant Street Productions<br> Site by <a href="https://hellocoolworldmedia.com">Hello Cool World</a>
+            </p>
         </ion-menu>
 
         <ion-router-outlet main></ion-router-outlet>
 
     </ion-split-pane>
-    <script src="https://forms.coolworld.cloud/shared/iframeResizer.min.js" type="text/javascript "></script>
-    <script type="text/javascript ">
-        console.log('Helloy');
-        iFrameResize({
-            inPageLinks: true,
-            checkOrigin: false
-        });
-    </script>
+
 </ion-app>
