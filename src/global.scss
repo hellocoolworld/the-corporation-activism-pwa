@@ -176,19 +176,18 @@
             font-size: 5.5rem !important;
         }
         .logo-home {
+            width: 50%;
             top: 40%;
-            width: 65%;
         }
         .cta {
             position: relative;
             width: auto;
             padding: 0;
             margin: 0;
-            border: 1px solid red;
             .cta-btn {
-                right: 30vw;
-                left: 30vw;
-                font-size: 1.5rem;
+                position: relative;
+                width: inhert;
+                font-size: 1.2rem;
             }
         }
     }
