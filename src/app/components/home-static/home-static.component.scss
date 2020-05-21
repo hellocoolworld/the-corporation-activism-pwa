@@ -1,0 +1,83 @@
+:host {
+    --page-margin: var(--app-broad-margin);
+}
+
+.home-btn-group {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-logo {
+    position: relative;
+    height: auto;
+    text-align: center;
+}
+
+.home-content {
+    position: relative;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    text-transform: uppercase;
+    color: rgb(208, 29, 39);
+    width: inherit;
+    text-align: center;
+    text-align-last: center;
+}
+
+.cta {
+    position: relative;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    .cta-btn {
+        position: relative;
+        width: inhert;
+        font-size: 1.2rem;
+    }
+}
+
+h1.home {
+    text-transform: uppercase;
+    color: var(--ion-color-secondary);
+    width: inherit;
+    text-align: center;
+    text-align-last: center;
+}
+
+h2.home {
+    text-transform: uppercase;
+    color: white;
+    width: inherit;
+    text-align: center;
+    text-align-last: center;
+}
+
+@media (max-width: 574px) {
+    h1.home {
+        font-size: 1.8rem !important;
+    }
+    h2.home {
+        font-size: 2.5rem !important;
+    }
+    .home-logo {
+        top: 23%;
+        width: 50%;
+    }
+}
+
+@media (min-width: 575px) {
+    h1.home {
+        font-size: 4.5rem !important;
+    }
+    h2.hoome {
+        font-size: 5.5rem !important;
+    }
+    .home-logo {
+        top: 23%;
+        width: 50%;
+    }
+}

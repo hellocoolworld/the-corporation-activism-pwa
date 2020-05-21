@@ -68,7 +68,7 @@
     h2 {
         color: var(--ion-color-secondary);
     }
-    @media (max-width: 824) {
+    @media (max-width: 574px) {
         h1 {
             size: 4rem;
         }
@@ -76,7 +76,7 @@
             size: 2rem;
         }
     }
-    @media (min-width: 825) {
+    @media (min-width: 574px) {
         h1 {
             size: 5rem;
         }
@@ -142,69 +142,6 @@
         width: 100%;
         background-image: url(/assets/new/concrete-tile.png);
         background-repeat: repeat;
-    }
-    .logo-home {
-        position: relative;
-        top: 23%;
-        width: 50%;
-        height: auto;
-        text-align: center;
-    }
-    .dumbass {
-        position: relative;
-        width: auto;
-        padding: 0;
-        margin: 0;
-    }
-    @media (max-width: 576px) {
-        .dumbass h1 {
-            font-size: 1.8rem !important;
-        }
-        .dumbass h2 {
-            font-size: 2.5rem !important;
-        }
-        .logo-home {
-            width: 75%;
-            top: 40%;
-        }
-    }
-    @media (min-width: 577px) {
-        .dumbass h1 {
-            font-size: 4.5rem !important;
-        }
-        .dumbass h2 {
-            font-size: 5.5rem !important;
-        }
-        .logo-home {
-            width: 50%;
-            top: 40%;
-        }
-        .cta {
-            position: relative;
-            width: auto;
-            padding: 0;
-            margin: 0;
-            .cta-btn {
-                position: relative;
-                width: inhert;
-                font-size: 1.2rem;
-            }
-        }
-    }
-    .dumbass h1 {
-        position: relative;
-        text-transform: uppercase;
-        color: rgb(208, 29, 39);
-        width: inherit;
-        text-align: center;
-        text-align-last: center;
-    }
-    .dumbass h2 {
-        text-transform: uppercase;
-        color: white;
-        width: inherit;
-        text-align: center;
-        text-align-last: center;
     }
 }
 
