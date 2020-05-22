@@ -44,12 +44,8 @@ export class FooterComponent extends Extender implements OnInit, OnDestroy {
     return test;
   }
 
-  get showJoin() {
-    let test: boolean = !this.settings.deviceToken;
-    if (this.document.location.pathname.indexOf('join') !== -1) {
-      test = false;
-    }
-    return test;
+  get copyrightYear() {
+    return new Date().getFullYear();
   }
   
   linkToSocialProfile(p: number) {

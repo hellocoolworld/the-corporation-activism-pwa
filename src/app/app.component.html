@@ -10,23 +10,25 @@
                     </ion-buttons>
                 </ion-toolbar>
             </ion-header>
+            <ion-content>
+                <ion-list>
+                    <ion-menu-toggle auto-hide="false">
+                        <ion-item [routerLink]="['/']" class="main-nav-item" lines="none">
+                            Home
+                        </ion-item>
+                        <ion-item [routerLink]="['/stories']" class="main-nav-item" lines="none">
+                            Stories
+                        </ion-item>
+                        <ion-item [routerLink]="['/about']" class="main-nav-item" lines="none">
+                            About
+                        </ion-item>
+                        <ion-item [routerLink]="['/join']" *ngIf="showJoin" class="main-nav-item" lines="none">
+                            Join Us
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
 
-            <ion-list>
-                <ion-menu-toggle auto-hide="false">
-                    <ion-item [routerLink]="['/']" class="main-nav-item" lines="none">
-                        Home
-                    </ion-item>
-                    <ion-item [routerLink]="['/stories']" class="main-nav-item" lines="none">
-                        Stories
-                    </ion-item>
-                    <ion-item [routerLink]="['/about']" class="main-nav-item" lines="none">
-                        About
-                    </ion-item>
-                    <ion-item [routerLink]="['/join']" *ngIf="showJoin" class="main-nav-item" lines="none">
-                        Join Us
-                    </ion-item>
-                </ion-menu-toggle>
-            </ion-list>
             <!--
             <ion-grid class="nav-social-links">
                 <ion-row class="social-link-row">
@@ -54,7 +56,7 @@
 
                 <ion-row>
                     <div class="call-to-action">
-                        <ion-button class="content-btn" href="https://thecorporation.com">TheNewCorporation.movie</ion-button>
+                        <ion-button class="content-btn" href="https://thecorporation.movie">TheNewCorporation.movie</ion-button>
                     </div>
                 </ion-row>
             </ion-grid>
@@ -66,8 +68,8 @@
                     <a (click)="showTermsModal()">Contact Us</a>
                 </div>
                 -->
-            <p>
-                Copyright {{ copyrightYear }} <br> Grant Street Productions<br> Site by <a href="https://hellocoolworldmedia.com">Hello Cool World</a>
+            <p class="footer">
+                &copy; {{ copyrightYear }} Grant Street Productions | Site by <a href="https://Cool.world">Cool.world</a>
             </p>
         </ion-menu>
 

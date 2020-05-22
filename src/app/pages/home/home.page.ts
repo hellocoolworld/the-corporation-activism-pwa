@@ -41,7 +41,7 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
   }
 
   get isFirstPageThisSession(): boolean {
-    return false;
+    return true;
     return this.settings.seenAnimation ? false : true;
   }
 

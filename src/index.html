@@ -14,7 +14,6 @@
     <!-- add to homescreen for ios -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#09284A">
     <meta name="description" content="Over 15 years ago, The New Corporation helped ignite resistance to corporate rule. Watch stories about how the film inspired change and action.">
     <!-- favicons -->
@@ -22,24 +21,12 @@
     <link rel="shortcut icon" type="image/png" href="/assets/icons/favicon.png">
 
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-                console.log('Service Worker registration successful with scope: ', registration.scope);
-            }, function(err) {
-                console.log('Service Worker registration failed: ', err);
-            });
-
-            navigator.serviceWorker.ready.then(function(registration) {
-                console.log('Service Worker ready');
-            });
-        }
-    </script>
-
 </head>
 
 <body>
+
     <app-root></app-root>
+    <script src="https://forms.coolworld.cloud/shared/iframeResizer.min.jss type=" text/javascript "></script>
 </body>
 
 </html>
