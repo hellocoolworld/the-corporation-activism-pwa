@@ -43,53 +43,115 @@
     }
 }
 
-.intro-story {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    z-index: 4;
+.home-ani {
+    position: relative;
+    height: auto;
+    text-align: center;
+    top: 15%;
     width: 100%;
-    height: 21%;
-    background-color: rgba(255, 255, 255, 0.5);
-    top: 28.5%;
-    p {
-        position: absolute;
-        color: black;
-        font-size: 1rem;
-        line-height: 1.45;
-        font-weight: 650;
-        align-self: center;
-        margin: 0;
-        left: 10vw;
-        right: 10vw;
-        text-transform: uppercase;
-    }
-    .text-1 {
-        animation-name: ani-first;
-        animation-timing-function: ease-in-out;
-        animation-duration: 7.5s;
-        animation-fill-mode: forwards;
-    }
-    .text-2 {
-        animation-name: ani-second;
-        animation-timing-function: ease-in-out;
-        animation-duration: 13.5s;
-        animation-fill-mode: forwards;
-    }
-    .text-3 {
-        margin-top: 9.5%;
-        font-size: 1.4rem;
-        font-weight: 650;
-        color: black;
-        animation-name: ani-final-card;
-        animation-timing-function: ease-in-out;
-        animation-duration: 14.5s;
-        animation-fill-mode: forwards;
-    }
-}
-
-.cta-btn {
     @media (min-width: 575px) {
-        font-size: 1.8rem;
+        top: 20%;
+        width: 50%;
+    }
+    .home-ani-wrapper {
+        height: 38rem;
+        margin: 0;
+        position: relative;
+        .home-ani-img {
+            justify-content: center;
+            align-items: center;
+            div {
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+            .home-ani-img-1 {
+                background-image: url("/assets/new/intro-ani-rect-1.svg");
+                background-repeat: no-repeat;
+                background-position: center center;
+                z-index: 1;
+                animation-name: ani-first;
+                animation-timing-function: ease-in-out;
+                animation-duration: 7.5s;
+                animation-fill-mode: forwards;
+            }
+            .home-ani-img-2 {
+                background-image: url("/assets/new/intro-ani-rect-2.svg");
+                background-repeat: no-repeat;
+                background-position: center center;
+                z-index: 2;
+                animation-name: ani-second;
+                animation-timing-function: ease-in-out;
+                animation-duration: 13.5s;
+                animation-fill-mode: forwards;
+            }
+            .home-ani-img-3 {
+                background-image: url("/assets/new/intro-ani-rect-3.svg");
+                background-repeat: no-repeat;
+                background-position: center center;
+                height: auto;
+                z-index: 3;
+                animation-name: ani-final-card;
+                animation-timing-function: ease-in-out;
+                animation-duration: 14.5s;
+                animation-fill-mode: forwards;
+            }
+        }
+        .home-ani-text {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            z-index: 4;
+            width: 100%;
+            height: 21%;
+            background-color: rgba(255, 255, 255, 0.5);
+            top: 28.5%;
+            p {
+                position: absolute;
+                color: black;
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+                @media (min-width: 575px) {
+                    font-size: 1.5rem;
+                    line-height: 1.5rem;
+                }
+                font-weight: 900;
+                font-style: bold;
+                align-self: center;
+                margin: 0;
+                left: 5vw;
+                right: 5vw;
+                text-transform: uppercase;
+            }
+            .home-ani-text-1 {
+                animation-name: ani-first;
+                animation-timing-function: ease-in-out;
+                animation-duration: 7.5s;
+                animation-fill-mode: forwards;
+            }
+            .home-ani-text-2 {
+                animation-name: ani-second;
+                animation-timing-function: ease-in-out;
+                animation-duration: 13.5s;
+                animation-fill-mode: forwards;
+            }
+            .home-ani-text-3 {
+                animation-name: ani-final-card;
+                animation-timing-function: ease-in-out;
+                animation-duration: 14.5s;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+    .cta-btn {
+        font-size: 1rem;
+        @media (min-width: 575px) {
+            font-size: 1.8rem;
+        }
     }
 }

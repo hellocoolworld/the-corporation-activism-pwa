@@ -51,13 +51,7 @@ export class AppComponent extends Extender implements OnInit {
   }
 
   linkToSocialProfile(p: number) {
-    console.log('p: ', p);
     this.commonService.openSocialProvider(p);
-  }
-
-  join() {
-    console.log('joIn');
-    this.router.navigate(['join']);
   }
 
   showJoin() {

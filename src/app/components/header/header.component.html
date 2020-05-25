@@ -6,8 +6,7 @@
             </ion-menu-toggle>
         </ion-buttons>
         <ion-buttons class="ion-no-padding" slot="end">
-            <ion-button class="ion-no-padding" *ngIf="showJoin" (click)="goto('/join')">
-                <ion-label slot="start" class="">Join Us</ion-label>
+            <ion-button class="header-btn" size="small" *ngIf="showJoin" (click)="goto('/join')">Join Us
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
@@ -24,6 +23,9 @@
                 <div class="navbar" class="ion-text-center">
                     <ion-button fill="clear" (click)="goto('/')" routerLink="/" routerDirection="root" routerLinkActive="active-link" class="link btn-content">
                         Home
+                    </ion-button>
+                    <ion-button fill="clear" (click)="goto('/intro')" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">
+                        Introduction
                     </ion-button>
                     <ion-button fill="clear" (click)="goto('/stories')" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">
                         Stories

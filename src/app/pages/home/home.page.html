@@ -1,6 +1,6 @@
 <app-header></app-header>
-<ion-content class="hasHeader">
-    <app-home-intro *ngIf="isFirstPageThisSession"></app-home-intro>
-    <app-home-static *ngIf="!isFirstPageThisSession"></app-home-static>
+<ion-content class="hasHeader page-content">
+    <app-home-intro *ngIf="seenAnimation"></app-home-intro>
+    <app-home-static *ngIf="!seenAnimation"></app-home-static>
 </ion-content>
 <app-footer></app-footer>

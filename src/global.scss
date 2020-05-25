@@ -1,146 +1,144 @@
-    @import '~@ionic/angular/css/core.css';
-    @import '~@ionic/angular/css/normalize.css';
-    @import '~@ionic/angular/css/structure.css';
-    @import '~@ionic/angular/css/typography.css';
-    @import '~@ionic/angular/css/padding.css';
-    @import '~@ionic/angular/css/float-elements.css';
-    @import '~@ionic/angular/css/text-alignment.css';
-    @import '~@ionic/angular/css/text-transformation.css';
-    @import '~@ionic/angular/css/flex-utils.css';
-    // EXTRA GLOBAL STYLES
-    // Add custom Ionic Colors
-    @import "./theme/custom-ion-colors.scss";
-    // Add base app styles
-    @import "./theme/shell-defaults.scss";
-    @font-face {
-        font-family: 'Geomanist-Black';
-        src: url('/assets/geomanist/hinted-Geomanist-Black.woff') format('woff');
-        font-weight: 900;
-        font-style: normal;
-    }
-    
-    @font-face {
-        font-family: 'Geomanist-Light';
-        src: url('/assets/geomanist/hinted-Geomanist-Light.eot');
-        src: url('/assets/geomanist/hinted-Geomanist-Light.eot?#iefix') format('embedded-opentype'), url('/assets/geomanist/hinted-Geomanist-Light.woff2') format('woff2'), url('/assets/geomanist/hinted-Geomanist-Light.woff') format('woff'), url('/assets/geomanist/hinted-Geomanist-Light.ttf') format('truetype'), url('/assets/geomanist/hinted-Geomanist-Light.svg#Geomanist-Light') format('svg');
-        font-weight: 300;
-        font-style: normal;
-    }
-    
-     :root {
-        * {
-            font-family: 'Geomanist-Light';
-            font-weight: 300;
-            font-style: normal;
-        }
-        body {
-            width: 100%;
-            margin: auto;
-            position: relative;
-            background-color: white;
-        }
-        ion-content {
-            --ion-background-color: white;
-        }
-        .centered {
-            position: absolute;
-            top: 25%;
-            left: 50%;
-            transform: translate(-50%, -20%);
-        }
-        .responsive {
-            width: 100%;
-            height: auto;
-        }
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Geomanist-Light';
-            font-weight: 900;
-            font-style: normal;
-        }
-        h1 {
-            color: var(--ion-color-primary);
-            font-size: 2.2rem;
-            @media (min-width: 575px) {
-                font-size: 3rem;
-            }
-        }
-        h2 {
-            color: var(--ion-color-secondary);
-            font-size: 1.8rem;
-            @media (min-width: 575px) {
-                font-size: 2.3rem;
-            }
-        }
-        p {
-            color: black;
-            line-height: 1.5rem;
-            font-size: 1rem;
-            @media (min-width: 575px) {
-                font-size: 1.2rem;
-                line-height: 1.7rem;
-            }
-        }
-        hr {
-            border-top: 1px solid #cccccc;
-        }
-        .text-muted {
-            color: var(--ion-color-medium);
-            margin: calc(var(--page-margin) / 2) 0px;
-        }
-        ion-button {
-            --border-radius: var(--app-fair-radius);
-            &.content-btn {
-                color: white;
-                --background: rgb(208, 29, 39);
-                text-transform: uppercase;
-                font-style: normal;
-                font-weight: 900;
-            }
-            &.page-btn {
-                color: white;
-                --background: rgb(208, 29, 39);
-                text-transform: uppercase;
-                font-style: normal;
-                font-weight: 900;
-            }
-            &.header-btn {
-                color: white;
-                --background: rgb(208, 29, 39);
-                text-transform: uppercase;
-                font-style: normal;
-                font-weight: 900;
-            }
-            &.cta-btn {
-                text-transform: uppercase;
-                color: white;
-                --background: rgb(208, 29, 39);
-                font-weight: 900;
-            }
-        }
-        .home-bg-buildings {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            background-image: url(/assets/new/background-1000.png);
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-color: #000000;
-        }
-        .home-bg-concrete {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            background-image: url(/assets/new/concrete-tile.png);
-            background-repeat: repeat;
-        }
-    }
-    
-    // This style is for the onboarding
-    .swiper-container-horizontal>.swiper-pagination-bullets {
-        bottom: 50px !important;
-    }
+                @import '~@ionic/angular/css/core.css';
+                @import '~@ionic/angular/css/normalize.css';
+                @import '~@ionic/angular/css/structure.css';
+                @import '~@ionic/angular/css/typography.css';
+                @import '~@ionic/angular/css/padding.css';
+                @import '~@ionic/angular/css/float-elements.css';
+                @import '~@ionic/angular/css/text-alignment.css';
+                @import '~@ionic/angular/css/text-transformation.css';
+                @import '~@ionic/angular/css/flex-utils.css';
+                // EXTRA GLOBAL STYLES
+                // Add custom Ionic Colors
+                @import "./theme/custom-ion-colors.scss";
+                // Add base app styles
+                @import "./theme/shell-defaults.scss";
+                @font-face {
+                    font-family: 'Geomanist-Black';
+                    src: url('/assets/geomanist/hinted-Geomanist-Black.woff') format('woff');
+                    font-weight: 900;
+                    font-style: normal;
+                }
+                
+                @font-face {
+                    font-family: 'Geomanist-Light';
+                    src: url('/assets/geomanist/hinted-Geomanist-Light.eot');
+                    src: url('/assets/geomanist/hinted-Geomanist-Light.eot?#iefix') format('embedded-opentype'), url('/assets/geomanist/hinted-Geomanist-Light.woff2') format('woff2'), url('/assets/geomanist/hinted-Geomanist-Light.woff') format('woff'), url('/assets/geomanist/hinted-Geomanist-Light.ttf') format('truetype'), url('/assets/geomanist/hinted-Geomanist-Light.svg#Geomanist-Light') format('svg');
+                    font-weight: 300;
+                    font-style: normal;
+                }
+                
+                 :root {
+                    * {
+                        font-family: 'Geomanist-Light';
+                        font-weight: 300;
+                        font-style: normal;
+                    }
+                    body {
+                        width: 100%;
+                        margin: auto;
+                        position: relative;
+                        background-color: white;
+                    }
+                    ion-content {
+                        --ion-background-color: white;
+                    }
+                    .centered {
+                        position: absolute;
+                        top: 25%;
+                        left: 50%;
+                        transform: translate(-50%, -20%);
+                    }
+                    .responsive {
+                        width: 100%;
+                        height: auto;
+                    }
+                    h1,
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6 {
+                        font-family: 'Geomanist-Light';
+                        font-weight: 900;
+                        font-style: normal;
+                    }
+                    h1 {
+                        color: var(--ion-color-primary);
+                        font-size: 2.2rem;
+                        @media (min-width: 575px) {
+                            font-size: 3rem;
+                        }
+                    }
+                    h2 {
+                        color: var(--ion-color-secondary);
+                        font-size: 1.8rem;
+                        @media (min-width: 575px) {
+                            font-size: 2.3rem;
+                        }
+                    }
+                    p {
+                        color: black;
+                        line-height: 1.5rem;
+                        font-size: 1rem;
+                        @media (min-width: 575px) {
+                            font-size: 1.2rem;
+                            line-height: 1.7rem;
+                        }
+                    }
+                    hr {
+                        border-top: 1px solid #cccccc;
+                    }
+                    .text-muted {
+                        color: var(--ion-color-medium);
+                        margin: calc(var(--page-margin) / 2) 0px;
+                    }
+                    ion-button {
+                        --border-radius: var(--app-fair-radius);
+                        color: white;
+                        --background: #D01D27;
+                        font-style: normal;
+                        font-weight: 900;
+                        &.content-btn {
+                            font-style: bold;
+                            font-weight: 900;
+                        }
+                        &.link {
+                            color: black;
+                            font-size: 1rem;
+                            --background: none;
+                            font-style: bold;
+                            font-weight: 900;
+                            text-transform: uppercase;
+                        }
+                        &.header-btn {
+                            font-style: bold;
+                            font-weight: 900;
+                            text-transform: uppercase;
+                        }
+                        &.home-cta-btn {
+                            font-weight: 900;
+                            letter-spacing: auto;
+                            width: 50%;
+                            text-transform: uppercase;
+                        }
+                    }
+                    .home-bg-buildings {
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        background-image: url(/assets/new/background-1000.png);
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-color: #000000;
+                    }
+                    .home-bg-concrete {
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        background-image: url(/assets/new/concrete-tile.png);
+                        background-repeat: repeat;
+                    }
+                    .swiper-container-horizontal>.swiper-pagination-bullets {
+                        bottom: 50px !important;
+                    }
+                }

@@ -5,15 +5,15 @@ import { SettingsService, ScreenService } from 'src/app/services';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss']
+  selector: 'app-intro',
+  templateUrl: './intro.page.html',
+  styleUrls: ['./intro.page.scss']
 })
-export class HomePage extends Extender implements OnInit, OnDestroy {
+export class IntroPage extends Extender implements OnInit, OnDestroy {
   settings: Setting;
   stories: Story[] = [];
-  isDesktop: boolean;
-
+  isDesktop:boolean;
+  
   constructor(
     protected injector: Injector,
     private title: Title,
@@ -35,6 +35,10 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
+  join() {
+    console.log('join: ');
+    this.router.navigate(['/join']);
+  }
 
   get seenAnimation(): boolean {
     return this.settings.seenAnimation;

@@ -6,8 +6,8 @@
     position: relative;
     height: auto;
     text-align: center;
-    top: 30%;
-    width: 90%;
+    top: 40%;
+    width: 80%;
     @media (min-width: 575px) {
         top: 23%;
         width: 60%;
@@ -30,11 +30,6 @@
             font-size: 2.2rem;
             @media (min-width: 575px) {
                 font-size: 5.8rem;
-            }
-        }
-        .cta-btn {
-            @media (min-width: 575px) {
-                font-size: 1.8rem;
             }
         }
     }
