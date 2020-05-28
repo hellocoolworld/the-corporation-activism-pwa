@@ -1,6 +1,6 @@
 <app-header></app-header>
 <ion-content class="hasHeader page-content">
-    <div class="xsdfads">
+    <div class="story-details">
         <h1>{{ story.title }}</h1>
         <div class="story-details-content">
             <div [style]="sanatizeVideoResponsiveStyles(story.aspectRatio)">
@@ -68,17 +68,19 @@
                 <p>{{ story.takeActionSummary }}</p>
                 <div [innerHTML]="sanatizeHTML(story.takeActionBody)"></div>
             </div>
-            <div class="share-buttons">
-                <ion-button class="social-sharing-btn" color="facebook">
-                    <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
-                </ion-button>
-                <ion-button class="social-sharing-btn" color="twitter">
-                    <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
-                </ion-button>
-            </div>
-            <div class="published-date">
-                {{ story.updatedAt }}
-            </div>
+            <!--<div class="share-buttons">
+                    <ion-button class="social-sharing-btn" color="facebook">
+                        <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+                    </ion-button>
+                    <ion-button class="social-sharing-btn" color="twitter">
+                        <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+                    </ion-button>
+                </div>-_
+                <div class="published-date">
+                    {{ story.updatedAt }}
+                </div>
+            
+        -->
         </div>
     </div>
 </ion-content>
