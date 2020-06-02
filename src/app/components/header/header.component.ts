@@ -45,6 +45,10 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     }
     return test;
   }
+  
+  goToUrl(url): void {
+    this.document.location.href = url;
+  }
 
   ngOnDestroy() {
     console.log('bye');

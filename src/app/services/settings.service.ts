@@ -12,7 +12,7 @@ export class SettingsService extends Extender {
 
     constructor(
         protected injector: Injector,
-        ) {
+    ) {
         super(injector);
         this.init();
     }
@@ -35,11 +35,18 @@ export class SettingsService extends Extender {
     }
 
     public saveSetting(setting: any, value: any) {
+
+        console.log('saveSetting: ', setting, value);
+
         if (this.settings.hasOwnProperty(setting)) {
+            console.log('Found');
             this.settings[setting] = value;
+            console.log('this.settings[setting]: ', this.settings[setting]);
             localStorage.setItem('settings', JSON.stringify(this.settings));
+            console.log('setting fresh: ', JSON.parse(localStorage.getItem('settings')));
             return true;
         } else {
+            console.log('Not Found');
             return false;
         }
     }

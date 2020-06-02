@@ -5,8 +5,15 @@
                 <ion-icon name="menu" size="large"></ion-icon>
             </ion-menu-toggle>
         </ion-buttons>
-        <ion-title>The New Corporation</ion-title>
-
+        <ion-title (click)="goToUrl('https://thenewcorporation.movie')">
+            The New Corporation
+        </ion-title>
+>>>>>>> Stashed changes
+=======
+        <ion-title (click)="goToUrl('https://thenewcorporation.movie')">
+            The New Corporation
+        </ion-title>
+>>>>>>> Stashed changes
         <ion-buttons class="ion-no-padding" slot="end">
             <ion-button class="header-btn" size="small" *ngIf="showJoin" (click)="goto('/join')">Join Us
             </ion-button>
@@ -18,17 +25,20 @@
 <ion-header *ngIf="isDesktop">
     <ion-toolbar>
         <ion-row class="ion-align-items-center">
-            <ion-col size="2">
+            <ion-col size="1">
                 <img src="/assets/new/logo-header.svg" class="header-logo ion-text-left">
             </ion-col>
-            <ion-col size="8">
+            <ion-col size="3">
+                <ion-title (click)="goToUrl('https://thenewcorporation.movie')">
+                    The New Corporation
+                </ion-title>
+            </ion-col>
+            <ion-col size="5">
                 <div class="navbar" class="ion-text-center">
                     <ion-button fill="clear" (click)="goto('/')" routerLink="/" routerDirection="root" routerLinkActive="active-link" class="link btn-content">
                         Home
                     </ion-button>
-                    <ion-button fill="clear" (click)="goto('/intro')" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">
-                        Introduction
-                    </ion-button>
+
                     <ion-button fill="clear" (click)="goto('/stories')" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">
                         Stories
                     </ion-button>
@@ -37,7 +47,7 @@
                     </ion-button>
                 </div>
             </ion-col>
-            <ion-col size="2">
+            <ion-col size="3">
                 <ion-button *ngIf="showJoin" (click)="goto('/join')" class="header-btn">
                     Join us
                 </ion-button>

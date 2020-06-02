@@ -93,7 +93,6 @@
                         margin: calc(var(--page-margin) / 2) 0px;
                     }
                     ion-button {
-                        --border-radius: var(--app-fair-radius);
                         color: white;
                         --background: #D01D27;
                         font-style: normal;
@@ -111,14 +110,9 @@
                             text-transform: uppercase;
                         }
                         &.header-btn {
-                            font-style: bold;
-                            font-weight: 900;
                             text-transform: uppercase;
                         }
                         &.home-cta-btn {
-                            font-weight: 900;
-                            letter-spacing: auto;
-                            width: 50%;
                             text-transform: uppercase;
                         }
                     }

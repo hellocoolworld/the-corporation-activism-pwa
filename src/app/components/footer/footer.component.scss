@@ -3,7 +3,7 @@
 }
 
 // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
-.footer-content {
+.page-content {
     --padding-start: var(--page-margin);
     --padding-end: var(--page-margin);
     --padding-top: var(--page-margin);
@@ -11,5 +11,5 @@
 }
 
 p.footer {
-    font-size: 1em;
+    font-size: 1rem;
 }

@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
-import { Injector, Optional } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Injector, Inject, Optional } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ActionSheetController, AlertController, ModalController, ToastController } from '@ionic/angular';
 // import { TranslateService } from '@ngx-translate/core';
@@ -15,7 +16,9 @@ export class Extender {
   public status: string = '';
   public loading: boolean = false;
 
-  constructor(@Optional() private _injector: Injector) {}
+  constructor(@Optional() private _injector: Injector) { }
+
+
 
   /** get access to subscriptions in SubscriptionService, this makes it accessible to all components that extend this class */
   public get subscriptions(): Subscription[] {
@@ -58,7 +61,7 @@ export class Extender {
     return this._injector.get(ActivatedRoute);
   }
 
-   
+
   /** inject TranslateService class, saves us having to add this in several component constructors
   public get translate(): TranslateService {
     return this._injector.get(TranslateService);

@@ -1,45 +1,72 @@
-@keyframes ani-first {
+@keyframes ani-one {
     0% {
+        opacity: 0;
+    }
+    3% {
         opacity: 1;
     }
-    95% {
+    30% {
         opacity: 1;
+    }
+    33% {
+        opacity: 0;
     }
     100% {
         opacity: 0;
     }
 }
 
-@keyframes ani-second {
+@keyframes ani-two {
     0% {
         opacity: 0;
     }
-    55% {
+    31% {
         opacity: 0;
+    }
+    33% {
+        opacity: 1;
     }
     60% {
         opacity: 1;
     }
-    95% {
-        opacity: 1
+    61% {
+        opacity: 0
     }
     100% {
         opacity: 0;
     }
 }
 
-@keyframes ani-final-card {
+@keyframes ani-three {
     0% {
         opacity: 0;
     }
-    92.25% {
+    60% {
         opacity: 0;
     }
-    96.5% {
+    63% {
+        opacity: 1;
+    }
+    97% {
         opacity: 1;
     }
     100% {
+        opacity: 0;
+    }
+}
+
+@keyframes ani-four {
+    0% {
+        opacity: 0;
+    }
+    3% {
         opacity: 1;
+    }
+    97% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -75,9 +102,9 @@
                 background-repeat: no-repeat;
                 background-position: center center;
                 z-index: 1;
-                animation-name: ani-first;
+                animation-name: ani-one;
                 animation-timing-function: ease-in-out;
-                animation-duration: 7.5s;
+                animation-duration: 16s;
                 animation-fill-mode: forwards;
             }
             .home-ani-img-2 {
@@ -85,9 +112,9 @@
                 background-repeat: no-repeat;
                 background-position: center center;
                 z-index: 2;
-                animation-name: ani-second;
+                animation-name: ani-two;
                 animation-timing-function: ease-in-out;
-                animation-duration: 13.5s;
+                animation-duration: 16s;
                 animation-fill-mode: forwards;
             }
             .home-ani-img-3 {
@@ -96,9 +123,9 @@
                 background-position: center center;
                 height: auto;
                 z-index: 3;
-                animation-name: ani-final-card;
+                animation-name: ani-three;
                 animation-timing-function: ease-in-out;
-                animation-duration: 14.5s;
+                animation-duration: 16s;
                 animation-fill-mode: forwards;
             }
         }
@@ -110,6 +137,10 @@
             width: 100%;
             height: 21%;
             background-color: rgba(255, 255, 255, 0.5);
+            animation-name: ani-four;
+            animation-timing-function: ease-in-out;
+            animation-duration: 16s;
+            animation-fill-mode: forwards;
             top: 28.5%;
             p {
                 position: absolute;
@@ -129,29 +160,29 @@
                 text-transform: uppercase;
             }
             .home-ani-text-1 {
-                animation-name: ani-first;
+                animation-name: ani-one;
                 animation-timing-function: ease-in-out;
-                animation-duration: 7.5s;
+                animation-duration: 16s;
                 animation-fill-mode: forwards;
             }
             .home-ani-text-2 {
-                animation-name: ani-second;
+                animation-name: ani-two;
                 animation-timing-function: ease-in-out;
-                animation-duration: 13.5s;
+                animation-duration: 16s;
                 animation-fill-mode: forwards;
             }
             .home-ani-text-3 {
-                animation-name: ani-final-card;
+                animation-name: ani-three;
                 animation-timing-function: ease-in-out;
-                animation-duration: 14.5s;
+                animation-duration: 16s;
                 animation-fill-mode: forwards;
             }
         }
     }
-    .cta-btn {
-        font-size: 1rem;
-        @media (min-width: 575px) {
-            font-size: 1.8rem;
-        }
+    .home-skip-btn {
+        animation-name: ani-four;
+        animation-timing-function: ease-in-out;
+        animation-duration: 16s;
+        animation-fill-mode: forwards;
     }
 }

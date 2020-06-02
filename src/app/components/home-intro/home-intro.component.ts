@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, EventEmitter, Output } from '@angular/core';
 import { Extender } from 'src/app/helpers';
 import { Setting } from 'src/app/models';
 import { SettingsService } from 'src/app/services';
@@ -11,7 +11,8 @@ import { SettingsService } from 'src/app/services';
 })
 export class HomeIntroComponent extends Extender implements OnInit {
   settings: Setting;
-  
+  @Output() skipIntro: EventEmitter<boolean> = new EventEmitter();
+
   constructor(
     protected injector: Injector,
     private settingsService: SettingsService
@@ -19,6 +20,9 @@ export class HomeIntroComponent extends Extender implements OnInit {
     super(injector);
   }
 
+  public skip() {
+    this.skipIntro.emit(true);
+  }
   ngOnInit() {
     this.settings = this.settingsService.getAllSettings();
   }
