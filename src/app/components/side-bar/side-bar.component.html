@@ -1,0 +1,73 @@
+<ion-menu>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-button (click)="close()" color="light">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-menu-toggle auto-hide="false">
+
+                <ion-item (click)="goto('/')" class="main-nav-item" lines="none">
+                    Home
+                </ion-item>
+                <ion-item (click)="goto('/stories')" class="main-nav-item" lines="none">
+                    Stories
+                </ion-item>
+                <ion-item (click)="goto('/about')" class="main-nav-item" lines="none">
+                    About
+                </ion-item>
+                <ion-item (click)="goto('/join()')" *ngIf="showJoin" class="main-nav-item" lines="none">
+                    Join Us
+                </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+    </ion-content>
+
+    <!--
+    <ion-grid class="nav-social-links">
+        <ion-row class="social-link-row">
+            <ion-col>
+                <ion-button fill="clear" (click)="linkToSocialProfile('facebook')">
+                    <img src="./assets/images/mobile-facebook.svg">
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button fill="clear" (click)="linkToSocialProfile('twitter')">
+                    <img src="./assets/images/mobile-twitter.svg">
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button fill="clear" (click)="linkToSocialProfile('youtube')">
+                    <img src="./assets/images/mobile-youtube.svg">
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button fill="clear" (click)="linkToSocialProfile('vimeo')">
+                    <img src="./assets/images/mobile-vimeo.svg">
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <div class="call-to-action">
+                <ion-button class="content-btn" href="https://thecorporation.movie">TheNewCorporation.movie</ion-button>
+            </div>
+        </ion-row>
+    </ion-grid>
+        <div class="bottom-nav-link-grid">
+            <a (click)="showPrivacyModal()">Privacy Policy</a>
+
+            <a (click)="showTermsModal()">Terms of use</a>
+
+            <a (click)="showTermsModal()">Contact Us</a>
+        </div>
+        -->
+    <p class="footer">
+        &copy; {{ copyrightYear }} Grant Street Productions | Site by <a href="https://Cool.world">Cool.world</a>
+    </p>
+</ion-menu>

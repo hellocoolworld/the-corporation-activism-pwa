@@ -17,14 +17,15 @@ import { RatingInputComponent } from './rating-input/rating-input.component';
 import { StoriesListingComponent } from './stories-listing/stories-listing.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeStaticComponent } from './home-static/home-static.component';
 import { HomeIntroComponent } from './home-intro/home-intro.component';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot()
   ],
   declarations: [
     AspectRatioComponent,
@@ -39,7 +40,8 @@ import { HomeIntroComponent } from './home-intro/home-intro.component';
     HeaderComponent,
     HomeStaticComponent,
     HomeIntroComponent,
-    FooterComponent
+    FooterComponent,
+    SideBarComponent
   ],
   exports: [
     AspectRatioComponent,
@@ -54,7 +56,8 @@ import { HomeIntroComponent } from './home-intro/home-intro.component';
     HeaderComponent,
     HomeStaticComponent,
     HomeIntroComponent,
-    FooterComponent
+    FooterComponent,
+    SideBarComponent
   ],
   entryComponents: [PopoverComponent],
 })

@@ -1,88 +1,90 @@
-.header-flex-container {
-    width: 100%;
-    margin: 0;
-    .desktop-header {
-        position: relative;
-        overflow: hidden;
-        display: -webkit-flex;
-        flex-direction: row;
-        -webkit-flex-direction: row;
+ion-menu {
+    --ion-background-color: var(--ion-color-tertiary-contrast);
+    --ion-text-color: var(--ion-color-primary-contrast);
+}
+
+ion-toolbar {
+    --background: var(--ion-color-tertiary-contrast);
+}
+
+ion-label {
+    font-family: 'Geomanist-Light';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+.social-buttons {
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-top: 3vw;
+}
+
+.nav-social-links {
+    margin-top: 3vw;
+    .social-link-row {
+        margin-left: 7%;
         align-items: center;
-        justify-content: space-around;
-        flex-wrap: nowrap;
-        margin: 0;
-        height: 20vw;
-        width: 100%;
-        padding: 2vw 2vw 2vw;
-        --background: transparent;
-        background-color: #000000 !important;
-        .header-start {
-            align-items: center;
-            min-height: 120px;
-            width: 13rem;
-            height: auto;
-            right: 5vw;
-            left: 6vw;
-        }
-        .header-middle {
-            .header-mid-flex {
-                max-width: 80%;
-                display: -webkit-flex;
-                flex-direction: column;
-                -webkit-flex-direction: column;
-                align-items: left;
-                margin: 0;
-                padding-left: 3vw;
-                .header-divider {
-                    border-left: 1px solid white;
-                }
-                h1 {
-                    color: white;
-                    font-weight: 300;
-                    padding-bottom: 0;
-                    padding-left: 2vw;
-                    margin-top: 0;
-                }
-                p {
-                    margin: 0;
-                    padding-top: 0;
-                    padding-bottom: 2vw;
-                    padding-left: 2vw;
-                    color: white;
-                }
-                .header-links {
-                    display: -webkit-flex;
-                    flex-direction: row;
-                    -webkit-flex-direction: row;
-                    flex-wrap: nowrap;
-                    margin-bottom: 0;
-                    a {
-                        color: var(--ion-color-tertiary-shade);
-                        font-size: 1.5vw;
-                        text-decoration: none;
-                        white-space: nowrap;
-                        font-weight: 300;
-                        padding-right: 2vw;
-                        padding-left: 2vw;
-                        padding-top: 2vw;
-                    }
-                }
-            }
-        }
-        .header-end {
-            align-items: center;
-            width: 20rem;
-            margin-right: 2vw;
-            height: auto;
-            .social-buttons {
-                display: -webkit-flex;
-                flex-direction: row;
-                -webkit-flex-direction: row;
-                align-items: center;
-                flex-wrap: nowrap;
-                justify-content: space-around;
-                margin-top: 3vw;
+        justify-content: center;
+        ion-col {
+            align-self: center;
+            --ion-grid-column-padding: 0;
+            ion-button {
+                --padding-start: 0;
+                --padding-end: 0;
+                fill: clear;
             }
         }
     }
+    .navLink p {
+        font-size: 1.2em;
+        text-align: center;
+        .visitUs {
+            font-weight: 300;
+        }
+    }
+}
+
+.main-navi-item {
+    --background: grey;
+    color: white;
+}
+
+.bottom-nav-link-grid {
+    height: 22%;
+    padding-left: 2vh;
+    padding-top: 3.5%;
+    padding-bottom: 3.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    a {
+        font-size: 1.1em;
+        font-weight: 300;
+        columns: #ffffff;
+    }
+}
+
+.copyright-text {
+    font-size: 1em;
+    padding-top: 2vh;
+    padding-left: 4vh;
+    line-height: 1.5;
+}
+
+.bottom-nav-link-grid {
+    margin-right: 6vw;
+    margin-left: 6vw;
+    border-bottom: 1px solid var(--ion-color-medium);
+    border-top: 1px solid var(--ion-color-medium);
+}
+
+p.footer {
+    padding: 2vw;
+    font-size: 0.8em;
 }
