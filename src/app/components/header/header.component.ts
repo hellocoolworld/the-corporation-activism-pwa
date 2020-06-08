@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, Injector, Inject } from '@angular/core';
+import { ModalController, MenuController } from '@ionic/angular';
 import { DOCUMENT } from '@angular/common';
 import { Extender } from 'src/app/helpers';
 import { Setting } from 'src/app/models';
@@ -15,7 +16,8 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     protected injector: Injector,
     @Inject(DOCUMENT) private document,
     private settingsService: SettingsService,
-    private screenService: ScreenService
+    private screenService: ScreenService,
+    private menuController: MenuController
   ) {
     super(injector);
   }
@@ -44,6 +46,13 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
       test = false;
     }
     return test;
+  }
+
+  open(menuId: string) {
+    console.log('open: ', menuId);
+    
+    this.menuController.open(menuId);
+
   }
   
   goToUrl(url): void {

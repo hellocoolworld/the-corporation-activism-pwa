@@ -1,4 +1,4 @@
-<ion-menu>
+<ion-menu id="side-menu" contentId="side-menu-content">
     <ion-header>
         <ion-toolbar>
             <ion-buttons slot="start">
@@ -8,7 +8,7 @@
             </ion-buttons>
         </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content id="side-menu-content">
         <ion-list>
             <ion-menu-toggle auto-hide="false">
 
@@ -26,6 +26,9 @@
                 </ion-item>
             </ion-menu-toggle>
         </ion-list>
+        <p class="footer">
+            &copy; {{ copyrightYear }} Grant Street Productions | Site by <a href="https://Cool.world">Cool.world</a>
+        </p>
     </ion-content>
 
     <!--
@@ -67,7 +70,5 @@
             <a (click)="showTermsModal()">Contact Us</a>
         </div>
         -->
-    <p class="footer">
-        &copy; {{ copyrightYear }} Grant Street Productions | Site by <a href="https://Cool.world">Cool.world</a>
-    </p>
+
 </ion-menu>

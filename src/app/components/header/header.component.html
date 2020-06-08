@@ -1,9 +1,8 @@
 <ion-header *ngIf="!isDesktop">
     <ion-toolbar>
         <ion-buttons slot="start" class="header-hamburger">
-            <ion-menu-toggle>
-                <ion-icon name="menu" size="large"></ion-icon>
-            </ion-menu-toggle>
+            <ion-menu-button (click)="open('side-menu')">
+            </ion-menu-button>
         </ion-buttons>
         <ion-title (click)="goToUrl('https://thenewcorporation.movie')">
             The New Corporation
