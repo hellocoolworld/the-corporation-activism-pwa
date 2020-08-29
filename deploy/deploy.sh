@@ -1,8 +1,5 @@
 #!/bin/bash
-#ssh do-user@coolworld.cloud "source /home/do-user/.bashrc; rm -rf /opt/corp/pwa; cd /opt/corp; mkdir pwa;"
-LOCAL="/Users/davdwaynegriffith/Code/corp-app-pwa/www/*"
-REMOTE="/opt/corp/pwa/*"
-scp -r "$LOCAL" do-user@dev.halotales.com:"$REMOTE"
+ssh do-user@coolworld.cloud "source /home/do-user/.bashrc; rm -rf /opt/corp/pwa/*;"
 
 
 #sudo nano /etc/nginx/nginx.conf
@@ -10,10 +7,7 @@ scp -r "$LOCAL" do-user@dev.halotales.com:"$REMOTE"
 #sudo systemctl restart nginx
 #sudo nginx -t
 #sudo nginx -T
-
-
-scp -r "${PWD}"../dist/* do-user@coolworld.cloud:/opt/corp/pwa
-
-
-
-
+cd ..
+ionic build --prod
+scp -r "${PWD}"/dist/* do-user@coolworld.cloud:/opt/corp/pwa
+ssh do-user@coolworld.cloud "source /home/do-user/.bashrc; rm -rf /opt/corp/pwa/*;"
