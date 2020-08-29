@@ -44,9 +44,18 @@
                     }
                     .centered {
                         position: absolute;
-                        top: 25%;
+                        top: 50%;
                         left: 50%;
-                        transform: translate(-50%, -20%);
+                        transform: translate(-50%, -50%);
+                    }
+                    .border-green {
+                        border: 2px solid green;
+                    }
+                    .border-red {
+                        border: 2px solid red;
+                    }
+                    .border-blue {
+                        border: 2px solid blue;
                     }
                     .responsive {
                         width: 100%;
@@ -115,22 +124,6 @@
                         &.home-cta-btn {
                             text-transform: uppercase;
                         }
-                    }
-                    .home-bg-buildings {
-                        position: absolute;
-                        height: 100%;
-                        width: 100%;
-                        background-image: url(/assets/new/background-1000.png);
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                        background-color: #000000;
-                    }
-                    .home-bg-concrete {
-                        position: absolute;
-                        height: 100%;
-                        width: 100%;
-                        background-image: url(/assets/new/concrete-tile.png);
-                        background-repeat: repeat;
                     }
                     .swiper-container-horizontal>.swiper-pagination-bullets {
                         bottom: 50px !important;

@@ -1,5 +1,5 @@
 <app-header></app-header>
-<ion-content class="hasHeader page-content">
+<ion-content class="hasHeader page-content border">
     <app-home-intro *ngIf="!seenAnimation" (skipIntro)="skipIntro($event)"></app-home-intro>
     <app-home-static *ngIf="seenAnimation"></app-home-static>
 </ion-content>

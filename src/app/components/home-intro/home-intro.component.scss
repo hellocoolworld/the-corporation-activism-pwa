@@ -70,119 +70,127 @@
     }
 }
 
-.home-ani {
-    position: relative;
-    height: auto;
-    text-align: center;
-    top: 15%;
-    width: 100%;
-    @media (min-width: 575px) {
-        top: 20%;
-        width: 50%;
+.home-ani-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    div {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: auto;
     }
-    .home-ani-wrapper {
-        height: 38rem;
-        margin: 0;
-        position: relative;
-        .home-ani-img {
-            justify-content: center;
-            align-items: center;
-            div {
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                position: absolute;
-                display: block;
-                width: 100%;
-                height: auto;
-            }
-            .home-ani-img-1 {
-                background-image: url("/assets/new/intro-ani-rect-1.svg");
-                background-repeat: no-repeat;
-                background-position: center center;
-                z-index: 1;
-                animation-name: ani-one;
-                animation-timing-function: ease-in-out;
-                animation-duration: 16s;
-                animation-fill-mode: forwards;
-            }
-            .home-ani-img-2 {
-                background-image: url("/assets/new/intro-ani-rect-2.svg");
-                background-repeat: no-repeat;
-                background-position: center center;
-                z-index: 2;
-                animation-name: ani-two;
-                animation-timing-function: ease-in-out;
-                animation-duration: 16s;
-                animation-fill-mode: forwards;
-            }
-            .home-ani-img-3 {
-                background-image: url("/assets/new/intro-ani-rect-3.svg");
-                background-repeat: no-repeat;
-                background-position: center center;
-                height: auto;
-                z-index: 3;
-                animation-name: ani-three;
-                animation-timing-function: ease-in-out;
-                animation-duration: 16s;
-                animation-fill-mode: forwards;
-            }
-        }
-        .home-ani-text {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            z-index: 4;
-            width: 100%;
-            height: 21%;
-            background-color: rgba(255, 255, 255, 0.5);
-            animation-name: ani-four;
-            animation-timing-function: ease-in-out;
-            animation-duration: 16s;
-            animation-fill-mode: forwards;
-            top: 28.5%;
-            p {
-                position: absolute;
-                color: black;
-                font-size: 1.2rem;
-                line-height: 1.5rem;
-                @media (min-width: 575px) {
-                    font-size: 1.5rem;
-                    line-height: 1.5rem;
-                }
-                font-weight: 900;
-                font-style: bold;
-                align-self: center;
-                margin: 0;
-                left: 5vw;
-                right: 5vw;
-                text-transform: uppercase;
-            }
-            .home-ani-text-1 {
-                animation-name: ani-one;
-                animation-timing-function: ease-in-out;
-                animation-duration: 16s;
-                animation-fill-mode: forwards;
-            }
-            .home-ani-text-2 {
-                animation-name: ani-two;
-                animation-timing-function: ease-in-out;
-                animation-duration: 16s;
-                animation-fill-mode: forwards;
-            }
-            .home-ani-text-3 {
-                animation-name: ani-three;
-                animation-timing-function: ease-in-out;
-                animation-duration: 16s;
-                animation-fill-mode: forwards;
-            }
-        }
-    }
-    .home-skip-btn {
-        animation-name: ani-four;
+    .home-ani-img-1 {
+        background-image: url("/assets/home/frame-1.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-clip: padding-box;
+        z-index: 1;
+        animation-name: ani-one;
         animation-timing-function: ease-in-out;
         animation-duration: 16s;
         animation-fill-mode: forwards;
     }
+    .home-ani-img-2 {
+        background-image: url("/assets/home/frame-2.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        z-index: 2;
+        animation-name: ani-two;
+        animation-timing-function: ease-in-out;
+        animation-duration: 16s;
+        animation-fill-mode: forwards;
+    }
+    .home-ani-img-3 {
+        background-image: url("/assets/home/frame-3.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: auto;
+        z-index: 3;
+        animation-name: ani-three;
+        animation-timing-function: ease-in-out;
+        animation-duration: 16s;
+        animation-fill-mode: forwards;
+    }
+}
+
+.home-content {
+    z-index: 4;
+}
+
+.home-text-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .home-ani-text {
+        background-color: rgba(255, 255, 255, 0.7);
+        animation-name: ani-four;
+        animation-timing-function: ease-in-out;
+        animation-duration: 16s;
+        animation-fill-mode: forwards;
+        width: 20rem;
+        height: 7rem;
+        @media (min-width: 575px) {
+            width: 27rem;
+            height: 9rem;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            color: black;
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+            @media (min-width: 575px) {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+            align-self: center;
+            top: 2vh;
+            bottom: 2vh;
+            left: 2vw;
+            right: 2vw;
+            text-transform: uppercase;
+        }
+        .home-ani-text-1 {
+            animation-name: ani-one;
+            animation-timing-function: ease-in-out;
+            animation-duration: 16s;
+            animation-fill-mode: forwards;
+        }
+        .home-ani-text-2 {
+            animation-name: ani-two;
+            animation-timing-function: ease-in-out;
+            animation-duration: 16s;
+            animation-fill-mode: forwards;
+        }
+        .home-ani-text-3 {
+            text-align: center;
+            font-size: 2rem;
+            line-height: 2.5rem;
+            @media (min-width: 575px) {
+                font-size: 3rem;
+                line-height: 3.5rem;
+            }
+            animation-name: ani-three;
+            animation-timing-function: ease-in-out;
+            animation-duration: 16s;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+
+.home-skip-btn {
+    animation-name: ani-four;
+    animation-timing-function: ease-in-out;
+    animation-duration: 16s;
+    animation-fill-mode: forwards;
 }
