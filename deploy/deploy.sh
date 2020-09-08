@@ -9,5 +9,5 @@ ssh do-user@coolworld.cloud "source /home/do-user/.bashrc; rm -rf /opt/corp/pwa/
 #sudo nginx -T
 cd ..
 ionic build --prod
-scp -r "${PWD}"/dist/* do-user@coolworld.cloud:/opt/corp/pwa
 ssh do-user@coolworld.cloud "source /home/do-user/.bashrc; rm -rf /opt/corp/pwa/*;"
+scp -r "${PWD}"/dist/* do-user@coolworld.cloud:/opt/corp/pwa

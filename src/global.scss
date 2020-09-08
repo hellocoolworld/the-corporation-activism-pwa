@@ -14,8 +14,9 @@
                 @import "./theme/shell-defaults.scss";
                 @font-face {
                     font-family: 'Geomanist-Black';
-                    src: url('/assets/geomanist/hinted-Geomanist-Black.woff') format('woff');
-                    font-weight: 900;
+                    src: url('/assets/geomanist/hinted-Geomanist-Black.eot');
+                    src: url('/assets/geomanist/hinted-Geomanist-Black.eot?#iefix') format('embedded-opentype'), url('/assets/geomanist/hinted-Geomanist-Black.woff2') format('woff2'), url('/assets/geomanist/hinted-Geomanist-Black.woff') format('woff'), url('/assets/geomanist/hinted-Geomanist-Light.ttf') format('truetype'), url('/assets/geomanist/hinted-Geomanist-Black.svg#Geomanist-Black') format('svg');
+                    font-weight: 300;
                     font-style: normal;
                 }
                 
