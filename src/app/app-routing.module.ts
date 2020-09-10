@@ -7,6 +7,9 @@ const routes: Routes = [
   { path: 'intro', loadChildren: './pages/intro/intro.module#IntroPageModule' },
   { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
   { path: 'join', loadChildren: './pages/join/join.module#JoinPageModule' },
+  { path: 'trailer', loadChildren: './pages/trailer/trailer.module#TrailerPageModule' },
+  { path: 'clips', loadChildren: './pages/clips/gallery.module#ListingPageModule' },
+  { path: 'clips/:slug', loadChildren: './pages/clips/clips-details/clips-details.module#ClipsDetailsPageModule' }
   { path: 'stories', loadChildren: './pages/stories/listing/listing.module#ListingPageModule' },
   { path: 'story/:slug', loadChildren: './pages/stories/details/details.module#DetailsPageModule' }
 ];

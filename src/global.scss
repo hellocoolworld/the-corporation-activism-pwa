@@ -14,16 +14,16 @@
                 @import "./theme/shell-defaults.scss";
                 @font-face {
                     font-family: 'Geomanist-Black';
-                    src: url('/assets/geomanist/hinted-Geomanist-Black.eot');
-                    src: url('/assets/geomanist/hinted-Geomanist-Black.eot?#iefix') format('embedded-opentype'), url('/assets/geomanist/hinted-Geomanist-Black.woff2') format('woff2'), url('/assets/geomanist/hinted-Geomanist-Black.woff') format('woff'), url('/assets/geomanist/hinted-Geomanist-Light.ttf') format('truetype'), url('/assets/geomanist/hinted-Geomanist-Black.svg#Geomanist-Black') format('svg');
+                    src: url('/assets/geomanist/Geomanist-Black.eot');
+                    src: url('/assets/fonts/geomanist/Geomanist-Black.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/geomanist/Geomanist-Black.woff2') format('woff2'), url('/assets/fonts/geomanist/Geomanist-Black.woff') format('woff'), url('/assets/fonts/geomanist/Geomanist-Light.ttf') format('truetype'), url('/assets/fonts/geomanist/Geomanist-Black.svg#Geomanist-Black') format('svg');
                     font-weight: 300;
                     font-style: normal;
                 }
                 
                 @font-face {
                     font-family: 'Geomanist-Light';
-                    src: url('/assets/geomanist/hinted-Geomanist-Light.eot');
-                    src: url('/assets/geomanist/hinted-Geomanist-Light.eot?#iefix') format('embedded-opentype'), url('/assets/geomanist/hinted-Geomanist-Light.woff2') format('woff2'), url('/assets/geomanist/hinted-Geomanist-Light.woff') format('woff'), url('/assets/geomanist/hinted-Geomanist-Light.ttf') format('truetype'), url('/assets/geomanist/hinted-Geomanist-Light.svg#Geomanist-Light') format('svg');
+                    src: url('/assets/fonts/geomanist/Geomanist-Light.eot');
+                    src: url('/assets/fonts/geomanist/Geomanist-Light.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/geomanist/Geomanist-Light.woff2') format('woff2'), url('/assets/fonts/geomanist/Geomanist-Light.woff') format('woff'), url('/assets/fonts/geomanist/Geomanist-Light.ttf') format('truetype'), url('/assets/fonts/geomanist/Geomanist-Light.svg#Geomanist-Light') format('svg');
                     font-weight: 300;
                     font-style: normal;
                 }
