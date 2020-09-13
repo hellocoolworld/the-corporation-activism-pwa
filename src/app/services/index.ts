@@ -6,4 +6,5 @@ export * from './fcm.service';
 export * from './firestore.service';
 export * from './subscriptions.service';
 export * from './screen.service';
+export * from './clips.service';
 

@@ -12,13 +12,19 @@
             </ion-header>
             <ion-content id="side-menu-content">
                 <ion-list>
+                    <ion-list-header>
+                        Menu
+                    </ion-list-header>
                     <ion-menu-toggle auto-hide="false">
 
-                        <ion-item (click)="goto('/')" class="main-nav-item" lines="none">
-                            Home
+                        <ion-item (click)="goto('/')" class="main-nav-item" lines="none" button>
+                            <ion-label>Home</ion-label>
                         </ion-item>
-                        <ion-item (click)="goto('/stories')" class="main-nav-item" lines="none">
-                            Stories
+                        <ion-item (click)="goto('/trailer')" class="main-nav-item" lines="none">
+                            Trailer
+                        </ion-item>
+                        <ion-item (click)="goto('/clips')" class="main-nav-item" lines="none">
+                            Clips
                         </ion-item>
                         <ion-item (click)="goto('/about')" class="main-nav-item" lines="none">
                             About

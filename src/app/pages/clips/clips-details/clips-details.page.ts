@@ -2,44 +2,39 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
-import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
 import { ModalController } from '@ionic/angular';
-
-import { StoriesService, ToastService } from '../../../services';
-import { Story, StoryType } from '../../../models';
-
-import { AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from '../../../modals';
+import { ClipsService} from 'src/app/services';
+import { Clip } from 'src/app/models/clip';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.page.html',
-  styleUrls: ['./details.page.scss'],
+  selector: 'app-clips-details',
+  templateUrl: './clips-details.page.html',
+  styleUrls: ['./clips-details.page.scss'],
 })
-export class DetailsPage implements OnInit {
-  story: Story = new Story;
+export class ClipsDetailsPage implements OnInit {
+  clip: Clip = new Clip;
+  clips:  Array<Clip>;
 
   userAvocados: number;
 
   constructor(
     private route: ActivatedRoute,
+    private clipsService: ClipsService,
     private title: Title,
-    private storiesService: StoriesService,
-    private toast: ToastService,
-    private sanitizer: DomSanitizer,
     private modalController: ModalController
   ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const slug = params.get('slug');
-      this.storiesService.getBySlug(slug).subscribe(
+      this.clipsService.getBySlug(slug).subscribe(
         res => {
-          let data: Array<Story> = res as Story[]; //Convert the result to an array of Story
-          data.some(story => {
-            console.log('slug:', story.slug, slug);
-            if (story.slug === slug) {
-              this.story = story;
-              this.title.setTitle(`The New Corporation - ${this.story.title}`);
+          this.clips = res as Clip[]; //Convert the result to an array of Story
+          this.clips.some(clip => {
+            console.log('slug:', clip.slug, slug);
+            if (clip.slug === slug) {
+              this.clip = clip;
+              this.title.setTitle(`The New Corporation - ${this.clip.title}`);
               return true;
             } else {
               return false;
@@ -47,85 +42,12 @@ export class DetailsPage implements OnInit {
           });
         },
         err => {
-          this.toast.error(err, true);
-        },
-        () => {
-          this.userAvocados = 0;
+          console.error(err, true);
         }
       );
     });
   }
 
-  /**
-   * @todo use ngClass and a getter 
-   */
-  onAddYourPledge() {
-    this.story.pledgeCount += 1;
-    this.showAddPledgeModal();
-    const addYourPledge = document.getElementById('add-your-pledge');
-    addYourPledge.classList.add('hidden');
-    const youHavePledged = document.getElementById('you-have-pledged');
-    youHavePledged.classList.remove('hidden');
-  }
-
-  sharePledge() {
-    console.log('noop');
-  }
-  /**
-   * @todo checkout the event emitter 
-   * @param rating {number}
-   */
-  onAddAvocados(rating: number) {
-    if (rating < this.userAvocados) {
-      this.story.avocadoCount -= this.userAvocados - rating;
-    } else if (rating > this.userAvocados) {
-      this.story.avocadoCount += rating - this.userAvocados;
-    }
-    this.userAvocados = rating;
-  }
-
-  sanatizeVideoUrl(videoCode: string) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/' + videoCode);
-  }
-
-  sanatizeVideoResponsiveStyles(aspectRation: string) {
-    return this.sanitizer.bypassSecurityTrustStyle('padding:' + aspectRation + '% 0 0 0;position:relative;');
-  }
-
-  sanatizeHTML(html: string) {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
-
-  async loadAuthorBio(storyId: string) {
-    console.log('id:', storyId);
-    const modal = await this.modalController.create({
-      component: AuthorBioModal,
-      componentProps: {
-        'storyId': storyId
-      }
-    });
-    return await modal.present();
-  }
-
-  async showAddPledgeModal() {
-    const modal = await this.modalController.create({
-      component: AddPledgeModal
-    });
-    return await modal.present();
-  }
-
-  async showHelpActionPledgeModal() {
-    const modal = await this.modalController.create({
-      component: HelpActionPledgeModal
-    });
-    return await modal.present();
-  }
-  async showHelpAvocadometerModal() {
-    const modal = await this.modalController.create({
-      component: HelpAvocadometerModal
-    });
-    return await modal.present();
-  }
 
 
 }
