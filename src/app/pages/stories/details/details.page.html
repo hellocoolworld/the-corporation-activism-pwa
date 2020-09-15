@@ -3,7 +3,8 @@
     <div class="story-details">
         <h1>{{ story.title }}</h1>
         <div class="story-details-content">
-            <iframe class='sproutvideo-player' [src]="sanatizeVideoUrl(story.id)" width='640' height='360' frameborder='0' allowfullscreen></iframe>
+            <iframe class='sproutvideo-player' [src]="sanatizeVideoUrl(story.id)" width='640' height='360'
+                frameborder='0' allowfullscreen></iframe>
             <!---
             <div [style]="sanatizeVideoResponsiveStyles(story.aspectRatio)">
                 <iframe [src]="sanatizeVideoUrl(story.vimeoCode)" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -52,25 +53,25 @@
                             </div>
                         </ion-item>
                         <h4>Add avocados:</h4>
-                        <ht-add-avocados [rating]="userAvocados" (ratingChange)="onAddAvocados($event)"></ht-add-avocados>
+                        <ht-add-avocados [rating]="userAvocados" (ratingChange)="onAddAvocados($event)">
+                        </ht-add-avocados>
                     </ion-col>
                 </ion-row>
             </ion-grid>
             <div class="story-body-section">
                 <h3>Take Action To Support This Story</h3>
                 <p>{{ story.actionSummary }}</p>
-                ngFor="let action in story.actions"
                 <ul>
-                    <li>{{action}}</li>
+                    <li *ngFor="let action of story.actions" [innerHtml]="action"></li>
                 </ul>
 
             </div>
 
             <!--
-
                 SOCIAL SHARES HERE
-            
-        -->
+            -->
+            <!-- <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','linkedin']" [size]="4" [show]="3"
+                [showText]="true" [url]="currentUrl" [autoSetMeta]="false"></share-buttons> -->
         </div>
     </div>
 </ion-content>
