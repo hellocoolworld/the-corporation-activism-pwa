@@ -12,16 +12,12 @@
             </ion-header>
             <ion-content id="side-menu-content">
                 <ion-list>
-                    <ion-list-header>
-                        Menu
-                    </ion-list-header>
-                    <ion-menu-toggle auto-hide="false">
-
-                        <ion-item routerLink="/" routerDirection="forward" class="main-nav-item" lines="none" button>
-                            <ion-label>Home</ion-label>
+                    <ion-menu-toggle auto-hide="true">
+                        <ion-item [routerLink]="['/stories']" routerDirection="forward">
+                            Home
                         </ion-item>
-                        <ion-item routerLink="/trailer" routerDirection="forward" class="main-nav-item" lines="none">
-                            Stories
+                        <ion-item (click)="goto('/about')" routerLink="/stories" routerDirection="forward" class="main-nav-item" lines="none" button>
+                            <ion-label (click)="goto('/about')">Stories</ion-label>
                         </ion-item>
                         <ion-item routerLink="/clips" routerDirection="forward" class="main-nav-item" lines="none">
                             Clips
