@@ -85,7 +85,8 @@ export class DetailsPage implements OnInit {
   }
 
   sanatizeVideoUrl(videoCode: string) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/' + videoCode);
+    
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode);
   }
 
   sanatizeVideoResponsiveStyles(aspectRation: string) {

@@ -43,10 +43,10 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
           }
         },
         error => { 
-          console.log('Error in recieving data'); 
+          console.log('error: ', error); 
         },
         ()   => {
-          // console.log( this.stories );
+          console.log( this.stories );
         }
       );
       this.screenService.isDesktopView().subscribe(isDesktop => {
