@@ -1,6 +1,7 @@
 ﻿import { Injectable, OnInit, Injector } from '@angular/core';
 import { Extender } from 'src/app/helpers/extender';
 import { Setting } from '../models';
+import { Storage } from '@ionic/storage';
 
 @Injectable({ providedIn: 'root' })
 export class SettingsService extends Extender {
@@ -12,13 +13,14 @@ export class SettingsService extends Extender {
 
     constructor(
         protected injector: Injector,
+        private storage: Storage
     ) {
         super(injector);
         this.init();
     }
 
-    private init() {
-        const s = JSON.parse(localStorage.getItem('settings'));
+    private async init() {
+        const s = JSON.parse(await this.storage.get('settings'));
         this.settings = new Setting(s);
     }
 
@@ -27,7 +29,7 @@ export class SettingsService extends Extender {
     }
 
     public getSetting(setting) {
-        if (this.settings.hasOwnProperty(setting)) {
+        if (this.settings && this.settings.hasOwnProperty(setting)) {
             return this.settings[name];
         } else {
             return null;
@@ -38,12 +40,12 @@ export class SettingsService extends Extender {
 
         console.log('saveSetting: ', setting, value);
 
-        if (this.settings.hasOwnProperty(setting)) {
+        if (this.settings && this.settings.hasOwnProperty(setting)) {
             console.log('Found');
             this.settings[setting] = value;
             console.log('this.settings[setting]: ', this.settings[setting]);
             localStorage.setItem('settings', JSON.stringify(this.settings));
-            console.log('setting fresh: ', JSON.parse(localStorage.getItem('settings')));
+            // console.log('setting fresh: ', JSON.parse(localStorage.getItem('settings')));
             return true;
         } else {
             console.log('Not Found');

@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+﻿import {Injectable} from '@angular/core';
 import {
   HttpRequest,
   HttpResponse,
@@ -7,16 +7,17 @@ import {
   HttpInterceptor,
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import {Observable, of, throwError} from 'rxjs';
+import {delay, mergeMap, materialize, dematerialize} from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private storage: Storage) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // array in local storage for registered users
-    const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
+    const users: any[] = [];
 
     const token =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1vc2ggSGFtZWRhbmkiLCJhZG1pbiI6dHJ1ZX0.iy8az1ZDe-_hS8GLDKsQKgPHvWpHl0zkQBqy1QIPOkA';
@@ -35,7 +36,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 return user.email === newUser.email;
               }).length;
               if (duplicateUser) {
-                return throwError({ error: { message: 'Username "' + newUser.email + '" is already registered.' } });
+                return throwError({error: {message: 'Username "' + newUser.email + '" is already registered.'}});
               }
 
               // save new user
@@ -56,9 +57,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               newUser.createdAt = new Date();
               newUser.updatedAt = new Date();
               users.push(newUser);
-              
+
               // respond 200 OK
-              return of(new HttpResponse({ status: 200 }));
+              return of(new HttpResponse({status: 200}));
             }
 
 
@@ -70,48 +71,48 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
               if (filteredUsers.length) {
                 // if login details are valid return 200 OK with user details and fake jwt token
-                const body =  filteredUsers[0];
-                
-                return of(new HttpResponse({ status: 200, body: body }));
+                const body = filteredUsers[0];
+
+                return of(new HttpResponse({status: 200, body: body}));
               } else {
                 // else return 400 bad request
-                return throwError({ error: { message: 'Username or password is incorrect' } });
+                return throwError({error: {message: 'Username or password is incorrect'}});
               }
             }
 
-            
+
             // Verify user
             if (request.url.endsWith('/users/verify') && request.method === 'POST') {
               //if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-                // find user by id in users array
-                const filteredUsers = users.filter(user => {
-                  return user.uid === request.body.id;
-                });
+              // find user by id in users array
+              const filteredUsers = users.filter(user => {
+                return user.uid === request.body.id;
+              });
 
-                if (filteredUsers.length) {
-                  // if user found
-                  const user = filteredUsers[0];
-                  if (user.verificationType === 'email') {
-                    if (user.verificationCode === request.body.verificationCode) {
-                      // save changes
-                      filteredUsers[0].isVerified = true;
-                      filteredUsers[0].verificationCode = null;
-                      localStorage.setItem('users', JSON.stringify(users));
+              if (filteredUsers.length) {
+                // if user found
+                const user = filteredUsers[0];
+                if (user.verificationType === 'email') {
+                  if (user.verificationCode === request.body.verificationCode) {
+                    // save changes
+                    filteredUsers[0].isVerified = true;
+                    filteredUsers[0].verificationCode = null;
+                    this.storage.set('users', JSON.stringify(users));
 
-                      const body =  filteredUsers[0];
-                      return of(new HttpResponse({ status: 200, body: body }));
-                    } else {
-                      // else return 400 bad request
-                      return throwError({ error: { message: 'Wrong verification Code!' } });
-                    }
+                    const body = filteredUsers[0];
+                    return of(new HttpResponse({status: 200, body: body}));
                   } else {
                     // else return 400 bad request
-                    return throwError({ error: { message: 'User verification is not required!' } });
+                    return throwError({error: {message: 'Wrong verification Code!'}});
                   }
                 } else {
                   // else return 400 bad request
-                  return throwError({ error: { message: 'Invalid User' } });
+                  return throwError({error: {message: 'User verification is not required!'}});
                 }
+              } else {
+                // else return 400 bad request
+                return throwError({error: {message: 'Invalid User'}});
+              }
               // } else {
               //   // return 401 not authorised if token is null or invalid
               //   return throwError({ status: 401, error: { message: 'Unauthorised' } });
@@ -123,71 +124,71 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             if (request.url.endsWith('/users') && request.method === 'GET') {
               // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
               if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-                return of(new HttpResponse({ status: 200, body: users }));
+                return of(new HttpResponse({status: 200, body: users}));
               } else {
                 // return 401 not authorised if token is null or invalid
-                return throwError({ status: 401, error: { message: 'Unauthorised' } });
+                return throwError({status: 401, error: {message: 'Unauthorised'}});
               }
             }
 
             // get user by id
             if (request.url.includes('/users') && request.method === 'GET') {
               // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
-//              if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-                // find user by id in users array
-                const urlParts = request.url.split('/');
-                const id = urlParts[urlParts.length - 1];
-                // find user by id in users array
-                const matchedUsers = users.filter(user => {
-                  return user.uid === id;
-                });
-                const user = matchedUsers.length ? matchedUsers[0] : null;
+              //              if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+              // find user by id in users array
+              const urlParts = request.url.split('/');
+              const id = urlParts[urlParts.length - 1];
+              // find user by id in users array
+              const matchedUsers = users.filter(user => {
+                return user.uid === id;
+              });
+              const user = matchedUsers.length ? matchedUsers[0] : null;
 
-                return of(new HttpResponse({ status: 200, body: user }));
+              return of(new HttpResponse({status: 200, body: user}));
               // } else {
               //   // return 401 not authorised if token is null or invalid
               //   return throwError({ status: 401, error: { message: 'Unauthorised' } });
               // }
             }
 
-            // update user 
+            // update user
             if (request.url.endsWith('/users') && request.method === 'PUT') {
               // if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
 
               // find user by id in users array
-                const filteredUsers = users.filter(user => {
-                  return user.uid === request.body.id;
-                });
+              const filteredUsers = users.filter(user => {
+                return user.uid === request.body.id;
+              });
 
-                if (filteredUsers.length) {
-                  // if user found
-                  if (filteredUsers[0].isVerified) {
-                      // save changes
-                      filteredUsers[0].email = request.body.email;
-                      filteredUsers[0].password = request.body.password;
-                      filteredUsers[0].displayName = request.body.displayName;
-                      filteredUsers[0].photoURL = request.body.photoURL;
-                      filteredUsers[0].testimonial = request.body.testimonial;
-                      filteredUsers[0].stories = request.body.stories;
-                      filteredUsers[0].pledges = request.body.pledges;
-                      filteredUsers[0].actions = request.body.actions;
-                      filteredUsers[0].joinMailingList = request.body.joinMailingList;
-                      filteredUsers[0].allowPushNotification = request.body.allowPushNotification;
-                      filteredUsers[0].allowEmailNotification = request.body.allowEmailNotification;
-                      localStorage.setItem('users', JSON.stringify(users));
+              if (filteredUsers.length) {
+                // if user found
+                if (filteredUsers[0].isVerified) {
+                  // save changes
+                  filteredUsers[0].email = request.body.email;
+                  filteredUsers[0].password = request.body.password;
+                  filteredUsers[0].displayName = request.body.displayName;
+                  filteredUsers[0].photoURL = request.body.photoURL;
+                  filteredUsers[0].testimonial = request.body.testimonial;
+                  filteredUsers[0].stories = request.body.stories;
+                  filteredUsers[0].pledges = request.body.pledges;
+                  filteredUsers[0].actions = request.body.actions;
+                  filteredUsers[0].joinMailingList = request.body.joinMailingList;
+                  filteredUsers[0].allowPushNotification = request.body.allowPushNotification;
+                  filteredUsers[0].allowEmailNotification = request.body.allowEmailNotification;
+                  this.storage.set('users', JSON.stringify(users));
 
 
-                      const body =  filteredUsers[0];
-                      return of(new HttpResponse({ status: 200, body: body }));
+                  const body = filteredUsers[0];
+                  return of(new HttpResponse({status: 200, body: body}));
 
-                    } else {
-                    // else return 400 bad request
-                    return throwError({ error: { message: 'You must verify your account first!' } });
-                  }
                 } else {
                   // else return 400 bad request
-                  return throwError({ error: { message: 'Invalid User' } });
-                }              // } else {
+                  return throwError({error: {message: 'You must verify your account first!'}});
+                }
+              } else {
+                // else return 400 bad request
+                return throwError({error: {message: 'Invalid User'}});
+              }              // } else {
               //   // return 401 not authorised if token is null or invalid
               //   return throwError({ status: 401, error: { message: 'Unauthorised' } });
               // }
@@ -205,20 +206,20 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                   if (user.uid === id) {
                     // delete user
                     users.splice(i, 1);
-                    localStorage.setItem('users', JSON.stringify(users));
+                    this.storage.set('users', JSON.stringify(users));
                     break;
                   }
                 }
 
                 // respond 200 OK
-                return of(new HttpResponse({ status: 200 }));
+                return of(new HttpResponse({status: 200}));
               } else {
                 // return 401 not authorised if token is null or invalid
-                return throwError({ status: 401, error: { message: 'Unauthorised' } });
+                return throwError({status: 401, error: {message: 'Unauthorised'}});
               }
             }
 
-            
+
 
 
 

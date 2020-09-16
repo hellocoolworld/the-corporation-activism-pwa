@@ -11,14 +11,14 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
-
+import { IonicStorageModule } from '@ionic/storage';
 
 // tslint:disable-next-line:max-line-length
 import {  PrivacyPolicyModal,
           TermsOfServiceModal,
           AuthorBioModal,
           AddPledgeModal,
-          HelpActionPledgeModal, 
+          HelpActionPledgeModal,
           HelpAvocadometerModal,
           SocialShareModal
         } from './modals';
@@ -26,7 +26,7 @@ import {  PrivacyPolicyModal,
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     IonicModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
@@ -34,7 +34,8 @@ import {  PrivacyPolicyModal,
     ComponentsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireMessagingModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    IonicStorageModule.forRoot()
   ],
 
   declarations: [

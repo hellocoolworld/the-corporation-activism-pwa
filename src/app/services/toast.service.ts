@@ -29,8 +29,8 @@ export class ToastService {
      duration: ok ? null : duration,
      position: 'top',
      color: color,
-     showCloseButton: true,
-     closeButtonText: 'X'
+    //  showCloseButton: true,
+    //  closeButtonText: 'X'
     });
     toast.present();
   }

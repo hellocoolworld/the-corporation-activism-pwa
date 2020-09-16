@@ -6,7 +6,7 @@ export interface ISetting {
 }
 export class Setting {
   public seenAnimation = false;
-  public deviceToken: string = null;
+  public deviceToken: string = '';
   public socialProviders: [
     {provider: SocialAuthProvider.facebook, link: 'https://facebook.com'},
     {provider: SocialAuthProvider.instagram, link: 'https://instagram.com'},
