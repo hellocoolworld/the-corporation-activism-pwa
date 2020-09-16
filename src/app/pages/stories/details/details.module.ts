@@ -6,6 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ComponentsModule } from '../../../components/components.module';
+import { ShareModule } from 'ngx-sharebuttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 import { DetailsPage } from './details.page';
 
@@ -22,7 +25,10 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     ComponentsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ShareModule,
+    ShareButtonsModule,
+    ShareIconsModule
   ],
   declarations: [DetailsPage]
 })

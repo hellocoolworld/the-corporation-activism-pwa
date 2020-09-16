@@ -36,6 +36,9 @@
                             },
                             {
                                 "input": "src/global.scss"
+                            },
+                            {
+                                "input": "node_modules/ngx-sharebuttons/themes/modern/modern-dark-theme.scss"
                             }
                         ],
                         "scripts": []
