@@ -15,7 +15,7 @@
                 <ion-item (click)="goto('/')" class="main-nav-item" lines="none">
                     Home
                 </ion-item>
-                <ion-item (click)="goto('/stories')" class="main-nav-item" lines="none">
+                <ion-item button (click)="goto('/stories')" class="main-nav-item" lines="none">
                     Stories
                 </ion-item>
                 <ion-item (click)="goto('/about')" class="main-nav-item" lines="none">
@@ -24,6 +24,7 @@
                 <ion-item (click)="goto('/join()')" *ngIf="showJoin" class="main-nav-item" lines="none">
                     Join Us
                 </ion-item>
+                <ion-button ion-item (click)="goto('/about')">Stories</ion-button>
             </ion-menu-toggle>
         </ion-list>
 

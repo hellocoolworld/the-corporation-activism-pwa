@@ -1,6 +1,7 @@
 <ion-app>
-    <ion-split-pane when="min-width: 575px | disabled=true" contentId="main-content">
-        <ion-menu id="side-menu" contentId="side-menu-content">
+    <!-- <ion-split-pane when="min-width: 575px | disabled=true" contentId="main-content"> -->
+        <app-side-bar></app-side-bar>
+        <!-- <ion-menu id="side-menu" contentId="side-menu-content">
             <ion-header>
                 <ion-toolbar>
                     <ion-buttons slot="start">
@@ -35,7 +36,7 @@
                 <ion-toolbar>
                     <ion-title size="small">&copy; {{ copyrightYear }} Grant Street Productions | App by <a href="https://Cool.world">Cool.world</a> | Movie website <a href="https://TheNewCorporation.movie">TheNewCorporation.movie</a></ion-title>
                 </ion-toolbar>
-            </ion-footer>
+            </ion-footer> -->
             <!--
             <ion-grid class="nav-social-links">
                 <ion-row class="social-link-row">
@@ -76,8 +77,8 @@
                 </div>
                 -->
 
-        </ion-menu>
+        <!-- </ion-menu> -->
         <ion-router-outlet id="main-content"></ion-router-outlet>
-    </ion-split-pane>
+    <!-- </ion-split-pane> -->
 
 </ion-app>
