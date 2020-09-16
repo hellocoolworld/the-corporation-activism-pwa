@@ -5,7 +5,7 @@ sudo apt-get install sshpass
 sshpass -p $ROOT_PASSWORD_CW scp ./deploy_pwa.sh do-user@coolworld.cloud:/opt/deploy/deploy_pwa.sh
 
 ### Prepare the API Build (Execute in Local)
-npm run build
+npm run build:ssr
 export ROOT_PASSWORD_CW="green7"
 
 ### Prepare the compress copy

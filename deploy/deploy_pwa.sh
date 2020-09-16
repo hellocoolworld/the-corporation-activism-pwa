@@ -27,3 +27,12 @@ cd /opt/corp/"$APP_NAME"
 rm -r /opt/corp/"$APP_NAME"/"$CODE"
 mv /opt/corp/"$APP_NAME"/"$CODE".build /opt/corp/"$APP_NAME"/"$CODE"
 echo "Removed Old codebase and Replaced with New Client."
+
+# Set NODE_ENV, del, start, describe client
+cd /opt/corp/"$APP_NAME"/"$CODE"
+export NODE_ENV="$NODE_ENV"
+pm2 delete "$CODE"-pwa
+pm2 start --name "$CODE"-pwa "npm run serve:ssr"
+pm2 describe "$CODE"-pwa
+pm2 logs "$CODE"-pwa --nostream
+echo "PM2 Redeployed"
