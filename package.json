@@ -8,7 +8,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "www": "ng build --prod",
-    "dev:ssr": "PORT=4300; ng run app:serve-ssr",
+    "dev:ssr": "ng run app:serve-ssr --port 4300",
     "serve:ssr": "node dist/app/server/main.js",
     "build:ssr": "ng build --prod && ng run app:server:production",
     "prerender": "ng run app:prerender"

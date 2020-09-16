@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
@@ -24,6 +24,7 @@ export class DetailsPage implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private title: Title,
+        private meta: Meta,
         private storiesService: StoriesService,
         private toast: ToastService,
         private sanitizer: DomSanitizer,
@@ -32,46 +33,83 @@ export class DetailsPage implements OnInit {
         private readonly seoSocialShareService: SeoSocialShareService
     ) { }
 
-    ngOnInit() {
-        console.log('this.router.url', this.router.url);
+    async ngOnInit() {
         this.currentUrl = this.router.url;
-        this.route.paramMap.subscribe(params => {
-            const slug = params.get('slug');
-            this.storiesService.getBySlug(slug).subscribe(
-                res => {
-                    let data: Array<Story> = res as Story[]; //Convert the result to an array of Story
-                    data.some(story => {
-                        console.log('slug:', story.slug, slug);
-                        if (story.slug === slug) {
-                            const seoData: SeoSocialShareData = {
-                                title: story.share.title,
-                                description: story.share.description,
-                                image: story.share.image,
-                                imageAuxData: {
-                                    height: story.share.height
-                                },
-                                keywords: story.share.keywords,
-                            };
-                            this.story = story;
-                            this.seoSocialShareService.setTwitterCard('summary_large_image');
-                            this.seoSocialShareService.setAuthor('@TheCorpApp');
-                            this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
-                            this.seoSocialShareService.setData(seoData);
-                            this.title.setTitle(`The New Corporation - ${this.story.title}`);
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    });
-                },
-                err => {
-                    this.toast.error(err, true);
-                },
-                () => {
-                    this.userAvocados = 0;
-                }
-            );
+        const slug = this.route.snapshot.paramMap.get('slug');
+        await this.loadSlugDataPromise(slug);
+    }
+
+    async loadSlugDataPromise(slug) {
+        const res = await this.storiesService.getBySlug(slug).toPromise();
+        const data: Array<Story> = res as Story[]; // Convert the result to an array of Story
+        data.some(story => {
+            if (story.slug === slug) {
+                const seoData: SeoSocialShareData = {
+                    title: story.share.title,
+                    description: story.share.description,
+                    image: story.share.image,
+                    imageAuxData: {
+                        height: story.share.height
+                    },
+                    keywords: story.share.keywords,
+                };
+                this.story = story;
+                this.seoSocialShareService.setTwitterCard('summary_large_image');
+                this.seoSocialShareService.setAuthor('@TheCorpApp');
+                this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
+                this.seoSocialShareService.setData(seoData);
+                this.title.setTitle(`-- The New Corporation - ${this.story.title}`);
+
+                // Possible Solution 1
+                this.meta.addTag({ name: 'description', content: story.share.description });
+                this.meta.addTag({ name: 'keywords', content: story.share.keywords });
+                this.meta.addTag({ name: 'image', content: story.share.image });
+                return true;
+            } else {
+                return false;
+            }
         });
+    }
+
+    loadSlugData(slug) {
+        this.storiesService.getBySlug(slug).subscribe(
+            res => {
+                const data: Array<Story> = res as Story[]; // Convert the result to an array of Story
+                data.some(story => {
+                    if (story.slug === slug) {
+                        const seoData: SeoSocialShareData = {
+                            title: story.share.title,
+                            description: story.share.description,
+                            image: story.share.image,
+                            imageAuxData: {
+                                height: story.share.height
+                            },
+                            keywords: story.share.keywords,
+                        };
+                        this.story = story;
+                        this.seoSocialShareService.setTwitterCard('summary_large_image');
+                        this.seoSocialShareService.setAuthor('@TheCorpApp');
+                        this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
+                        this.seoSocialShareService.setData(seoData);
+                        this.title.setTitle(`-- The New Corporation - ${this.story.title}`);
+
+                        // Possible Solution 1
+                        this.meta.addTag({ name: 'description', content: story.share.description });
+                        this.meta.addTag({ name: 'keywords', content: story.share.keywords });
+                        this.meta.addTag({ name: 'image', content: story.share.image });
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+            },
+            err => {
+                this.toast.error(err, true);
+            },
+            () => {
+                this.userAvocados = 0;
+            }
+        );
     }
 
     /**
