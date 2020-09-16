@@ -20,7 +20,10 @@ export class SettingsService extends Extender {
     }
 
     private async init() {
-        const s = JSON.parse(await this.storage.get('settings'));
+        let s = await this.storage.get('settings');
+        if (s) {
+            s = JSON.parse(s);
+        }
         this.settings = new Setting(s);
     }
 
@@ -44,7 +47,13 @@ export class SettingsService extends Extender {
             console.log('Found');
             this.settings[setting] = value;
             console.log('this.settings[setting]: ', this.settings[setting]);
-            localStorage.setItem('settings', JSON.stringify(this.settings));
+            try {
+                if (this.settings) {
+                    this.storage.set('settings', JSON.stringify(this.settings));
+                }
+            } catch (error) {
+                console.log('error ', error);
+            }
             // console.log('setting fresh: ', JSON.parse(localStorage.getItem('settings')));
             return true;
         } else {

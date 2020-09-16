@@ -45,7 +45,7 @@ export class CommonService extends Extender {
     );
   }
 
- 
+
 
   /** checks if the device supports native and uses native share function
    * otherwise using open social share component
@@ -55,7 +55,7 @@ export class CommonService extends Extender {
       modal.present();
   }
 
- 
+
   public openSocialProvider(provider: number) {
     console.log('openSocialProvider');
     const link = this.settings.socialProviders.find(p => p.provider === provider).link;

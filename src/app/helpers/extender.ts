@@ -40,7 +40,7 @@ export class Extender {
   //   }
   // }
 
-  /** get access to routes and make them available app wide in any class that extends this class 
+  /** get access to routes and make them available app wide in any class that extends this class
   public get routes(): IRoutes {
     return Routes._routes;
   }
