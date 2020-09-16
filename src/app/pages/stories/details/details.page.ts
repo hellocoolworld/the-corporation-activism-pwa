@@ -20,7 +20,7 @@ export class DetailsPage implements OnInit {
     story: Story = new Story;
 
     userAvocados: number;
-
+    currentUrl;
     constructor(
         private route: ActivatedRoute,
         private title: Title,
@@ -33,6 +33,8 @@ export class DetailsPage implements OnInit {
     ) { }
 
     ngOnInit() {
+        console.log('this.router.url', this.router.url);
+        this.currentUrl = this.router.url;
         this.route.paramMap.subscribe(params => {
             const slug = params.get('slug');
             this.storiesService.getBySlug(slug).subscribe(
