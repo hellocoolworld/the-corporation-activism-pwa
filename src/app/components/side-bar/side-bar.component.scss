@@ -50,9 +50,10 @@ ion-label {
     }
 }
 
-.main-navi-item {
-    --background: grey;
-    color: white;
+.main-nav-item {
+    /* --background: grey;
+    color: white; */
+    pointer-events: initial;
 }
 
 .bottom-nav-link-grid {
