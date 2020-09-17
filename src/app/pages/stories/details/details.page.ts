@@ -22,6 +22,7 @@ export class DetailsPage implements OnInit {
 
     userAvocados: number;
     currentUrl;
+    options = {};
     constructor(
         private route: ActivatedRoute,
         private title: Title,
@@ -38,7 +39,7 @@ export class DetailsPage implements OnInit {
     async ngOnInit() {
         this.currentUrl = this.router.url;
         const slug = this.route.snapshot.paramMap.get('slug');
-        this.loadSlugData(slug);
+        this.loadSlugDataPromise(slug);
         setTimeout(async () => {
             this.presentModal();
         }, 2000);
@@ -47,9 +48,19 @@ export class DetailsPage implements OnInit {
     async presentModal() {
         const modal = await this.modalController.create({
             cssClass: 'story-detail-modal',
-            component: ModalPageComponent
+            component: ModalPageComponent,
+            componentProps: {
+                'story': this.story
+            }
         });
-        return await modal.present();
+        await modal.present();
+        const { data } = await modal.onWillDismiss();
+        console.log('data ', data);
+        if (data && data.action && data.action === 'reply') {
+            /**
+             * Reply Video Code will be here.
+             */
+        }
     }
 
     async loadSlugDataPromise(slug) {
@@ -154,7 +165,7 @@ export class DetailsPage implements OnInit {
     }
 
     sanatizeVideoUrl(videoCode: string) {
-
+        //https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
         return this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode);
     }
 

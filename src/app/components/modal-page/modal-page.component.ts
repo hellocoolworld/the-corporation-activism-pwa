@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { Story } from '../../models';
 
 @Component({
     selector: 'app-modal-page',
@@ -9,10 +10,8 @@ import { ModalController } from '@ionic/angular';
 })
 export class ModalPageComponent implements OnInit {
 
-    // enableBackdropDismiss = false;
-    // showBackdrop = false;
-    // shouldPropagate = false;
     currentUrl;
+    @Input() story: Story;
     constructor(
         private modalController: ModalController,
         private router: Router
@@ -24,6 +23,12 @@ export class ModalPageComponent implements OnInit {
 
     dismiss() {
         this.modalController.dismiss();
+    }
+
+    replyButton() {
+        this.modalController.dismiss({
+            action: 'reply'
+        });
     }
 
 }
