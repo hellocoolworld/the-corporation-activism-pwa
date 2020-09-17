@@ -1,6 +1,6 @@
 <ion-grid>
     <ion-row>
-        <ion-col [size]="storysGridSize" *ngFor="let story of stories">
+        <ion-col [size]="storiesGridSize" *ngFor="let story of stories">
             <a href='story/{{story.slug}}' class='sproutvideo-lightbox' data-width='640' data-height='360'><img src='https://cdn-thumbnails.sproutvideo.com/{{story.id}}/0/btn_true,w_640,h_360/poster.jpg' style='max-width:100%' /></a>
             <h3>{{story.title}}</h3>
             <p>{{story.blurb}}</p>
