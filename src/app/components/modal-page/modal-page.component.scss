@@ -2,3 +2,9 @@
     display: block;
     text-align: center;
 }
+h1,h2,h3,h4,h5,h6,span,p{
+    --ion-color: #fff;
+}
+.story-body-section, .story-body-section ion-label,.story-body-section p{
+    color: #fff !important;
+}

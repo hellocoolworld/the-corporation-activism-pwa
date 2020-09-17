@@ -1,6 +1,6 @@
 <ion-content class="model-start">
     <div class="button-main">
-        <ion-button color="light" (click)="replyButton()">
+        <ion-button color="danger" (click)="replyButton()">
             <ion-icon size="large" ion-button name="refresh-circle-outline"></ion-icon>
         </ion-button>
     </div>
@@ -9,7 +9,7 @@
         <p>{{ story.actionSummary }}</p>
         <ion-list>
             <ion-item *ngFor="let action of story.actions">
-                <ion-label [innerHtml]="action"></ion-label>
+                <ion-label class="story-label"  [innerHtml]="action"></ion-label>
             </ion-item>
         </ion-list>
     </div>

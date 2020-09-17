@@ -157,16 +157,23 @@
         opacity: 0.8 !important;
         // background-color: black !important;
     }
-    :root .story-detail-modal ion-content {
-        --ion-background-color: black;
+
+    .story-detail-modal ion-content {
+        --ion-background-color: rgba(0, 0, 0, 1.0001) !important;
     }
-}
-:root ion-content {
-    --ion-background-color: rgba(0,0,0,.0001) !important;
-}
-.sc-ion-modal-md-h{
-    --ion-background-color: rgba(0,0,0,.0001) !important;
-}
-.sc-ion-modal-md-h:first-of-type {
-    --box-shadow: unset;
+
+    .sc-ion-modal-md-h {
+        --ion-background-color: rgba(0, 0, 0, 1.0001) !important;
+    }
+    .sc-ion-modal-md-h:first-of-type{
+        --backdrop-opacity: 1 !important;
+    }
+
+    .sc-ion-modal-md-h:first-of-type {
+        --box-shadow: unset;
+    }
+
+    .story-body-section ion-label a {
+        color: red !important;
+    }
 }
