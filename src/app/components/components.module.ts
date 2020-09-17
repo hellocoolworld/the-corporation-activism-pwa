@@ -20,12 +20,19 @@ import { FooterComponent } from './footer/footer.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeStaticComponent } from './home-static/home-static.component';
 import { HomeIntroComponent } from './home-intro/home-intro.component';
+import { ModalPageComponent } from './modal-page/modal-page.component';
+import { ShareModule } from 'ngx-sharebuttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    ShareModule,
+    ShareButtonsModule,
+    ShareIconsModule
   ],
   declarations: [
     AspectRatioComponent,
@@ -41,7 +48,8 @@ import { HomeIntroComponent } from './home-intro/home-intro.component';
     HomeStaticComponent,
     HomeIntroComponent,
     FooterComponent,
-    SideBarComponent
+    SideBarComponent,
+    ModalPageComponent
   ],
   exports: [
     AspectRatioComponent,
@@ -57,7 +65,8 @@ import { HomeIntroComponent } from './home-intro/home-intro.component';
     HomeStaticComponent,
     HomeIntroComponent,
     FooterComponent,
-    SideBarComponent
+    SideBarComponent,
+    ModalPageComponent
   ],
   entryComponents: [PopoverComponent],
 })

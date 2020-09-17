@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar color="light">
+        <ion-buttons slot="end">
+            <ion-button (click)="dismiss()">
+                Close
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Modal Page
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <h1>This is content</h1>
+    <ion-button color="light">
+        <ion-icon size="large" ion-button name="refresh-circle-outline"></ion-icon>
+    </ion-button>
+    <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','linkedin']" [size]="4" [show]="3"
+        [showText]="true" [url]="currentUrl" [autoSetMeta]="false"></share-buttons>
+</ion-content>
+<ion-footer>
+
+</ion-footer>

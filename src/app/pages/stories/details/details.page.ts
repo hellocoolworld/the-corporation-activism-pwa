@@ -3,13 +3,14 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 
 import { StoriesService, ToastService } from '../../../services';
 import { Story, StoryType } from '../../../models';
 import { SeoSocialShareData, SeoSocialShareService } from 'ngx-seo';
 
 import { AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from '../../../modals';
+import { ModalPageComponent } from '../../../components/modal-page/modal-page.component';
 
 @Component({
     selector: 'app-details',
@@ -30,13 +31,25 @@ export class DetailsPage implements OnInit {
         private sanitizer: DomSanitizer,
         private modalController: ModalController,
         private router: Router,
-        private readonly seoSocialShareService: SeoSocialShareService
+        private seoSocialShareService: SeoSocialShareService,
+        public alertController: AlertController
     ) { }
 
     async ngOnInit() {
         this.currentUrl = this.router.url;
         const slug = this.route.snapshot.paramMap.get('slug');
-        await this.loadSlugDataPromise(slug);
+        this.loadSlugData(slug);
+        setTimeout(async () => {
+            this.presentModal();
+        }, 2000);
+    }
+
+    async presentModal() {
+        const modal = await this.modalController.create({
+            cssClass: 'story-detail-modal',
+            component: ModalPageComponent
+        });
+        return await modal.present();
     }
 
     async loadSlugDataPromise(slug) {
