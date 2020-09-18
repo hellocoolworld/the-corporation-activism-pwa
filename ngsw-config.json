@@ -23,6 +23,11 @@
                 "files": [
                     "/assets/**",
                     "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani|json)"
+                ],
+                "urls": [
+                    "https://cdn-thumbnails.sproutvideo.com/069cd6ba1411e0c18f/4df936265739e4ab/0/btn_true,w_640,h_360/poster.jpg",
+                    "https://cdn-thumbnails.sproutvideo.com/709cd6be1b1fe6c4f9/8a1af63f6ca2b1f0/0/btn_true,w_640,h_360/poster.jpg",
+                    "https://cdn-thumbnails.sproutvideo.com/069cd6b91d18edcf8f/a32b05a613153b97/0/btn_true,w_640,h_360/poster.jpg"
                 ]
             }
         }
