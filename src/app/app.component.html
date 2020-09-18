@@ -1,7 +1,7 @@
 <ion-app>
     <!-- <ion-split-pane when="min-width: 575px | disabled=true" contentId="main-content"> -->
-        <app-side-bar></app-side-bar>
-        <!-- <ion-menu id="side-menu" contentId="side-menu-content">
+    <app-side-bar></app-side-bar>
+    <!-- <ion-menu id="side-menu" contentId="side-menu-content">
             <ion-header>
                 <ion-toolbar>
                     <ion-buttons slot="start">
@@ -37,7 +37,7 @@
                     <ion-title size="small">&copy; {{ copyrightYear }} Grant Street Productions | App by <a href="https://Cool.world">Cool.world</a> | Movie website <a href="https://TheNewCorporation.movie">TheNewCorporation.movie</a></ion-title>
                 </ion-toolbar>
             </ion-footer> -->
-            <!--
+    <!--
             <ion-grid class="nav-social-links">
                 <ion-row class="social-link-row">
                     <ion-col>
@@ -61,7 +61,7 @@
                         </ion-button>
                     </ion-col>
                 </ion-row>
-        
+
                 <ion-row>
                     <div class="call-to-action">
                         <ion-button class="content-btn" href="https://thecorporation.movie">TheNewCorporation.movie</ion-button>
@@ -70,15 +70,16 @@
             </ion-grid>
                 <div class="bottom-nav-link-grid">
                     <a (click)="showPrivacyModal()">Privacy Policy</a>
-        
+
                     <a (click)="showTermsModal()">Terms of use</a>
-        
+
                     <a (click)="showTermsModal()">Contact Us</a>
                 </div>
                 -->
 
-        <!-- </ion-menu> -->
-        <ion-router-outlet id="main-content"></ion-router-outlet>
+    <!-- </ion-menu> -->
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+    <ion-button class="add-button" (click)="addToHomeButton()">Add to home screen</ion-button>
     <!-- </ion-split-pane> -->
 
 </ion-app>
