@@ -40,7 +40,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
         AngularFirestoreModule,
         IonicStorageModule.forRoot(),
         MetaModule.forRoot(),
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: true,
+            registrationStrategy: 'registerImmediately'
+        })
     ],
 
     declarations: [

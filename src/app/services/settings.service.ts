@@ -31,22 +31,21 @@ export class SettingsService extends Extender {
         return this.settings;
     }
 
-    public getSetting(setting) {
-        if (this.settings && this.settings.hasOwnProperty(setting)) {
-            return this.settings[name];
+    public getSetting(value) {
+        if (this.settings && this.settings.hasOwnProperty(value)) {
+            return this.settings[value];
         } else {
             return null;
         }
     }
 
     public saveSetting(setting: any, value: any) {
-
-        console.log('saveSetting: ', setting, value);
+        // console.log('saveSetting: ', setting, value);
 
         if (this.settings && this.settings.hasOwnProperty(setting)) {
-            console.log('Found');
+            // console.log('Found');
             this.settings[setting] = value;
-            console.log('this.settings[setting]: ', this.settings[setting]);
+            // console.log('this.settings[setting]: ', this.settings[setting]);
             try {
                 if (this.settings) {
                     this.storage.set('settings', JSON.stringify(this.settings));
