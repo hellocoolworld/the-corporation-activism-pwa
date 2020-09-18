@@ -15,7 +15,7 @@ tar -zcvf ../pwa-dev.tar.gz --exclude='node_modules' --exclude='.git' .
 sshpass -p $ROOT_PASSWORD_CW scp ../pwa-dev.tar.gz do-user@coolworld.cloud:/opt/build/pwa-dev.tar.gz
 
 ### Execute the Deploy Script (PWA)
-sshpass -p "$ROOT_PASSWORD_CW" ssh do-user@coolworld.cloud "sh /opt/deploy/deploy_pwa.sh dev development pwa"
+sshpass -p "$ROOT_PASSWORD_CW" ssh do-user@coolworld.cloud "sh /opt/deploy/deploy_pwa.sh dev development"
 
 ### ENVs (Testing purpose only)
 export CODE=dev

@@ -17,6 +17,7 @@ export class AppComponent extends Extender implements OnInit {
     deferredPrompt;
     isBrowser;
     public settings: Setting;
+    isShowAddToHomeScreenButton = false;
     constructor(
         protected injector: Injector,
         private platform: Platform,
@@ -41,15 +42,20 @@ export class AppComponent extends Extender implements OnInit {
         // Hide the app provided install promotion
         // hideMyInstallPromotion();
         // Show the install prompt
-        this.deferredPrompt.prompt();
-        // Wait for the user to respond to the prompt
-        this.deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            } else {
-                console.log('User dismissed the install prompt');
-            }
-        });
+        if (this.isShowAddToHomeScreenButton) {
+            console.log('Inside add');
+            this.deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            this.deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                    window.location.reload();
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+            });
+        }
+
     }
 
     @HostListener('window:resize', ['$event'])
@@ -75,6 +81,10 @@ export class AppComponent extends Extender implements OnInit {
                 // Log install to analytics
                 console.log('INSTALL: Success');
             });
+            console.log('WINDOW', window.matchMedia('(display-mode: standalone)').matches);
+            if (window.matchMedia('(display-mode: standalone)').matches === false) {
+                this.isShowAddToHomeScreenButton = true;
+            }
         }
         this.settings = this.settingsService.getAllSettings();
         this.screenService.isDesktopView().subscribe(isDesktop => {
