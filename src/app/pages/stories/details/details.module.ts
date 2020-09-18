@@ -11,7 +11,6 @@ import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 import { DetailsPage } from './details.page';
-import { SafePipe } from '../../../pipes/safe.pipe';
 
 const routes: Routes = [
     {
@@ -31,8 +30,6 @@ const routes: Routes = [
         ShareButtonsModule,
         ShareIconsModule
     ],
-    declarations: [DetailsPage,
-        SafePipe
-    ]
+    declarations: [DetailsPage]
 })
 export class DetailsPageModule { }

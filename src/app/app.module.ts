@@ -24,7 +24,7 @@ import {
     HelpAvocadometerModal,
     SocialShareModal
 } from './modals';
-import { SafePipe } from './pipes/safe.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -39,7 +39,8 @@ import { SafePipe } from './pipes/safe.pipe';
         AngularFireMessagingModule,
         AngularFirestoreModule,
         IonicStorageModule.forRoot(),
-        MetaModule.forRoot()
+        MetaModule.forRoot(),
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
 
     declarations: [
