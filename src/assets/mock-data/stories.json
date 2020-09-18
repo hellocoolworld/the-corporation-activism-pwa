@@ -1,5 +1,8 @@
-[{
+[
+    {
         "id": "069cd6ba1411e0c18f/4df936265739e4ab",
+        "videoUrl": "https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab?noBigPlay=false&showcontrols=true&allowfullscreen=true",
+        "videoId": "069cd6ba1411e0c18f",
         "type": "StoryType.video",
         "title": "The New Corporation is Coming!",
         "slug": "the-new-corporation",
@@ -10,7 +13,8 @@
         "avocadoRating": 4,
         "pledgeCount": 11,
         "actionSummary": "Take Action Now",
-        "actions": ["Visit and subscribe to Anand Giridharadas the <a href='https://the.ink'>The Ink</a>.",
+        "actions": [
+            "Visit and subscribe to Anand Giridharadas the <a href='https://the.ink'>The Ink</a>.",
             "Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
             "Join Us: <a href='/join'>Subscribe</a> to the The New Corporaton Mailing List."
         ],
@@ -27,6 +31,8 @@
     },
     {
         "id": "709cd6be1b1fe6c4f9/8a1af63f6ca2b1f0",
+        "videoUrl": "https://videos.sproutvideo.com/embed/709cd6be1b1fe6c4f9/8a1af63f6ca2b1f0?noBigPlay=false&showcontrols=true&allowfullscreen=true",
+        "videoId": "709cd6be1b1fe6c4f9",
         "type": "StoryType.video",
         "title": "Logo Montage",
         "slug": "logo-montage",
@@ -37,7 +43,8 @@
         "avocadoRating": 4,
         "pledgeCount": 11,
         "actionSummary": "Take Action Now",
-        "actions": ["Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
+        "actions": [
+            "Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
             "Join Us: <a href='/join'>Subscribe</a> to the The New Corporaton Mailing List."
         ],
         "share": {
@@ -53,6 +60,8 @@
     },
     {
         "id": "069cd6b91d18edcf8f/a32b05a613153b97",
+        "videoUrl": "https://videos.sproutvideo.com/embed/069cd6b91d18edcf8f/a32b05a613153b97?noBigPlay=false&showcontrols=true&allowfullscreen=true",
+        "videoId": "069cd6b91d18edcf8f",
         "type": "StoryType.video",
         "title": "Tax Avoidance",
         "slug": "tax-avoidance",
@@ -63,8 +72,10 @@
         "avocadoRating": 4,
         "pledgeCount": 11,
         "actionSummary": "Take Action Now ",
-        "actions": ["Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
-            "Join Us: <a href='/join'>Subscribe</a> to the The New Corporaton Mailing List.", "<a href='https://www.vox.com/future-perfect/2019/1/30/18203911/davos-rutger-bregman-historian-taxes-philanthropy'>Meet the folk hero of Davos: the writer who told the rich to stop dodging taxes</a>"
+        "actions": [
+            "Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
+            "Join Us: <a href='/join'>Subscribe</a> to the The New Corporaton Mailing List.",
+            "<a href='https://www.vox.com/future-perfect/2019/1/30/18203911/davos-rutger-bregman-historian-taxes-philanthropy'>Meet the folk hero of Davos: the writer who told the rich to stop dodging taxes</a>"
         ],
         "share": {
             "slug": "/",

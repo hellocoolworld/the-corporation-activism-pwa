@@ -12,61 +12,65 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { IonicStorageModule } from '@ionic/storage';
+import { MetaModule } from '@ngx-meta/core';
 
 // tslint:disable-next-line:max-line-length
-import {  PrivacyPolicyModal,
-          TermsOfServiceModal,
-          AuthorBioModal,
-          AddPledgeModal,
-          HelpActionPledgeModal,
-          HelpAvocadometerModal,
-          SocialShareModal
-        } from './modals';
+import {
+    PrivacyPolicyModal,
+    TermsOfServiceModal,
+    AuthorBioModal,
+    AddPledgeModal,
+    HelpActionPledgeModal,
+    HelpAvocadometerModal,
+    SocialShareModal
+} from './modals';
+import { SafePipe } from './pipes/safe.pipe';
 
 
 @NgModule({
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    IonicModule.forRoot(),
-    ReactiveFormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    ComponentsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireMessagingModule,
-    AngularFirestoreModule,
-    IonicStorageModule.forRoot()
-  ],
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        IonicModule.forRoot(),
+        ReactiveFormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        ComponentsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireMessagingModule,
+        AngularFirestoreModule,
+        IonicStorageModule.forRoot(),
+        MetaModule.forRoot()
+    ],
 
-  declarations: [
-    AppComponent,
-    TermsOfServiceModal,
-    PrivacyPolicyModal,
-    AuthorBioModal,
-    AddPledgeModal,
-    HelpActionPledgeModal,
-    HelpAvocadometerModal,
-    SocialShareModal
-  ],
+    declarations: [
+        AppComponent,
+        TermsOfServiceModal,
+        PrivacyPolicyModal,
+        AuthorBioModal,
+        AddPledgeModal,
+        HelpActionPledgeModal,
+        HelpAvocadometerModal,
+        SocialShareModal
+    ],
 
-  providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-    Title
-  ],
+    providers: [
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+        Title
+    ],
 
-  exports: [],
+    exports: [],
 
-  entryComponents: [
-    TermsOfServiceModal,
-    PrivacyPolicyModal,
-    AuthorBioModal,
-    AddPledgeModal,
-    HelpActionPledgeModal,
-    HelpAvocadometerModal,
-    SocialShareModal
-  ],
+    entryComponents: [
+        TermsOfServiceModal,
+        PrivacyPolicyModal,
+        AuthorBioModal,
+        AddPledgeModal,
+        HelpActionPledgeModal,
+        HelpAvocadometerModal,
+        SocialShareModal
+    ],
 
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 
 export class AppModule { }

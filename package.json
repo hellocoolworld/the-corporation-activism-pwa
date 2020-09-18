@@ -45,6 +45,7 @@
     "@ionic/angular-server": "^5.4.0-dev.202009102321.26d3971",
     "@ionic/storage": "^2.3.1",
     "@nguniversal/express-engine": "^10.1.0",
+    "@ngx-meta/core": "^9.0.0",
     "@ngx-share/core": "^7.1.4",
     "angular2-moment": "^1.9.0",
     "color": "^3.1.2",

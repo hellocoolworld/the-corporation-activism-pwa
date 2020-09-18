@@ -1,10 +1,12 @@
 ﻿export enum StoryType {
-  video,
-  image,
-  text
+    video,
+    image,
+    text
 }
 export class Story {
     id: string;
+    videoUrl: string;
+    videoId: string;
     type: StoryType;
     title: string;
     slug: string;

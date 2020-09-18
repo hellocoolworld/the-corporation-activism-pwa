@@ -11,25 +11,28 @@ import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 import { DetailsPage } from './details.page';
+import { SafePipe } from '../../../pipes/safe.pipe';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: DetailsPage
-  }
+    {
+        path: '',
+        component: DetailsPage
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ComponentsModule,
-    RouterModule.forChild(routes),
-    ShareModule,
-    ShareButtonsModule,
-    ShareIconsModule
-  ],
-  declarations: [DetailsPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        ComponentsModule,
+        RouterModule.forChild(routes),
+        ShareModule,
+        ShareButtonsModule,
+        ShareIconsModule
+    ],
+    declarations: [DetailsPage,
+        SafePipe
+    ]
 })
-export class DetailsPageModule {}
+export class DetailsPageModule { }

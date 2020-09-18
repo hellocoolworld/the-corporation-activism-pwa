@@ -11,6 +11,8 @@ import { SeoSocialShareData, SeoSocialShareService } from 'ngx-seo';
 
 import { AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from '../../../modals';
 import { ModalPageComponent } from '../../../components/modal-page/modal-page.component';
+import { MetaService } from '@ngx-meta/core';
+import { computeStackId } from '@ionic/angular/directives/navigation/stack-utils';
 
 @Component({
     selector: 'app-details',
@@ -22,6 +24,8 @@ export class DetailsPage implements OnInit {
 
     userAvocados: number;
     currentUrl;
+    player;
+    playerVideoUrl: SafeResourceUrl = null;
     options = {};
     constructor(
         private route: ActivatedRoute,
@@ -33,19 +37,21 @@ export class DetailsPage implements OnInit {
         private modalController: ModalController,
         private router: Router,
         private seoSocialShareService: SeoSocialShareService,
-        public alertController: AlertController
+        public alertController: AlertController,
+        private readonly metaService: MetaService
     ) { }
 
     async ngOnInit() {
         this.currentUrl = this.router.url;
         const slug = this.route.snapshot.paramMap.get('slug');
         this.loadSlugDataPromise(slug);
-        setTimeout(async () => {
-            this.presentModal();
-        }, 2000);
+        // setTimeout(async () => {
+        //     this.presentModal();
+        // }, 10000);
     }
 
     async presentModal() {
+        console.log('Inside');
         const modal = await this.modalController.create({
             cssClass: 'story-detail-modal',
             component: ModalPageComponent,
@@ -60,6 +66,10 @@ export class DetailsPage implements OnInit {
             /**
              * Reply Video Code will be here.
              */
+            console.log('Start the player again', this.player);
+            // @ts-ignore
+            this.player = new SV.Player({ videoId: this.story.videoId });
+            this.player.play();
         }
     }
 
@@ -78,16 +88,30 @@ export class DetailsPage implements OnInit {
                     keywords: story.share.keywords,
                 };
                 this.story = story;
-                this.seoSocialShareService.setTwitterCard('summary_large_image');
-                this.seoSocialShareService.setAuthor('@TheCorpApp');
-                this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
-                this.seoSocialShareService.setData(seoData);
-                this.title.setTitle(`-- The New Corporation - ${this.story.title}`);
+                setTimeout(() => {
+                    // @ts-ignore
+                    this.player = new SV.Player({ videoId: this.story.videoId });
+                    this.player.bind('completed', () => {
+                        console.log('Completed');
+                        this.presentModal();
+                    });
+                    this.player.bind('play', () => {
+                        console.log('play');
+                    });
+                }, 2000);
+                this.playerVideoUrl = story.videoUrl;
+                // this.seoSocialShareService.setTwitterCard('summary_large_image');
+                // this.seoSocialShareService.setAuthor('@TheCorpApp');
+                // this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
+                // this.seoSocialShareService.setData(seoData);
+                this.title.setTitle(`The New Corporation - ${this.story.title}`);
 
                 // Possible Solution 1
-                this.meta.addTag({ name: 'description', content: story.share.description });
-                this.meta.addTag({ name: 'keywords', content: story.share.keywords });
-                this.meta.addTag({ name: 'image', content: story.share.image });
+                // this.meta.addTag({ name: 'description', content: story.share.description });
+                // this.meta.addTag({ name: 'keywords', content: story.share.keywords });
+                // this.meta.addTag({ name: 'image', content: story.share.image });
+                this.metaService.setTag('description', this.story.share.description);
+                this.metaService.setTag('keywords', this.story.share.keywords);
                 return true;
             } else {
                 return false;
@@ -95,6 +119,23 @@ export class DetailsPage implements OnInit {
         });
     }
 
+    videoEvents() {
+        setTimeout(() => {
+            // @ts-ignore
+            this.player = new SV.Player({ videoId: this.story.videoId });
+            this.player.bind('completed', function () {
+                console.log('Completed');
+                this.presentModal();
+            });
+            this.player.bind('play', function () {
+                console.log('play');
+            });
+        }, 10000);
+    }
+
+    /**
+     * This function is not in use. We can remove this in next commit.
+     */
     loadSlugData(slug) {
         this.storiesService.getBySlug(slug).subscribe(
             res => {
@@ -111,6 +152,7 @@ export class DetailsPage implements OnInit {
                             keywords: story.share.keywords,
                         };
                         this.story = story;
+                        this.videoEvents();
                         this.seoSocialShareService.setTwitterCard('summary_large_image');
                         this.seoSocialShareService.setAuthor('@TheCorpApp');
                         this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
@@ -165,8 +207,15 @@ export class DetailsPage implements OnInit {
     }
 
     sanatizeVideoUrl(videoCode: string) {
-        //https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
-        return this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode);
+        // https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
+        const sanitizerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=true&allowfullscreen=true');
+        // console.log('sanitizerUrl ', sanitizerUrl);
+        return sanitizerUrl;
+    }
+
+    prepareVideoUrl(videoCode: string) {
+        // https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
+        return 'https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=true&allowfullscreen=true';
     }
 
     sanatizeVideoResponsiveStyles(aspectRation: string) {
