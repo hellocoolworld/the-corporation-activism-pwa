@@ -99,7 +99,6 @@ export class DetailsPage implements OnInit {
                         console.log('play');
                     });
                 }, 2000);
-                this.playerVideoUrl = story.videoUrl;
                 // this.seoSocialShareService.setTwitterCard('summary_large_image');
                 // this.seoSocialShareService.setAuthor('@TheCorpApp');
                 // this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');

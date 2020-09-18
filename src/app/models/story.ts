@@ -5,7 +5,6 @@
 }
 export class Story {
     id: string;
-    videoUrl: string;
     videoId: string;
     type: StoryType;
     title: string;
