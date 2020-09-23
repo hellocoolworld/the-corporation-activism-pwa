@@ -15,7 +15,7 @@ export class Setting {
     {provider: SocialAuthProvider.twitter, link: 'https://twitter.com'}
   ];
   constructor(data: ISetting) {
-    console.log('data: ', data);
+    // console.log('data: ', data);
     if (data) {
       Object.assign(this, data);
     }

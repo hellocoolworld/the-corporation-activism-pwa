@@ -40,12 +40,12 @@ export class FooterComponent extends Extender implements OnInit, OnDestroy {
   }
 
   get isHome() {
-    console.log('this.document.location.pathname ', this.document.location.pathname);
+    // console.log('this.document.location.pathname ', this.document.location.pathname);
     let test = false;
     if (this.document.location.pathname === '/') {
       test = true;
     }
-    console.log('test: ', test);
+    // console.log('test: ', test);
     return test;
   }
 
@@ -54,11 +54,11 @@ export class FooterComponent extends Extender implements OnInit, OnDestroy {
   }
 
   linkToSocialProfile(p: number) {
-    console.log('p: ', p);
+    // console.log('p: ', p);
     this.commonService.openSocialProvider(p);
   }
 
   ngOnDestroy() {
-    console.log('bye');
+    // console.log('bye');
   }
 }

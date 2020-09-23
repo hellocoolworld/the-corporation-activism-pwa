@@ -30,7 +30,7 @@ export class ClipsPage extends Extender implements OnInit {
 
   ngOnInit() {
     this.settings = this.settingsService.getAllSettings();
-    console.log('this.settings: ', this.settings);
+    // console.log('this.settings: ', this.settings);
     this.clipsService.getAll()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
@@ -40,11 +40,11 @@ export class ClipsPage extends Extender implements OnInit {
           this.clips = data.filter(clip => clip.show);
         },
         error => {
-          console.log(error, 'Error in receiving data');
+        //   console.log(error, 'Error in receiving data');
         }
       );
     this.screenService.isDesktopView().subscribe(isDesktop => {
-        console.log('isDesktop: ', isDesktop);
+        // console.log('isDesktop: ', isDesktop);
         this.isDesktop = isDesktop;
       });
   }

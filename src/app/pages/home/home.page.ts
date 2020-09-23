@@ -43,7 +43,7 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
     public setTimer() {
         this.timer = timer(16000); // 5000 millisecond means 5 seconds
         this.subscription = this.timer.subscribe(() => {
-            console.log('time out');
+            // console.log('time out');
             this.skipIntro();
         });
     }
@@ -55,7 +55,7 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
 
     public ngOnDestroy() {
         if (this.subscription && this.subscription instanceof Subscription) {
-            console.log('destroy');
+            // console.log('destroy');
             this.subscription.unsubscribe();
         }
     }

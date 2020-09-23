@@ -48,7 +48,7 @@ export class SideBarComponent extends Extender implements OnInit, OnDestroy {
   }
 
   join() {
-    console.log('join');
+    // console.log('join');
     this.router.navigate(['join']);
   }
 
@@ -75,7 +75,7 @@ export class SideBarComponent extends Extender implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('bye');
+    // console.log('bye');
   }
 
 }

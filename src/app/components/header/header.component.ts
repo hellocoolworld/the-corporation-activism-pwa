@@ -34,12 +34,12 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     }
 
     get isHome() {
-        console.log('this.document.location.pathname ', this.document.location.pathname);
+        // console.log('this.document.location.pathname ', this.document.location.pathname);
         let test = false;
         if (this.document.location.pathname === '/') {
             test = true;
         }
-        console.log('test: ', test);
+        // console.log('test: ', test);
         return test;
     }
 
@@ -55,7 +55,7 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     }
 
     open(menuId: string) {
-        console.log('open: ', menuId);
+        // console.log('open: ', menuId);
 
         this.menuController.open(menuId);
 
@@ -66,6 +66,6 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        console.log('bye');
+        // console.log('bye');
     }
 }

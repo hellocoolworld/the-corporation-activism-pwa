@@ -34,12 +34,12 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
 
   ngOnInit() {
     this.settings = this.settingsService.getAllSettings();
-    console.log('this.settings: ', this.settings);
+    // console.log('this.settings: ', this.settings);
     this.storyService.getAll()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         res => {
-          console.log('res:', res);
+        //   console.log('res:', res);
           const data = res as Story[]; // Convert the result to an array of Stories
           // tslint:disable-next-line: prefer-for-of
           for (let i = 0; i < data.length; i++) {
@@ -50,7 +50,7 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
           console.log('error: ', error);
         },
         ()   => {
-          console.log( this.stories );
+        //   console.log( this.stories );
         }
       );
     this.screenService.isDesktopView().subscribe(isDesktop => {

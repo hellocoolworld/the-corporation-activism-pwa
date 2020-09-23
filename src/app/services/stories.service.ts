@@ -11,7 +11,7 @@ export class StoriesService extends Extender {
   /**
    * @todo replace with env.ts consts
    */
-  private apiBaseURL = 'http://localhost:4000/assets/mock-data';
+  private apiBaseURL = `${environment.apiBaseURL}/assets/mock-data` ;
 
   constructor(
     protected injector: Injector,

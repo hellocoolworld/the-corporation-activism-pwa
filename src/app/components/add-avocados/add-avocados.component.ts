@@ -18,7 +18,7 @@ export class AddAvocadosComponent implements OnInit {
 
   rate(index: number) {
     if (!this.readOnly && index >= 1 && index <= 5) {
-      console.log('index=>', index, 'rating=>', this.rating);
+    //   console.log('index=>', index, 'rating=>', this.rating);
       if (index === this.rating) { // If the selected avocado clicked again, then unselect that one avocado
         this.rating = index - 1;
       } else {

@@ -58,9 +58,9 @@ export class CommonService extends Extender {
 
 
   public openSocialProvider(provider: number) {
-    console.log('openSocialProvider');
+    // console.log('openSocialProvider');
     const link = this.settings.socialProviders.find(p => p.provider === provider).link;
-    console.log('link: ', link);
+    // console.log('link: ', link);
     window.open(link, '_blank');
   }
 }

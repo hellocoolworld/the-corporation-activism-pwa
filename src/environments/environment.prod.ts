@@ -5,6 +5,7 @@ export const environment = {
         networkDelay: 1000
     },
     apiUrl: 'https://api.cooolworld.app/api/v1/',
+    apiBaseURL: 'http://localhost:4000',
     hosting: 'http://localhost:8100',
     firebaseConfig: {
         apiKey: 'AIzaSyBj0pEH4_R60noIX9eFbMCQH73gTHK5K-c',

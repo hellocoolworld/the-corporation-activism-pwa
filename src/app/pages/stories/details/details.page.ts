@@ -103,11 +103,11 @@ export class DetailsPage implements OnInit {
             // @ts-ignore
             this.player = new SV.Player({ videoId: this.story.videoId });
             this.player.bind('completed', () => {
-                console.log('Completed');
+                // console.log('Completed');
                 this.presentModal();
             });
             this.player.bind('play', () => {
-                console.log('play');
+                // console.log('play');
             });
         }, 10000);
     }
@@ -170,7 +170,7 @@ export class DetailsPage implements OnInit {
     }
 
     sharePledge() {
-        console.log('noop');
+        // console.log('noop');
     }
 
     onAddAvocados(rating: number) {
@@ -184,7 +184,7 @@ export class DetailsPage implements OnInit {
 
     sanatizeVideoUrl(videoCode: string) {
         // https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
-        const sanitizerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=true&allowfullscreen=true');
+        const sanitizerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=false&allowfullscreen=true');
         // console.log('sanitizerUrl ', sanitizerUrl);
         return sanitizerUrl;
     }

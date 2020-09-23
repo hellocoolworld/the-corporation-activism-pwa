@@ -28,7 +28,7 @@ export class ClipsDetailsPage implements OnInit {
         res => {
           this.clips = res as Clip[];
           this.clips.some(clip => {
-            console.log('slug:', clip.slug, slug);
+            // console.log('slug:', clip.slug, slug);
             if (clip.slug === slug) {
               this.clip = clip;
               this.title.setTitle(`The New Corporation - ${this.clip.title}`);
@@ -39,7 +39,7 @@ export class ClipsDetailsPage implements OnInit {
           });
         },
         err => {
-          console.error(err, true);
+        //   console.error(err, true);
         }
       );
     });

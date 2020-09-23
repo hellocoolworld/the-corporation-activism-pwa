@@ -10,6 +10,7 @@ export const environment = {
     },
     apiUrl: 'http://localhost:1337',
     hosting: 'http://localhost:8100',
+    apiBaseURL: 'http://localhost:4300',
     firebaseConfig: {
       apiKey: 'AIzaSyBj0pEH4_R60noIX9eFbMCQH73gTHK5K-c',
       authDomain: 'the-corporation-app.firebaseapp.com',

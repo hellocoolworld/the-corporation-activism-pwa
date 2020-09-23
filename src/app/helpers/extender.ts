@@ -69,7 +69,7 @@ export class Extender {
  */
   /** handles routing to pages allows to include route params */
   public goto(page: string, params: Params = null): Promise<any> {
-    console.log('goto: ', page);
+    // console.log('goto: ', page);
     if (!params) {
       return this.router.navigate([page]);
     } else {
