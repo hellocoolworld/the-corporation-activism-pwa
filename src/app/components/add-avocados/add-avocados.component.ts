@@ -1,19 +1,20 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
-@Component({
-  selector: 'ht-add-avocados',
-  templateUrl: './add-avocados.component.html',
-  styleUrls: [
-    './add-avocados.component.scss'
-  ]
-})
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-export class AddAvocadosComponent {
-  // tslint:disable-next-line:no-inferrable-types
-  @Input() rating: number = 0;
+@Component({
+  selector: 'app-add-avocados',
+  templateUrl: './add-avocados.component.html',
+  styleUrls: ['./add-avocados.component.scss'],
+})
+export class AddAvocadosComponent implements OnInit {
+
+  @Input() rating = 0;
   @Input() readOnly = false;
 
   // @todo casting EventEmitter as number?
   @Output() ratingChange: EventEmitter<number> = new EventEmitter();
+
+  ngOnInit(): void {
+  }
 
   rate(index: number) {
     if (!this.readOnly && index >= 1 && index <= 5) {
@@ -27,7 +28,7 @@ export class AddAvocadosComponent {
     }
   }
 
-  getOpacity (index: number): any {
+  getOpacity(index: number): any {
     if (index > this.rating) { // Is the selected index is above the rating
       return 0.5;
 

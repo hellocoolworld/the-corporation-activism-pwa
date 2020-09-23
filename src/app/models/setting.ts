@@ -1,12 +1,14 @@
-import { SocialAuthProvider } from 'src/app/helpers/constants';
+import { SocialAuthProvider } from '../helpers/constants';
+
 export interface ISetting {
   seenAnimation: boolean;
   deviceToken: string;
   socialProviders: [];
 }
+
 export class Setting {
   public seenAnimation = false;
-  public deviceToken: string = '';
+  public deviceToken = '';
   public socialProviders: [
     {provider: SocialAuthProvider.facebook, link: 'https://facebook.com'},
     {provider: SocialAuthProvider.instagram, link: 'https://instagram.com'},

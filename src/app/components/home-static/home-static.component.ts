@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy, Injector } from '@angular/core';
-import { Extender } from 'src/app/helpers';
-import { Setting } from 'src/app/models';
-import { SettingsService } from 'src/app/services';
+import { Component, Injector, OnDestroy, OnInit } from '@angular/core';
+import { Extender } from '../../helpers/extender';
+import { Setting } from '../../models/setting';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-home-static',
   templateUrl: './home-static.component.html',
-  styleUrls: ['./home-static.component.scss']
+  styleUrls: ['./home-static.component.scss'],
 })
 export class HomeStaticComponent extends Extender implements OnInit, OnDestroy {
   settings: Setting;

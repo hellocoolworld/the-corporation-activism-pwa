@@ -1,24 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
+import { ShareModule } from 'ngx-sharebuttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: HomePage
-  }
-];
+import { HomePageRoutingModule } from './home-routing.module';
+import { ComponentsModule } from '../../components/components.module';
+
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [HomePage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        HomePageRoutingModule,
+        ShareButtonsModule,
+        ShareIconsModule,
+        ShareModule,
+        ComponentsModule
+    ],
+    declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule { }

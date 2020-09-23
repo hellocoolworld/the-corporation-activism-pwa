@@ -11,7 +11,7 @@ export class ScreenService {
 
     constructor() { }
 
-    onResize(size) {
+    onResize(size: number) {
         if (size < 568) {
             this.isDesktop.next(false);
         } else {

@@ -1,10 +1,9 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { NavParams } from '@ionic/angular';
-import { ShareService } from '@ngx-share/core';
 import { environment } from 'src/environments/environment';
 import { Extender } from 'src/app/helpers/extender';
+import { ShareService } from 'ngx-sharebuttons';
 
-/** browser social share using @ngx-share/core*/
 @Component({
   selector: 'app-social-share',
   templateUrl: './social-share.modal.html',

@@ -2,10 +2,13 @@ import { Component, OnInit, OnDestroy, Injector } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Extender } from 'src/app/helpers';
-import { Story, Setting } from 'src/app/models';
-import { SettingsService, StoriesService, ScreenService } from 'src/app/services';
-import { HelpActionPledgeModal, HelpAvocadometerModal } from 'src/app/modals';
+import { Extender } from '../../helpers/extender';
+import { HelpActionPledgeModal, HelpAvocadometerModal } from '../../modals';
+import { Setting } from '../../models/setting';
+import { Story } from '../../models/story';
+import { ScreenService } from '../../services/screen.service';
+import { SettingsService } from '../../services/settings.service';
+import { StoriesService } from '../../services/stories.service';
 
 
 @Component({
@@ -16,8 +19,8 @@ import { HelpActionPledgeModal, HelpAvocadometerModal } from 'src/app/modals';
 export class StoriesListingComponent extends Extender implements OnInit, OnDestroy {
   settings: Setting;
   stories: Story[] = [];
-  
-  isDesktop:boolean;
+
+  isDesktop: boolean;
   private unsubscribe$: Subject<void> = new Subject();
   constructor(
     protected injector: Injector,
@@ -37,20 +40,20 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
       .subscribe(
         res => {
           console.log('res:', res);
-          const data = res as Story[]; //Convert the result to an array of Stories
+          const data = res as Story[]; // Convert the result to an array of Stories
+          // tslint:disable-next-line: prefer-for-of
           for (let i = 0; i < data.length; i++) {
             this.stories.push(data[i]);
           }
         },
-        error => { 
-          console.log('error: ', error); 
+        error => {
+          console.log('error: ', error);
         },
         ()   => {
           console.log( this.stories );
         }
       );
-      this.screenService.isDesktopView().subscribe(isDesktop => {
-        console.log('isDesktop: ', isDesktop);
+    this.screenService.isDesktopView().subscribe(isDesktop => {
         this.isDesktop = isDesktop;
       });
   }
@@ -72,7 +75,7 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
     });
     return await modal.present();
   }
-  
+
 
   ngOnDestroy() {
   }

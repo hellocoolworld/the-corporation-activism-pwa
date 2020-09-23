@@ -1,28 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
+import { ListingPageRoutingModule } from './listing-routing.module';
+
 import { ListingPage } from './listing.page';
-
-import { ComponentsModule } from 'src/app/components/components.module';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: ListingPage
-  }
-];
+import { ComponentsModule } from '../../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ListingPageRoutingModule,
     ComponentsModule,
-    RouterModule.forChild(routes)
   ],
   declarations: [ListingPage]
 })

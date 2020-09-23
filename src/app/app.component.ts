@@ -1,10 +1,12 @@
 import { Component, OnInit, Injector, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { Platform, ModalController, MenuController } from '@ionic/angular';
-import { Setting } from './models';
 import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
-import { SettingsService, ScreenService, CommonService } from './services';
-import { Extender } from './helpers';
 import { isPlatformBrowser } from '@angular/common';
+import { Extender } from './helpers/extender';
+import { Setting } from './models/setting';
+import { ScreenService } from './services/screen.service';
+import { SettingsService } from './services/settings.service';
+import { CommonService } from './services/common.service';
 
 @Component({
     selector: 'app-root',
@@ -81,7 +83,7 @@ export class AppComponent extends Extender implements OnInit {
                 // Log install to analytics
                 console.log('INSTALL: Success');
             });
-            console.log('WINDOW', window.matchMedia('(display-mode: standalone)').matches);
+            // console.log('WINDOW', window.matchMedia('(display-mode: standalone)').matches);
             if (window.matchMedia('(display-mode: standalone)').matches === false) {
                 this.isShowAddToHomeScreenButton = true;
             }

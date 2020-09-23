@@ -1,9 +1,11 @@
-﻿import { Injectable, OnInit, Injector } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { Extender } from 'src/app/helpers/extender';
-import { Setting } from '../models';
+import { Setting } from '../models/setting';
 import { Storage } from '@ionic/storage';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class SettingsService extends Extender {
 
     get socialProviders() {

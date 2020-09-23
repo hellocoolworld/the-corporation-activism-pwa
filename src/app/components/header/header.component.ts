@@ -1,16 +1,19 @@
-import { Component, OnInit, OnDestroy, Injector, Inject } from '@angular/core';
-import { ModalController, MenuController } from '@ionic/angular';
 import { DOCUMENT } from '@angular/common';
-import { Extender } from 'src/app/helpers';
-import { Setting } from 'src/app/models';
-import { SettingsService, ScreenService } from 'src/app/services';
+import { Component, Inject, Injector, OnDestroy, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { Extender } from '../../helpers/extender';
+import { Setting } from '../../models/setting';
+import { ScreenService } from '../../services/screen.service';
+import { SettingsService } from '../../services/settings.service';
+
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent extends Extender implements OnInit, OnDestroy {
-    isDesktop: boolean;
+
+  isDesktop: boolean;
     public settings: Setting;
     constructor(
         protected injector: Injector,
@@ -41,7 +44,7 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     }
 
     get showJoin() {
-        let test: Boolean = false;
+        let test = false;
         if (this.settings) {
             test = !this.settings.deviceToken;
         }
@@ -58,7 +61,7 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
 
     }
 
-    goToUrl(url): void {
+    goToUrl(url: any): void {
         this.document.location.href = url;
     }
 

@@ -1,15 +1,17 @@
-import { Component, OnInit, OnDestroy, Injector, Inject } from '@angular/core';
-import { Extender } from 'src/app/helpers';
 import { DOCUMENT } from '@angular/common';
-import { Story, Setting } from 'src/app/models';
-import { Observable, Subscription, timer } from 'rxjs';
-import { SettingsService, ScreenService } from 'src/app/services';
+import { Component, Inject, Injector, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Observable, Subscription, timer } from 'rxjs';
+import { Extender } from '../../helpers/extender';
+import { Story } from '../../models/story';
+import { ScreenService } from '../../services/screen.service';
+import { SettingsService } from '../../services/settings.service';
+
 
 @Component({
     selector: 'app-home',
-    templateUrl: './home.page.html',
-    styleUrls: ['./home.page.scss']
+    templateUrl: 'home.page.html',
+    styleUrls: ['home.page.scss'],
 })
 export class HomePage extends Extender implements OnInit, OnDestroy {
 
@@ -53,15 +55,8 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
 
     public ngOnDestroy() {
         if (this.subscription && this.subscription instanceof Subscription) {
-            console.log('destry');
+            console.log('destroy');
             this.subscription.unsubscribe();
         }
     }
-    /*
-      get seenAnimation(): boolean {
-        const test: boolean = this.settingsService.getSetting('seenAnimation') ? true : false;
-        return test;
-      }
-    */
-
 }

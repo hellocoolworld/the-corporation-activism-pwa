@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-
-import { ModalController } from '@ionic/angular';
-import { ClipsService} from 'src/app/services';
-import { Clip } from 'src/app/models/clip';
+import { Clip } from '../../../models/clip';
+import { ClipsService } from '../../../services/clip.service';
 
 @Component({
   selector: 'app-clips-details',
@@ -12,8 +10,8 @@ import { Clip } from 'src/app/models/clip';
   styleUrls: ['./clips-details.page.scss'],
 })
 export class ClipsDetailsPage implements OnInit {
-  clip: Clip = new Clip;
-  clips:  Array<Clip>;
+  clip: Clip = new Clip();
+  clips: Array<Clip>;
 
   userAvocados: number;
 
@@ -21,7 +19,6 @@ export class ClipsDetailsPage implements OnInit {
     private route: ActivatedRoute,
     private clipsService: ClipsService,
     private title: Title,
-    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -29,7 +26,7 @@ export class ClipsDetailsPage implements OnInit {
       const slug = params.get('slug');
       this.clipsService.getBySlug(slug).subscribe(
         res => {
-          this.clips = res as Clip[]; //Convert the result to an array of Story
+          this.clips = res as Clip[];
           this.clips.some(clip => {
             console.log('slug:', clip.slug, slug);
             if (clip.slug === slug) {
@@ -47,7 +44,4 @@ export class ClipsDetailsPage implements OnInit {
       );
     });
   }
-
-
-
 }

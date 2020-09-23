@@ -1,51 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { environment } from 'src/environments/environment';
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ComponentsModule } from './components/components.module';
-import { IonicStorageModule } from '@ionic/storage';
-import { MetaModule } from '@ngx-meta/core';
 
-// tslint:disable-next-line:max-line-length
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { IonicStorageModule } from '@ionic/storage';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { MetaModule } from '@ngx-meta/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentsModule } from './components/components.module';
 import {
-    PrivacyPolicyModal,
-    TermsOfServiceModal,
-    AuthorBioModal,
     AddPledgeModal,
+    AuthorBioModal,
     HelpActionPledgeModal,
     HelpAvocadometerModal,
-    SocialShareModal
+    PrivacyPolicyModal,
+    SocialShareModal,
+    TermsOfServiceModal
 } from './modals';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
+import { environment } from '../environments/environment';
 
 @NgModule({
-    imports: [
-        BrowserModule.withServerTransition({ appId: 'serverApp' }),
-        IonicModule.forRoot(),
-        ReactiveFormsModule,
-        HttpClientModule,
-        AppRoutingModule,
-        ComponentsModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireMessagingModule,
-        AngularFirestoreModule,
-        IonicStorageModule.forRoot(),
-        MetaModule.forRoot(),
-        ServiceWorkerModule.register('ngsw-worker.js', {
-            enabled: true,
-            registrationStrategy: 'registerImmediately'
-        })
-    ],
-
     declarations: [
         AppComponent,
         TermsOfServiceModal,
@@ -56,14 +36,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
         HelpAvocadometerModal,
         SocialShareModal
     ],
-
-    providers: [
-        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-        Title
-    ],
-
-    exports: [],
-
     entryComponents: [
         TermsOfServiceModal,
         PrivacyPolicyModal,
@@ -73,8 +45,22 @@ import { ServiceWorkerModule } from '@angular/service-worker';
         HelpAvocadometerModal,
         SocialShareModal
     ],
-
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'serverApp' }), IonicModule.forRoot(),
+        AppRoutingModule,
+        HttpClientModule,
+        ShareButtonsModule,
+        ComponentsModule,
+        IonicStorageModule.forRoot(),
+        MetaModule.forRoot(),
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        Title,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
     bootstrap: [AppComponent]
 })
-
 export class AppModule { }

@@ -11,7 +11,6 @@ export class AddPledgeModal {
   constructor(private modalController: ModalController) { }
 
   share(): void {
-    
   }
 
   dismiss(): void {

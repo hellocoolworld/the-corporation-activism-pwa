@@ -1,13 +1,12 @@
-import { Component, OnInit, Injector, EventEmitter, Output } from '@angular/core';
-import { Extender } from 'src/app/helpers';
-import { Setting } from 'src/app/models';
-import { SettingsService } from 'src/app/services';
-
+import { Component, EventEmitter, Injector, OnInit, Output } from '@angular/core';
+import { Extender } from '../../helpers/extender';
+import { Setting } from '../../models/setting';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-home-intro',
   templateUrl: './home-intro.component.html',
-  styleUrls: ['./home-intro.component.scss']
+  styleUrls: ['./home-intro.component.scss'],
 })
 export class HomeIntroComponent extends Extender implements OnInit {
   settings: Setting;
@@ -26,5 +25,4 @@ export class HomeIntroComponent extends Extender implements OnInit {
   ngOnInit() {
     this.settings = this.settingsService.getAllSettings();
   }
-
 }

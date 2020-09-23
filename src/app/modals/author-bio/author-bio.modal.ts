@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { DomSanitizer } from '@angular/platform-browser';
-
-import { Story } from '../../models';
-import { StoriesService, ToastService } from '../../services';
+import { Story } from '../../models/story';
+import { StoriesService } from '../../services/stories.service';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
-  selector: "app-author-bio-modal",
-  templateUrl: "./author-bio.modal.html",
-  styleUrls: ["./author-bio.modal.scss"]
+  selector: 'app-author-bio-modal',
+  templateUrl: './author-bio.modal.html',
+  styleUrls: ['./author-bio.modal.scss']
 })
 export class AuthorBioModal implements OnInit {
-  
+
   story: Story = new Story();
 
   constructor(
@@ -30,6 +30,7 @@ export class AuthorBioModal implements OnInit {
     this.storyService.getById(storyId).subscribe(
       res => {
         const data = res as Story[];
+        // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < data.length; i++) {
           if (data[i].id === storyId) {
             this.story = data[i];

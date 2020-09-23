@@ -5,12 +5,13 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators';
 import { SettingsService } from './settings.service';
 import { Extender } from 'src/app/helpers/extender';
-import { SocialShareModal } from 'src/app/modals/social-share/social-share.modal';
+// import { SocialShareModal } from '../modals/social-share/social-share.modal';
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CommonService extends Extender {
   public countries: any[] = [];
 
@@ -51,8 +52,8 @@ export class CommonService extends Extender {
    * otherwise using open social share component
    */
   public async share(message: string, subject?: string, file?: string | string[], url?: string) {
-      const modal = await this.openModal(SocialShareModal, url, 'custom-modal');
-      modal.present();
+      // const modal = await this.openModal(SocialShareModal, url, 'custom-modal');
+      // modal.present();
   }
 
 

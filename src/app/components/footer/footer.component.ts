@@ -1,13 +1,18 @@
 import { Component, OnInit, OnDestroy, Injector, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { Extender, SocialAuthProvider } from 'src/app/helpers';
-import { Setting } from 'src/app/models';
-import { SettingsService, ScreenService, CommonService } from 'src/app/services';
+import { Extender } from '../../helpers/extender';
+import { Setting } from '../../models/setting';
+import { SocialAuthProvider } from '../../helpers/constants';
+import { ScreenService } from '../../services/screen.service';
+import { SettingsService } from '../../services/settings.service';
+import { CommonService } from '../../services/common.service';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
+
 export class FooterComponent extends Extender implements OnInit, OnDestroy {
   isDesktop: boolean;
   public provider = SocialAuthProvider;
@@ -38,7 +43,7 @@ export class FooterComponent extends Extender implements OnInit, OnDestroy {
     console.log('this.document.location.pathname ', this.document.location.pathname);
     let test = false;
     if (this.document.location.pathname === '/') {
-      test = true;    
+      test = true;
     }
     console.log('test: ', test);
     return test;
@@ -47,7 +52,7 @@ export class FooterComponent extends Extender implements OnInit, OnDestroy {
   get copyrightYear() {
     return new Date().getFullYear();
   }
-  
+
   linkToSocialProfile(p: number) {
     console.log('p: ', p);
     this.commonService.openSocialProvider(p);

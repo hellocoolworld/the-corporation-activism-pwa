@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AlertController, ModalController } from '@ionic/angular';
 
-import { StoriesService, ToastService } from '../../../services';
-import { Story, StoryType } from '../../../models';
 import { SeoSocialShareData, SeoSocialShareService } from 'ngx-seo';
 
 import { AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from '../../../modals';
 import { ModalPageComponent } from '../../../components/modal-page/modal-page.component';
-import { MetaService } from '@ngx-meta/core';
-import { computeStackId } from '@ionic/angular/directives/navigation/stack-utils';
+import { Story } from '../../../models/story';
+import { StoriesService } from '../../../services/stories.service';
+import { ToastService } from '../../../services/toast.service';
 
 @Component({
     selector: 'app-details',
@@ -20,7 +19,7 @@ import { computeStackId } from '@ionic/angular/directives/navigation/stack-utils
     styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-    story: Story = new Story;
+    story: Story = new Story();
 
     userAvocados: number;
     currentUrl;
@@ -38,16 +37,28 @@ export class DetailsPage implements OnInit {
         private router: Router,
         private seoSocialShareService: SeoSocialShareService,
         public alertController: AlertController,
-        private readonly metaService: MetaService
     ) { }
 
-    async ngOnInit() {
+    ngOnInit() {
         this.currentUrl = this.router.url;
-        const slug = this.route.snapshot.paramMap.get('slug');
-        this.loadSlugDataPromise(slug);
-        // setTimeout(async () => {
-        //     this.presentModal();
-        // }, 10000);
+        this.story = this.route.snapshot.data.storyDetail;
+
+        const seoData: SeoSocialShareData = {
+            title: this.story.share.title,
+            description: this.story.share.description,
+            image: this.story.share.image,
+            imageAuxData: {
+                height: this.story.share.height
+            },
+            keywords: this.story.share.keywords,
+        };
+
+        this.seoSocialShareService.setTwitterCard('summary_large_image');
+        this.seoSocialShareService.setAuthor('@TheCorpApp');
+        this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
+        this.seoSocialShareService.setData(seoData);
+
+        this.loadSlugDataPromise();
     }
 
     async presentModal() {
@@ -56,7 +67,7 @@ export class DetailsPage implements OnInit {
             cssClass: 'story-detail-modal',
             component: ModalPageComponent,
             componentProps: {
-                'story': this.story
+                story: this.story
             }
         });
         await modal.present();
@@ -73,60 +84,29 @@ export class DetailsPage implements OnInit {
         }
     }
 
-    async loadSlugDataPromise(slug) {
-        const res = await this.storiesService.getBySlug(slug).toPromise();
-        const data: Array<Story> = res as Story[]; // Convert the result to an array of Story
-        data.some(story => {
-            if (story.slug === slug) {
-                const seoData: SeoSocialShareData = {
-                    title: story.share.title,
-                    description: story.share.description,
-                    image: story.share.image,
-                    imageAuxData: {
-                        height: story.share.height
-                    },
-                    keywords: story.share.keywords,
-                };
-                this.story = story;
-                setTimeout(() => {
-                    // @ts-ignore
-                    this.player = new SV.Player({ videoId: this.story.videoId });
-                    this.player.bind('completed', () => {
-                        console.log('Completed');
-                        this.presentModal();
-                    });
-                    this.player.bind('play', () => {
-                        console.log('play');
-                    });
-                }, 2000);
-                // this.seoSocialShareService.setTwitterCard('summary_large_image');
-                // this.seoSocialShareService.setAuthor('@TheCorpApp');
-                // this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
-                // this.seoSocialShareService.setData(seoData);
-                this.title.setTitle(`The New Corporation - ${this.story.title}`);
-
-                // Possible Solution 1
-                // this.meta.addTag({ name: 'description', content: story.share.description });
-                // this.meta.addTag({ name: 'keywords', content: story.share.keywords });
-                // this.meta.addTag({ name: 'image', content: story.share.image });
-                this.metaService.setTag('description', this.story.share.description);
-                this.metaService.setTag('keywords', this.story.share.keywords);
-                return true;
-            } else {
-                return false;
-            }
-        });
+    loadSlugDataPromise() {
+        setTimeout(() => {
+            // @ts-ignore
+            this.player = new SV.Player({ videoId: this.story.videoId });
+            this.player.bind('completed', () => {
+                console.log('Completed');
+                this.presentModal();
+            });
+            this.player.bind('play', () => {
+                console.log('play');
+            });
+        }, 2000);
     }
 
     videoEvents() {
         setTimeout(() => {
             // @ts-ignore
             this.player = new SV.Player({ videoId: this.story.videoId });
-            this.player.bind('completed', function () {
+            this.player.bind('completed', () => {
                 console.log('Completed');
                 this.presentModal();
             });
-            this.player.bind('play', function () {
+            this.player.bind('play', () => {
                 console.log('play');
             });
         }, 10000);
@@ -192,10 +172,7 @@ export class DetailsPage implements OnInit {
     sharePledge() {
         console.log('noop');
     }
-    /**
-     * @todo checkout the event emitter
-     * @param rating {number}
-     */
+
     onAddAvocados(rating: number) {
         if (rating < this.userAvocados) {
             this.story.avocadoCount -= this.userAvocados - rating;
@@ -230,7 +207,7 @@ export class DetailsPage implements OnInit {
         const modal = await this.modalController.create({
             component: AuthorBioModal,
             componentProps: {
-                'storyId': storyId
+                storyId
             }
         });
         return await modal.present();

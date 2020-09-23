@@ -2,9 +2,7 @@ import { Injectable, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
-
-import { Story, StoryType } from 'src/app/models';
-import { Extender } from 'src/app/helpers';
+import { Extender } from '../helpers/extender';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +11,7 @@ export class StoriesService extends Extender {
   /**
    * @todo replace with env.ts consts
    */
-  private _apiBaseURL: String = '/assets/mock-data';
+  private apiBaseURL = 'http://localhost:4000/assets/mock-data';
 
   constructor(
     protected injector: Injector,
@@ -27,11 +25,11 @@ export class StoriesService extends Extender {
   }
 
   getBySlug(slug: string) {
-    return this.http.get(`${this._apiBaseURL}/stories.json`);
+    return this.http.get(`${this.apiBaseURL}/stories.json`);
   }
 
   getAll() {
-    return this.http.get(`${this._apiBaseURL}/stories.json`);
+    return this.http.get(`${this.apiBaseURL}/stories.json`);
   }
 
 }

@@ -1,14 +1,17 @@
-import { Component, OnInit, OnDestroy, Injector } from '@angular/core';
-import { ModalController, MenuController } from '@ionic/angular';
-import { Extender, SocialAuthProvider } from 'src/app/helpers';
-import { Setting } from 'src/app/models';
-import { PrivacyPolicyModal, TermsOfServiceModal } from 'src/app/modals';
-import { SettingsService, ScreenService, CommonService } from 'src/app/services';
+import { Component, Injector, OnDestroy, OnInit } from '@angular/core';
+import { MenuController, ModalController } from '@ionic/angular';
+import { SocialAuthProvider } from '../../helpers/constants';
+import { Extender } from '../../helpers/extender';
+import { PrivacyPolicyModal, TermsOfServiceModal } from '../../modals';
+import { Setting } from '../../models/setting';
+import { CommonService } from '../../services/common.service';
+import { ScreenService } from '../../services/screen.service';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.scss']
+  styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent extends Extender implements OnInit, OnDestroy {
   public provider = SocialAuthProvider;
@@ -70,8 +73,6 @@ export class SideBarComponent extends Extender implements OnInit, OnDestroy {
   get copyrightYear() {
     return new Date().getFullYear();
   }
-  
- 
 
   ngOnDestroy() {
     console.log('bye');

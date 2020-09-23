@@ -1,6 +1,13 @@
 <app-header></app-header>
+
+<!-- <ion-content [fullscreen]="true">
+    <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','linkedin']" [size]="4" [show]="3"
+        [showText]="true" [url]="currentUrl" [autoSetMeta]="false"></share-buttons>
+</ion-content> -->
+
 <ion-content class="hasHeader page-content border">
-    <app-home-intro *ngIf="!seenAnimation" (skipIntro)="skipIntro($event)"></app-home-intro>
+    <app-home-intro *ngIf="!seenAnimation" (skipIntro)="skipIntro()"></app-home-intro>
     <app-home-static *ngIf="seenAnimation"></app-home-static>
 </ion-content>
+
 <app-footer></app-footer>
