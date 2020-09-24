@@ -79,12 +79,12 @@ export class DetailsPage implements OnInit {
              */
             console.log('Start the player again', this.player);
             // @ts-ignore
-            this.player = new SV.Player({ videoId: this.story.videoId });
+            // this.player = new SV.Player({ videoId: this.story.videoId });
             this.player.play();
-            this.player.bind('completed', () => {
-                console.log('Completed');
-                this.presentModal();
-            });
+            // this.player.bind('completed', () => {
+            //     console.log('Completed');
+            //     this.presentModal();
+            // });
         }
     }
 
