@@ -8,6 +8,7 @@ import { JoinPageRoutingModule } from './join-routing.module';
 
 import { JoinPage } from './join.page';
 import { ComponentsModule } from '../../components/components.module';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { ComponentsModule } from '../../components/components.module';
     JoinPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [JoinPage]
+  declarations: [JoinPage, SafePipe]
 })
 export class JoinPageModule {}

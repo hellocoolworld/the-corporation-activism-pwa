@@ -11,7 +11,7 @@ export class StoriesService extends Extender {
   /**
    * @todo replace with env.ts consts
    */
-  private apiBaseURL = `${environment.apiBaseURL}/assets/mock-data` ;
+  private mockDataUrl = `${environment.mockDataUrl}/assets/mock-data` ;
 
   constructor(
     protected injector: Injector,
@@ -25,11 +25,11 @@ export class StoriesService extends Extender {
   }
 
   getBySlug(slug: string) {
-    return this.http.get(`${this.apiBaseURL}/stories.json`);
+    return this.http.get(`${this.mockDataUrl}/stories.json`);
   }
 
   getAll() {
-    return this.http.get(`${this.apiBaseURL}/stories.json`);
+    return this.http.get(`${this.mockDataUrl}/stories.json`);
   }
 
 }

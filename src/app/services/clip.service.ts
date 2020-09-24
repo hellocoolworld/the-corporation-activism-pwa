@@ -9,7 +9,7 @@ export class ClipsService extends Extender {
   /**
    * @todo replace with env.ts const
    */
-  private apiBaseURL = '/assets/mock-data';
+  private mockDataUrl = '/assets/mock-data';
 
   constructor(
     protected injector: Injector,
@@ -19,11 +19,11 @@ export class ClipsService extends Extender {
   }
 
   getBySlug(slug: string) {
-    return this.http.get(`${this.apiBaseURL}/clips.json`);
+    return this.http.get(`${this.mockDataUrl}/clips.json`);
   }
 
   getAll() {
-    return this.http.get(`${this.apiBaseURL}/clips.json`);
+    return this.http.get(`${this.mockDataUrl}/clips.json`);
   }
 
 }
