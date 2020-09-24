@@ -81,6 +81,10 @@ export class DetailsPage implements OnInit {
             // @ts-ignore
             this.player = new SV.Player({ videoId: this.story.videoId });
             this.player.play();
+            this.player.bind('completed', () => {
+                console.log('Completed');
+                this.presentModal();
+            });
         }
     }
 
