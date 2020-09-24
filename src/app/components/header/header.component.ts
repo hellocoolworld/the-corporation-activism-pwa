@@ -44,7 +44,7 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     }
 
     get showJoin() {
-        let test = false;
+        let test = true;
         if (this.settings) {
             test = !this.settings.deviceToken;
         }
