@@ -39,12 +39,16 @@ export class JoinPage implements OnInit {
         // console.log('Store');
         if (this.isBrowser) {
             // Listen to message from child window
-            window.addEventListener('message', (e) => {
-                // console.log('parent received message!:  ', e.data);
-                if (e.data.toString().includes(this.token)) {
-                    this.storageService.set('token', e.data);
+            window.addEventListener('message', async (event: any) => {
+                // console.log('parent received message!:  ', event.data);
+                try {
+                    const responseData = JSON.parse(event.data);
+                    if (responseData && responseData.token) {
+                        await this.storageService.set('token', responseData.token);
+                    }
+                } catch (error) {
+                    console.log('Error');
                 }
-                window.scrollTo(0, 0);
             }, false);
         }
     }
