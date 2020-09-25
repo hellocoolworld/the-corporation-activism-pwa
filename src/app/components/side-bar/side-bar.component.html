@@ -21,11 +21,11 @@
               <ion-item (click)="goto('/about')" class="main-nav-item" lines="none">
                   About
               </ion-item>
-              <ion-item (click)="goto('/join')" class="main-nav-item" lines="none">
+              <ion-item (click)="goto('/join')" *ngIf="isShowJoinButton" class="main-nav-item" lines="none">
                   Join Us
               </ion-item>
           </ion-menu-toggle>
-      </ion-list>    
+      </ion-list>
 
       <p class="footer">
           &copy; {{ copyrightYear }} Grant Street Productions | Site by <a href="https://Cool.world">Cool.world</a>

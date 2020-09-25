@@ -1,4 +1,6 @@
-import { Component, Injector, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ChangeDetectorRef, Component, Inject, Injector, OnDestroy, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { MenuController, ModalController } from '@ionic/angular';
 import { SocialAuthProvider } from '../../helpers/constants';
 import { Extender } from '../../helpers/extender';
@@ -7,6 +9,7 @@ import { Setting } from '../../models/setting';
 import { CommonService } from '../../services/common.service';
 import { ScreenService } from '../../services/screen.service';
 import { SettingsService } from '../../services/settings.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -17,14 +20,25 @@ export class SideBarComponent extends Extender implements OnInit, OnDestroy {
   public provider = SocialAuthProvider;
   public settings: Setting;
   public isDesktop: boolean;
+  isShowJoinButton = false;
   constructor(
     protected injector: Injector,
     private settingsService: SettingsService,
     private menuController: MenuController,
     private modalController: ModalController,
     private screenService: ScreenService,
-    private commonService: CommonService) {
+    private commonService: CommonService,
+    private storageService: StorageService,
+    private routerService: Router,
+    public changeDetectorRef: ChangeDetectorRef,
+    @Inject(DOCUMENT) private document) {
     super(injector);
+    this.routerService.events.subscribe((val) => {
+        if (val instanceof NavigationEnd) {
+            // console.log('val ', val);
+            this.showJoin();
+        }
+    });
   }
 
 
@@ -43,8 +57,20 @@ export class SideBarComponent extends Extender implements OnInit, OnDestroy {
     this.commonService.openSocialProvider(p);
   }
 
-  showJoin() {
-    return this.settings.deviceToken;
+  async showJoin() {
+    const token = await this.storageService.get('token');
+    if (!token) {
+        this.isShowJoinButton = true;
+    } else if (token) {
+        this.isShowJoinButton = false;
+    }
+    if (this.document.location.pathname.indexOf('/join') !== -1) {
+        // console.log('Inside if : This is join page');
+        this.isShowJoinButton = false;
+    }
+    // console.log(' this.isShowJoinButton ', this.isShowJoinButton);
+    this.changeDetectorRef.detectChanges();
+    return this.isShowJoinButton;
   }
 
   join() {

@@ -47,7 +47,7 @@ export class JoinPage implements OnInit {
                         await this.storageService.set('token', responseData.token);
                     }
                 } catch (error) {
-                    console.log('Error');
+                    // console.log('Error');
                 }
             }, false);
         }
