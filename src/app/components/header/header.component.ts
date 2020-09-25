@@ -1,5 +1,6 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, Inject, Injector, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { ChangeDetectorRef, Component, Inject, Injector, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Extender } from '../../helpers/extender';
 import { Setting } from '../../models/setting';
@@ -13,9 +14,9 @@ import { StorageService } from '../../services/storage.service';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent extends Extender implements OnInit, OnDestroy {
-
     isDesktop: boolean;
     isShowJoinButton = false;
+    isBrowser = false;
     public settings: Setting;
     constructor(
         protected injector: Injector,
@@ -23,11 +24,20 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
         private settingsService: SettingsService,
         private screenService: ScreenService,
         private menuController: MenuController,
-        private storageService: StorageService
+        private storageService: StorageService,
+        public routerService: Router,
+        public changeDetectorRef: ChangeDetectorRef,
+        @Inject(PLATFORM_ID) platformId,
     ) {
         super(injector);
+        this.isBrowser = isPlatformBrowser(platformId);
+        this.routerService.events.subscribe((val) => {
+            if (val instanceof NavigationEnd) {
+                // console.log('val ', val);
+                this.showJoin();
+            }
+        });
     }
-
 
     ngOnInit() {
         this.settings = this.settingsService.getAllSettings();
@@ -35,7 +45,7 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
             this.isDesktop = isDesktop;
             this.showJoin();
         });
-        this.showJoin();
+        // this.showJoin();
     }
 
     get isHome() {
@@ -49,22 +59,22 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     }
 
     async showJoin() {
-        if (this.settings) {
-            this.isShowJoinButton = !this.settings.deviceToken;
+        if (this.isBrowser) {
+            const token = await this.storageService.get('token');
+            // console.log('this.document.location.pathname ', this.document.location.pathname);
+            // console.log('token ', token);
+            if (!token) {
+                this.isShowJoinButton = true;
+            } else if (token) {
+                this.isShowJoinButton = false;
+            }
+            if (this.document.location.pathname.indexOf('/join') !== -1) {
+                // console.log('Inside if : This is join page');
+                this.isShowJoinButton = false;
+            }
+            // console.log(' this.isShowJoinButton ', this.isShowJoinButton);
+            this.changeDetectorRef.detectChanges();
         }
-        if (this.document.location.pathname.indexOf('join') !== -1) {
-            this.isShowJoinButton = false;
-        }
-        // get('token')
-        console.log('Inside showJoin');
-        const token = await this.storageService.get('token');
-        console.log('token ', token);
-        if (!token) {
-            this.isShowJoinButton = true;
-        } else {
-            this.isShowJoinButton = false;
-        }
-
     }
 
     open(menuId: string) {

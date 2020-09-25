@@ -26,11 +26,11 @@ export class JoinPage implements OnInit {
         if (this.token) {
             this.url = `${environment.iframeUrl}?token=${this.token}`;
         }
-        console.log('Store');
+        // console.log('Store');
         if (this.isBrowser) {
             // Listen to message from child window
             window.addEventListener('message', (e) => {
-                console.log('parent received message!:  ', e.data);
+                // console.log('parent received message!:  ', e.data);
                 if (e.data.toString().includes(this.token)) {
                     this.storageService.set('token', e.data);
                 }
