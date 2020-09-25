@@ -5,22 +5,25 @@ import { Extender } from '../../helpers/extender';
 import { Setting } from '../../models/setting';
 import { ScreenService } from '../../services/screen.service';
 import { SettingsService } from '../../services/settings.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent extends Extender implements OnInit, OnDestroy {
 
-  isDesktop: boolean;
+    isDesktop: boolean;
+    isShowJoinButton = false;
     public settings: Setting;
     constructor(
         protected injector: Injector,
         @Inject(DOCUMENT) private document,
         private settingsService: SettingsService,
         private screenService: ScreenService,
-        private menuController: MenuController
+        private menuController: MenuController,
+        private storageService: StorageService
     ) {
         super(injector);
     }
@@ -30,7 +33,9 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
         this.settings = this.settingsService.getAllSettings();
         this.screenService.isDesktopView().subscribe(isDesktop => {
             this.isDesktop = isDesktop;
+            this.showJoin();
         });
+        this.showJoin();
     }
 
     get isHome() {
@@ -43,15 +48,23 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
         return test;
     }
 
-    get showJoin() {
-        let test = true;
+    async showJoin() {
         if (this.settings) {
-            test = !this.settings.deviceToken;
+            this.isShowJoinButton = !this.settings.deviceToken;
         }
         if (this.document.location.pathname.indexOf('join') !== -1) {
-            test = false;
+            this.isShowJoinButton = false;
         }
-        return test;
+        // get('token')
+        console.log('Inside showJoin');
+        const token = await this.storageService.get('token');
+        console.log('token ', token);
+        if (!token) {
+            this.isShowJoinButton = true;
+        } else {
+            this.isShowJoinButton = false;
+        }
+
     }
 
     open(menuId: string) {

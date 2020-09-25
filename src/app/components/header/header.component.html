@@ -8,7 +8,7 @@
           The New Corporation
       </ion-title>
       <ion-buttons class="ion-no-padding" slot="end">
-          <ion-button class="header-btn" size="small" *ngIf="showJoin" (click)="goto('/join')">Join Us
+          <ion-button class="header-btn" size="small" *ngIf="isShowJoinButton" (click)="goto('/join')">Join Us
           </ion-button>
       </ion-buttons>
   </ion-toolbar>
@@ -42,7 +42,7 @@
               </div>
           </ion-col>
           <ion-col size="2">
-              <ion-button *ngIf="showJoin" (click)="goto('/join')" class="header-btn">
+              <ion-button *ngIf="isShowJoinButton" (click)="goto('/join')" class="header-btn">
                   Join us
               </ion-button>
           </ion-col>

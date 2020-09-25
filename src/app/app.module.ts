@@ -51,9 +51,11 @@ import { environment } from '../environments/environment';
         HttpClientModule,
         ShareButtonsModule,
         ComponentsModule,
-        IonicStorageModule.forRoot(),
         MetaModule.forRoot(),
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+        IonicStorageModule.forRoot({
+            driverOrder: ['localstorage']
+        })
     ],
     providers: [
         StatusBar,
