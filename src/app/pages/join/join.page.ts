@@ -2,6 +2,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { StorageService } from '../../services/storage.service';
+import { IFrameComponent, iframeResizer } from 'iframe-resizer';
 
 @Component({
     selector: 'app-join',
@@ -21,6 +22,15 @@ export class JoinPage implements OnInit {
     }
 
     ngOnInit() {
+        iframeResizer({
+            inPageLinks: true,
+            checkOrigin: false,
+            log: false,
+            resizedCallback: (data) => {
+                data.iframe.offsetParent.scrollTo(0, 0);
+            }
+        }, '#IFrame');
+
         const search: any = new URLSearchParams(this.document.location.search);
         this.token = search.get('token') ? search.get('token') : null;
         if (this.token) {

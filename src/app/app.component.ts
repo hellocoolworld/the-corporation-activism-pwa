@@ -67,10 +67,10 @@ export class AppComponent extends Extender implements OnInit {
 
     ngOnInit() {
         if (this.isBrowser) {
-            console.log('Inside this.isBrowser');
+            // console.log('Inside this.isBrowser');
             // @ts-ignore
             window.addEventListener('beforeinstallprompt', (e) => {
-                console.log('Inside beforeinstallprompt');
+                // console.log('Inside beforeinstallprompt');
                 // Prevent the mini-infobar from appearing on mobile
                 e.preventDefault();
                 // Stash the event so it can be triggered later.
@@ -81,7 +81,7 @@ export class AppComponent extends Extender implements OnInit {
             // @ts-ignore
             window.addEventListener('appinstalled', (evt) => {
                 // Log install to analytics
-                console.log('INSTALL: Success');
+                // console.log('INSTALL: Success');
             });
             // console.log('WINDOW', window.matchMedia('(display-mode: standalone)').matches);
             if (window.matchMedia('(display-mode: standalone)').matches === false) {

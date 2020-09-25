@@ -35,7 +35,7 @@ export class ClipsPage extends Extender implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         res => {
-          console.log('res:', res);
+        //   console.log('res:', res);
           const data = res as Clip[];
           this.clips = data.filter(clip => clip.show);
         },

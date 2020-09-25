@@ -1,51 +1,54 @@
 <ion-header *ngIf="!isDesktop">
-  <ion-toolbar>
-      <ion-buttons slot="start" class="header-hamburger">
-          <ion-menu-button (click)="open('side-menu')">
-          </ion-menu-button>
-      </ion-buttons>
-      <ion-title (click)="goto('/')">
-          The New Corporation
-      </ion-title>
-      <ion-buttons class="ion-no-padding" slot="end">
-          <ion-button class="header-btn" size="small" *ngIf="isShowJoinButton" (click)="goto('/join')">Join Us
-          </ion-button>
-      </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="header-hamburger">
+            <ion-menu-button (click)="open('side-menu')">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title (click)="goto('/')">
+            The New Corporation
+        </ion-title>
+        <ion-buttons class="ion-no-padding" slot="end">
+            <ion-button class="header-btn" size="small" *ngIf="isShowJoinButton" (click)="goto('/join')">Join Us
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-header *ngIf="isDesktop">
-  <ion-toolbar>
-      <ion-row class="ion-align-items-center">
-          <ion-col size="1">
-              <a (click)="goto('/')"><img src="assets/icons/icon-512x512.png" class="header-logo ion-text-left"></a>
-          </ion-col>
-          <ion-col size="2">
-              <ion-title>
-                  <a (click)="goto('/')">
-                  The New Corporation
-                  </a>
-              </ion-title>
-          </ion-col>
-          <ion-col size="6">
-              <div class="navbar" class="ion-text-center">
-                  <ion-button fill="clear" (click)="goto('/stories')" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">
-                      Stories
-                  </ion-button>
-                  <ion-button fill="clear" (click)="goto('/clips')" routerLink="/clips" routerDirection="root" routerLinkActive="active-link" class="link">
-                      Clips
-                  </ion-button>
-                  <ion-button fill="clear" (click)="goto('/about')" routerLink="/about" routerDirection="root" routerLinkActive="active-link" class="link">
-                      About
-                  </ion-button>
-              </div>
-          </ion-col>
-          <ion-col size="2">
-              <ion-button *ngIf="isShowJoinButton" (click)="goto('/join')" class="header-btn">
-                  Join us {{isShowJoinButton}}
-              </ion-button>
-          </ion-col>
-      </ion-row>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-row class="ion-align-items-center">
+            <ion-col size="1">
+                <a (click)="goto('/')"><img src="assets/icons/icon-512x512.png" class="header-logo ion-text-left"></a>
+            </ion-col>
+            <ion-col size="2">
+                <ion-title>
+                    <a (click)="goto('/')">
+                        The New Corporation
+                    </a>
+                </ion-title>
+            </ion-col>
+            <ion-col size="6">
+                <div class="navbar" class="ion-text-center">
+                    <ion-button fill="clear" (click)="goto('/stories')" routerLink="/stories" routerDirection="root"
+                        routerLinkActive="active-link" class="link">
+                        Stories
+                    </ion-button>
+                    <ion-button fill="clear" (click)="goto('/clips')" routerLink="/clips" routerDirection="root"
+                        routerLinkActive="active-link" class="link">
+                        Clips
+                    </ion-button>
+                    <ion-button fill="clear" (click)="goto('/about')" routerLink="/about" routerDirection="root"
+                        routerLinkActive="active-link" class="link">
+                        About
+                    </ion-button>
+                </div>
+            </ion-col>
+            <ion-col size="2">
+                <ion-button *ngIf="isShowJoinButton" (click)="goto('/join')" class="header-btn">
+                    Join us
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
 </ion-header>
