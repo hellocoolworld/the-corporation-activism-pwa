@@ -1,5 +1,5 @@
 [{
-        "id": "4d9cd6b4131be1c4c4/b77d2079fda812e5",
+        "id": "a79cd7bd1b1be6c12e/012bec3832657dfd",
         "videoId": "4d9cd6b4131be1c4c4",
         "type": "StoryType.video",
         "title": "The New Corporation is Coming!",
@@ -28,12 +28,12 @@
         "updatedAt": "June 15, 2020"
     },
     {
-        "id": "709cd6be1b1fe6c4f9/8a1af63f6ca2b1f0",
+        "id": "119cd7bd1b1be1c898/141fa83bd3106b08",
         "videoId": "709cd6be1b1fe6c4f9",
         "type": "StoryType.video",
-        "title": "Logo Montage",
-        "slug": "logo-montage",
-        "blurb": "In 2003 we named the psychopath. Now, we’re back.",
+        "title": "The Unfortunately Necessary Sequel",
+        "slug": "the-unfortunately-necessary-sequel",
+        "blurb": "In 2003 we named the psychopath. Now, we’re back, with the unfortunately necessary sequel.",
         "summary": "Who would have thought a film about an economic institution would take off the way it did? 26 International awards, many millions of views later, and we still have unfinished business. Enter The New Corporation: The Unfortunately Necessary Sequel. This is our chance. The corporation’s do-over date has arrived. We can’t waste it.",
         "views": 1634,
         "avocadoCount": 269,
@@ -41,6 +41,7 @@
         "pledgeCount": 11,
         "actionSummary": "Take Action Now",
         "actions": [
+            "See The Corporation (original film) on Encore+",
             "Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
             "Join Us: <a href='/join'>Subscribe</a> to the The New Corporaton Mailing List."
         ],
@@ -59,9 +60,9 @@
         "id": "069cd6b91d18edcf8f/a32b05a613153b97",
         "videoId": "069cd6b91d18edcf8f",
         "type": "StoryType.video",
-        "title": "Tax Avoidance",
+        "title": "All The rest is Bullshit!",
         "slug": "tax-avoidance",
-        "blurb": "Taxes Taxes Taxes and the rest is bullshit!",
+        "blurb": "That’s it, taxes, taxes, taxes. All the rest is bullshit, in my, in my opinion.",
         "summary": "Rutger Bregman talks truth at Davos!",
         "views": 1634,
         "avocadoCount": 269,
