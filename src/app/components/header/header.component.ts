@@ -15,7 +15,7 @@ import { StorageService } from '../../services/storage.service';
 })
 export class HeaderComponent extends Extender implements OnInit, OnDestroy {
     isDesktop: boolean;
-    isShowJoinButton = false;
+    showJoinButton = false;
     isBrowser = false;
     public settings: Setting;
     constructor(
@@ -34,7 +34,7 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
         this.routerService.events.subscribe((val) => {
             if (val instanceof NavigationEnd) {
                 // console.log('val ', val);
-                this.showJoin();
+                this.toggleShowJoinButton();
             }
         });
     }
@@ -43,9 +43,9 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
         this.settings = this.settingsService.getAllSettings();
         this.screenService.isDesktopView().subscribe(isDesktop => {
             this.isDesktop = isDesktop;
-            this.showJoin();
+            this.toggleShowJoinButton();
         });
-        // this.showJoin();
+        // this.toggleShowJoinButton();
     }
 
     get isHome() {
@@ -58,21 +58,17 @@ export class HeaderComponent extends Extender implements OnInit, OnDestroy {
         return test;
     }
 
-    async showJoin() {
+    async toggleShowJoinButton() {
         if (this.isBrowser) {
             const token = await this.storageService.get('token');
             // console.log('this.document.location.pathname ', this.document.location.pathname);
             // console.log('token ', token);
             if (!token) {
-                this.isShowJoinButton = true;
+                this.showJoinButton = true;
             } else if (token) {
-                this.isShowJoinButton = false;
+                this.showJoinButton = false;
             }
-            if (this.document.location.pathname.indexOf('/join') !== -1) {
-                // console.log('Inside if : This is join page');
-                this.isShowJoinButton = false;
-            }
-            // console.log(' this.isShowJoinButton ', this.isShowJoinButton);
+            // console.log(' this.showJoinButton ', this.showJoinButton);
             this.changeDetectorRef.detectChanges();
         }
     }

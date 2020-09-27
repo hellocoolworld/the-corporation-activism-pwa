@@ -1,35 +1,36 @@
 <ion-menu menuId="side-menu" content-id="side-menu-content">
-  <ion-header>
-      <ion-toolbar>
-          <ion-buttons slot="start">
-              <ion-button (click)="close()" color="light">
-                  <ion-icon name="close-circle-outline"></ion-icon>
-              </ion-button>
-          </ion-buttons>
-      </ion-toolbar>
-  </ion-header>
-  <ion-content id="side-menu-content">
-      <ion-list>
-          <ion-menu-toggle auto-hide="false">
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-button (click)="close()" color="light">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content id="side-menu-content">
+        <ion-list>
+            <ion-menu-toggle auto-hide="false">
+                <ion-item (click)="goto('/')" class="main-nav-item" lines="none">
+                    Home
+                </ion-item>
+                <ion-item (click)="goto('/stories')" class="main-nav-item" lines="none">
+                    Stories
+                </ion-item>
+                <ion-item (click)="goto('/clips')" class="main-nav-item" lines="none">
+                    Clips
+                </ion-item>
+                <ion-item (click)="goto('/about')" class="main-nav-item" lines="none">
+                    About
+                </ion-item>
+                <ion-item (click)="goto('/join')" *ngIf="showJoinButton" class="main-nav-item" lines="none">
+                    Join Us
+                </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+        <p class="footer">
+            <img src="/assets/images/logos.png" class="responsive ion-padding-horizontal"> &copy; {{ copyrightYear }} Grant Street Productions | Site by <a href="https://Cool.world">Cool.world</a>
+        </p>
 
-              <ion-item (click)="goto('/')" class="main-nav-item" lines="none">
-                  Home
-              </ion-item>
-              <ion-item (click)="goto('/stories')" class="main-nav-item" lines="none">
-                  Stories
-              </ion-item>
-              <ion-item (click)="goto('/about')" class="main-nav-item" lines="none">
-                  About
-              </ion-item>
-              <ion-item (click)="goto('/join')" *ngIf="isShowJoinButton" class="main-nav-item" lines="none">
-                  Join Us
-              </ion-item>
-          </ion-menu-toggle>
-      </ion-list>
-
-      <p class="footer">
-          &copy; {{ copyrightYear }} Grant Street Productions | Site by <a href="https://Cool.world">Cool.world</a>
-      </p>
-
-  </ion-content>
+    </ion-content>
 </ion-menu>

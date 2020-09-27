@@ -1,6 +1,7 @@
 [{
         "id": "a79cd7bd1b1be6c12e/012bec3832657dfd",
-        "videoId": "4d9cd6b4131be1c4c4",
+        "videoId": "a79cd7bd1b1be6c12e",
+        "imageId": "1601147211",
         "type": "StoryType.video",
         "title": "The New Corporation is Coming!",
         "slug": "the-new-corporation",
@@ -29,7 +30,8 @@
     },
     {
         "id": "119cd7bd1b1be1c898/141fa83bd3106b08",
-        "videoId": "709cd6be1b1fe6c4f9",
+        "videoId": "119cd7bd1b1be1c898",
+        "imageId": "1601147360",
         "type": "StoryType.video",
         "title": "The Unfortunately Necessary Sequel",
         "slug": "the-unfortunately-necessary-sequel",

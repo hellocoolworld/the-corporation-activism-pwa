@@ -102,7 +102,7 @@ export class AppComponent extends Extender implements OnInit {
         this.commonService.openSocialProvider(p);
     }
 
-    showJoin() {
+    toggleShowJoinButton() {
         return this.settings.deviceToken;
     }
 

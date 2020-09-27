@@ -20,7 +20,7 @@ export class SideBarComponent extends Extender implements OnInit, OnDestroy {
   public provider = SocialAuthProvider;
   public settings: Setting;
   public isDesktop: boolean;
-  isShowJoinButton = false;
+  showJoinButton = false;
   constructor(
     protected injector: Injector,
     private settingsService: SettingsService,
@@ -36,7 +36,7 @@ export class SideBarComponent extends Extender implements OnInit, OnDestroy {
     this.routerService.events.subscribe((val) => {
         if (val instanceof NavigationEnd) {
             // console.log('val ', val);
-            this.showJoin();
+            this.toggleShowJoinButton();
         }
     });
   }
@@ -57,20 +57,16 @@ export class SideBarComponent extends Extender implements OnInit, OnDestroy {
     this.commonService.openSocialProvider(p);
   }
 
-  async showJoin() {
+  async toggleShowJoinButton() {
     const token = await this.storageService.get('token');
     if (!token) {
-        this.isShowJoinButton = true;
+        this.showJoinButton = true;
     } else if (token) {
-        this.isShowJoinButton = false;
+        this.showJoinButton = false;
     }
-    if (this.document.location.pathname.indexOf('/join') !== -1) {
-        // console.log('Inside if : This is join page');
-        this.isShowJoinButton = false;
-    }
-    // console.log(' this.isShowJoinButton ', this.isShowJoinButton);
+    // console.log(' this.showJoinButton ', this.showJoinButton);
     this.changeDetectorRef.detectChanges();
-    return this.isShowJoinButton;
+    return this.showJoinButton;
   }
 
   join() {

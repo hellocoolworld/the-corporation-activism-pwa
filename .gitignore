@@ -33,3 +33,4 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 .firebase/
 *.DS_Store
+.vscode/

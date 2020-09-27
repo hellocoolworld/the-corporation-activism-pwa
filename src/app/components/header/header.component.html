@@ -1,16 +1,12 @@
 <ion-header *ngIf="!isDesktop">
     <ion-toolbar>
-        <ion-buttons slot="start" class="header-hamburger">
-            <ion-menu-button (click)="open('side-menu')">
+        <ion-buttons>
+            <ion-menu-button>
             </ion-menu-button>
         </ion-buttons>
         <ion-title (click)="goto('/')">
             The New Corporation
         </ion-title>
-        <ion-buttons class="ion-no-padding" slot="end">
-            <ion-button class="header-btn" size="small" *ngIf="isShowJoinButton" (click)="goto('/join')">Join Us
-            </ion-button>
-        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
@@ -18,36 +14,31 @@
 <ion-header *ngIf="isDesktop">
     <ion-toolbar>
         <ion-row class="ion-align-items-center">
-            <ion-col size="1">
+            <ion-col size="2">
                 <a (click)="goto('/')"><img src="assets/icons/icon-512x512.png" class="header-logo ion-text-left"></a>
             </ion-col>
-            <ion-col size="2">
-                <ion-title>
-                    <a (click)="goto('/')">
-                        The New Corporation
-                    </a>
-                </ion-title>
-            </ion-col>
-            <ion-col size="6">
+            <ion-col size="8">
                 <div class="navbar" class="ion-text-center">
-                    <ion-button fill="clear" (click)="goto('/stories')" routerLink="/stories" routerDirection="root"
-                        routerLinkActive="active-link" class="link">
+                    <ion-button fill="clear" (click)="goto('/')" routerLink="/" routerDirection="root" routerLinkActive="active-link" class="link">
+
+                        Home
+                    </ion-button>
+                    <ion-button fill="clear" (click)="goto('/stories')" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">
                         Stories
                     </ion-button>
-                    <ion-button fill="clear" (click)="goto('/clips')" routerLink="/clips" routerDirection="root"
-                        routerLinkActive="active-link" class="link">
+                    <ion-button fill="clear" (click)="goto('/clips')" routerLink="/clips" routerDirection="root" routerLinkActive="active-link" class="link">
                         Clips
                     </ion-button>
-                    <ion-button fill="clear" (click)="goto('/about')" routerLink="/about" routerDirection="root"
-                        routerLinkActive="active-link" class="link">
+                    <ion-button fill="clear" (click)="goto('/about')" routerLink="/about" routerDirection="root" routerLinkActive="active-link" class="link">
                         About
+                    </ion-button>
+                    <ion-button *ngIf="showJoinButton" fill="clear" (click)="goto('/join')" routerLink="/join" routerDirection="root" routerLinkActive="active-link" class="link">
+                        Join us
                     </ion-button>
                 </div>
             </ion-col>
             <ion-col size="2">
-                <ion-button *ngIf="isShowJoinButton" (click)="goto('/join')" class="header-btn">
-                    Join us
-                </ion-button>
+                <img src="/assets/images/logos.png" class="responsive ion-text-right">
             </ion-col>
         </ion-row>
     </ion-toolbar>
