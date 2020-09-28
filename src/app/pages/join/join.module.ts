@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { JoinPageRoutingModule } from './join-routing.module';
 
+import { SafePipe } from './safe.pipe';
 import { JoinPage } from './join.page';
 import { ComponentsModule } from '../../components/components.module';
 
@@ -17,6 +18,6 @@ import { ComponentsModule } from '../../components/components.module';
     JoinPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [JoinPage]
+  declarations: [JoinPage, SafePipe]
 })
 export class JoinPageModule {}
