@@ -19,7 +19,7 @@ export class AppComponent extends Extender implements OnInit {
     deferredPrompt;
     isBrowser;
     public settings: Setting;
-    isShowAddToHomeScreenButton = false;
+
     constructor(
         protected injector: Injector,
         private platform: Platform,
@@ -44,7 +44,7 @@ export class AppComponent extends Extender implements OnInit {
         // Hide the app provided install promotion
         // hideMyInstallPromotion();
         // Show the install prompt
-        if (this.isShowAddToHomeScreenButton) {
+        if (this.showAddToHome) {
             console.log('Inside add');
             this.deferredPrompt.prompt();
             // Wait for the user to respond to the prompt
@@ -69,6 +69,7 @@ export class AppComponent extends Extender implements OnInit {
         if (this.isBrowser) {
             // console.log('Inside this.isBrowser');
             // @ts-ignore
+            // Service work triggers this..
             window.addEventListener('beforeinstallprompt', (e) => {
                 // console.log('Inside beforeinstallprompt');
                 // Prevent the mini-infobar from appearing on mobile
@@ -77,16 +78,17 @@ export class AppComponent extends Extender implements OnInit {
                 this.deferredPrompt = e;
                 // Update UI notify the user they can install the PWA
                 // showInstallPromotion();
+
             });
             // @ts-ignore
             window.addEventListener('appinstalled', (evt) => {
                 // Log install to analytics
                 // console.log('INSTALL: Success');
+
             });
             // console.log('WINDOW', window.matchMedia('(display-mode: standalone)').matches);
-            if (window.matchMedia('(display-mode: standalone)').matches === false) {
-                this.isShowAddToHomeScreenButton = true;
-            }
+
+
         }
         this.settings = this.settingsService.getAllSettings();
         this.screenService.isDesktopView().subscribe(isDesktop => {
@@ -96,6 +98,10 @@ export class AppComponent extends Extender implements OnInit {
             }
             this.isDesktop = isDesktop;
         });
+    }
+
+    get showAddToHome() {
+        return !window.matchMedia('(display-mode: standalone)').matches && !this.isDesktop;
     }
 
     linkToSocialProfile(p: number) {

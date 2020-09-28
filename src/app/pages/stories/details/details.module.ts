@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { DetailsPageRoutingModule } from './details-routing.module';
 
 import { DetailsPage } from './details.page';
-import { SafePipe } from './safe.pipe';
-import { ComponentsModule } from '../../../components/components.module';
+import { SafePipe } from 'src/app/pipes/safe.pipe';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
