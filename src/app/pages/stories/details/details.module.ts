@@ -9,6 +9,7 @@ import { DetailsPageRoutingModule } from './details-routing.module';
 import { DetailsPage } from './details.page';
 import { SafePipe } from './safe.pipe';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     DetailsPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    ShareButtonsModule
   ],
   declarations: [DetailsPage, SafePipe]
 })
