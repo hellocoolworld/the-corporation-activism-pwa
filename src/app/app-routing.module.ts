@@ -34,6 +34,10 @@ const routes: Routes = [
         storyDetail: StoryDetailResolveService
       }
     },
+    {
+      path: 'subscribe',
+      loadChildren: () => import('./pages/subscribe/subscribe.module').then( m => m.SubscribePageModule)
+    },
 ];
 
 @NgModule({
