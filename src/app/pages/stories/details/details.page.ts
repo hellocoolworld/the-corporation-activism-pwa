@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Meta, Title} from '@angular/platform-browser';
+import {ActivatedRoute, Router} from '@angular/router';
 
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { AlertController, ModalController } from '@ionic/angular';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {AlertController, ModalController} from '@ionic/angular';
 
-import { SeoSocialShareData, SeoSocialShareService } from 'ngx-seo';
+import {SeoSocialShareData, SeoSocialShareService} from 'ngx-seo';
 
-import { AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from '../../../modals';
-import { ModalPageComponent } from '../../../components/modal-page/modal-page.component';
-import { Story } from '../../../models/story';
-import { StoriesService } from '../../../services/stories.service';
-import { ToastService } from '../../../services/toast.service';
+import {AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal} from '../../../modals';
+import {ModalPageComponent} from '../../../components/modal-page/modal-page.component';
+import {Story} from '../../../models/story';
+import {StoriesService} from '../../../services/stories.service';
+import {ToastService} from '../../../services/toast.service';
 
 @Component({
     selector: 'app-details',
@@ -37,7 +37,7 @@ export class DetailsPage implements OnInit {
         private router: Router,
         private seoSocialShareService: SeoSocialShareService,
         public alertController: AlertController,
-    ) { }
+    ) {}
 
     ngOnInit() {
         this.currentUrl = this.router.url;
@@ -58,7 +58,7 @@ export class DetailsPage implements OnInit {
         this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
         this.seoSocialShareService.setData(seoData);
 
-        this.loadSlugDataPromise();
+        // this.loadSlugDataPromise();
     }
 
     async presentModal() {
@@ -71,7 +71,7 @@ export class DetailsPage implements OnInit {
             }
         });
         await modal.present();
-        const { data } = await modal.onWillDismiss();
+        const {data} = await modal.onWillDismiss();
         console.log('data ', data);
         if (data && data.action && data.action === 'reply') {
             /**
@@ -89,23 +89,21 @@ export class DetailsPage implements OnInit {
     }
 
     loadSlugDataPromise() {
-        setTimeout(() => {
-            // @ts-ignore
-            this.player = new SV.Player({ videoId: this.story.videoId });
-            this.player.bind('completed', () => {
-                console.log('Completed');
-                this.presentModal();
-            });
-            this.player.bind('play', () => {
-                console.log('play');
-            });
-        }, 2000);
+        // @ts-ignore
+        this.player = new SV.Player({videoId: this.story.videoId});
+        this.player.bind('completed', () => {
+            console.log('Completed');
+            this.presentModal();
+        });
+        this.player.bind('play', () => {
+            console.log('play');
+        });
     }
 
     videoEvents() {
         setTimeout(() => {
             // @ts-ignore
-            this.player = new SV.Player({ videoId: this.story.videoId });
+            this.player = new SV.Player({videoId: this.story.videoId});
             this.player.bind('completed', () => {
                 // console.log('Completed');
                 this.presentModal();
@@ -143,9 +141,9 @@ export class DetailsPage implements OnInit {
                         this.title.setTitle(`-- The New Corporation - ${this.story.title}`);
 
                         // Possible Solution 1
-                        this.meta.addTag({ name: 'description', content: story.share.description });
-                        this.meta.addTag({ name: 'keywords', content: story.share.keywords });
-                        this.meta.addTag({ name: 'image', content: story.share.image });
+                        this.meta.addTag({name: 'description', content: story.share.description});
+                        this.meta.addTag({name: 'keywords', content: story.share.keywords});
+                        this.meta.addTag({name: 'image', content: story.share.image});
                         return true;
                     } else {
                         return false;

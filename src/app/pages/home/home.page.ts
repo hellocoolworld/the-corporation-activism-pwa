@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, Inject, Injector, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, Injector, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Observable, Subscription, timer } from 'rxjs';
 import { Extender } from '../../helpers/extender';
@@ -20,15 +20,18 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
     private subscription: Subscription;
     private timer: Observable<any>;
     seenAnimation: boolean;
+    isBrowser;
 
     constructor(
         protected injector: Injector,
         private title: Title,
         private settingsService: SettingsService,
         private screenService: ScreenService,
-        @Inject(DOCUMENT) private document
+        @Inject(DOCUMENT) private document,
+        @Inject(PLATFORM_ID) platformId,
     ) {
         super(injector);
+        this.isBrowser = isPlatformBrowser(platformId);
     }
 
     ngOnInit() {
@@ -37,7 +40,9 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
         this.screenService.isDesktopView().subscribe(isDesktop => {
             this.isDesktop = isDesktop;
         });
-        this.setTimer();
+        if (this.isBrowser) {
+            this.setTimer();
+        }
     }
 
     public setTimer() {

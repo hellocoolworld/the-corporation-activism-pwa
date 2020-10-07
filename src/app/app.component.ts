@@ -1,12 +1,12 @@
-import { Component, OnInit, Injector, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { Platform, ModalController, MenuController } from '@ionic/angular';
-import { PrivacyPolicyModal, TermsOfServiceModal } from './modals';
-import { isPlatformBrowser } from '@angular/common';
-import { Extender } from './helpers/extender';
-import { Setting } from './models/setting';
-import { ScreenService } from './services/screen.service';
-import { SettingsService } from './services/settings.service';
-import { CommonService } from './services/common.service';
+import {Component, OnInit, Injector, HostListener, Inject, PLATFORM_ID} from '@angular/core';
+import {Platform, ModalController, MenuController} from '@ionic/angular';
+import {PrivacyPolicyModal, TermsOfServiceModal} from './modals';
+import {isPlatformBrowser} from '@angular/common';
+import {Extender} from './helpers/extender';
+import {Setting} from './models/setting';
+import {ScreenService} from './services/screen.service';
+import {SettingsService} from './services/settings.service';
+import {CommonService} from './services/common.service';
 
 @Component({
     selector: 'app-root',
@@ -101,7 +101,9 @@ export class AppComponent extends Extender implements OnInit {
     }
 
     get showAddToHome() {
-        return !window.matchMedia('(display-mode: standalone)').matches && !this.isDesktop;
+        if (this.isBrowser) {
+            return !window.matchMedia('(display-mode: standalone)').matches && !this.isDesktop;
+        }
     }
 
     linkToSocialProfile(p: number) {
