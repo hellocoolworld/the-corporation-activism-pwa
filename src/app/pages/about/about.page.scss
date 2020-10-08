@@ -11,3 +11,11 @@
     --padding-top: var(--page-margin);
     --padding-bottom: var(--page-margin);
 }
+
+.billing-block {
+    font-size: 1.4em;
+    font-kerning: -0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+}

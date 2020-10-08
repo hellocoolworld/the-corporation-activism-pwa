@@ -1,12 +1,17 @@
 <ion-header *ngIf="!isDesktop">
     <ion-toolbar>
-        <ion-buttons>
+        <ion-buttons slot="start">
             <ion-menu-button>
             </ion-menu-button>
         </ion-buttons>
         <ion-title (click)="goto('/')">
             The New Corporation
         </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="goto('/join')">
+                <ion-icon slot="icon-only" name="at-circle-sharp"></ion-icon>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
