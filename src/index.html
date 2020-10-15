@@ -18,8 +18,16 @@
     <!-- add to homescreen for ios -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#1976d2">
+    <script type="text/javascript">
+        const url = `manifest-${window.location.hostname}.webmanifest`;
+        function changeHref() {
+            document.getElementById('manifest').href = url;
+            console.log(document.getElementById('manifest').href);
+        }
+        window.onload = changeHref;
+    </script>
+    <link id='manifest' rel="manifest" href='manifest-localhost.webmanifest'>
 </head>
 
 <body>

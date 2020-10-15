@@ -6,7 +6,7 @@ export const environment = {
     production: false,
     apiUrl: 'http://localhost:3000',
     hosting: 'http://localhost:8100',
-    mockDataUrl: 'http://localhost:8100',
+    mockDataUrl: 'http://localhost:4300',
     iframeUrl: 'http://localhost:4200'
 };
 
