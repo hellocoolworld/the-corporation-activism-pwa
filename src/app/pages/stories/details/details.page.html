@@ -8,19 +8,19 @@
                 <iframe (load)="loadSlugDataPromise()" #iframe [src]="prepareVideoUrl(story.id) | safe: 'resourceUrl'" class='sproutvideo-player' type='text/html' style='position:absolute;width:100%;height:100%;left:0;top:0' frameborder='0' allowfullscreen>
                 </iframe>
             </div>
-            <p>{{ story.summary }}</p>
             <div class="story-body-section">
-                <h3>Take Action To Support This Story</h3>
+                <p>{{ story.summary }}</p>
+                <h3>{{ story.actionTitle }}</h3>
                 <p>{{ story.actionSummary }}</p>
                 <ul>
-                    <li *ngFor="let action of story.actions" [innerHtml]="action"></li>
+                    <li *ngFor="let action of story.actions">
+                        <a href="{{action.url}}" target="{{action.target}}">{{action.text}}</a>
+                    </li>
                 </ul>
-
             </div>
 
             <!-- SOCIAL SHARES HERE -->
-            <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','linkedin']" [size]="4" [show]="3"
-                [showText]="true" [url]="currentUrl" [autoSetMeta]="false"></share-buttons>
+            <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','pinterest']" [size]="4" [show]="3" [showText]="true" [url]="currentUrl" [autoSetMeta]="false"></share-buttons>
         </div>
     </div>
 </ion-content>

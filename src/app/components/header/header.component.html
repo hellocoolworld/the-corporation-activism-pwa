@@ -14,8 +14,6 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-
-
 <ion-header *ngIf="isDesktop">
     <ion-toolbar>
         <ion-row class="ion-align-items-center">
@@ -25,7 +23,6 @@
             <ion-col size="8">
                 <div class="navbar" class="ion-text-center">
                     <ion-button fill="clear" (click)="goto('/')" routerLink="/" routerDirection="root" routerLinkActive="active-link" class="link">
-
                         Home
                     </ion-button>
                     <ion-button fill="clear" (click)="goto('/stories')" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">

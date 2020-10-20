@@ -19,8 +19,6 @@ export class ModalPageComponent implements OnInit {
 
   ngOnInit() {
     this.currentUrl = this.router.url;
-    // console.log('currentUrl', this.currentUrl);
-    // console.log('currentUrl', this.story.share.description);
   }
 
   dismiss() {
@@ -32,5 +30,4 @@ export class ModalPageComponent implements OnInit {
       action: 'reply'
     });
   }
-
 }

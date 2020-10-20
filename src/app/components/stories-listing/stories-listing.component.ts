@@ -43,7 +43,9 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
           const data = res as Story[]; // Convert the result to an array of Stories
           // tslint:disable-next-line: prefer-for-of
           for (let i = 0; i < data.length; i++) {
-            this.stories.push(data[i]);
+            if (data[i].show) {
+                this.stories.push(data[i]);
+            }
           }
         },
         error => {

@@ -7,6 +7,8 @@
 export class Story {
     id: string;
     videoId: string;
+    imageId: string;
+    show: boolean;
     type: StoryType;
     title: string;
     slug: string;
@@ -16,6 +18,7 @@ export class Story {
     avocadoCount: number;
     avocadoRating: number;
     pledgeCount: number;
+    actionTitle: string;
     actionSummary: string;
     actions: [];
     share: any;
