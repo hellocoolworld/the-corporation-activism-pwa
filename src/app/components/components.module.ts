@@ -1,61 +1,49 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StoriesListingComponent } from './stories-listing/stories-listing.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-
-import { HeaderComponent } from './header/header.component';
-import { FooterAdComponent } from './footer-ad/footer-ad.component';
+import { ModalPageComponent } from './modal-page/modal-page.component';
+import { ShareModule } from 'ngx-sharebuttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { AddAvocadosComponent } from './add-avocados/add-avocados.component';
-import { PopoverComponent } from './popover/popover.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { HomeIntroComponent } from './home-intro/home-intro.component';
+import { HomeStaticComponent } from './home-static/home-static.component';
 
-import { AspectRatioComponent } from './aspect-ratio/aspect-ratio.component';
-import { TextShellComponent } from './text-shell/text-shell.component';
-import { ImageShellComponent } from './image-shell/image-shell.component';
 
-import { CheckboxWrapperComponent } from './checkbox-wrapper/checkbox-wrapper.component';
-import { ShowHidePasswordComponent } from './show-hide-password/show-hide-password.component';
-import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
-import { CounterInputComponent } from './counter-input/counter-input.component';
-import { RatingInputComponent } from './rating-input/rating-input.component';
 
 @NgModule({
+  declarations: [
+    StoriesListingComponent,
+    HeaderComponent,
+    FooterComponent,
+    ModalPageComponent,
+    AddAvocadosComponent,
+    SideBarComponent,
+    HomeIntroComponent,
+    HomeStaticComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule.forRoot(),
-  ],
-  declarations: [
-    AspectRatioComponent,
-    TextShellComponent,
-    ImageShellComponent,
-
-    HeaderComponent,
-    FooterAdComponent, 
-    AddAvocadosComponent,
-    PopoverComponent,
-    
-    CheckboxWrapperComponent,
-    ShowHidePasswordComponent,
-    CountdownTimerComponent,
-    CounterInputComponent,
-    RatingInputComponent
+    ShareModule,
+    ShareButtonsModule,
+    ShareIconsModule,
   ],
   exports: [
-    AspectRatioComponent,
-    TextShellComponent,
-    ImageShellComponent,
-
+    StoriesListingComponent,
     HeaderComponent,
-    FooterAdComponent, 
+    FooterComponent,
+    ModalPageComponent,
     AddAvocadosComponent,
-    PopoverComponent,
-    
-    CheckboxWrapperComponent,
-    ShowHidePasswordComponent,
-    CountdownTimerComponent,
-    CounterInputComponent,
-    RatingInputComponent
-  ],
-  entryComponents: [PopoverComponent],
+    SideBarComponent,
+    HomeIntroComponent,
+    HomeStaticComponent,
+  ]
 })
-export class ComponentsModule {}
+export class ComponentsModule { }

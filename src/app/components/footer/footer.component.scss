@@ -1,0 +1,15 @@
+:host {
+    --page-margin: var(--app-broad-margin);
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.page-content {
+    --padding-start: var(--page-margin);
+    --padding-end: var(--page-margin);
+    --padding-top: var(--page-margin);
+    --padding-bottom: var(--page-margin);
+}
+
+p.footer {
+    font-size: 1rem;
+}

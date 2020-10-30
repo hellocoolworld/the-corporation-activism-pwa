@@ -1,0 +1,107 @@
+[{
+    "id": "069cd7be1f13edc08f/9d5ea2cbadf5fd5c",
+    "videoId": "069cd7be1f13edc08f",
+    "imageId": "1",
+    "show": true,
+    "type": "StoryType.video",
+    "title": "The New Corporation is Coming!",
+    "slug": "the-new-corporation",
+    "blurb": "The New Corporation had it's world premiere at TIFF!",
+    "summary": "Check out the hard-hitting trailer for The New Corporation, but don't just subscribe to our app, join us to change the world.",
+    "views": 1634,
+    "avocadoCount": 269,
+    "avocadoRating": 4,
+    "pledgeCount": 11,
+    "actionTitle": "Take Action Now ",
+    "actionSummary": "You can help by taking one of more the the action below.",
+    "actions": [{
+            "text": "Visit and subscribe to Anand Giridharadas the The Ink.",
+            "info": null,
+            "url": "https://the.ink",
+            "target": "_blank"
+        },
+        {
+            "text": "Visit the Movie Site to Learn more about the Film.",
+            "info": null,
+            "url": "https://TheNewCorporation.movie",
+            "target": "_blank"
+        },
+        {
+            "text": "Subscribe to Cool.world Mailing List.",
+            "info": "Cool.world is our source for the latest info about The New Corporation and other related content.",
+            "url": "/join",
+            "target": "_self"
+        }
+    ],
+    "share": {
+        "slug": "/stories/the-new-corporation",
+        "title": "The New Corporation is Coming!",
+        "keywords": "",
+        "description": "Check out the hard-hitting trailer for The New Corporation, but don't just subscribe to our app, join us to change the world.",
+        "image": "https://lorempixel.com/output/nightlife-q-c-640-480-10.jpg",
+        "height": "480"
+    },
+    "createdAt": "June 15, 2020",
+    "updatedAt": "June 15, 2020"
+}, {
+    "id": "709cd7be1f13e2c9f9/2cfaaa4757f70827",
+    "videoId": "709cd7be1f13e2c9f9",
+    "imageId": "1602716935",
+    "show": false,
+    "type": "StoryType.video",
+    "title": "The Unfortunately Necessary Sequel",
+    "slug": "the-unfortunately-necessary-sequel",
+    "blurb": "In 2003 we named the psychopath. Now, we’re back, with the unfortunately necessary sequel.",
+    "summary": "Who would have thought a film about an economic institution would take off the way it did? 26 International awards, many millions of views later, and we still have unfinished business. Enter The New Corporation: The Unfortunately Necessary Sequel. This is our chance. The corporation’s do-over date has arrived. We can’t waste it.",
+    "views": 1634,
+    "avocadoCount": 269,
+    "avocadoRating": 4,
+    "pledgeCount": 11,
+    "actionTitle": "Take Action Now ",
+    "actionSummary": "You can help by taking one of more the the action below.",
+    "actions": [
+        "See The Corporation (original film) on Encore+",
+        "Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
+        "Join Us: <a href='/join'>Subscribe</a> to the The New Corporaton Mailing List."
+    ],
+    "share": {
+        "slug": "/",
+        "title": "Home",
+        "keywords": "lorem, ipsum",
+        "description": "Lorem ipsum dor cum lorem",
+        "image": "https://lorempixel.com/output/nightlife-q-c-640-480-10.jpg",
+        "height": "480"
+    },
+    "createdAt": "June 15, 2020",
+    "updatedAt": "June 15, 2020"
+}, {
+    "id": "069cd6b91d18edcf8f/a32b05a613153b97",
+    "videoId": "069cd6b91d18edcf8f",
+    "show": false,
+    "type": "StoryType.video",
+    "title": "All The rest is Bullshit!",
+    "slug": "tax-avoidance",
+    "blurb": "That’s it, taxes, taxes, taxes. All the rest is bullshit, in my, in my opinion.",
+    "summary": "Rutger Bregman talks truth at Davos!",
+    "views": 1634,
+    "avocadoCount": 269,
+    "avocadoRating": 4,
+    "pledgeCount": 11,
+    "actionTitle": "Take Action Now ",
+    "actionSummary": "You can help by taking one of more the the action below.",
+    "actions": [
+        "Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
+        "Join Us: <a href='/join'>Subscribe</a> to the The New Corporaton Mailing List.",
+        "<a href='https://www.vox.com/future-perfect/2019/1/30/18203911/davos-rutger-bregman-historian-taxes-philanthropy'>Meet the folk hero of Davos: the writer who told the rich to stop dodging taxes</a>"
+    ],
+    "share": {
+        "slug": "/",
+        "title": "Home",
+        "keywords": "lorem, ipsum",
+        "description": "Lorem ipsum dor cum lorem",
+        "image": "https://lorempixel.com/output/nightlife-q-c-640-480-10.jpg",
+        "height": "480"
+    },
+    "createdAt": "June 15, 2020",
+    "updatedAt": "June 15, 2020"
+}]

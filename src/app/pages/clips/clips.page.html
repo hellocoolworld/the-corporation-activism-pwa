@@ -1,0 +1,18 @@
+<app-header></app-header>
+<ion-content class="hasHeader page-content">
+    <h1>Clips</h1>
+    <ion-grid>
+
+        <ion-row>
+            <ion-col [size]="clipsGridSize" *ngFor="let clip of clips">
+                <a href='https://videos.sproutvideo.com/embed/{{clip.id}}?autoplay=true' class='sproutvideo-lightbox' data-width='640' data-height='360'><img src='https://cdn-thumbnails.sproutvideo.com/{{clip.id}}/0/btn_true,w_640,h_360/poster.jpg' style='max-width:100%' /></a>
+                <h3>{{clip.title}}</h3>
+                <p>{{clip.description}}</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+    <script charset='ISO-8859-1' src='https://c.sproutvideo.com/lightbox/v1.0.0.js'></script>
+</ion-content>
+<app-footer></app-footer>

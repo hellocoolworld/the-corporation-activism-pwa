@@ -1,66 +1,68 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { AppRoutingModule } from './app-routing.module';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { MetaModule } from '@ngx-meta/core';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
-import { JwtInterceptor, ErrorInterceptor } from './helpers';
-
-
-import { PrivacyPolicyModal, TermsOfServiceModal, AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal } from './modals';
-
-// used to create fake backend
-import { fakeBackendProvider } from './helpers';
-
- 
+import {
+    AddPledgeModal,
+    AuthorBioModal,
+    HelpActionPledgeModal,
+    HelpAvocadometerModal,
+    PrivacyPolicyModal,
+    SocialShareModal,
+    TermsOfServiceModal
+} from './modals';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    ReactiveFormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    ComponentsModule
-  ],
-
-  declarations: [
-    AppComponent,
-    TermsOfServiceModal, 
-    PrivacyPolicyModal,
-    AuthorBioModal, 
-    AddPledgeModal,
-    HelpActionPledgeModal, 
-    HelpAvocadometerModal 
-  ],
-
-  providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    Title,
-    // provider used to create fake backend
-    fakeBackendProvider
-  ],
-
-  exports: [],
-
-  entryComponents: [
-    TermsOfServiceModal, 
-    PrivacyPolicyModal, 
-    AuthorBioModal,
-    AddPledgeModal, 
-    HelpActionPledgeModal, 
-    HelpAvocadometerModal
-  ],
-
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        TermsOfServiceModal,
+        PrivacyPolicyModal,
+        AuthorBioModal,
+        AddPledgeModal,
+        HelpActionPledgeModal,
+        HelpAvocadometerModal,
+        SocialShareModal
+    ],
+    entryComponents: [
+        TermsOfServiceModal,
+        PrivacyPolicyModal,
+        AuthorBioModal,
+        AddPledgeModal,
+        HelpActionPledgeModal,
+        HelpAvocadometerModal,
+        SocialShareModal
+    ],
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'serverApp' }), IonicModule.forRoot(),
+        AppRoutingModule,
+        HttpClientModule,
+        ShareButtonsModule,
+        ComponentsModule,
+        MetaModule.forRoot(),
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+        IonicStorageModule.forRoot({
+            driverOrder: ['localstorage']
+        })
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        Title,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
 })
-
 export class AppModule { }

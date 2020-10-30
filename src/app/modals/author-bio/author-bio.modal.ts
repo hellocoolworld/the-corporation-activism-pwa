@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { DomSanitizer } from '@angular/platform-browser';
-
-import { Tale } from '../../models';
-import { TaleService, ToastService } from '../../services';
+import { Story } from '../../models/story';
+import { StoriesService } from '../../services/stories.service';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
-  selector: "app-author-bio-modal",
-  templateUrl: "./author-bio.modal.html",
-  styleUrls: ["./author-bio.modal.scss"]
+  selector: 'app-author-bio-modal',
+  templateUrl: './author-bio.modal.html',
+  styleUrls: ['./author-bio.modal.scss']
 })
 export class AuthorBioModal implements OnInit {
-  
-  tale: Tale = new Tale();
+
+  story: Story = new Story();
 
   constructor(
-    private taleService: TaleService,
+    private storyService: StoriesService,
     private toast: ToastService,
     private sanitizer: DomSanitizer,
     private modalController: ModalController,
@@ -23,16 +23,17 @@ export class AuthorBioModal implements OnInit {
   ) {}
 
   ngOnInit() {
-    const taleId = this.navParams.data.taleId;
+    const storyId = this.navParams.data.storyId;
     /**
-     * @todo create a slug as in getBySlug(this.navParams.data.taleSlug)
+     * @todo create a slug as in getBySlug(this.navParams.data.storySlug)
      */
-    this.taleService.getById(taleId).subscribe(
+    this.storyService.getById(storyId).subscribe(
       res => {
-        const data = res as Tale[];
+        const data = res as Story[];
+        // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < data.length; i++) {
-          if (data[i].id === taleId) {
-            this.tale = data[i];
+          if (data[i].id === storyId) {
+            this.story = data[i];
             break;
           }
         }

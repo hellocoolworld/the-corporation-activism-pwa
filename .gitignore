@@ -9,7 +9,6 @@
 log.txt
 *.sublime-project
 *.sublime-workspace
-.vscode/
 npm-debug.log*
 
 .idea/
@@ -19,8 +18,7 @@ npm-debug.log*
 .tmp/
 .versions/
 coverage/
-deploy/
-www/
+dist/
 node_modules/
 tmp/
 temp/
@@ -33,3 +31,6 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+.firebase/
+*.DS_Store
+.vscode/

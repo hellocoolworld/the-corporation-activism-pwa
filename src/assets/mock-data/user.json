@@ -1,16 +1,3 @@
 {
-    "id" : "2o837ksadjfghqiorwetgo2qx2ilu3rn1o2ircg",
-    "authType": "password",
-    "email": "stefano@stef.com",
-    "password": "erew",
-    "imageUrl": "./assets/sample-images/user/person_1.jpg",
-    "displayName": "Stefano",
-    "slug": "stefano",
-    "bio": "",
-    "testemonial": "I am a product manager based in Brazil. I guide new product strategy and launch initial prototype build-outs. I also work with strategic partners to establish and develop new market opportunities.",
-    "joinMailingList": true,
-    "notificationsType": ["email", "push"],
-    "Anonymous": false,
-    "hasSeenNewCorpThisSession": false
-  }
-  
+    "token": "2o837ksadjfghqiorwetgo2qx2ilu3rn1o2ircg"
+}

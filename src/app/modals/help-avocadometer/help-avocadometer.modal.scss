@@ -3,36 +3,33 @@
 :host {
     --page-margin: var(--app-broad-margin);
     --page-background: var(--app-background-shade);
-  }
-  
-  // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
-  .modal-content {
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.modal-content {
     --background: var(--page-background);
     --padding-start: var(--page-margin);
     --padding-end: var(--page-margin);
     --padding-top: var(--page-margin);
     --padding-bottom: var(--page-margin);
-  
     .modal-title {
-      color: var(--ion-color-secondary);
-      margin: var(--page-margin) 0px calc(var(--page-margin) / 2);
+        color: var(--ion-color-secondary);
+        margin: var(--page-margin) 0px calc(var(--page-margin) / 2);
     }
-  
     .modal-text {
-      color: var(--ion-color-medium-dark);
-      text-align: center;
+        color: var(--ion-color-medium-dark);
+        text-align: center;
     }
     ion-item {
-      ion-label {
-        h3 {
-          text-transform: uppercase;
-          font-weight: 600;
+        ion-label {
+            h3 {
+                text-transform: uppercase;
+                font-weight: 300;
+            }
+            p {
+                font-size: 0.8rem;
+                font-style: italic;
+            }
         }
-        p {
-          font-size: 0.8rem;
-          font-style: italic;
-        }
-      }
     }
-  }
-  
+}

@@ -1,156 +1,67 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import { ModalController, PopoverController } from '@ionic/angular';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-
-import { User, Tale, TaleType } from '../../models';
-import { AuthService, TaleService } from '../../services';
-import { HelpActionPledgeModal, HelpAvocadometerModal } from '../../modals';
-import { PopoverComponent } from '../../components/popover/popover.component';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, Injector, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { Title } from '@angular/platform-browser';
- 
+import { Observable, Subscription, timer } from 'rxjs';
+import { Extender } from '../../helpers/extender';
+import { Story } from '../../models/story';
+import { ScreenService } from '../../services/screen.service';
+import { SettingsService } from '../../services/settings.service';
+
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss']
+    selector: 'app-home',
+    templateUrl: 'home.page.html',
+    styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit, OnDestroy {
-  currentUser: User;
-  tales: Tale[] = [];
-  mostRecentActions = [];
-  private unsubscribe$: Subject<void> = new Subject();
-  
-  constructor(
-    private router: Router,
-    private title:Title,
-    private _auth: AuthService,
-    private _tale: TaleService,
-    private modalController: ModalController,
-    private popoverController: PopoverController
-  ) {
-    this.title.setTitle('Halo Tales - Welcome');
-    this._auth.currentUser
-    .pipe(takeUntil(this.unsubscribe$))
-    .subscribe(res => this.currentUser = res);
-  }
-  
-  ngOnInit() {
-    this._tale.getAll()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(
-        res => {
-          console.log('res:', res);
-          let data = res as Tale[]; //Convert the result to an array of Stories
-          for (var i=0; i<data.length; i++) {
-            this.tales.push(data[i]);
-          }
-        },
-        error => { 
-          console.log("Error in recieving data"); 
-        },
-        ()   => {
-          // console.log( this.tales );
+export class HomePage extends Extender implements OnInit, OnDestroy {
+
+    stories: Story[] = [];
+    isDesktop: boolean;
+    private subscription: Subscription;
+    private timer: Observable<any>;
+    seenAnimation: boolean;
+    isBrowser;
+
+    constructor(
+        protected injector: Injector,
+        private title: Title,
+        private settingsService: SettingsService,
+        private screenService: ScreenService,
+        @Inject(DOCUMENT) private document,
+        @Inject(PLATFORM_ID) platformId,
+    ) {
+        super(injector);
+        this.isBrowser = isPlatformBrowser(platformId);
+    }
+
+    ngOnInit() {
+        this.seenAnimation = this.settingsService.getSetting('seenAnimation');
+        this.title.setTitle('The New Corporation - Welcome');
+        this.screenService.isDesktopView().subscribe(isDesktop => {
+            this.isDesktop = isDesktop;
+        });
+        if (this.isBrowser) {
+            this.setTimer();
         }
-      );
-    this.mostRecentActions = [
-      {
-        'userId' : '2r22fw2f',
-        'imageUrl' : "/assets/sample-images/user/person_1.jpg",
-        'displayName' : 'Hank Aaron',
-        'actionIcon' : 'hand',
-        'relatedTaleTitle' : '',
-        'relatedTaleSlug' : '',
-        'relatedTestamonial' : ''
-      },
-      {
-        'userId' : 'qv4tc4a3',
-        'imageUrl' : "/assets/sample-images/user/person_3.jpg",
-        'displayName' : 'Frank Abagnale',
-        'actionIcon' : 'quote',
-        'relatedTaleTitle' : '',
-        'relatedTaleSlug' : '',
-        'relatedTestamonial' : 'In the case of a dynamically loaded component and in order for a ComponentFactory to be generated, the component must also be added to the module’s entryComponents'
-      },
-      {
-        'userId' : 'wv4s4rt4',
-        'imageUrl' : "/assets/sample-images/user/person_5.jpg",
-        'displayName' : 'Edward Abbey',
-        'actionIcon' : 'trophy',
-        'relatedTaleTitle' : 'How Does Halo Tales Empower People To Fight Corporate Power?',
-        'relatedTaleSlug' : 'how-does-halo-tales-empower-people-to-fight-corporate-power',
-        'relatedTestamonial' : ''
-      },
-      {
-        'userId' : 'qcwafwert3',
-        'imageUrl' : "/assets/sample-images/user/person_6.jpg",
-        'displayName' : 'James Abourezk',
-        'actionIcon' : 'hand',
-        'relatedTaleTitle' : '',
-        'relatedTaleSlug' : '',
-        'relatedTestamonial' : ''
-      },
-      {
-        'userId' : '562wcrtr3wt4',
-        'imageUrl' : "/assets/sample-images/user/person_7.jpg",
-        'displayName' : 'Jane Ace',
-        'actionIcon' : 'hand',
-        'relatedTaleTitle' : '',
-        'relatedTaleSlug' : '',
-        'relatedTestamonial' : ''
-      }
-    ]
-  }
-  ngOnDestroy() {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
+    }
 
-  get pledgesCount(): number {
-    return (this.currentUser && this.currentUser.pledges) ? this.currentUser.pledges.length : null;
-  }
+    public setTimer() {
+        this.timer = timer(16000); // 5000 millisecond means 5 seconds
+        this.subscription = this.timer.subscribe(() => {
+            // console.log('time out');
+            this.skipIntro();
+        });
+    }
 
-  get talesCount(): number {
-    return (this.currentUser && this.currentUser.tales) ? this.currentUser.tales.length : null;
-  }
+    public skipIntro() {
+        this.settingsService.saveSetting('seenAnimation', true);
+        this.seenAnimation = true;
+    }
 
-  async onAvatarClick(ev: Event, userId: String, userDisplayName: String, relatedTaleTitle: String, relatedTaleSlug: String, relatedTestamonial: String) {
-    const popover = await this.popoverController.create({
-      component: PopoverComponent,
-      componentProps: {
-        userId: userId,
-        userDisplayName: userDisplayName,
-        relatedTaleTitle: relatedTaleTitle,
-        relatedTaleSlug: relatedTaleSlug,
-        relatedTestamonial: relatedTestamonial
-      },
-      event: ev,
-      translucent: true
-    });
-    return await popover.present();
-  }
-
-  signUp() {
-    this.router.navigate(['signup']);
-  }
-
-  get isFirstPageThisSession(): boolean {
-    return this.currentUser && this.currentUser.hasSeenNewCorpThisSession ? false : true;
-  }
-
-
-  async showHelpActionPledgeModal() {
-    const modal = await this.modalController.create({
-      component: HelpActionPledgeModal
-    });
-    return await modal.present();
-  }
-  async showHelpAvocadometerModal() {
-    const modal = await this.modalController.create({
-      component: HelpAvocadometerModal
-    });
-    return await modal.present();
-  }
-
-
+    public ngOnDestroy() {
+        if (this.subscription && this.subscription instanceof Subscription) {
+            // console.log('destroy');
+            this.subscription.unsubscribe();
+        }
+    }
 }
