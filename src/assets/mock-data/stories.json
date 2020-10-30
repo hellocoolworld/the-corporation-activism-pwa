@@ -47,7 +47,7 @@
     "id": "709cd7be1f13e2c9f9/2cfaaa4757f70827",
     "videoId": "709cd7be1f13e2c9f9",
     "imageId": "1602716935",
-    "show": false,
+    "show": true,
     "type": "StoryType.video",
     "title": "The Unfortunately Necessary Sequel",
     "slug": "the-unfortunately-necessary-sequel",
@@ -77,7 +77,7 @@
 }, {
     "id": "069cd6b91d18edcf8f/a32b05a613153b97",
     "videoId": "069cd6b91d18edcf8f",
-    "show": false,
+    "show": true,
     "type": "StoryType.video",
     "title": "All The rest is Bullshit!",
     "slug": "tax-avoidance",

@@ -21,44 +21,5 @@
         "title": "Tax Avoidance",
         "description": "Taxes, taxes, taxes. All the rest is bullshit!"
 
-    }, {
-        "id": "",
-        "show": false,
-        "slug": "clip-4",
-        "title": "Title",
-        "description": "Lorem"
-
-    },
-    {
-        "id": "",
-        "show": false,
-        "slug": "clip-5",
-        "title": "Title",
-        "description": "Lorem"
-
-    },
-    {
-        "id": "6",
-        "show": false,
-        "slug": "clip-6",
-        "title": "Title",
-        "description": "Lorem"
-
-    },
-    {
-        "id": "7",
-        "show": false,
-        "slug": "clip-7",
-        "title": "Title",
-        "description": "Lorem"
-
-    },
-    {
-        "id": "ID",
-        "show": false,
-        "slug": "clip-7",
-        "title": "Title",
-        "description": "Lorem"
-
     }
 ]
