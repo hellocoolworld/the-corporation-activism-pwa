@@ -1,7 +1,7 @@
 export const environment = {
-    production: true,
+    production: false,
     apiUrl: 'https://api.coolworld.app/api/v1',
-    mockDataUrl: 'https://dev.thenewcorporation.app',
-    hosting: 'http://localhost:8100',
+    mockDataUrl: 'https://thenewcorporation.app',
+    hosting: 'https://thenewcorporation.app',
     iframeUrl: 'https://forms.coolworld.cloud'
 };

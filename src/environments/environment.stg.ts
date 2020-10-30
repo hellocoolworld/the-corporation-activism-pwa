@@ -2,6 +2,6 @@ export const environment = {
     production: true,
     apiUrl: 'https://stg-api.coolworld.app/api/v1',
     mockDataUrl: 'https://stg.thenewcorporation.app',
-    hosting: 'http://localhost:8100',
-    iframeUrl: 'https://join.cool.world'
+    hosting: 'https://stg.thenewcorporation.app',
+    iframeUrl: 'https://forms.coolworld.cloud'
 };
