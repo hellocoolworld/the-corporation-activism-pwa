@@ -1,2 +1,1 @@
-# ssr-poc
-ssr-poc
+# corp-app-pwa
