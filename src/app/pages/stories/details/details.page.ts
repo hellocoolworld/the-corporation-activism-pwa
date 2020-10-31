@@ -20,6 +20,19 @@ import {ToastService} from '../../../services/toast.service';
 })
 export class DetailsPage implements OnInit {
     story: Story = new Story();
+    defaultActions = [{
+        text: 'Subscribe to follow the film and campaigns',
+        info: 'Cool.world is our source for the latest info about The New Corporation and other related content.',
+        url: '/join',
+        target: '_self'
+    },
+    {
+        text: 'Find out where to see the film: TheNewCorporation.movie',
+        info: null,
+        url: 'https://TheNewCorporation.movie',
+        target: '_blank'
+    }
+    ];
 
     userAvocados: number;
     currentUrl;
@@ -42,6 +55,7 @@ export class DetailsPage implements OnInit {
     ngOnInit() {
         this.currentUrl = this.router.url;
         this.story = this.route.snapshot.data.storyDetail;
+        this.story.defaultActions = this.defaultActions;
 
         const seoData: SeoSocialShareData = {
             title: this.story.share.title,

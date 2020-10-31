@@ -20,6 +20,7 @@ export class Story {
     pledgeCount: number;
     actionTitle: string;
     actionSummary: string;
+    defaultActions: [];
     actions: [];
     share: any;
     createdAt: string;

@@ -12,25 +12,26 @@
     "avocadoCount": 269,
     "avocadoRating": 4,
     "pledgeCount": 11,
-    "actionTitle": "Take Action Now ",
-    "actionSummary": "You can help by taking one of more the the action below.",
+    "actionTitle": "Take Action Now",
+    "actionSummary": "You can help by taking one of more the actions below.",
+    "defaultActions": null,
     "actions": [{
-            "text": "Visit and subscribe to Anand Giridharadas the The Ink.",
+            "text": "Subscribe to follow the film and campaigns",
             "info": null,
-            "url": "https://the.ink",
-            "target": "_blank"
+            "url": "/join",
+            "target": "_self"
         },
         {
-            "text": "Visit the Movie Site to Learn more about the Film.",
+            "text": "Find out where to see the film",
             "info": null,
             "url": "https://TheNewCorporation.movie",
             "target": "_blank"
         },
         {
-            "text": "Subscribe to Cool.world Mailing List.",
-            "info": "Cool.world is our source for the latest info about The New Corporation and other related content.",
-            "url": "/join",
-            "target": "_self"
+            "text": "Visit and subscribe to Anand Giridharads' The Ink.",
+            "info": null,
+            "url": "https://the.ink",
+            "target": "_blank"
         }
     ],
     "share": {
@@ -58,41 +59,26 @@
     "avocadoRating": 4,
     "pledgeCount": 11,
     "actionTitle": "Take Action Now ",
-    "actionSummary": "You can help by taking one of more the the action below.",
-    "actions": [
-        "See The Corporation (original film) on Encore+",
-        "Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
-        "Join Us: <a href='/join'>Subscribe</a> to the The New Corporaton Mailing List."
-    ],
-    "share": {
-        "slug": "/",
-        "title": "Home",
-        "keywords": "lorem, ipsum",
-        "description": "Lorem ipsum dor cum lorem",
-        "image": "https://lorempixel.com/output/nightlife-q-c-640-480-10.jpg",
-        "height": "480"
-    },
-    "createdAt": "June 15, 2020",
-    "updatedAt": "June 15, 2020"
-}, {
-    "id": "069cd6b91d18edcf8f/a32b05a613153b97",
-    "videoId": "069cd6b91d18edcf8f",
-    "show": true,
-    "type": "StoryType.video",
-    "title": "All The rest is Bullshit!",
-    "slug": "tax-avoidance",
-    "blurb": "That’s it, taxes, taxes, taxes. All the rest is bullshit, in my, in my opinion.",
-    "summary": "Rutger Bregman talks truth at Davos!",
-    "views": 1634,
-    "avocadoCount": 269,
-    "avocadoRating": 4,
-    "pledgeCount": 11,
-    "actionTitle": "Take Action Now ",
-    "actionSummary": "You can help by taking one of more the the action below.",
-    "actions": [
-        "Visit <a href='https://TheNewCorporation.movie'>TheNewCorporation.movie and give us feedback.",
-        "Join Us: <a href='/join'>Subscribe</a> to the The New Corporaton Mailing List.",
-        "<a href='https://www.vox.com/future-perfect/2019/1/30/18203911/davos-rutger-bregman-historian-taxes-philanthropy'>Meet the folk hero of Davos: the writer who told the rich to stop dodging taxes</a>"
+    "actionSummary": "You can help by taking one of more the actions below.",
+    "defaultActions": null,
+    "actions": [{
+            "text": "Subscribe to follow the film and campaigns",
+            "info": null,
+            "url": "/join",
+            "target": "_self"
+        },
+        {
+            "text": "Find out where to see the film",
+            "info": null,
+            "url": "https://TheNewCorporation.movie",
+            "target": "_blank"
+        },
+        {
+            "text": "Visit the Movie Site to Learn more about the Film.",
+            "info": null,
+            "url": "https://TheNewCorporation.movie",
+            "target": "_blank"
+        }
     ],
     "share": {
         "slug": "/",

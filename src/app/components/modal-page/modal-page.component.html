@@ -1,9 +1,5 @@
-<ion-content class="model-start">
-    <div class="button-main">
-        <ion-button color="danger" (click)="replyButton()">
-            <ion-icon size="large" ion-button name="refresh-circle-outline"></ion-icon>
-        </ion-button>
-    </div>
+<ion-content>
+
     <div class="story-body-section">
         <h6>{{ story.actionTitle }}</h6>
         <p>{{ story.actionSummary }}</p>
@@ -16,7 +12,12 @@
         </ion-list>
     </div>
     <div class="button-main">
-        <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','pinterest']" [size]="4" [show]="3" [showText]="true" [url]="currentUrl" [autoSetMeta]="false"></share-buttons>
+        <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','pinterest', 'email']" [size]="4" [show]="4" [showText]="true" [url]="currentUrl" [autoSetMeta]="false"></share-buttons>
+    </div>
+    <div class="button-main">
+        <ion-button color="danger" (click)="replyButton()">
+            <ion-icon size="large" ion-button name="refresh-circle-outline"></ion-icon>
+        </ion-button>
     </div>
 </ion-content>
 <ion-footer>
