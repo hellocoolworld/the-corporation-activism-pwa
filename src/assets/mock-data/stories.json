@@ -13,7 +13,7 @@
     "avocadoRating": 4,
     "pledgeCount": 11,
     "actionTitle": "Take Action Now",
-    "actionSummary": "You can help by taking one of more the actions below.",
+    "actionSummary": "You can help by taking one or more the actions below.",
     "defaultActions": null,
     "actions": [{
             "text": "Subscribe to follow the film and campaigns",
@@ -28,7 +28,7 @@
             "target": "_blank"
         },
         {
-            "text": "Visit and subscribe to Anand Giridharads' The Ink.",
+            "text": "Visit and subscribe to Anand Giridharadas' The Ink.",
             "info": null,
             "url": "https://the.ink",
             "target": "_blank"
@@ -59,7 +59,7 @@
     "avocadoRating": 4,
     "pledgeCount": 11,
     "actionTitle": "Take Action Now ",
-    "actionSummary": "You can help by taking one of more the actions below.",
+    "actionSummary": "You can help by taking one or more the actions below.",
     "defaultActions": null,
     "actions": [{
             "text": "Subscribe to follow the film and campaigns",

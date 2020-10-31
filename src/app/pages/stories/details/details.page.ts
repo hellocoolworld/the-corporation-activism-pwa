@@ -63,7 +63,7 @@ export class DetailsPage implements OnInit {
     }
 
     async presentModal() {
-        console.log('Inside');
+
         const modal = await this.modalController.create({
             cssClass: 'story-detail-modal',
             component: ModalPageComponent,
@@ -73,17 +73,17 @@ export class DetailsPage implements OnInit {
         });
         await modal.present();
         const {data} = await modal.onWillDismiss();
-        console.log('data ', data);
+
         if (data && data.action && data.action === 'reply') {
             /**
              * Reply Video Code will be here.
              */
-            console.log('Start the player again', this.player);
+
             // @ts-ignore
             // this.player = new SV.Player({ videoId: this.story.videoId });
             this.player.play();
             // this.player.bind('completed', () => {
-            //     console.log('Completed');
+            //
             //     this.presentModal();
             // });
         }
@@ -93,11 +93,11 @@ export class DetailsPage implements OnInit {
         // @ts-ignore
         this.player = new SV.Player({videoId: this.story.videoId});
         this.player.bind('completed', () => {
-            console.log('Completed');
+
             this.presentModal();
         });
         this.player.bind('play', () => {
-            console.log('play');
+
         });
     }
 
@@ -106,11 +106,11 @@ export class DetailsPage implements OnInit {
             // @ts-ignore
             this.player = new SV.Player({videoId: this.story.videoId});
             this.player.bind('completed', () => {
-                // console.log('Completed');
+                //
                 this.presentModal();
             });
             this.player.bind('play', () => {
-                // console.log('play');
+                //
             });
         }, 10000);
     }
@@ -173,7 +173,7 @@ export class DetailsPage implements OnInit {
     }
 
     sharePledge() {
-        // console.log('noop');
+        //
     }
 
     onAddAvocados(rating: number) {
@@ -188,7 +188,7 @@ export class DetailsPage implements OnInit {
     sanatizeVideoUrl(videoCode: string) {
         // https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
         const sanitizerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=false&allowfullscreen=true');
-        // console.log('sanitizerUrl ', sanitizerUrl);
+        //
         return sanitizerUrl;
     }
 
@@ -206,7 +206,7 @@ export class DetailsPage implements OnInit {
     }
 
     async loadAuthorBio(storyId: string) {
-        console.log('id:', storyId);
+
         const modal = await this.modalController.create({
             component: AuthorBioModal,
             componentProps: {
