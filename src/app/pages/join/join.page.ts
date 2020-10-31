@@ -14,7 +14,7 @@ export class JoinPage implements OnInit {
     token: string;
     //url = `${environment.iframeUrl}/?tenant=TheNewCorporation&property=DotApp&campaign=bhushankumar&type=Join`;
     //url = 'https://forms.coolworld.cloud/join?tenant=TheNewCorporation&property=DotApp&type=Join&campaign=Test';
-    url = 'http://eepurl.com/g8hYwz';
+    url = 'https://eepurl.com/g8hYwz';
     constructor(
         @Inject(DOCUMENT) private document,
         @Inject(PLATFORM_ID) platformId,
