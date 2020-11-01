@@ -4,6 +4,9 @@
     text
 }
 
+
+
+
 export class Story {
     id: string;
     videoId: string;

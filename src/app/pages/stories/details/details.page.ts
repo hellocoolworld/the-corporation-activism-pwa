@@ -20,17 +20,7 @@ import {ToastService} from '../../../services/toast.service';
 })
 export class DetailsPage implements OnInit {
     story: Story;
-    defaultActions = [{
-        text: 'Subscribe to follow the film and campaigns',
-        url: '/join',
-        target: '_self'
-    },
-    {
-        text: 'Find out where to see the film',
-        url: 'https://TheNewCorporation.movie',
-        target: '_blank'
-    }
-    ];
+
 
     userAvocados: number;
     currentUrl;
@@ -53,10 +43,19 @@ export class DetailsPage implements OnInit {
     ngOnInit() {
         this.currentUrl = this.router.url;
         console.log('this.currentUrl: ', this.currentUrl);
+        this.story = new Story();
+        const arr = [{
+            text: 'Find out where to see the film',
+            url: 'https://TheNewCorporation.movie',
+            target: '_blank'
+        }, {
+            text: 'Subscribe to follow the film and campaigns',
+            url: '/join',
+            target: '_self'
+        }
+        ];
         this.story = this.route.snapshot.data.storyDetail;
-        console.log('this.story.actions: ', this.story.actions);
-        this.defaultActions.push(...this.story.actions);
-        this.story.actions = this.defaultActions;
+        arr.forEach(e => {this.story.actions.unshift(e);});
         console.log('this.story.actions: ', this.story.actions);
 
         const image = 'https://cdn-thumbnails.sproutvideo.com/' + this.story.id + '/' + this.story.imageId + '/w_630,h_354,btn_true/poster.jpg';
