@@ -44,18 +44,8 @@ export class DetailsPage implements OnInit {
         this.currentUrl = this.router.url;
         console.log('this.currentUrl: ', this.currentUrl);
         this.story = new Story();
-        const arr = [{
-            text: 'Find out where to see the film',
-            url: 'https://TheNewCorporation.movie',
-            target: '_blank'
-        }, {
-            text: 'Subscribe to follow the film and campaigns',
-            url: '/join',
-            target: '_self'
-        }
-        ];
+
         this.story = this.route.snapshot.data.storyDetail;
-        arr.forEach(e => {this.story.actions.unshift(e);});
         console.log('this.story.actions: ', this.story.actions);
 
         const image = 'https://cdn-thumbnails.sproutvideo.com/' + this.story.id + '/' + this.story.imageId + '/w_630,h_354,btn_true/poster.jpg';
