@@ -1,6 +1,5 @@
 <app-header></app-header>
 <ion-content class="hasHeader page-content">
-
     <div class="story-details">
         <h1>{{ story.title }}</h1>
         <div class="story-details-content">
@@ -11,13 +10,15 @@
             <div class="story-body-section">
                 <h3>{{ story.blurb }}</h3>
                 <p>{{ story.summary }}</p>
-                <h3>{{ story.actionTitle }}</h3>
-                <p>{{ story.actionSummary }}</p>
-                <ul>
-                    <li *ngFor="let action of story.actions">
-                        <a href="{{action.url}}" target="{{action.target}}">{{action.text}}</a>
-                    </li>
-                </ul>
+                <h4>Take Action Now</h4>
+                <p>You can help by taking one or more of the actions below</p>
+                <ion-list>
+                    <ion-item *ngFor="let action of story.actions">
+                        <ion-label>
+                            <a href="{{action.url}}" target="{{action.target}}">{{action.text}}</a>
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
             </div>
             <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','pinterest','email']" [size]="4" [show]="4" [showText]="true" [url]="currentUrl" [autoSetMeta]="false"></share-buttons>
         </div>

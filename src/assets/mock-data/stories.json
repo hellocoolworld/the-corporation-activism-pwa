@@ -1,93 +1,135 @@
 [{
-    "id": "069cd7be1f13edc08f/9d5ea2cbadf5fd5c",
-    "videoId": "069cd7be1f13edc08f",
-    "imageId": "1",
-    "show": true,
-    "type": "StoryType.video",
-    "title": "The New Corporation is Coming!",
-    "slug": "the-new-corporation",
-    "blurb": "The New Corporation had it's world premiere at TIFF!",
-    "summary": "Check out the hard-hitting trailer for The New Corporation, but don't just subscribe to our app, join us to change the world.",
-    "views": 1634,
-    "avocadoCount": 269,
-    "avocadoRating": 4,
-    "pledgeCount": 11,
-    "actionTitle": "Take Action Now",
-    "actionSummary": "You can help by taking one or more of the actions below.",
-    "defaultActions": null,
-    "actions": [{
-            "text": "Subscribe to follow the film and campaigns",
-            "info": null,
-            "url": "/join",
-            "target": "_self"
-        },
-        {
-            "text": "Find out where to see the film",
-            "info": null,
-            "url": "https://TheNewCorporation.movie",
-            "target": "_blank"
-        },
-        {
+        "id": "069cd7be1f13edc08f/9d5ea2cbadf5fd5c",
+        "videoId": "069cd7be1f13edc08f",
+        "imageId": "1",
+        "show": true,
+        "slug": "the-new-corporation",
+        "title": "The New Corporation is Coming!",
+        "blurb": "The New Corporation had it's world premiere at TIFF!",
+        "summary": "Check out the hard-hitting trailer for The New Corporation, but don't just subscribe to our app, join us to change the world.",
+        "actions": [{
             "text": "Visit and subscribe to Anand Giridharadas' The Ink.",
-            "info": null,
             "url": "https://the.ink",
             "target": "_blank"
-        }
-    ],
-    "share": {
-        "slug": "/stories/the-new-corporation",
-        "title": "The New Corporation is Coming!",
-        "keywords": "",
-        "description": "Check out the hard-hitting trailer for The New Corporation, but don't just subscribe to our app, join us to change the world.",
-        "image": "https://lorempixel.com/output/nightlife-q-c-640-480-10.jpg",
-        "height": "480"
-    },
-    "createdAt": "June 15, 2020",
-    "updatedAt": "June 15, 2020"
-}, {
-    "id": "709cd7be1f13e2c9f9/2cfaaa4757f70827",
-    "videoId": "709cd7be1f13e2c9f9",
-    "imageId": "1602716935",
-    "show": true,
-    "type": "StoryType.video",
-    "title": "The Unfortunately Necessary Sequel",
-    "slug": "the-unfortunately-necessary-sequel",
-    "blurb": "In 2003 we named the psychopath. Now, we’re back, with the unfortunately necessary sequel.",
-    "summary": "Who would have thought a film about an economic institution would take off the way it did? 26 International awards, many millions of views later, and we still have unfinished business. Enter The New Corporation: The Unfortunately Necessary Sequel. This is our chance. The corporation’s do-over date has arrived. We can’t waste it.",
-    "views": 1634,
-    "avocadoCount": 269,
-    "avocadoRating": 4,
-    "pledgeCount": 11,
-    "actionTitle": "Take Action Now ",
-    "actionSummary": "You can help by taking one or more of the actions below.",
-    "defaultActions": null,
-    "actions": [{
-            "text": "Subscribe to follow the film and campaigns",
-            "info": null,
-            "url": "/join",
-            "target": "_self"
-        },
-        {
-            "text": "Find out where to see the film",
-            "info": null,
-            "url": "https://TheNewCorporation.movie",
+        }]
+    }, {
+        "id": "709cd7be1f13e2c9f9/2cfaaa4757f70827",
+        "videoId": "709cd7be1f13e2c9f9",
+        "imageId": "0",
+        "show": true,
+        "slug": "the-unfortunately-necessary-sequel",
+        "title": "The Unfortunately Necessary Sequel",
+        "blurb": "In 2003 we named the psychopath. Now, we’re back, with the unfortunately necessary sequel.",
+        "summary": "Who would have thought a film about an economic institution would take off the way it did? 26 International awards, many millions of views later, and we still have unfinished business. Enter The New Corporation: The Unfortunately Necessary Sequel. This is our chance. The corporation’s do-over date has arrived. We can’t waste it.",
+        "actions": [{
+            "text": "Watch the original film The Corporation on Encore+ ",
+            "url": "https://www.youtube.com/watch?v=zpQYsk-8dWg",
             "target": "_blank"
-        },
-        {
-            "text": "Visit the Movie Site to Learn more about the Film.",
-            "info": null,
-            "url": "https://TheNewCorporation.movie",
-            "target": "_blank"
-        }
-    ],
-    "share": {
-        "slug": "/",
-        "title": "Home",
-        "keywords": "lorem, ipsum",
-        "description": "Lorem ipsum dor cum lorem",
-        "image": "https://lorempixel.com/output/nightlife-q-c-640-480-10.jpg",
-        "height": "480"
+        }]
     },
-    "createdAt": "June 15, 2020",
-    "updatedAt": "June 15, 2020"
-}]
+    {
+        "id": "119cd7b5131ae5cd98/2a126061b96466a0",
+        "videoId": "119cd7b5131ae5cd98",
+        "imageId": "1604206438",
+        "show": true,
+        "slug": "all-the-rest-is-bullshit",
+        "title": "All The rest is Bullshit!",
+        "blurb": "That’s it, taxes, taxes, taxes. All the rest is bullshit, in my, in my opinion.",
+        "summary": "Rutger Bregman talks truth at Davos!",
+        "actions": [{
+            "text": "Meet the folk hero of Davos! ",
+            "url": "https://www.vox.com/future-perfect/2019/1/30/18203911/davos-rutger-bregman-historian-taxes-philanthropy",
+            "target": "_blank"
+        }]
+    },
+    {
+        "id": "449cd7b5131ae5cccd/79004a24d845052d",
+        "videoId": "449cd7b5131ae5cccd",
+        "imageId": "1604206686",
+        "show": true,
+        "slug": "angus-wong",
+        "title": "Angus Wong left Business School after he saw the original film The Corporation.",
+        "blurb": "Inspired by the original film The Corporation, Angus Wong decided to fight the corporations instead of working for them! ",
+        "summary": "With over 16 million members, Sum of Us is an organization that fights corporate power globally.",
+        "actions": [{
+            "text": "Check out the campaigns on SumofUs.org ",
+            "url": "SumofUs.org ",
+            "target": "_blank"
+        }]
+    },
+    {
+        "id": "799cd7b5131ae6c6f0/93721fb4a2778294",
+        "videoId": "799cd7b5131ae6c6f0",
+        "imageId": "1",
+        "show": true,
+        "slug": "ecocidal-corporations-playing-casino",
+        "title": "Ecocidal Corporations playing Casino with Life on Earth",
+        "blurb": "In this clip from The New Corporation Vandana Shiva is telling it like it is.",
+        "summary": "The connection between the destruction of nature and pandemics is clear to many scientists.",
+        "actions": [{
+            "text": "Read about the destruction of nature and the pandemic.",
+            "url": "https://inthesetimes.com/article/vandana-shiva-bill-gates-war-against-life-extinction-pandemic",
+            "target": "_blank"
+        }]
+    },
+    {
+        "id": "d39cd7b5131ae6c45a/db3b9a98453c563f",
+        "videoId": "d39cd7b5131ae6c45a",
+        "imageId": "1",
+        "show": true,
+        "slug": "inequties-corona-virus",
+        "title": "Inequties are laid bare with Corona virus",
+        "blurb": "In this clip from The New Corporation inequities of the Corona virus are laid bare",
+        "summary": "The connections between wealthy corporation's bailouts and and the disproporationate suffering by  marginalized communities are both endemic of the pandemic",
+        "actions": [{
+            "text": "Arundhati Roy calls for the portal to be a pandemic, to a just and better world",
+            "url": "https://www.ft.com/content/10d8f5e8-74eb-11ea-95fe-fcd274e920ca",
+            "target": "_blank"
+        }]
+    },
+    {
+        "id": "4d9cd7b5131ae6c2c4/ae4a8c356453398e",
+        "videoId": "4d9cd7b5131ae6c2c4",
+        "imageId": "1",
+        "show": true,
+        "slug": "handful-Corporations-destroying-Earth",
+        "title": "An Handful of Corporations are destroying the Earth",
+        "blurb": "In this clip from The New Corporation Heather McGhee asks what we will say our grandchildren on the destruction of our planet. ",
+        "summary": "Former president and now senior fellow at Demos, McGhee calls for an understanding of how racism poisoned the democratic experiment from the beginning, and twisted the shape of our capitalist system in order to make people into property in the name of profit.",
+        "actions": [{
+            "text": "Pre-order 'The Sum of Us: What Racism Costs Everyone' by Heather McGhee",
+            "url": "https://www.penguinrandomhouse.ca/books/564989/the-sum-of-us-by-heather-mcghee/9780593207710",
+            "target": "_blank"
+        }]
+    },
+    {
+        "id": "a79cd7b5131ae6c02e/2c831b95e3ab817b",
+        "videoId": "a79cd7b5131ae6c02e",
+        "imageId": "1",
+        "show": true,
+        "slug": "hyperloop-hob-nobbing-at-davos",
+        "title": "Hyperloop Hob-nobbing at Davos!",
+        "blurb": "In this clip from The New Corporation: Hyperloop founder Bebop Gresta takes his pitch to Davos",
+        "summary": "The World Economic Forum at Davos is where the business elites gather to do business. Here Hyperloop meets Jamie Dimon, CEO of JP Morgan Chase, at a cocktail party of course. ",
+        "actions": [{
+            "text": "Like many of the corporations represented at Davos, Hyperloop claims it's good for the planet - is it true? Or hype! ",
+            "url": "https://www.greenbiz.com/article/what-will-hyperloop-mean-climate-ecosystems-and-resources#:~:text=The%20company%20estimates%20it%20would,Hyperloop%20One%20spokesperson%20Marcia%20Christoff.",
+            "target": "_blank"
+        }]
+    },
+    {
+        "id": "119cd7b5131ae6ce98/9863963f22441be2",
+        "videoId": "119cd7b5131ae6ce98",
+        "imageId": "1",
+        "show": true,
+        "slug": "amara-possian-impact",
+        "title": "Amara Possian of 350.org talks about the impact of film",
+        "blurb": "Amara Possian saw The Corporation (original film) when she was in Grade 12. ",
+        "summary": "Amara Possian was impacted by The Corporation when she was still in high school. Now she's very eager to use The New Corporation to train a new crop of young people to take on Corporate power and save the planet! ",
+        "actions": [{
+            "text": "Join 350.org and start organizing for a Just Recovery! ",
+            "url": "https://350.org/just-recovery/",
+            "target": "_blank"
+        }]
+    }
+]

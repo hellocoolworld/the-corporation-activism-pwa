@@ -1,8 +1,7 @@
 <ion-content>
-
     <div class="story-body-section">
-        <h6>{{ story.actionTitle }}</h6>
-        <p>{{ story.actionSummary }}</p>
+        <h3>Take Action Now</h3>
+        <p>You can help by taking one or more of the actions below</p>
         <ion-list>
             <ion-item *ngFor="let action of story.actions">
                 <ion-label class="story-label">
@@ -14,12 +13,6 @@
     <div class="button-main">
         <share-buttons [theme]="'modern-dark'" [include]="['facebook','twitter','pinterest', 'email']" [size]="4" [show]="4" [showText]="true" [url]="currentUrl" [autoSetMeta]="false"></share-buttons>
     </div>
-    <div class="button-main">
-        <ion-button color="danger" (click)="replyButton()">
-            <ion-icon size="large" ion-button name="refresh-circle-outline"></ion-icon>
-        </ion-button>
-    </div>
 </ion-content>
 <ion-footer>
-
 </ion-footer>

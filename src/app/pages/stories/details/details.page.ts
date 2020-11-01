@@ -19,8 +19,18 @@ import {ToastService} from '../../../services/toast.service';
     styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-    story: Story = new Story();
-
+    story: Story;
+    defaultActions = [{
+        text: 'Subscribe to follow the film and campaigns',
+        url: '/join',
+        target: '_self'
+    },
+    {
+        text: 'Find out where to see the film',
+        url: 'https://TheNewCorporation.movie',
+        target: '_blank'
+    }
+    ];
 
     userAvocados: number;
     currentUrl;
@@ -42,28 +52,28 @@ export class DetailsPage implements OnInit {
 
     ngOnInit() {
         this.currentUrl = this.router.url;
+        console.log('this.currentUrl: ', this.currentUrl);
         this.story = this.route.snapshot.data.storyDetail;
+        console.log('this.story.actions: ', this.story.actions);
+        this.defaultActions.push(...this.story.actions);
+        this.story.actions = this.defaultActions;
+        console.log('this.story.actions: ', this.story.actions);
 
+        const image = 'https://cdn-thumbnails.sproutvideo.com/' + this.story.id + '/' + this.story.imageId + '/w_630,h_354,btn_true/poster.jpg';
         const seoData: SeoSocialShareData = {
-            title: this.story.share.title,
-            description: this.story.share.description,
-            image: this.story.share.image,
-            imageAuxData: {
-                height: this.story.share.height
-            },
-            keywords: this.story.share.keywords,
+            title: this.story.title,
+            description: this.story.summary,
+            image
         };
-
         this.seoSocialShareService.setTwitterCard('summary_large_image');
         this.seoSocialShareService.setAuthor('@TheCorpApp');
         this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
         this.seoSocialShareService.setData(seoData);
-
         // this.loadSlugDataPromise();
     }
 
     async presentModal() {
-
+        console.log('Inside');
         const modal = await this.modalController.create({
             cssClass: 'story-detail-modal',
             component: ModalPageComponent,
@@ -73,17 +83,17 @@ export class DetailsPage implements OnInit {
         });
         await modal.present();
         const {data} = await modal.onWillDismiss();
-
+        console.log('data ', data);
         if (data && data.action && data.action === 'reply') {
             /**
              * Reply Video Code will be here.
              */
-
+            console.log('Start the player again', this.player);
             // @ts-ignore
             // this.player = new SV.Player({ videoId: this.story.videoId });
             this.player.play();
             // this.player.bind('completed', () => {
-            //
+            //     console.log('Completed');
             //     this.presentModal();
             // });
         }
@@ -93,11 +103,11 @@ export class DetailsPage implements OnInit {
         // @ts-ignore
         this.player = new SV.Player({videoId: this.story.videoId});
         this.player.bind('completed', () => {
-
+            console.log('Completed');
             this.presentModal();
         });
         this.player.bind('play', () => {
-
+            console.log('play');
         });
     }
 
@@ -106,18 +116,18 @@ export class DetailsPage implements OnInit {
             // @ts-ignore
             this.player = new SV.Player({videoId: this.story.videoId});
             this.player.bind('completed', () => {
-                //
+                // console.log('Completed');
                 this.presentModal();
             });
             this.player.bind('play', () => {
-                //
+                // console.log('play');
             });
         }, 10000);
     }
 
     /**
      * This function is not in use. We can remove this in next commit.
-     */
+
     loadSlugData(slug) {
         this.storiesService.getBySlug(slug).subscribe(
             res => {
@@ -142,7 +152,7 @@ export class DetailsPage implements OnInit {
                         this.title.setTitle(`-- The New Corporation - ${this.story.title}`);
 
                         // Possible Solution 1
-                        this.meta.addTag({name: 'description', content: story.share.description});
+                        this.meta.addTag({name: 'description', content: story.summary});
                         this.meta.addTag({name: 'keywords', content: story.share.keywords});
                         this.meta.addTag({name: 'image', content: story.share.image});
                         return true;
@@ -159,12 +169,13 @@ export class DetailsPage implements OnInit {
             }
         );
     }
+    */
 
     /**
      * @todo use ngClass and a getter
      */
     onAddYourPledge() {
-        this.story.pledgeCount += 1;
+        //this.story.pledgeCount += 1;
         this.showAddPledgeModal();
         const addYourPledge = document.getElementById('add-your-pledge');
         addYourPledge.classList.add('hidden');
@@ -173,14 +184,14 @@ export class DetailsPage implements OnInit {
     }
 
     sharePledge() {
-        //
+        // console.log('noop');
     }
 
     onAddAvocados(rating: number) {
         if (rating < this.userAvocados) {
-            this.story.avocadoCount -= this.userAvocados - rating;
+          //  this.story.avocadoCount -= this.userAvocados - rating;
         } else if (rating > this.userAvocados) {
-            this.story.avocadoCount += rating - this.userAvocados;
+           // this.story.avocadoCount += rating - this.userAvocados;
         }
         this.userAvocados = rating;
     }
@@ -188,7 +199,7 @@ export class DetailsPage implements OnInit {
     sanatizeVideoUrl(videoCode: string) {
         // https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
         const sanitizerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=false&allowfullscreen=true');
-        //
+        // console.log('sanitizerUrl ', sanitizerUrl);
         return sanitizerUrl;
     }
 
@@ -206,7 +217,7 @@ export class DetailsPage implements OnInit {
     }
 
     async loadAuthorBio(storyId: string) {
-
+        console.log('id:', storyId);
         const modal = await this.modalController.create({
             component: AuthorBioModal,
             componentProps: {
