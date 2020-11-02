@@ -13,7 +13,8 @@
 .story-details {
     h2 {
         text-align: left;
-        margin: var(--page-margin);
+        margin: 0;
+        padding-bottom: 0.5em;
     }
     h3 {
         font-size: 1.125rem;

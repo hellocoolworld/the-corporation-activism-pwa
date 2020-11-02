@@ -41,11 +41,12 @@ export class DetailsPage implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.currentUrl = this.router.url;
+        this.currentUrl = 'https://TheNewCorporation.app' + this.router.url;
         console.log('this.currentUrl: ', this.currentUrl);
         this.story = new Story();
 
         this.story = this.route.snapshot.data.storyDetail;
+
         console.log('this.story.actions: ', this.story.actions);
 
         const image = 'https://cdn-thumbnails.sproutvideo.com/' + this.story.id + '/' + this.story.imageId + '/w_630,h_354,btn_true/poster.jpg';
@@ -160,30 +161,7 @@ export class DetailsPage implements OnInit {
     }
     */
 
-    /**
-     * @todo use ngClass and a getter
-     */
-    onAddYourPledge() {
-        //this.story.pledgeCount += 1;
-        this.showAddPledgeModal();
-        const addYourPledge = document.getElementById('add-your-pledge');
-        addYourPledge.classList.add('hidden');
-        const youHavePledged = document.getElementById('you-have-pledged');
-        youHavePledged.classList.remove('hidden');
-    }
 
-    sharePledge() {
-        // console.log('noop');
-    }
-
-    onAddAvocados(rating: number) {
-        if (rating < this.userAvocados) {
-          //  this.story.avocadoCount -= this.userAvocados - rating;
-        } else if (rating > this.userAvocados) {
-           // this.story.avocadoCount += rating - this.userAvocados;
-        }
-        this.userAvocados = rating;
-    }
 
     sanatizeVideoUrl(videoCode: string) {
         // https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
@@ -203,37 +181,6 @@ export class DetailsPage implements OnInit {
 
     sanatizeHTML(html: string) {
         return this.sanitizer.bypassSecurityTrustHtml(html);
-    }
-
-    async loadAuthorBio(storyId: string) {
-        console.log('id:', storyId);
-        const modal = await this.modalController.create({
-            component: AuthorBioModal,
-            componentProps: {
-                storyId
-            }
-        });
-        return await modal.present();
-    }
-
-    async showAddPledgeModal() {
-        const modal = await this.modalController.create({
-            component: AddPledgeModal
-        });
-        return await modal.present();
-    }
-
-    async showHelpActionPledgeModal() {
-        const modal = await this.modalController.create({
-            component: HelpActionPledgeModal
-        });
-        return await modal.present();
-    }
-    async showHelpAvocadometerModal() {
-        const modal = await this.modalController.create({
-            component: HelpAvocadometerModal
-        });
-        return await modal.present();
     }
 
 

@@ -17,7 +17,7 @@
             "target": "_blank"
         }, {
             "text": "Visit and subscribe to Anand Giridharadas' The Ink.",
-            "url": "https://the.ink",
+            "url": "http://cooool.io/thefirst",
             "target": "_blank"
         }]
     }, {
@@ -39,7 +39,7 @@
             "target": "_blank"
         }, {
             "text": "Watch the original film The Corporation on Encore+ ",
-            "url": "https://www.youtube.com/watch?v=zpQYsk-8dWg",
+            "url": "http://cooool.io/thesecond",
             "target": "_blank"
         }]
     },
@@ -62,7 +62,7 @@
             "target": "_blank"
         }, {
             "text": "Meet the folk hero of Davos! ",
-            "url": "https://www.vox.com/future-perfect/2019/1/30/18203911/davos-rutger-bregman-historian-taxes-philanthropy",
+            "url": "http://cooool.io/thethirdy",
             "target": "_blank"
         }]
     },
@@ -81,7 +81,7 @@
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "https://TheNewCorporation.movie",
+            "url": "http://cooool.io/thefourth",
             "target": "_blank"
         }, {
             "text": "Check out the campaigns on SumofUs.org ",
@@ -108,7 +108,7 @@
             "target": "_blank"
         }, {
             "text": "Read about the destruction of nature and the pandemic.",
-            "url": "https://inthesetimes.com/article/vandana-shiva-bill-gates-war-against-life-extinction-pandemic",
+            "url": "http://cooool.io/thefifthc",
             "target": "_blank"
         }]
     },
@@ -131,7 +131,7 @@
             "target": "_blank"
         }, {
             "text": "Arundhati Roy calls for the portal to be a pandemic, to a just and better world",
-            "url": "https://www.ft.com/content/10d8f5e8-74eb-11ea-95fe-fcd274e920ca",
+            "url": "cooool.io/thesixth",
             "target": "_blank"
         }]
     },
@@ -154,7 +154,7 @@
             "target": "_blank"
         }, {
             "text": "Pre-order 'The Sum of Us: What Racism Costs Everyone' by Heather McGhee",
-            "url": "https://www.penguinrandomhouse.ca/books/564989/the-sum-of-us-by-heather-mcghee/9780593207710",
+            "url": "http://cooool.io/theseventh",
             "target": "_blank"
         }]
     },
@@ -177,7 +177,7 @@
             "target": "_blank"
         }, {
             "text": "Like many of the corporations represented at Davos, Hyperloop claims it's good for the planet - is it true? Or hype! ",
-            "url": "https://www.greenbiz.com/article/what-will-hyperloop-mean-climate-ecosystems-and-resources#:~:text=The%20company%20estimates%20it%20would,Hyperloop%20One%20spokesperson%20Marcia%20Christoff.",
+            "url": "http://cooool.io/theeighth",
             "target": "_blank"
         }]
     },
@@ -191,17 +191,20 @@
         "blurb": "Amara Possian saw The Corporation (original film) when she was in Grade 12. ",
         "summary": "Amara Possian was impacted by The Corporation when she was still in high school. Now she's very eager to use The New Corporation to train a new crop of young people to take on Corporate power and save the planet! ",
         "actions": [{
-            "text": "Subscribe to follow the film and campaigns",
-            "url": "/join",
-            "target": "_self"
-        }, {
-            "text": "Find out where to see the film",
-            "url": "https://TheNewCorporation.movie",
-            "target": "_blank"
-        }, {
-            "text": "Join 350.org and start organizing for a Just Recovery! ",
-            "url": "https://350.org/just-recovery/",
-            "target": "_blank"
-        }]
+                "text": "Subscribe to follow the film and campaigns",
+                "url": "/join",
+                "target": "_self"
+            },
+            {
+                "text": "Find out where to see the film",
+                "url": "https://TheNewCorporation.movie",
+                "target": "_blank"
+            },
+            {
+                "text": "Join 350.org and start organizing for a Just Recovery! ",
+                "url": "http://cooool.io/theninth",
+                "target": "_blank"
+            }
+        ]
     }
 ]
