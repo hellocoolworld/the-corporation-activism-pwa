@@ -101,7 +101,7 @@ export class AppComponent extends Extender implements OnInit {
     }
 
     get showAddToHome() {
-        return false;
+        return false;   
         if (this.isBrowser) {
             return !window.matchMedia('(display-mode: standalone)').matches && !this.isDesktop;
         }
