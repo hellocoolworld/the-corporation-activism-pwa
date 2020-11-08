@@ -11,19 +11,14 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "dev:ssr": "ng run app:serve-ssr --port 4000",
-
         "build:feat:ssr": "ng build --configuration=feature && ng run app:server:feature",
         "serve:feat:ssr": "PORT=4001 node dist/app/server/main.js",
-
         "build:dev:ssr": "ng build --configuration=development && ng run app:server:development",
         "serve:dev:ssr": "PORT=4002 node dist/app/server/main.js",
-
         "build:stg:ssr": "ng build --configuration=staging && ng run app:server:staging",
         "serve:stg:ssr": "PORT=4003 node dist/app/server/main.js",
-
         "build:prd:ssr": "ng build --configuration=production && ng run app:server:production",
         "serve:prd:ssr": "PORT=4004 node dist/app/server/main.js",
-
         "prerender": "ng run app:prerender"
     },
     "private": true,

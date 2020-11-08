@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
+    production: true,
     apiUrl: 'https://api.coolworld.app/api/v1',
     mockDataUrl: 'https://thenewcorporation.app',
     hosting: 'https://thenewcorporation.app',
