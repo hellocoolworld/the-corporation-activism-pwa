@@ -40,11 +40,11 @@ export class AppComponent extends Extender implements OnInit {
             this.screenService.onResize(this.platform.width());
         });
     }
-    addToHomeButton() {
+    addToHome() {
         // Hide the app provided install promotion
         // hideMyInstallPromotion();
         // Show the install prompt
-        if (this.showAddToHome) {
+
             console.log('Inside add');
             this.deferredPrompt.prompt();
             // Wait for the user to respond to the prompt
@@ -56,8 +56,6 @@ export class AppComponent extends Extender implements OnInit {
                     console.log('User dismissed the install prompt');
                 }
             });
-        }
-
     }
 
     @HostListener('window:resize', ['$event'])
@@ -101,10 +99,7 @@ export class AppComponent extends Extender implements OnInit {
     }
 
     get showAddToHome() {
-        return false;   
-        if (this.isBrowser) {
-            return !window.matchMedia('(display-mode: standalone)').matches && !this.isDesktop;
-        }
+        return this.isBrowser && !window.matchMedia('(display-mode: standalone)').matches && !this.isDesktop && this.deferredPrompt;
     }
 
     linkToSocialProfile(p: number) {
