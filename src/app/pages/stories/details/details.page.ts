@@ -1,17 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
-
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {AlertController, ModalController} from '@ionic/angular';
-
 import {SeoSocialShareData, SeoSocialShareService} from 'ngx-seo';
-
-import {AuthorBioModal, AddPledgeModal, HelpActionPledgeModal, HelpAvocadometerModal} from '../../../modals';
 import {ModalPageComponent} from '../../../components/modal-page/modal-page.component';
 import {Story} from '../../../models/story';
-import {StoriesService} from '../../../services/stories.service';
-import {ToastService} from '../../../services/toast.service';
 
 @Component({
     selector: 'app-details',
@@ -20,8 +13,6 @@ import {ToastService} from '../../../services/toast.service';
 })
 export class DetailsPage implements OnInit {
     story: Story;
-
-
     userAvocados: number;
     currentUrl;
     player;
@@ -29,10 +20,6 @@ export class DetailsPage implements OnInit {
     options = {};
     constructor(
         private route: ActivatedRoute,
-        private title: Title,
-        private meta: Meta,
-        private storiesService: StoriesService,
-        private toast: ToastService,
         private sanitizer: DomSanitizer,
         private modalController: ModalController,
         private router: Router,
@@ -75,17 +62,7 @@ export class DetailsPage implements OnInit {
         const {data} = await modal.onWillDismiss();
         console.log('data ', data);
         if (data && data.action && data.action === 'reply') {
-            /**
-             * Reply Video Code will be here.
-             */
-            console.log('Start the player again', this.player);
-            // @ts-ignore
-            // this.player = new SV.Player({ videoId: this.story.videoId });
             this.player.play();
-            // this.player.bind('completed', () => {
-            //     console.log('Completed');
-            //     this.presentModal();
-            // });
         }
     }
 
@@ -106,16 +83,32 @@ export class DetailsPage implements OnInit {
             // @ts-ignore
             this.player = new SV.Player({videoId: this.story.videoId});
             this.player.bind('completed', () => {
-                // console.log('Completed');
                 this.presentModal();
             });
             this.player.bind('play', () => {
-                // console.log('play');
             });
         }, 10000);
     }
 
-    /**
+
+    sanatizeVideoUrl(videoCode: string) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=false&allowfullscreen=true');
+    }
+
+    prepareVideoUrl(videoCode: string) {
+        return 'https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=true&allowfullscreen=true';
+    }
+
+    sanatizeVideoResponsiveStyles(aspectRation: string) {
+        return this.sanitizer.bypassSecurityTrustStyle('padding:' + aspectRation + '% 0 0 0;position:relative;');
+    }
+
+    sanatizeHTML(html: string) {
+        return this.sanitizer.bypassSecurityTrustHtml(html);
+    }
+
+
+     /**
      * This function is not in use. We can remove this in next commit.
 
     loadSlugData(slug) {
@@ -160,28 +153,6 @@ export class DetailsPage implements OnInit {
         );
     }
     */
-
-
-
-    sanatizeVideoUrl(videoCode: string) {
-        // https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
-        const sanitizerUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=false&allowfullscreen=true');
-        // console.log('sanitizerUrl ', sanitizerUrl);
-        return sanitizerUrl;
-    }
-
-    prepareVideoUrl(videoCode: string) {
-        // https://videos.sproutvideo.com/embed/069cd6ba1411e0c18f/4df936265739e4ab
-        return 'https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=true&allowfullscreen=true';
-    }
-
-    sanatizeVideoResponsiveStyles(aspectRation: string) {
-        return this.sanitizer.bypassSecurityTrustStyle('padding:' + aspectRation + '% 0 0 0;position:relative;');
-    }
-
-    sanatizeHTML(html: string) {
-        return this.sanitizer.bypassSecurityTrustHtml(html);
-    }
 
 
 }
