@@ -1,27 +1,25 @@
-<ion-menu menuId="side-menu" content-id="side-menu-content">
+<ion-menu menuId="side-menu" content-id="side-menu-content" class="no-gutter">
     <ion-header>
         <ion-toolbar>
-            <ion-buttons slot="start">
-                <ion-button (click)="close()" color="light">
+            <ion-buttons slot="end">
+                <ion-button (click)="close()">
                     <ion-icon name="close-circle-outline"></ion-icon>
                 </ion-button>
             </ion-buttons>
+            <ion-title>Menu</ion-title>
         </ion-toolbar>
     </ion-header>
     <ion-content id="side-menu-content">
-        <ion-list style="height: 100%;">
+        <ion-list class="no-gutter">
             <ion-menu-toggle auto-hide="false">
-                <ion-item (click)="goto('/')" class="main-nav-item" lines="none">
-                    Home
+                <ion-item (click)="goto('/stories')" class="main-nav-item" color="secondary">
+                    <h4 style="padding: 10px 0 10px 0;">Stories</h4>
                 </ion-item>
-                <ion-item (click)="goto('/stories')" class="main-nav-item" lines="none">
-                    Stories
+                <ion-item (click)="goto('/about')" class="main-nav-item" color="secondary">
+                    <h4 style="padding: 10px 0 10px 0;">About</h4>
                 </ion-item>
-                <ion-item (click)="goto('/about')" class="main-nav-item" lines="none">
-                    About
-                </ion-item>
-                <ion-item (click)="goto('/join')" *ngIf="showJoinButton" class="main-nav-item" lines="none">
-                    Join Us
+                <ion-item (click)="goto('/join')" *ngIf="showJoinButton" class="main-nav-item" color="secondary">
+                    <h4 style="padding: 10px 0 10px 0;">Join Us</h4>
                 </ion-item>
             </ion-menu-toggle>
         </ion-list>
@@ -30,10 +28,10 @@
 
     </ion-content>
 
-    <ion-footer translucent="true" class="footer">
+    <ion-footer translucent="true" class="footer no-gutter">
         <img src="/assets/images/logos.png" class="ion-padding responsive">
-        <ion-toolbar>
-            <ion-title size="small" align="center">&copy; {{ copyrightYear }} Grant Street Productions<br>App by <a href="https://Cool.world">Cool.world</a><br> Movie <a href="https://TheNewCorporation.movie">website</a></ion-title>
+        <ion-toolbar class="no-gutter">
+            <ion-title class="no-gutter" size="small" align="center">&copy; {{ copyrightYear }} Grant Street Productions<br>App by <a href="https://Cool.world">Cool.world</a><br> Movie <a href="https://TheNewCorporation.movie">website</a></ion-title>
         </ion-toolbar>
     </ion-footer>
 </ion-menu>

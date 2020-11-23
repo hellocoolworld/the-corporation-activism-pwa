@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
-import {AlertController, ModalController} from '@ionic/angular';
-import {SeoSocialShareData, SeoSocialShareService} from 'ngx-seo';
-import {ModalPageComponent} from '../../../components/modal-page/modal-page.component';
-import {Story} from '../../../models/story';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { AlertController, ModalController } from '@ionic/angular';
+import { SeoSocialShareData, SeoSocialShareService } from 'ngx-seo';
+import { ModalPageComponent } from '../../../components/modal-page/modal-page.component';
+import { Story } from '../../../models/story';
 
 @Component({
     selector: 'app-details',
@@ -18,6 +18,14 @@ export class DetailsPage implements OnInit {
     player;
     playerVideoUrl: SafeResourceUrl = null;
     options = {};
+    showVideo = true;
+    share = {
+        include: ['facebook', 'twitter', 'reddit', 'pinterest', 'email', 'sms'],
+        size: 7,
+        show: 7,
+        showText: false
+    };
+
     constructor(
         private route: ActivatedRoute,
         private sanitizer: DomSanitizer,
@@ -25,7 +33,7 @@ export class DetailsPage implements OnInit {
         private router: Router,
         private seoSocialShareService: SeoSocialShareService,
         public alertController: AlertController,
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.currentUrl = 'https://TheNewCorporation.app' + this.router.url;
@@ -33,8 +41,7 @@ export class DetailsPage implements OnInit {
         this.story = new Story();
 
         this.story = this.route.snapshot.data.storyDetail;
-
-        console.log('this.story.actions: ', this.story.actions);
+        console.log('this.story: ', this.story);
 
         const image = 'https://cdn-thumbnails.sproutvideo.com/' + this.story.id + '/' + this.story.imageId + '/w_630,h_354,btn_true/poster.jpg';
         const seoData: SeoSocialShareData = {
@@ -46,7 +53,6 @@ export class DetailsPage implements OnInit {
         this.seoSocialShareService.setAuthor('@TheCorpApp');
         this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
         this.seoSocialShareService.setData(seoData);
-        // this.loadSlugDataPromise();
     }
 
     async presentModal() {
@@ -59,100 +65,52 @@ export class DetailsPage implements OnInit {
             }
         });
         await modal.present();
-        const {data} = await modal.onWillDismiss();
+        const { data } = await modal.onWillDismiss();
         console.log('data ', data);
         if (data && data.action && data.action === 'reply') {
             this.player.play();
         }
     }
 
-    loadSlugDataPromise() {
+    postLoadVideo() {
         // @ts-ignore
-        this.player = new SV.Player({videoId: this.story.videoId});
+        this.player = new SV.Player({ videoId: this.story.videoId });
         this.player.bind('completed', () => {
             console.log('Completed');
-            this.presentModal();
+            this.showVideo = false;
         });
         this.player.bind('play', () => {
-            console.log('play');
+            console.log('Play');
         });
     }
 
-    videoEvents() {
-        setTimeout(() => {
-            // @ts-ignore
-            this.player = new SV.Player({videoId: this.story.videoId});
-            this.player.bind('completed', () => {
-                this.presentModal();
-            });
-            this.player.bind('play', () => {
-            });
-        }, 10000);
+
+    clickReplay() {
+        console.log('clickReplay');
+        this.showVideo = true;
+        this.player.play();
     }
+
+    clickHide() {
+        console.log('clickHide');
+        this.showVideo = true;
+    }
+
 
 
     sanatizeVideoUrl(videoCode: string) {
         return this.sanitizer.bypassSecurityTrustResourceUrl('https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=false&allowfullscreen=true');
     }
 
-    prepareVideoUrl(videoCode: string) {
-        return 'https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=true&allowfullscreen=true';
-    }
-
     sanatizeVideoResponsiveStyles(aspectRation: string) {
         return this.sanitizer.bypassSecurityTrustStyle('padding:' + aspectRation + '% 0 0 0;position:relative;');
+    }
+
+    prepareVideoUrl(videoCode: string) {
+        return 'https://videos.sproutvideo.com/embed/' + videoCode + '?noBigPlay=false&showcontrols=true&allowfullscreen=true';
     }
 
     sanatizeHTML(html: string) {
         return this.sanitizer.bypassSecurityTrustHtml(html);
     }
-
-
-     /**
-     * This function is not in use. We can remove this in next commit.
-
-    loadSlugData(slug) {
-        this.storiesService.getBySlug(slug).subscribe(
-            res => {
-                const data: Array<Story> = res as Story[]; // Convert the result to an array of Story
-                data.some(story => {
-                    if (story.slug === slug) {
-                        const seoData: SeoSocialShareData = {
-                            title: story.share.title,
-                            description: story.share.description,
-                            image: story.share.image,
-                            imageAuxData: {
-                                height: story.share.height
-                            },
-                            keywords: story.share.keywords,
-                        };
-                        this.story = story;
-                        this.videoEvents();
-                        this.seoSocialShareService.setTwitterCard('summary_large_image');
-                        this.seoSocialShareService.setAuthor('@TheCorpApp');
-                        this.seoSocialShareService.setTwitterSiteCreator('@TheCorpApp');
-                        this.seoSocialShareService.setData(seoData);
-                        this.title.setTitle(`-- The New Corporation - ${this.story.title}`);
-
-                        // Possible Solution 1
-                        this.meta.addTag({name: 'description', content: story.summary});
-                        this.meta.addTag({name: 'keywords', content: story.share.keywords});
-                        this.meta.addTag({name: 'image', content: story.share.image});
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
-            },
-            err => {
-                this.toast.error(err, true);
-            },
-            () => {
-                this.userAvocados = 0;
-            }
-        );
-    }
-    */
-
-
 }

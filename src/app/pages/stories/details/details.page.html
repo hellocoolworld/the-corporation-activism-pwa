@@ -1,28 +1,45 @@
 <app-header></app-header>
 <ion-content class="hasHeader page-content">
 
-    <div class="story-details">
-        <h1>{{ story.title }}</h1>
-        <div class="story-details-content">
-            <div style="position:relative;height:0;padding-bottom:56.25%">
-                <iframe (load)="loadSlugDataPromise()" #iframe [src]="prepareVideoUrl(story.id) | safe: 'resourceUrl'" class='sproutvideo-player' type='text/html' style='position:absolute;width:100%;height:100%;left:0;top:0' frameborder='0' allowfullscreen>
+    <div style="position:relative;height:0;padding-bottom:56.25%" *ngIf="showVideo">
+        <iframe (load)="postLoadVideo()" #iFrame [src]="prepareVideoUrl(story.id) | safe: 'resourceUrl'" class='sproutvideo-player' type='text/html' style='position:absolute;width:100%;height:100%;left:0;top:0' frameborder='0' allowfullscreen>
                 </iframe>
-            </div>
-            <div class="story-body-section">
-                <h3>{{ story.blurb }}</h3>
-                <p>{{ story.summary }}</p>
-                <h2 class="no-gutter">The New Corporation: The Unfortunately Necessary Sequel is COMING SOON TO A THEATRE NEAR YOU!</h2>
-
-                <ion-list class="no-gutter">
-                    <ion-item *ngFor=" let action of story.actions ">
-                        <ion-label>
-                            <a href="{{action.url}} " target="{{action.target}} ">{{action.text}}</a>
-                        </ion-label>
-                    </ion-item>
-                </ion-list>
-            </div>
-        </div>
-        <share-buttons [theme]=" 'modern-dark'" [include]="['facebook', 'twitter', 'reddit','pinterest','email','sms']" [size]="6" [show]="6" [showText]="false" [url]="currentUrl" [autoSetMeta]="true"></share-buttons>
     </div>
+
+    <h1 *ngIf="showVideo">{{ story.title }}</h1>
+    <h2 *ngIf="showVideo">{{ story.blurb }}</h2>
+    <p *ngIf="showVideo">{{ story.summary }}</p>
+
+
+    <ion-button *ngIf="!showVideo" (click)="clickReplay()">Replay Story</ion-button>
+
+    <ion-list lines="full">
+        <ion-item color="light">
+            <ion-icon name="megaphone-outline" slot="start" class="no-gutter"></ion-icon>
+            <ion-label>
+                <h3 style="padding: 10px 0 10px 10px;">Take Action</h3>
+            </ion-label>
+        </ion-item>
+        <ion-item *ngFor="let action of story.actions" [href]="action.url" [target]="action.target" color="secondary">
+            <ion-icon name="ellipse-sharp" class="no-gutter" slot="start"></ion-icon>
+            <ion-label class="ion-text-wrap" style="padding: 10px 0 10px 10px;">
+                <h4>{{action.text}}</h4>
+            </ion-label>
+        </ion-item>
+        <ion-item color="light">
+            <ion-icon name="share-social-outline" slot="start" class="no-gutter"></ion-icon>
+            <ion-label>
+                <h3 style="padding: 10px 0 10px 10px;">Share Story</h3>
+            </ion-label>
+        </ion-item>
+        <ion-item color="secondary">
+            <div style="padding: 20px 0 20px;">
+                <share-buttons [theme]="'modern-dark'" [include]="share.include" [size]="share.size" [show]="share.size" [showText]="share.showText" [url]="currentUrl" [autoSetMeta]="true">
+                </share-buttons>
+            </div>
+        </ion-item>
+    </ion-list>
+
+
 </ion-content>
 <app-footer></app-footer>

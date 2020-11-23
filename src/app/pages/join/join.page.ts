@@ -1,3 +1,4 @@
+
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { environment } from '../../../environments/environment';
@@ -27,8 +28,9 @@ export class JoinPage implements OnInit {
         iframeResizer({
             inPageLinks: true,
             checkOrigin: false,
-            log: false,
+            log: true,
             resizedCallback: (data) => {
+                console.log('resizedCallback', data);
                 data.iframe.offsetParent.scrollTo(0, 0);
             }
         }, '#IFrame');

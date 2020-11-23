@@ -1,11 +1,11 @@
 <ion-header *ngIf="!isDesktop">
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-menu-button>
+            <ion-menu-button size="large">
             </ion-menu-button>
         </ion-buttons>
-        <ion-title (click)="goto('/')">
-            The New Corporation
+        <ion-title (click)="goto('/')" size="large" align="left" class="no-gutter">
+            <h4 style="color: black; padding: 25px 0 0 24%;">The New Corporation</h4>
         </ion-title>
 
     </ion-toolbar>
