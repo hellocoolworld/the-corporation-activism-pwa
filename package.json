@@ -46,6 +46,7 @@
         "@nguniversal/express-engine": "^10.1.0",
         "@ngx-meta/core": "^9.0.0",
         "@ngx-share/core": "^7.1.4",
+        "angulartics2": "^10.0.0",
         "express": "^4.15.2",
         "iframe-resizer": "^4.2.11",
         "ngx-seo": "^5.2.0",
@@ -55,7 +56,7 @@
         "zone.js": "~0.10.3"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "~0.1001.1",
+        "@angular-devkit/build-angular": "^0.1100.1",
         "@angular/cli": "~10.1.1",
         "@angular/compiler": "~10.1.1",
         "@angular/compiler-cli": "~10.1.1",

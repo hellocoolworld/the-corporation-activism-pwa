@@ -7,6 +7,7 @@ import {Setting} from './models/setting';
 import {ScreenService} from './services/screen.service';
 import {SettingsService} from './services/settings.service';
 import {CommonService} from './services/common.service';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @Component({
     selector: 'app-root',
@@ -28,9 +29,11 @@ export class AppComponent extends Extender implements OnInit {
         private screenService: ScreenService,
         private settingsService: SettingsService,
         private commonService: CommonService,
+        angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
         @Inject(PLATFORM_ID) platformId,
     ) {
         super(injector);
+        angulartics2GoogleAnalytics.startTracking();
         this.initializeApp();
         this.isBrowser = isPlatformBrowser(platformId);
     }
