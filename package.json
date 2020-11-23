@@ -1,6 +1,6 @@
 {
     "name": "corp-app-pwa",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Hello Cool World",
     "homepage": "https://dev.thecorporation.app",
     "scripts": {
@@ -11,19 +11,14 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "dev:ssr": "ng run app:serve-ssr --port 4000",
-
         "build:feat:ssr": "ng build --configuration=feature && ng run app:server:feature",
         "serve:feat:ssr": "PORT=4001 node dist/app/server/main.js",
-
         "build:dev:ssr": "ng build --configuration=development && ng run app:server:development",
         "serve:dev:ssr": "PORT=4002 node dist/app/server/main.js",
-
         "build:stg:ssr": "ng build --configuration=staging && ng run app:server:staging",
         "serve:stg:ssr": "PORT=4003 node dist/app/server/main.js",
-
         "build:prd:ssr": "ng build --configuration=production && ng run app:server:production",
         "serve:prd:ssr": "PORT=4004 node dist/app/server/main.js",
-
         "prerender": "ng run app:prerender"
     },
     "private": true,
@@ -51,16 +46,17 @@
         "@nguniversal/express-engine": "^10.1.0",
         "@ngx-meta/core": "^9.0.0",
         "@ngx-share/core": "^7.1.4",
+        "angulartics2": "^10.0.0",
         "express": "^4.15.2",
         "iframe-resizer": "^4.2.11",
         "ngx-seo": "^5.2.0",
-        "ngx-sharebuttons": "^8.0.1",
+        "ngx-sharebuttons": "^8.0.4",
         "rxjs": "~6.5.5",
         "tslib": "^2.0.0",
         "zone.js": "~0.10.3"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "~0.1001.1",
+        "@angular-devkit/build-angular": "^0.1100.1",
         "@angular/cli": "~10.1.1",
         "@angular/compiler": "~10.1.1",
         "@angular/compiler-cli": "~10.1.1",

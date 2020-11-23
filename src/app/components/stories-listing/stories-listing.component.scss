@@ -1,31 +1,12 @@
 :host {
-    --page-margin: var(--app-broad-margin);
-}
-
-.story-wrapper {
-    margin-bottom: var(--page-margin);
-    position: relative;
-    .story-header {
-        position: relative;
-        h3.story-title {
-            background-color: rgba(0, 0, 0, 0.4);
-            position: absolute;
-            font-size: 1.1rem;
-            @media (min-width: 575px) {
-                font-size: 1.8rem;
-            }
-            padding: 5px;
-            bottom: 0;
-            margin-bottom: 0;
-            color: white;
-            width: 100%;
-        }
-        .story-meta {
-            padding: 0rem 1rem 0rem;
-            .authoring-info {
-                font-size: 1rem;
-                padding-bottom: 0.25rem;
-            }
-        }
+    h3 {
+        color: var(--ion-color-secondary);
+        padding: 0;
+        margin: 0.2em 0 0.2em 0;
     }
+    p {
+        padding: 0;
+        margin: 0 0 1em 0;
+    }
+    --page-margin: var(--app-broad-margin);
 }

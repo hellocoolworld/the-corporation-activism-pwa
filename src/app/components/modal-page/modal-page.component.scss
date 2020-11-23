@@ -1,16 +1,35 @@
-.button-main{
+.button-main {
     display: block;
     text-align: center;
 }
-h1,h2,h3,h4,h5,h6,span,p{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p {
     --ion-color: #fff;
 }
-.story-body-section p,.story-body-section h6{
+
+.story-body-section p,
+.story-body-section h6 {
     text-align: center;
 }
-.story-body-section, .story-body-section ion-label,.story-body-section p{
+
+.story-body-section,
+.story-body-section ion-label,
+.story-body-section p {
     color: #fff !important;
 }
-.story-body-section ion-label{
-    text-align: center;
+
+.story-body-section ion-label {
+    text-align: left;
+}
+
+.story-body-section ion-label a {
+    text-align: left;
+    color: #fff;
 }

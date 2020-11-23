@@ -7,6 +7,7 @@ import {Setting} from './models/setting';
 import {ScreenService} from './services/screen.service';
 import {SettingsService} from './services/settings.service';
 import {CommonService} from './services/common.service';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @Component({
     selector: 'app-root',
@@ -28,9 +29,11 @@ export class AppComponent extends Extender implements OnInit {
         private screenService: ScreenService,
         private settingsService: SettingsService,
         private commonService: CommonService,
+        angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
         @Inject(PLATFORM_ID) platformId,
     ) {
         super(injector);
+        angulartics2GoogleAnalytics.startTracking();
         this.initializeApp();
         this.isBrowser = isPlatformBrowser(platformId);
     }
@@ -40,11 +43,11 @@ export class AppComponent extends Extender implements OnInit {
             this.screenService.onResize(this.platform.width());
         });
     }
-    addToHomeButton() {
+    addToHome() {
         // Hide the app provided install promotion
         // hideMyInstallPromotion();
         // Show the install prompt
-        if (this.showAddToHome) {
+
             console.log('Inside add');
             this.deferredPrompt.prompt();
             // Wait for the user to respond to the prompt
@@ -56,8 +59,6 @@ export class AppComponent extends Extender implements OnInit {
                     console.log('User dismissed the install prompt');
                 }
             });
-        }
-
     }
 
     @HostListener('window:resize', ['$event'])
@@ -101,9 +102,7 @@ export class AppComponent extends Extender implements OnInit {
     }
 
     get showAddToHome() {
-        if (this.isBrowser) {
-            return !window.matchMedia('(display-mode: standalone)').matches && !this.isDesktop;
-        }
+        return this.isBrowser && !window.matchMedia('(display-mode: standalone)').matches && !this.isDesktop && this.deferredPrompt;
     }
 
     linkToSocialProfile(p: number) {

@@ -282,7 +282,7 @@
                             }],
                             "sourceMap": false,
                             "optimization": true
-                        },
+                        }
 
                     }
                 },

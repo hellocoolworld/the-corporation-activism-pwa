@@ -1,17 +1,13 @@
 <ion-header *ngIf="!isDesktop">
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-menu-button>
+            <ion-menu-button size="large">
             </ion-menu-button>
         </ion-buttons>
-        <ion-title (click)="goto('/')">
-            The New Corporation
+        <ion-title (click)="goto('/')" size="large" align="left" class="no-gutter">
+            <h4 style="color: black; padding: 25px 0 0 24%;">The New Corporation</h4>
         </ion-title>
-        <ion-buttons slot="end">
-            <ion-button (click)="goto('/join')">
-                <ion-icon slot="icon-only" name="at-circle-sharp"></ion-icon>
-            </ion-button>
-        </ion-buttons>
+
     </ion-toolbar>
 </ion-header>
 <ion-header *ngIf="isDesktop">
@@ -22,14 +18,9 @@
             </ion-col>
             <ion-col size="8">
                 <div class="navbar" class="ion-text-center">
-                    <ion-button fill="clear" (click)="goto('/')" routerLink="/" routerDirection="root" routerLinkActive="active-link" class="link">
-                        Home
-                    </ion-button>
+
                     <ion-button fill="clear" (click)="goto('/stories')" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">
                         Stories
-                    </ion-button>
-                    <ion-button fill="clear" (click)="goto('/clips')" routerLink="/clips" routerDirection="root" routerLinkActive="active-link" class="link">
-                        Clips
                     </ion-button>
                     <ion-button fill="clear" (click)="goto('/about')" routerLink="/about" routerDirection="root" routerLinkActive="active-link" class="link">
                         About
