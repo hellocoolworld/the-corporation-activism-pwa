@@ -12,6 +12,11 @@
     --padding-bottom: var(--page-margin);
 }
 
+h2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .billing-block {
     font-size: 1.4em;
     font-kerning: -0.5px;
