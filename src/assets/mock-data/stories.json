@@ -81,11 +81,11 @@
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "http://cooool.io/thefourth",
+            "url": "https://TheNewCorporation.movie",
             "target": "_blank"
         }, {
             "text": "Check out the campaigns on SumofUs.org ",
-            "url": "http://cooool.io/thefourth",
+            "url": "http://cooool.io/App1",
             "target": "_blank"
         }]
     },
@@ -131,7 +131,7 @@
             "target": "_blank"
         }, {
             "text": "Tell your MP you want A Just Recovery not Corporate Bail Outs - a campaign from our friends at the Council of Canadians",
-            "url": "http://cooool.io/thesixth",
+            "url": "http://cooool.io/App3",
             "target": "_blank"
         }]
     },
@@ -202,7 +202,7 @@
             },
             {
                 "text": "Join 350.org and tell Federal Leaders in Canada to be Brave on Climate!",
-                "url": "http://cooool.io/theninth",
+                "url": "http://cooool.io/App2",
                 "target": "_blank"
             }
         ]
