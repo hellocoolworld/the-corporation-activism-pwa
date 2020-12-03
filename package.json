@@ -1,7 +1,7 @@
 {
     "name": "corp-app-pwa",
-    "version": "0.0.2",
-    "author": "Hello Cool World",
+    "version": "0.0.3",
+    "author": "Cool World Technologies",
     "homepage": "https://dev.thecorporation.app",
     "scripts": {
         "ng": "ng",
@@ -81,5 +81,5 @@
         "tslint": "^6.1.3",
         "typescript": "~3.9.5"
     },
-    "description": "An Ionic project"
+    "description": "A Cool World / Supportive Project"
 }
