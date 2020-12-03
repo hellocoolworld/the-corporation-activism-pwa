@@ -46,7 +46,7 @@ export class HomePage extends Extender implements OnInit, OnDestroy {
     }
 
     public setTimer() {
-        this.timer = timer(16000); // 5000 millisecond means 5 seconds
+        this.timer = timer(8000); // 5000 millisecond means 5 seconds
         this.subscription = this.timer.subscribe(() => {
             // console.log('time out');
             this.skipIntro();

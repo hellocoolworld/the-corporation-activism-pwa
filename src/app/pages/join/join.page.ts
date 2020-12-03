@@ -1,3 +1,4 @@
+
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { environment } from '../../../environments/environment';
@@ -13,7 +14,8 @@ export class JoinPage implements OnInit {
     isBrowser;
     token: string;
     //url = `${environment.iframeUrl}/?tenant=TheNewCorporation&property=DotApp&campaign=bhushankumar&type=Join`;
-    url = 'https://forms.coolworld.cloud/join?tenant=TheNewCorporation&property=DotApp&type=Join&campaign=Test';
+    //url = 'https://forms.coolworld.cloud/join?tenant=TheNewCorporation&property=DotApp&type=Join&campaign=Test';
+    url = 'https://eepurl.com/g8hYwz';
     constructor(
         @Inject(DOCUMENT) private document,
         @Inject(PLATFORM_ID) platformId,
@@ -26,8 +28,9 @@ export class JoinPage implements OnInit {
         iframeResizer({
             inPageLinks: true,
             checkOrigin: false,
-            log: false,
+            log: true,
             resizedCallback: (data) => {
+                console.log('resizedCallback', data);
                 data.iframe.offsetParent.scrollTo(0, 0);
             }
         }, '#IFrame');
