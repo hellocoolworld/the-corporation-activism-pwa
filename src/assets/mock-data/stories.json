@@ -1,7 +1,7 @@
 [{
-        "id": "799ddfb41f1fe2c3f0/ae5fe5e4c596e854",
-        "videoId": "799ddfb41f1fe2c3f0",
-        "imageId": "0",
+        "id": "119ddfb11612e4cc98/b66d24ca89073a27",
+        "videoId": "119ddfb11612e4cc98",
+        "imageId": "2",
         "show": true,
         "slug": "the-new-corporation",
         "title": "The New Corporation is Coming!",
@@ -13,7 +13,7 @@
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "https://TheNewCorporation.movie",
+            "url": "https://thenewcorporation.movie/see-it/",
             "target": "_blank"
         }, {
             "text": "Visit and subscribe to Anand Giridharadas' The Ink.",
@@ -21,9 +21,9 @@
             "target": "_blank"
         }]
     }, {
-        "id": "069ddfb41f1fe2c08f/abd2194b78c1f945",
-        "videoId": "069ddfb41f1fe2c08f",
-        "imageId": "1605225913",
+        "id": "709ddfb11612e1c4f9/52d03551ad62722f",
+        "videoId": "709ddfb11612e1c4f9",
+        "imageId": "2",
         "show": true,
         "slug": "the-unfortunately-necessary-sequel",
         "title": "The Unfortunately Necessary Sequel",
@@ -35,7 +35,7 @@
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "https://TheNewCorporation.movie",
+            "url": "https://thenewcorporation.movie/see-it/",
             "target": "_blank"
         }, {
             "text": "Watch the original film The Corporation on Encore+ ",
@@ -44,9 +44,9 @@
         }]
     },
     {
-        "id": "119cd7b5131ae5cd98/2a126061b96466a0",
-        "videoId": "119cd7b5131ae5cd98",
-        "imageId": "1604206438",
+        "id": "d39ddfb11611e5c45a/d836cafaf3028fad",
+        "videoId": "d39ddfb11611e5c45a",
+        "imageId": "2",
         "show": true,
         "slug": "all-the-rest-is-bullshit",
         "title": "All The rest is Bullshit!",
@@ -58,7 +58,7 @@
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "https://TheNewCorporation.movie",
+            "url": "https://thenewcorporation.movie/see-it/",
             "target": "_blank"
         }, {
             "text": "Meet the folk hero of Davos! ",
@@ -67,9 +67,9 @@
         }]
     },
     {
-        "id": "449cd7b5131ae5cccd/79004a24d845052d",
-        "videoId": "449cd7b5131ae5cccd",
-        "imageId": "1604206686",
+        "id": "449ddfb11611e2c8cd/5353af291e16fb2b",
+        "videoId": "449ddfb11611e2c8cd",
+        "imageId": "2",
         "show": true,
         "slug": "angus-wong",
         "title": "Angus Wong left Business School after he saw the original film The Corporation.",
@@ -81,18 +81,18 @@
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "http://cooool.io/thefourth",
+            "url": "https://thenewcorporation.movie/see-it/",
             "target": "_blank"
         }, {
             "text": "Check out the campaigns on SumofUs.org ",
-            "url": "http://cooool.io/thefourth",
+            "url": "http://cooool.io/App1",
             "target": "_blank"
         }]
     },
     {
-        "id": "799cd7b5131ae6c6f0/93721fb4a2778294",
-        "videoId": "799cd7b5131ae6c6f0",
-        "imageId": "1",
+        "id": "799ddfb11611e0c3f0/cb65f934389b0227",
+        "videoId": "799ddfb11611e0c3f0",
+        "imageId": "2",
         "show": true,
         "slug": "ecocidal-corporations-playing-casino",
         "title": "Ecocidal Corporations playing Casino with Life on Earth",
@@ -104,7 +104,7 @@
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "https://TheNewCorporation.movie",
+            "url": "https://thenewcorporation.movie/see-it/",
             "target": "_blank"
         }, {
             "text": "Read about the destruction of nature and the pandemic.",
@@ -113,32 +113,32 @@
         }]
     },
     {
-        "id": "d39cd7b5131ae6c45a/db3b9a98453c563f",
-        "videoId": "d39cd7b5131ae6c45a",
-        "imageId": "1",
+        "id": "069ddfb11611eece8f/dcf6aea58e641f39",
+        "videoId": "069ddfb11611eece8f",
+        "imageId": "2",
         "show": true,
         "slug": "inequities-corona-virus",
         "title": "Inequities are laid bare with Coronavirus",
         "blurb": "In this clip from The New Corporation inequities of the Coronavirus are laid bare",
-        "summary": "The connections between wealthy corporation's bailouts and and the disproporationate suffering by  marginalized communities are both endemic of the pandemic",
+        "summary": "COVID-19 has revealed how already existing social, economic and racial inequities can be further entrenched by a global pandemic. Globally, we have seen governments prioritize bailing out corporations, while enforcing of threatening austerity measures, which will further affect those already most marginalized. Movements around the world are fighting for governments to adopt \"Just Recovery\" efforts to support communites and to centre justice as we look to the future past the pandemic.",
         "actions": [{
             "text": "Subscribe to follow the film and campaigns",
             "url": "/join",
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "https://TheNewCorporation.movie",
+            "url": "https://thenewcorporation.movie/see-it/",
             "target": "_blank"
         }, {
-            "text": "Arundhati Roy calls for the portal to be a pandemic, to a just and better world",
-            "url": "http://cooool.io/thesixth",
+            "text": "Tell your MP you want A Just Recovery not Corporate Bail Outs - a campaign from our friends at the Council of Canadians",
+            "url": "http://cooool.io/App3",
             "target": "_blank"
         }]
     },
     {
-        "id": "4d9cd7b5131ae6c2c4/ae4a8c356453398e",
-        "videoId": "4d9cd7b5131ae6c2c4",
-        "imageId": "1",
+        "id": "069ddfb11611e6c68f/3958fe3cf4a3254d",
+        "videoId": "069ddfb11611e6c68f",
+        "imageId": "2",
         "show": true,
         "slug": "handful-Corporations-destroying-Earth",
         "title": "An Handful of Corporations are destroying the Earth",
@@ -150,7 +150,7 @@
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "https://TheNewCorporation.movie",
+            "url": "https://thenewcorporation.movie/see-it/",
             "target": "_blank"
         }, {
             "text": "Pre-order 'The Sum of Us: What Racism Costs Everyone' by Heather McGhee",
@@ -159,9 +159,9 @@
         }]
     },
     {
-        "id": "a79cd7b5131ae6c02e/2c831b95e3ab817b",
-        "videoId": "a79cd7b5131ae6c02e",
-        "imageId": "1",
+        "id": "069ddfb11611efcf8f/22d4155edaaa624e",
+        "videoId": "069ddfb11611efcf8f",
+        "imageId": "2",
         "show": true,
         "slug": "hyperloop-hob-nobbing-at-davos",
         "title": "Hyperloop Hob-nobbing at Davos!",
@@ -173,7 +173,7 @@
             "target": "_self"
         }, {
             "text": "Find out where to see the film",
-            "url": "https://TheNewCorporation.movie",
+            "url": "https://thenewcorporation.movie/see-it/",
             "target": "_blank"
         }, {
             "text": "Like many of the corporations represented at Davos, Hyperloop claims it's good for the planet - is it true? Or hype! ",
@@ -182,14 +182,14 @@
         }]
     },
     {
-        "id": "119cd7b5131ae6ce98/9863963f22441be2",
-        "videoId": "119cd7b5131ae6ce98",
-        "imageId": "1",
+        "id": "4d9ddfb11611e4c3c4/49f0632370e06c12",
+        "videoId": "4d9ddfb11611e4c3c4",
+        "imageId": "2",
         "show": true,
         "slug": "amara-possian-impact",
         "title": "Amara Possian of 350.org talks about the impact of film",
         "blurb": "Amara Possian saw The Corporation (original film) when she was in Grade 12. ",
-        "summary": "Amara Possian was impacted by The Corporation when she was still in high school. Now she's very eager to use The New Corporation to train a new crop of young people to take on Corporate power and save the planet! ",
+        "summary": "Now Amara is a the Canadian Campaigns Director with 350.org -  a global climate action movement to transition to 100% renewable energy for all, to stop fossil fuel projects everywhere, and to divest, desponsor and defund fossil fuel companies.",
         "actions": [{
                 "text": "Subscribe to follow the film and campaigns",
                 "url": "/join",
@@ -197,12 +197,12 @@
             },
             {
                 "text": "Find out where to see the film",
-                "url": "https://TheNewCorporation.movie",
+                "url": "https://thenewcorporation.movie/see-it/",
                 "target": "_blank"
             },
             {
-                "text": "Join 350.org and start organizing for a Just Recovery! ",
-                "url": "http://cooool.io/theninth",
+                "text": "Join 350.org and tell Federal Leaders in Canada to be Brave on Climate!",
+                "url": "http://cooool.io/teBZvZ",
                 "target": "_blank"
             }
         ]
