@@ -25,11 +25,11 @@ export class StoriesService extends Extender {
   }
 
   getBySlug(slug: string) {
-    return this.http.get(`${this.mockDataUrl}/stories.json?v=0005`);
+    return this.http.get(`${this.mockDataUrl}/stories.json?v=0007`);
   }
 
   getAll() {
-    return this.http.get(`${this.mockDataUrl}/stories.json?v=0005`);
+    return this.http.get(`${this.mockDataUrl}/stories.json?v=0007`);
   }
 
 }
