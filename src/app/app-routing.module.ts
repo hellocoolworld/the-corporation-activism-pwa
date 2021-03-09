@@ -7,7 +7,8 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 const routes: Routes = [
     {
       path: '',
-      loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
+      //loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
+       loadChildren: () => import('./pages/stories/listing/listing.module').then( m => m.ListingPageModule)
     },
     {
       path: 'about',
