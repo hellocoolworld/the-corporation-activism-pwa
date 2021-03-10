@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <ion-content class="hasHeader page-content">
-    <h1>Stories</h1>
+    <h1 *ngIf="isDesktop">Stories</h1>
     <app-stories-listing></app-stories-listing>
 </ion-content>
 

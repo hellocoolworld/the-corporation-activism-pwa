@@ -4,6 +4,7 @@ import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { StorageService } from '../../services/storage.service';
 import { IFrameComponent, iframeResizer } from 'iframe-resizer';
+import { ScreenService } from 'src/app/services/screen.service';
 
 @Component({
     selector: 'app-join',
@@ -12,6 +13,7 @@ import { IFrameComponent, iframeResizer } from 'iframe-resizer';
 })
 export class JoinPage implements OnInit {
     isBrowser;
+    isDesktop:boolean;
     token: string;
     //url = `${environment.iframeUrl}/?tenant=TheNewCorporation&property=DotApp&campaign=bhushankumar&type=Join`;
     //url = 'https://forms.coolworld.cloud/join?tenant=TheNewCorporation&property=DotApp&type=Join&campaign=Test';
@@ -19,7 +21,8 @@ export class JoinPage implements OnInit {
     constructor(
         @Inject(DOCUMENT) private document,
         @Inject(PLATFORM_ID) platformId,
-        private storageService: StorageService
+        private storageService: StorageService,
+        private screenService: ScreenService
     ) {
         this.isBrowser = isPlatformBrowser(platformId);
     }
@@ -55,6 +58,9 @@ export class JoinPage implements OnInit {
                 }
             }, false);
         }
+        this.screenService.isDesktopView().subscribe(isDesktop => {
+            this.isDesktop = isDesktop;
+          });
     }
 
 }

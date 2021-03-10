@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScreenService } from 'src/app/services/screen.service';
 
 @Component({
   selector: 'app-listing',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListingPage implements OnInit {
 
-  constructor() { }
+  isDesktop:boolean;
+  constructor(private screenService: ScreenService) { }
 
   ngOnInit() {
+    this.screenService.isDesktopView().subscribe(isDesktop => {
+      this.isDesktop = isDesktop;
+    });
   }
 
 }
