@@ -23,11 +23,11 @@
                     <ion-button fill="clear" (click)="goto('/stories')" routerLink="/stories" routerDirection="root" routerLinkActive="active-link" class="link">
                         Stories
                     </ion-button>
-                    <ion-button fill="clear" (click)="goto('/about')" routerLink="/about" routerDirection="root" routerLinkActive="active-link" class="link">
-                        About
-                    </ion-button>
                     <ion-button *ngIf="showJoinButton" fill="clear" (click)="goto('/join')" routerLink="/join" routerDirection="root" routerLinkActive="active-link" class="link">
                         Join us
+                    </ion-button>
+                    <ion-button fill="clear" (click)="goto('/about')" routerLink="/about" routerDirection="root" routerLinkActive="active-link" class="link">
+                        About
                     </ion-button>
                 </div>
             </ion-col>
