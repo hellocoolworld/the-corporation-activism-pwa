@@ -1,6 +1,6 @@
 <ion-app>
     <!-- <app-side-bar></app-side-bar> -->
-    <ion-header  class="ion-no-border">
+    <ion-header  *ngIf="!isDesktop" class="ion-no-border">
         <ion-toolbar>
           <ion-title class="header-title">The NewCorporation</ion-title>
         </ion-toolbar>
