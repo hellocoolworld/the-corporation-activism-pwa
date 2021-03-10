@@ -1,5 +1,10 @@
 <ion-app>
     <!-- <app-side-bar></app-side-bar> -->
+    <ion-header  class="ion-no-border">
+        <ion-toolbar>
+          <ion-title class="header-title">The NewCorporation</ion-title>
+        </ion-toolbar>
+      </ion-header>
     <ion-router-outlet id="main-content"></ion-router-outlet>
     <ion-button class="add-button" (click)="addToHome()" *ngIf="showAddToHome">Add to home screen</ion-button>
     <ion-tabs>
@@ -10,21 +15,21 @@
                     <ion-icon name="newspaper"></ion-icon>
                     <ion-label>Stories</ion-label>
                 </ion-tab-button>
+                <ion-tab-button tab="join" (click)="goto('/join')" routerLink="/join" routerDirection="root"
+                routerLinkActive="active-link" class="link">
+                <ion-icon name="at-circle"></ion-icon>
+                <ion-label>Join Us</ion-label>
+            </ion-tab-button>
                 <ion-tab-button tab="about" (click)="goto('/about')" routerLink="/about" routerDirection="root"
                     routerLinkActive="active-link" class="link">
                     <ion-icon name="information-circle"></ion-icon>
                     <ion-label>About</ion-label>
                 </ion-tab-button>
-                <ion-tab-button fill="clear" (click)="goto('/join')" routerLink="/join" routerDirection="root"
-                    routerLinkActive="active-link" class="link">
-                    <ion-icon name="at-circle"></ion-icon>
-                    <ion-label>Join Us</ion-label>
-                </ion-tab-button>
-                <ion-tab-button fill="clear" routerDirection="root"
+                <!-- <ion-tab-button fill="clear" routerDirection="root"
                     routerLinkActive="active-link" class="link">
                     <ion-icon name="bar-chart"></ion-icon>
                     <ion-label>Leader Board</ion-label>
-                </ion-tab-button>
+                </ion-tab-button> -->
             </ion-tab-bar>
         </div>
     </ion-tabs>
