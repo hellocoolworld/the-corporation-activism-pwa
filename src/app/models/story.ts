@@ -9,6 +9,7 @@
 
 export class Story {
     id: string;
+    order:number;
     videoId: string;
     imageId: string;
     type: StoryType;

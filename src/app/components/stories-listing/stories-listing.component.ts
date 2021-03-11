@@ -47,6 +47,9 @@ export class StoriesListingComponent extends Extender implements OnInit, OnDestr
                 this.stories.push(data[i]);
             }
           }
+          this.stories.sort((s1,s2) => {
+            return s1.order-s2.order;
+          })
         },
         error => {
           console.log('error: ', error);
